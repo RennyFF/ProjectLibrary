@@ -1,0 +1,6 @@
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\ProjectLibrary.csproj.AssemblyReference.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\Styles\ResourceColors.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\Styles\ResourceElementStyles.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\App.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\ProjectLibrary_MarkupCompile.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\ProjectLibrary_MarkupCompile.lref

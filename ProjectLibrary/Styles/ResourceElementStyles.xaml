@@ -1,0 +1,255 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+
+    <!--  Apply custom font  -->
+    <Style x:Key="WindowFont" TargetType="{x:Type Window}">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
+        <Setter Property="FontStyle" Value="Normal" />
+    </Style>
+
+    <Style x:Key="UserControlFont" TargetType="{x:Type UserControl}">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
+        <Setter Property="FontStyle" Value="Normal" />
+    </Style>
+
+    <Style x:Key="PageFont" TargetType="{x:Type Page}">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
+    </Style>
+
+    <!--  TextStyles for all categories  -->
+
+    <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
+    </Style>
+
+    <Style x:Key="SimpleTextStyleWhite" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
+    </Style>
+
+    <Style x:Key="SimpleTextStyleGray" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColor}" />
+    </Style>
+
+    <!--  Main template styles  -->
+    <Style x:Key="WindowStateButton" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Background" Value="{StaticResource MainBackgroundColor}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid
+                        Height="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type StackPanel}}, Path=Width}"
+                        Background="{TemplateBinding Background}"
+                        Cursor="Hand">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Button.Content}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource HoverBackgroundColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WindowStateButton--Close" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Height" Value="31" />
+        <Setter Property="Background" Value="{StaticResource MainBackgroundColor}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}" Cursor="Hand">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Button.Content}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FFF34646" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="NavigationCategories" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColor}" />
+    </Style>
+
+    <Style x:Key="MenuButton" TargetType="RadioButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColor}" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Margin" Value="0,10,0,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <ContentPresenter
+                        x:Name="insideContent"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center" />
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsChecked" Value="True">
+
+                            <!--<Setter TargetName="border" Property="Background" Value="{StaticResource MenuButtonCloseHover}" />-->
+
+                            <Setter Property="TextBlock.Foreground" Value="{StaticResource MainTextColor}" />
+
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="TextBlock.Foreground" Value="{StaticResource MainTextColor}" />
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MenuButtonIcon" TargetType="iconPacks:PackIconRemixIcon">
+        <Setter Property="Width" Value="20" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type RadioButton}}}" />
+    </Style>
+
+    <Style x:Key="MenuButtonText" TargetType="TextBlock">
+        <Setter Property="Margin" Value="20,0,0,0" />
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type RadioButton}}}" />
+    </Style>
+
+    <Style x:Key="BestGenreListBox" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <ContentPresenter Margin="0,5,5,0" HorizontalAlignment="Center" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="UpperNavigationSearch" TargetType="{x:Type TextBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border
+                        Width="300"
+                        VerticalAlignment="Center"
+                        CornerRadius="16">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <iconPacks:PackIconSimpleIcons
+                                Width="20"
+                                Height="20"
+                                VerticalAlignment="Center"
+                                Foreground="Red"
+                                Kind="_1001Tracklists" />
+                            <TextBox Text="{TemplateBinding Text}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="{StaticResource SecondBackgroundColor}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource HighLightBackgroundColor}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Padding" Value="10,4" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="CaretBrush" Value="White" />
+        <Setter Property="SelectionBrush" Value="White" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColor}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border
+                        x:Name="txtBorder"
+                        MaxWidth="{TemplateBinding MaxWidth}"
+                        MaxHeight="{TemplateBinding MaxHeight}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="16"
+                        SnapsToDevicePixels="True">
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <iconPacks:PackIconRemixIcon
+                                x:Name="SearchIcon"
+                                Width="20"
+                                Height="20"
+                                VerticalAlignment="Center"
+                                Foreground="{StaticResource SecondTextColor}"
+                                Kind="SearchLine" />
+                            <ScrollViewer
+                                x:Name="PART_ContentHost"
+                                Margin="20,0"
+                                Focusable="False"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden" />
+                            <Label
+                                x:Name="WaterMarkLabel"
+                                Margin="24,0,0,0"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Tag}"
+                                FontWeight="{TemplateBinding FontWeight}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Visibility="Collapsed" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Text" Value="" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="WaterMarkLabel" Property="Visibility" Value="Visible" />
+                        </MultiTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColor}" />
+                            <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
+                            <Setter TargetName="SearchIcon" Property="Foreground" Value="{StaticResource MainTextColor}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColor}" />
+                            <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
+                            <Setter TargetName="SearchIcon" Property="Foreground" Value="{StaticResource MainTextColor}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
