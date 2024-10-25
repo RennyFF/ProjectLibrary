@@ -3,20 +3,74 @@
   "WorkspaceRootPath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\utils\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\mvvm\\view\\authview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\authview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\steam\\AppData\\Local\\Temp\\.vsdbgsrc\\e19a35f423357203104270de7e18bc768ce574e9750b7b638f6bf6a4653596ba\\Application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\steam\\AppData\\Local\\SourceServer\\798248207d60e948b0c6f69f0736303f6472e55c47ea11892fc2487de3c050d3\\src\\libraries\\Microsoft.Extensions.DependencyInjection.Abstractions\\src\\ServiceProviderServiceExtensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\mvvm\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\styles\\resourceelementstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\styles\\resourceelementstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\mvvm\\viewmodel\\authviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\authviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\projectlibrary.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\projectlibrary.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\mvvm\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\mvvm\\view\\authview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\authview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\styles\\resourceelementstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\styles\\resourceelementstyles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\core\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\core\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\core\\observableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\core\\observableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\core\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\core\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\projectlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\projectlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\styles\\resourcecolors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -30,7 +84,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +92,57 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Application.cs",
+              "DocumentMoniker": "C:\\Users\\steam\\AppData\\Local\\Temp\\.vsdbgsrc\\e19a35f423357203104270de7e18bc768ce574e9750b7b638f6bf6a4653596ba\\Application.cs",
+              "ToolTip": "C:\\Users\\steam\\AppData\\Local\\Temp\\.vsdbgsrc\\e19a35f423357203104270de7e18bc768ce574e9750b7b638f6bf6a4653596ba\\Application.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
+              "ViewState": "AQIAALgGAAAAAAAAAIAwwPQGAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T18:12:56.526Z",
+              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\MainViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\MainViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\MainViewModel.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAtwBgAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T16:10:19.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "NavigationService.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\NavigationService.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\NavigationService.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\NavigationService.cs",
+              "RelativeToolTip": "ProjectLibrary\\Utils\\NavigationService.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAA0wB0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T16:08:08.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\App.xaml.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\App.xaml.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\App.xaml.cs",
+              "RelativeToolTip": "ProjectLibrary\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T15:24:07.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\MainWindow.xaml",
               "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\MainWindow.xaml",
@@ -50,31 +154,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ResourceElementStyles.xaml",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceElementStyles.xaml",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Styles\\ResourceElementStyles.xaml",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceElementStyles.xaml",
-              "RelativeToolTip": "ProjectLibrary\\Styles\\ResourceElementStyles.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-24T10:48:17.09Z",
-              "EditorCaption": ""
+              "DocumentIndex": 11,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\MainWindow.xaml.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\MainWindow.xaml.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAAwCcAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T09:45:19.161Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ResourceColors.xaml",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceColors.xaml",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Styles\\ResourceColors.xaml",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceColors.xaml",
-              "RelativeToolTip": "ProjectLibrary\\Styles\\ResourceColors.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-24T10:44:51.647Z",
-              "EditorCaption": ""
+              "DocumentIndex": 8,
+              "Title": "AuthViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\AuthViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\AuthViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\AuthViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\AuthViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T15:20:17.211Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "App.xaml",
               "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\App.xaml",
               "RelativeDocumentMoniker": "ProjectLibrary\\App.xaml",
@@ -87,14 +191,131 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\MainWindow.xaml.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\MainWindow.xaml.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABUAAAAZAAAA",
+              "Title": "AuthView.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\AuthView.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\AuthView.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\AuthView.xaml",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\AuthView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-25T15:28:43.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ServiceProviderServiceExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\steam\\AppData\\Local\\SourceServer\\798248207d60e948b0c6f69f0736303f6472e55c47ea11892fc2487de3c050d3\\src\\libraries\\Microsoft.Extensions.DependencyInjection.Abstractions\\src\\ServiceProviderServiceExtensions.cs",
+              "ToolTip": "C:\\Users\\steam\\AppData\\Local\\SourceServer\\798248207d60e948b0c6f69f0736303f6472e55c47ea11892fc2487de3c050d3\\src\\libraries\\Microsoft.Extensions.DependencyInjection.Abstractions\\src\\ServiceProviderServiceExtensions.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAIAwwC4AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T09:45:19.161Z",
+              "WhenOpened": "2024-10-25T18:08:10.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\AssemblyInfo.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\AssemblyInfo.cs",
+              "RelativeToolTip": "ProjectLibrary\\AssemblyInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T16:07:00.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProjectLibrary",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.csproj",
+              "RelativeDocumentMoniker": "ProjectLibrary\\ProjectLibrary.csproj",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.csproj",
+              "RelativeToolTip": "ProjectLibrary\\ProjectLibrary.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-25T16:07:06.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthView.xaml.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\AuthView.xaml.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\AuthView.xaml.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\AuthView.xaml.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\AuthView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T15:59:48.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ResourceElementStyles.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceElementStyles.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Styles\\ResourceElementStyles.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceElementStyles.xaml",
+              "RelativeToolTip": "ProjectLibrary\\Styles\\ResourceElementStyles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-24T10:48:17.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "BaseViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Core\\BaseViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Core\\BaseViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Core\\BaseViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\Core\\BaseViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T15:13:24.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ObservableObject.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Core\\ObservableObject.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Core\\ObservableObject.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Core\\ObservableObject.cs",
+              "RelativeToolTip": "ProjectLibrary\\Core\\ObservableObject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T15:12:48.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Core\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Core\\RelayCommand.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Core\\RelayCommand.cs",
+              "RelativeToolTip": "ProjectLibrary\\Core\\RelayCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T15:11:40.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProjectLibrary",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.csproj",
+              "RelativeDocumentMoniker": "ProjectLibrary\\ProjectLibrary.csproj",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.csproj",
+              "RelativeToolTip": "ProjectLibrary\\ProjectLibrary.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-25T15:11:18.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ResourceColors.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceColors.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Styles\\ResourceColors.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceColors.xaml",
+              "RelativeToolTip": "ProjectLibrary\\Styles\\ResourceColors.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-24T10:44:51.647Z",
               "EditorCaption": ""
             }
           ]

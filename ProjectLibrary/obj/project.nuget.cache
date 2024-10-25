@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0lgbpBPaJdhX0CL2N/L57+bRjikhWvX1gD7sWenRfxaU+PVzzDKYPj0wGvvU3/q+47tBXxYFM6V9SK0v+w2mJg==",
+  "dgSpecHash": "y6BHh8oFEFZOiY0AMVbBh8380/mzpGDyolXHsPDCD3g9aFh7Uv39mARZN+aUh3SxxrM4293FclQ/P/+BbrwLjQ==",
   "success": true,
   "projectFilePath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,8 @@
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks.vaadinicons\\5.1.0\\mahapps.metro.iconpacks.vaadinicons.5.1.0.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks.weathericons\\5.1.0\\mahapps.metro.iconpacks.weathericons.5.1.0.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks.zondicons\\5.1.0\\mahapps.metro.iconpacks.zondicons.5.1.0.nupkg.sha512",
+    "C:\\Users\\steam\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.1\\microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
+    "C:\\Users\\steam\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512"
   ],
   "logs": []

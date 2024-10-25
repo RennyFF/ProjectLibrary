@@ -26,12 +26,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="MVVM\ViewModel\" />
     <Folder Include="MVVM\Model\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro.IconPacks" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
   </ItemGroup>
 
   <ItemGroup>
