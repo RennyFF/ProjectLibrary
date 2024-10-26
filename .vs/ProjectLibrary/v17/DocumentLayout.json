@@ -3,32 +3,55 @@
   "WorkspaceRootPath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\model\\data\\databaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\model\\data\\databaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\rsacrypt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\rsacrypt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\model\\data\\databaseinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\model\\data\\databaseinteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\model\\databasefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\model\\databasefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\types\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\authviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\authviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\steam\\AppData\\Local\\SourceServer\\134f655921efab3cd6b7916f1820d72fb25a6b3fad18634edcef4f10a15cf70d\\src\\Npgsql\\Internal\\NpgsqlConnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\basevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\basevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\authview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\authview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\unixtimeconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\unixtimeconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\utils\\types\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\types\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\types\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\utils\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\utils\\types\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\types\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\types\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\utils\\types\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\types\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\types\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|G:\\Project29\\ProjectLibrary\\ProjectLibrary\\projectlibrary\\utils\\types\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\types\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +61,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +69,108 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RSAcrypt.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\RSAcrypt.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\RSAcrypt.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\RSAcrypt.cs",
+              "RelativeToolTip": "ProjectLibrary\\Utils\\RSAcrypt.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T21:51:42.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "NpgsqlConnector.cs",
+              "DocumentMoniker": "C:\\Users\\steam\\AppData\\Local\\SourceServer\\134f655921efab3cd6b7916f1820d72fb25a6b3fad18634edcef4f10a15cf70d\\src\\Npgsql\\Internal\\NpgsqlConnector.cs",
+              "ToolTip": "C:\\Users\\steam\\AppData\\Local\\SourceServer\\134f655921efab3cd6b7916f1820d72fb25a6b3fad18634edcef4f10a15cf70d\\src\\Npgsql\\Internal\\NpgsqlConnector.cs",
+              "ViewState": "AQIAAHQFAAAAAAAAAAAtwIoFAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T21:40:01.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BaseVM.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\BaseVM.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\BaseVM.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\BaseVM.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\BaseVM.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABoAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T21:39:04.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UnixTimeConverter.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\UnixTimeConverter.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\UnixTimeConverter.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\UnixTimeConverter.cs",
+              "RelativeToolTip": "ProjectLibrary\\Utils\\UnixTimeConverter.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T21:21:50.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthView.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\AuthView.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\AuthView.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\AuthView.xaml",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\AuthView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-26T21:17:18.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataBaseFunctions.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAADwvzkAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T21:09:46.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\AuthViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\AuthViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\AuthViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\AuthViewModel.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAgwDwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T21:07:32.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\App.xaml.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\App.xaml.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\App.xaml.cs",
+              "RelativeToolTip": "ProjectLibrary\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T21:03:07.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Genre.cs",
               "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Types\\Genre.cs",
               "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Types\\Genre.cs",
@@ -54,12 +178,11 @@
               "RelativeToolTip": "ProjectLibrary\\Utils\\Types\\Genre.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T15:41:22.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T15:41:22.927Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "Author.cs",
               "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Types\\Author.cs",
               "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Types\\Author.cs",
@@ -67,12 +190,11 @@
               "RelativeToolTip": "ProjectLibrary\\Utils\\Types\\Author.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T15:41:15.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T15:41:15.971Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "Book.cs",
               "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Types\\Book.cs",
               "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Types\\Book.cs",
@@ -80,12 +202,11 @@
               "RelativeToolTip": "ProjectLibrary\\Utils\\Types\\Book.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T15:41:10.501Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-26T15:41:10.501Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "User.cs",
               "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Types\\User.cs",
               "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Types\\User.cs",
@@ -98,33 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DataBaseInteraction.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\Data\\DataBaseInteraction.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\Model\\Data\\DataBaseInteraction.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\Data\\DataBaseInteraction.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\Model\\Data\\DataBaseInteraction.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T15:39:09.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DataBaseConfig.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\Data\\DataBaseConfig.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\Model\\Data\\DataBaseConfig.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\Data\\DataBaseConfig.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\Model\\Data\\DataBaseConfig.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T15:29:54.086Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Constants.cs",
               "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Constants.cs",
               "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Constants.cs",

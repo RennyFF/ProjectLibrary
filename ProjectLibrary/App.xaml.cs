@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Npgsql;
 using ProjectLibrary.MVVM.View;
 using ProjectLibrary.MVVM.ViewModel;
 using ProjectLibrary.Utils;
@@ -15,6 +16,12 @@ namespace ProjectLibrary
         public App()
         {
             IServiceCollection services = new ServiceCollection();
+            services.AddSingleton<NpgsqlConnection>(provider =>
+            {
+                var connection = new NpgsqlConnection(Utils.Constants.ConnectionStringDB);
+                connection.Open();
+                return connection;
+            });
             services.AddSingleton<BaseWindow>(provider => new BaseWindow
             {
                 DataContext = provider.GetRequiredService<BaseVM>()

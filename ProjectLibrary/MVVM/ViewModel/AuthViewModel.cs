@@ -1,8 +1,11 @@
-﻿using ProjectLibrary.Core;
+﻿using Npgsql;
+using ProjectLibrary.Core;
 using ProjectLibrary.MVVM.View;
 using ProjectLibrary.Utils;
+using ProjectLibrary.Utils.Types;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Common;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -16,6 +19,12 @@ namespace ProjectLibrary.MVVM.ViewModel
 {
     class AuthViewModel : Core.BaseViewModel
     {
+        private NpgsqlConnection connectionDB;
+        public NpgsqlConnection ConnectionDB
+        {
+            get => connectionDB;
+            set => connectionDB = value;
+        }
         private string password;
         public string Password
         {
@@ -44,9 +53,11 @@ namespace ProjectLibrary.MVVM.ViewModel
             }
         }
         public RelayCommand NavigateToLib { get; set; }
-        public AuthViewModel(INavigationService navService)
+        public AuthViewModel(INavigationService navService, NpgsqlConnection connection)
         {
             Navigation = navService;
+            ConnectionDB = connection;
+             var obj = Model.DataBaseFunctions.GetCurrentUser(ConnectionDB);
             NavigateToLib = new RelayCommand(o => { Navigation.NavigateTo<LibraryViewModel>(); }, o => true);
         }
         private string ConvertToUnsecureString(SecureString securePassword)

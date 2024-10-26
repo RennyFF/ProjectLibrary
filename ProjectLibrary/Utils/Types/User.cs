@@ -16,11 +16,11 @@ namespace ProjectLibrary.Utils.Types
         public string Login { get; set; }
         public string PasswordHash { get; set; }
         public DateTime BirthdayDate { get; set; }
-        public string AuthorizationToken { get; set; }
+        public string? AuthorizationToken { get; set; }
         public DateTime DateOfCreation { get; set; }
         public DateTime LastUpdated { get; set; }
-        public string FavoriteGenres { get; set; }
-        public string LikedObjects { get; set; }
-        public string LastViewed { get; set; }
+        public string? FavoriteGenres { get; set; }
+        public string? LikedObjects { get; set; }
+        public string? LastViewed { get; set; }
     }
 }
