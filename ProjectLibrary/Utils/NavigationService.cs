@@ -29,8 +29,6 @@ namespace ProjectLibrary.Utils
         public NavigationService(Func<Type, Core.BaseViewModel> viewModelFactory)
         {
             _viewModelFactory = viewModelFactory;
-            Core.BaseViewModel base_viewModel = _viewModelFactory.Invoke(typeof(AuthViewModel)); // base View
-            CurrentView = base_viewModel;
         }
 
         public void NavigateTo<TViewModel>() where TViewModel : Core.BaseViewModel

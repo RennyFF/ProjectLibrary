@@ -12,12 +12,21 @@
     <Compile Update="MVVM\View\AuthView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\BaseWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\LibraryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MVVM\View\AuthView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\MainWindow.xaml">
+    <Page Update="MVVM\View\BaseWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\LibraryView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ResourceColors.xaml">

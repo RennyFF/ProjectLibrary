@@ -26,6 +26,12 @@
         <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
     </Style>
 
+    <Style x:Key="LogoText" TargetType="Label">
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="FontWeight" Value="ExtraBold" />
+        <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
+    </Style>
+
     <Style x:Key="SimpleTextStyleWhite" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
@@ -151,33 +157,6 @@
         </Setter>
     </Style>
 
-    <Style x:Key="UpperNavigationSearch" TargetType="{x:Type TextBox}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBox}">
-                    <Border
-                        Width="300"
-                        VerticalAlignment="Center"
-                        CornerRadius="16">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <iconPacks:PackIconSimpleIcons
-                                Width="20"
-                                Height="20"
-                                VerticalAlignment="Center"
-                                Foreground="Red"
-                                Kind="_1001Tracklists" />
-                            <TextBox Text="{TemplateBinding Text}" />
-                        </Grid>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="{StaticResource SecondBackgroundColor}" />
         <Setter Property="BorderThickness" Value="1" />
@@ -252,4 +231,67 @@
         </Setter>
     </Style>
 
+    <Style x:Key="AuthTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="{StaticResource SecondBackgroundColor}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource HighLightBackgroundColor}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="10,4,0,4" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="CaretBrush" Value="White" />
+        <Setter Property="SelectionBrush" Value="White" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColor}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="AuthPasswordBox" TargetType="{x:Type PasswordBox}">
+        <Setter Property="Background" Value="{StaticResource SecondBackgroundColor}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource HighLightBackgroundColor}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="10,4,0,4" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="CaretBrush" Value="White" />
+        <Setter Property="SelectionBrush" Value="White" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColor}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource HighLightBackgroundColor}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColor}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="MainBorder"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="8"
+                        SnapsToDevicePixels="True">
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="FontWeight" Value="Bold" />
+                            <Setter Property="Background" Value="{StaticResource HoverBackgroundColor}" />
+                            <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

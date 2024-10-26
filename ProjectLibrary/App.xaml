@@ -16,8 +16,11 @@
                 <view:AuthView />
             </DataTemplate>
 
-            <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>
+            <DataTemplate DataType="{x:Type viewModel:LibraryViewModel}">
+                <view:LibraryView />
+            </DataTemplate>
 
+            <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
