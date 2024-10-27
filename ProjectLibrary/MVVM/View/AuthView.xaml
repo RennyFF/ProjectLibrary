@@ -8,7 +8,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:ProjectLibrary.MVVM.ViewModel"
     x:Name="AuthViewName"
-    d:DataContext="{d:DesignInstance Type=viewmodel:AuthViewModel}"
     d:DesignHeight="770"
     d:DesignWidth="1200"
     Background="{StaticResource MainBackgroundColor}"
@@ -46,7 +45,10 @@
                         VerticalAlignment="Center"
                         Foreground="{StaticResource MainTextColor}"
                         Kind="WhiteBook" />
-                    <Label Content="Librar's Cave" Style="{StaticResource LogoText}" />
+                    <Label
+                        HorizontalAlignment="Center"
+                        Content="Librar's Cave"
+                        Style="{StaticResource LogoText}" />
                 </StackPanel>
 
 
@@ -75,9 +77,9 @@
                     Width="220"
                     Margin="20,0,0,0"
                     VerticalAlignment="Center"
-                    Cursor="IBeam"
                     Style="{StaticResource AuthTextBox}"
-                    Tag="Введите логин">
+                    Tag="Введите логин"
+                    Text="{Binding Login, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     <TextBox.Template>
                         <ControlTemplate>
                             <Border
@@ -143,7 +145,6 @@
                     Width="220"
                     Margin="20,0,0,0"
                     VerticalAlignment="Center"
-                    Cursor="IBeam"
                     LostKeyboardFocus="PasswordPB_LostKeyboardFocus"
                     Style="{StaticResource AuthPasswordBox}"
                     Tag="Введите пароль">
@@ -209,7 +210,6 @@
                     Grid.ColumnSpan="2"
                     Margin="0,0,0,0">
                     <Button
-                        x:Name="Login"
                         Width="250"
                         Height="40"
                         Margin="10"
@@ -222,6 +222,7 @@
                         Width="150"
                         Height="40"
                         Margin="0,40,0,0"
+                        Command="{Binding RegistrationCommand}"
                         Content="Нет аккаунта?"
                         Style="{StaticResource ButtonStyle}" />
                 </StackPanel>

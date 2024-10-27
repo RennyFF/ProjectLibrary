@@ -36,11 +36,12 @@ namespace ProjectLibrary.MVVM.View
         public AuthView()
         {
             InitializeComponent();
+            PasswordPB.Password = "root";
         }
 
         private void PasswordPB_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            if(!string.IsNullOrEmpty((sender as PasswordBox).Password))
+            if (!string.IsNullOrEmpty((sender as PasswordBox).Password))
             {
                 (sender as PasswordBox).Tag = string.Empty;
             }

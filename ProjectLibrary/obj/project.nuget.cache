@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hd/devQEltqZcfHEE0hFFatAv7clKq/kPnQqu/d/dAS/3tQRhmd761Ib2ZWMQp1XhZuVZFkt13MKinMXtnKwFw==",
+  "dgSpecHash": "H+m7KEgCbfM633VS/UY6EBw/6e0fsAqabdV3L9tp4gZXIQwV3xb2OWEoBwOSIIUWEbJRZ3r350WssHFCFl/WLg==",
   "success": true,
   "projectFilePath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\steam\\.nuget\\packages\\fluentvalidation\\11.10.0\\fluentvalidation.11.10.0.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks\\5.1.0\\mahapps.metro.iconpacks.5.1.0.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks.bootstrapicons\\5.1.0\\mahapps.metro.iconpacks.bootstrapicons.5.1.0.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks.boxicons\\5.1.0\\mahapps.metro.iconpacks.boxicons.5.1.0.nupkg.sha512",

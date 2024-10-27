@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectLibrary.Utils.Types
 {
-    class Books
+    class Book
     {
     }
 }

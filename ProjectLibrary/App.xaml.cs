@@ -3,6 +3,7 @@ using Npgsql;
 using ProjectLibrary.MVVM.View;
 using ProjectLibrary.MVVM.ViewModel;
 using ProjectLibrary.Utils;
+using ProjectLibrary.Utils.Types;
 using System.Windows;
 
 namespace ProjectLibrary
@@ -18,7 +19,7 @@ namespace ProjectLibrary
             IServiceCollection services = new ServiceCollection();
             services.AddSingleton<NpgsqlConnection>(provider =>
             {
-                var connection = new NpgsqlConnection(Utils.Constants.ConnectionStringDB);
+                var connection = new NpgsqlConnection(Constants.ConnectionStringDB);
                 connection.Open();
                 return connection;
             });
@@ -28,8 +29,8 @@ namespace ProjectLibrary
             });
             services.AddSingleton<BaseVM>();
             services.AddSingleton<AuthViewModel>();
+            services.AddSingleton<RegViewModel>();
             services.AddSingleton<LibraryViewModel>();
-            //services.AddSingleton<LibraryViewModel>(provider => new LibraryViewModel());
             services.AddSingleton<INavigationService, NavigationService>();
 
             services.AddSingleton<Func<Type, Core.BaseViewModel>>(serviceProvider =>

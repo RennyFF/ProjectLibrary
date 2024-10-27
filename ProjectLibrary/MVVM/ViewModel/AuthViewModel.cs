@@ -25,12 +25,14 @@ namespace ProjectLibrary.MVVM.ViewModel
             get => connectionDB;
             set => connectionDB = value;
         }
-        private string password;
-        public string Password
+        private string login = "root";
+
+        public string Login
         {
-            get { return password; }
-            set { password = value; }
+            get { return login; }
+            set { login = value; onPropertyChanged(); }
         }
+
         private RelayCommand authCommand;
         public RelayCommand AuthCommand
         {
@@ -38,7 +40,50 @@ namespace ProjectLibrary.MVVM.ViewModel
             {
                 return authCommand ??= new RelayCommand(obj =>
                 {
-                    WritePasswordFromSecure(obj);
+                    try
+                    {
+                        string? PasswordFromSecure = PasswordConverters.GetPasswordFromSecureString(obj);
+                        string? Password = PasswordFromSecure != null ? PasswordConverters.FromPasswordToHash(PasswordFromSecure) : null;
+                        User? CurrentUser = null;
+                        if(Password != null) {
+                            CurrentUser = Model.DataBaseFunctions.GetCurrentUser(ConnectionDB, Login, Password);
+                        }
+                        if (CurrentUser != null)
+                        {
+                            var ModalWindow = new DialogWindow("Успешный вход!", $"Добро пожаловать, {CurrentUser.FirstName}!");
+                            ModalWindow.Show();
+                            Navigation.NavigateTo<LibraryViewModel>(CurrentUser);
+                        }
+                        else
+                        {
+                            var ModalWindow = new DialogWindow("Ошибка!", $"Неверный логин или пароль!");
+                            ModalWindow.Show();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        throw;
+                    }
+                }, obj => true);
+            }
+        }
+        private RelayCommand registrationCommand;
+        public RelayCommand RegistrationCommand
+        {
+            get
+            {
+                return registrationCommand ??= new RelayCommand(obj =>
+                {
+                    try
+                    {
+                            Navigation.NavigateTo<RegViewModel>();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        throw;
+                    }
                 }, obj => true);
             }
         }
@@ -52,40 +97,11 @@ namespace ProjectLibrary.MVVM.ViewModel
                 onPropertyChanged();
             }
         }
-        public RelayCommand NavigateToLib { get; set; }
         public AuthViewModel(INavigationService navService, NpgsqlConnection connection)
         {
             Navigation = navService;
             ConnectionDB = connection;
-             var obj = Model.DataBaseFunctions.GetCurrentUser(ConnectionDB);
-            NavigateToLib = new RelayCommand(o => { Navigation.NavigateTo<LibraryViewModel>(); }, o => true);
         }
-        private string ConvertToUnsecureString(SecureString securePassword)
-        {
-            if (securePassword == null)
-            {
-                return string.Empty;
-            }
-
-            IntPtr unmanagedString = IntPtr.Zero;
-            try
-            {
-                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(securePassword);
-                return Marshal.PtrToStringUni(unmanagedString);
-            }
-            finally
-            {
-                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
-            }
-        }
-        private void WritePasswordFromSecure(object Parameter)
-        {
-            var passwordContainer = Parameter as IHavePassword;
-            if (passwordContainer != null)
-            {
-                var secureString = passwordContainer.Password;
-                Password = ConvertToUnsecureString(secureString);
-            }
-        }
+        
     }
 }

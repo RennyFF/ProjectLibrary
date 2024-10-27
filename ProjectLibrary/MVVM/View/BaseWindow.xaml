@@ -9,7 +9,6 @@
     xmlns:viewmodel="clr-namespace:ProjectLibrary.MVVM.ViewModel"
     Width="1200"
     Height="800"
-    d:DataContext="{d:DesignInstance Type=viewmodel:BaseVM}"
     AllowsTransparency="True"
     Background="Transparent"
     WindowStartupLocation="CenterScreen"
@@ -24,10 +23,13 @@
         <StackPanel
             x:Name="DragArea"
             Grid.Row="0"
+            Height="auto"
+            VerticalAlignment="Top"
             Background="{StaticResource MainBackgroundColor}"
             MouseDown="DragArea_MouseDown">
             <StackPanel
                 x:Name="Tools"
+                Height="auto"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Orientation="Horizontal">

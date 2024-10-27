@@ -23,28 +23,11 @@ namespace ProjectLibrary.MVVM.View
         public LibraryView()
         {
             InitializeComponent();
-            //Max 3 items
-            var items = new List<Item>();
-
-            items.Add(new Item
-            {
-                Name = "Роман",
-            });
-            items.Add(new Item
-            {
-                Name = "Роман",
-            });
-            items.Add(new Item
-            {
-                Name = "Детские приключенческие книги",
-            });
-            GenreBox.ItemsSource = items;
         }
 
-        public class Item
+        private void StackPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            public string Name { get; set; }
-            public int RandomWidth { get; set; }
+                DropdownPopup.IsOpen = !DropdownPopup.IsOpen;
         }
     }
 }

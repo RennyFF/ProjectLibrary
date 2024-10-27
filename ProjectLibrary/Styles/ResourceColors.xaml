@@ -5,6 +5,7 @@
     <SolidColorBrush x:Key="SecondBackgroundColor" Color="#FF131313" />
     <SolidColorBrush x:Key="HighLightBackgroundColor" Color="#FF252525" />
     <SolidColorBrush x:Key="HoverBackgroundColor" Color="#FF505050" />
+    <SolidColorBrush x:Key="ImportantRed" Color="#FFF34646" />
 
     <!--  Text Colors  -->
     <SolidColorBrush x:Key="MainTextColor" Color="#FFFFFFFF" />

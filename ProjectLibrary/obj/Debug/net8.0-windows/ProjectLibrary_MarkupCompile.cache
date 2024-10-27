@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\App.xaml
-5453185980
+7-1116664991
 
-20-396762472
-2501946773277
-MVVM\View\AuthView.xaml;MVVM\View\BaseWindow.xaml;MVVM\View\LibraryView.xaml;Styles\ResourceColors.xaml;Styles\ResourceElementStyles.xaml;
+28311564750
+2511957159032
+MVVM\View\AuthView.xaml;MVVM\View\BaseWindow.xaml;MVVM\View\DialogWindow.xaml;MVVM\View\LibraryView.xaml;MVVM\View\RegView.xaml;Styles\ResourceColors.xaml;Styles\ResourceElementStyles.xaml;
 
 False
 

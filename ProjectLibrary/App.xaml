@@ -16,8 +16,16 @@
                 <view:AuthView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:RegViewModel}">
+                <view:RegView />
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type viewModel:LibraryViewModel}">
                 <view:LibraryView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:DialogWindowViewModel}">
+                <view:DialogWindow />
             </DataTemplate>
 
             <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>

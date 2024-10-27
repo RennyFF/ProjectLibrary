@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjectLibrary.Utils.Types
 {
-    class Genres
+    public class Genre
     {
+        public int Id { get; set; }
+        public string GenreName { get; set; }
+        public int ClickedCountity { get; set; }
     }
 }

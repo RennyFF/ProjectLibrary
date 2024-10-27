@@ -15,7 +15,13 @@
     <Compile Update="MVVM\View\BaseWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\DialogWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\LibraryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\RegView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -26,7 +32,13 @@
     <Page Update="MVVM\View\BaseWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MVVM\View\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MVVM\View\LibraryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\RegView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ResourceColors.xaml">

@@ -1,10 +1,7 @@
 ﻿using Npgsql;
+using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ProjectLibrary.MVVM.Model
 {
@@ -17,65 +14,78 @@ namespace ProjectLibrary.MVVM.Model
         }
         public static User? GetCurrentUser(NpgsqlConnection Connection, string Login, string PasswordHash)
         {
-            var users = new User();
-
-            string query = $"SELECT * FROM \"MasterProjectLibrary\".\"Users\"\r\nWhere \"Users\".\"Login\" = '{Login}' and \"Users\".\"PasswordHash\" = '{PasswordHash}' ";
-
-            using var command = new NpgsqlCommand(query, Connection);
-            try {
-                using var reader = command.ExecuteReader();
-                while (reader.Read())
+            List<Genre> AllGenres = GetAllGenres(Connection);
+            string Query = $"SELECT * FROM \"MasterProjectLibrary\".\"Users\"\r\nWhere \"Users\".\"Login\" = '{Login}' and \"Users\".\"PasswordHash\" = '{PasswordHash}' ";
+            using var Command = new NpgsqlCommand(Query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (Reader.Read())
                 {
                     var user = new User
                     {
-                        Id = reader.GetInt32(0),
-                        FirstName = reader.GetString(1),
-                        SecondName = reader.GetString(2),
-                        PatronomycName = reader.GetString(3),
-                        Email = reader.GetString(4),
-                        Login = reader.GetString(5),
-                        PasswordHash = reader.GetString(6),
-                        BirthdayDate = reader.GetDateTime(7),
-                        AuthorizationToken = reader.IsDBNull(8) ? null : reader.GetString(8),
-                        DateOfCreation = Utils.UnixTimeConverter.TimeStampToDateTime(reader.GetInt32(9)),
-                        LastUpdated = Utils.UnixTimeConverter.TimeStampToDateTime(reader.GetInt32(10)),
-                        FavoriteGenres = reader.IsDBNull(11) ? null : reader.GetString(11),
-                        LikedObjects = reader.IsDBNull(12) ? null : reader.GetString(12),
-                        LastViewed = reader.IsDBNull(13) ? null : reader.GetString(13)
+                        Id = Reader.GetInt32(0),
+                        FirstName = Reader.GetString(1),
+                        SecondName = Reader.GetString(2),
+                        PatronomycName = Reader.GetString(3),
+                        Email = Reader.GetString(4),
+                        Login = Reader.GetString(5),
+                        PasswordHash = Reader.GetString(6),
+                        BirthdayDate = Reader.GetDateTime(7),
+                        DateOfCreation = Utils.UnixTimeConverter.TimeStampToDateTime(Reader.GetInt32(8)),
+                        LastUpdated = Utils.UnixTimeConverter.TimeStampToDateTime(Reader.GetInt32(9)),
+                        ClickedGenres = Utils.AddoptationGenres.FromStringToGenresList(Reader.IsDBNull(10) ? null : Reader.GetString(10), AllGenres),
+                        LikedObjects = Reader.IsDBNull(11) ? null : Reader.GetString(11),
+                        LastViewed = Reader.IsDBNull(12) ? null : Reader.GetString(12)
                     };
-                    users = user;
+                    return user;
                 }
-                return users;
+                return null;
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public static List<Genre> GetAllGenres(NpgsqlConnection Connection)
+        {
+            string query = $"SELECT * FROM \"MasterProjectLibrary\".\"Genres\"";
+            List<Genre> AllGenres = new List<Genre>();
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (Reader.Read())
+                {
+                    var genre = new Genre
+                    {
+                        Id = Reader.GetInt32(0),
+                        GenreName = Reader.GetString(1)
+                    };
+                    AllGenres.Add(genre);
+                }
+                return AllGenres;
+            }
+            catch (Exception ex)
             {
                 return null;
             }
         }
         public static void AddUser(NpgsqlConnection Connection, User NewUser)
         {
-            string query = @"INSERT INTO Users 
-                             (FirstName, SecondName, PatronomycName, Email, Login, PasswordHash, BirthdayDate, 
-                              AuthorizationToken, DateOfCreation, LastUpdated, FavoriteGenres, LikedObjects, LastViewed) 
-                             VALUES 
-                             (@FirstName, @SecondName, @PatronomycName, @Email, @Login, @PasswordHash, @BirthdayDate, 
-                              @AuthorizationToken, @DateOfCreation, @LastUpdated, @FavoriteGenres, @LikedObjects, @LastViewed)";
-
-            using var command = new NpgsqlCommand(query, Connection);
+            string Query = "INSERT INTO \"MasterProjectLibrary\".\"Users\" " +
+                "(\"FirstName\", \"SecondName\", \"PatronomycName\", \"Email\", \"Login\", \"PasswordHash\", \"BirthdayDate\", \"DateOfCreation\", \"LastUpdated\") " +
+                "VALUES (@Firstname, @SecondName, @PatronomycName, @Email, @Login, @PasswordHash, @BirthdayDate, @DateOfCreation, @LastUpdated)";
+            using var command = new NpgsqlCommand(Query, Connection);
             command.Parameters.AddWithValue("@FirstName", NewUser.FirstName);
             command.Parameters.AddWithValue("@SecondName", NewUser.SecondName);
             command.Parameters.AddWithValue("@PatronomycName", NewUser.PatronomycName);
             command.Parameters.AddWithValue("@Email", NewUser.Email);
             command.Parameters.AddWithValue("@Login", NewUser.Login);
-            command.Parameters.AddWithValue("@PasswordHash", NewUser.PasswordHash);
             command.Parameters.AddWithValue("@BirthdayDate", NewUser.BirthdayDate);
-            command.Parameters.AddWithValue("@AuthorizationToken", NewUser.AuthorizationToken ?? (object)DBNull.Value);
-            command.Parameters.AddWithValue("@DateOfCreation", NewUser.DateOfCreation);
-            command.Parameters.AddWithValue("@LastUpdated", NewUser.LastUpdated);
-            command.Parameters.AddWithValue("@FavoriteGenres", NewUser.FavoriteGenres ?? (object)DBNull.Value);
-            command.Parameters.AddWithValue("@LikedObjects", NewUser.LikedObjects ?? (object)DBNull.Value);
-            command.Parameters.AddWithValue("@LastViewed", NewUser.LastViewed ?? (object)DBNull.Value);
-
+            command.Parameters.AddWithValue("@PasswordHash", PasswordConverters.FromPasswordToHash(NewUser.PasswordHash));
+            command.Parameters.AddWithValue("@DateOfCreation", UnixTimeConverter.DateTimeToTimeStamp(NewUser.DateOfCreation));
+            command.Parameters.AddWithValue("@LastUpdated", UnixTimeConverter.DateTimeToTimeStamp(NewUser.LastUpdated));
             command.ExecuteNonQuery();
         }
     }
