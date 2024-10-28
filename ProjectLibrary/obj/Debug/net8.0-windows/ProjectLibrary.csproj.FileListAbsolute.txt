@@ -87,3 +87,5 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windo
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\DialogWindow.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\DialogWindow.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\FluentValidation.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\PasswordBox.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\PasswordBox.baml

@@ -27,7 +27,7 @@ namespace ProjectLibrary.MVVM.View
 
         private void StackPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-                DropdownPopup.IsOpen = !DropdownPopup.IsOpen;
+             DropdownPopup.IsOpen = !DropdownPopup.IsOpen;
         }
     }
 }

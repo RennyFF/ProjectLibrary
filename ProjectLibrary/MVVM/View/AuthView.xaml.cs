@@ -20,11 +20,11 @@ namespace ProjectLibrary.MVVM.View
     /// Логика взаимодействия для AuthView.xaml
     /// </summary>
     /// 
-    public interface IHavePassword
+    public interface IAuthPassword
     {
         SecureString Password { get; }
     }
-    public partial class AuthView : UserControl, IHavePassword
+    public partial class AuthView : UserControl, IAuthPassword
     {
         public SecureString Password
         {

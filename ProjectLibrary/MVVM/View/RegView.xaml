@@ -2,21 +2,18 @@
     x:Class="ProjectLibrary.MVVM.View.RegView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:components="clr-namespace:ProjectLibrary.Utils.Components"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:ProjectLibrary.MVVM.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:utils="clr-namespace:ProjectLibrary.Utils"
     xmlns:viewmodel="clr-namespace:ProjectLibrary.MVVM.ViewModel"
-    x:Name="RegViewName"
     d:DataContext="{d:DesignInstance Type=viewmodel:RegViewModel}"
     d:DesignHeight="770"
     d:DesignWidth="1200"
     Background="{StaticResource MainBackgroundColor}"
     mc:Ignorable="d">
-    <UserControl.Resources>
-        <utils:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-    </UserControl.Resources>
     <Grid>
         <Border
             Width="1000"
@@ -231,12 +228,13 @@
                     </Validation.ErrorTemplate>
                 </TextBox>
 
-                <TextBox
+                <DatePicker
                     Grid.Row="1"
                     Grid.Column="3"
-                    Style="{StaticResource RegTextBox}"
-                    Tag="Введите дату рождения"
-                    Text="{Binding Birthday, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}">
+                    Cursor="IBeam"
+                    SelectedDateChanged="DatePicker_SelectedDateChanged"
+                    SelectedDate="{Binding Birthday, Mode=TwoWay}"
+                    Style="{StaticResource RegDatePicker}">
                     <Validation.ErrorTemplate>
                         <ControlTemplate>
                             <StackPanel Orientation="Vertical">
@@ -250,7 +248,7 @@
                             </StackPanel>
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
-                </TextBox>
+                </DatePicker>
 
                 <TextBox
                     Grid.Row="2"
@@ -273,22 +271,47 @@
                     </Validation.ErrorTemplate>
                 </TextBox>
 
-                <PasswordBox
-                    x:Name="PasswordPB"
+                <components:PasswordBox
                     Grid.Row="3"
                     Grid.Column="3"
-                    LostKeyboardFocus="PasswordPB_LostKeyboardFocus"
-                    Style="{StaticResource RegPasswordBox}"
-                    Tag="Введите пароль" />
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Password="{Binding Password}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <ContentPresenter />
+                                <AdornedElementPlaceholder />
+                                <TextBlock
+                                    Margin="25,3,0,0"
+                                    FontSize="11"
+                                    Foreground="{StaticResource ImportantRed}"
+                                    Text="{Binding [0].ErrorContent}" />
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </components:PasswordBox>
 
-                <PasswordBox
-                    x:Name="ConfirmPasswordPB"
+                <components:PasswordBox
                     Grid.Row="4"
                     Grid.Column="3"
-                    LostKeyboardFocus="ConfirmPasswordPB_LostKeyboardFocus"
-                    Style="{StaticResource RegPasswordBox}"
-                    Tag="Подтвердите пароль" />
-
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Password="{Binding ConfirmPassword}">
+                    <Validation.ErrorTemplate>
+                        <ControlTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <ContentPresenter />
+                                <AdornedElementPlaceholder />
+                                <TextBlock
+                                    Margin="25,3,0,0"
+                                    FontSize="11"
+                                    Foreground="{StaticResource ImportantRed}"
+                                    Text="{Binding [0].ErrorContent}" />
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Validation.ErrorTemplate>
+                </components:PasswordBox>
 
                 <Button
                     Grid.Row="5"
@@ -297,7 +320,6 @@
                     Height="40"
                     Margin="10,30,10,10"
                     Command="{Binding RegistraionCommand}"
-                    CommandParameter="{Binding ElementName=RegViewName}"
                     Content="Зарегистрироваться"
                     Cursor="Hand"
                     Style="{StaticResource ButtonStyle}" />

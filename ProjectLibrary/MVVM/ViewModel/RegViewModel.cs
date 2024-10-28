@@ -8,11 +8,10 @@ using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
 using System.Collections;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Windows;
 using System.Windows.Navigation;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProjectLibrary.MVVM.ViewModel
 {
@@ -55,14 +54,20 @@ namespace ProjectLibrary.MVVM.ViewModel
             get { return mail; }
             set { mail = value; onPropertyChanged(); ValidateProperty(nameof(Mail)); }
         }
+        private string password;
+        public string Password
+        {
+            get { return password; }
+            set { password = value; onPropertyChanged(); ValidateProperty(nameof(Password)); }
+        }
         private string confirmPassword;
         public string ConfirmPassword
         {
             get { return confirmPassword; }
             set { confirmPassword = value; onPropertyChanged(); ValidateProperty(nameof(ConfirmPassword)); }
         }
-        private string birthday;
-        public string Birthday
+        private DateTime birthday = DateTime.Now;
+        public DateTime Birthday
         {
             get { return birthday; }
             set { birthday = value; onPropertyChanged(); ValidateProperty(nameof(Birthday)); }
@@ -99,16 +104,27 @@ namespace ProjectLibrary.MVVM.ViewModel
                                 SecondName = SecondName,
                                 PatronomycName = PatronomycName,
                                 Email = Mail,
-                                BirthdayDate = DateTime.Parse(Birthday),
+                                BirthdayDate = Birthday,
                                 Login = Login,
                                 DateOfCreation = now,
                                 LastUpdated = now,
                                 LikedObjects = null,
                                 ClickedGenres = null,
                                 LastViewed = null,
-                                PasswordHash = PasswordConverters.GetPasswordFromSecureString(obj)
+                                PasswordHash = Password
                             };
+                            FirstName = string.Empty;
+                            SecondName = string.Empty;
+                            PatronomycName = string.Empty;
+                            Mail = string.Empty;
+                            Birthday = DateTime.Now;
+                            Login = string.Empty;
+                            Password = string.Empty;
+                            ConfirmPassword = string.Empty;
+                            _errors = new();
                             DataBaseFunctions.AddUser(ConnectionDB, NewUser);
+                            var ModalWindow = new DialogWindow("Успешная регистрация!", $"Вы попали к нам в клуб!");
+                            ModalWindow.Show();
                             Navigation.NavigateTo<AuthViewModel>();
                         }
                         else
@@ -139,8 +155,10 @@ namespace ProjectLibrary.MVVM.ViewModel
             ValidateProperty(nameof(Login));
             ValidateProperty(nameof(Mail));
             ValidateProperty(nameof(Birthday));
+            ValidateProperty(nameof(Password));
+            ValidateProperty(nameof(ConfirmPassword));
         }
-        private readonly Dictionary<string, List<string>> _errors = new();
+        private Dictionary<string, List<string>> _errors = new();
 
         public IEnumerable GetErrors(string propertyName)
         {

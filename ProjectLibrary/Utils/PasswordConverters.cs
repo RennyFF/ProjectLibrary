@@ -17,7 +17,7 @@ namespace ProjectLibrary.Utils
     {
         public static string? GetPasswordFromSecureString(object Parameter)
         {
-            var passwordContainer = Parameter as IHavePassword;
+            var passwordContainer = Parameter as IAuthPassword;
             if (passwordContainer != null)
             {
                 var secureString = passwordContainer.Password;

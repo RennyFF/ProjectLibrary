@@ -24,6 +24,9 @@
     <Compile Update="MVVM\View\RegView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Utils\Components\PasswordBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MVVM\View\AuthView.xaml">
@@ -45,6 +48,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ResourceElementStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utils\Components\PasswordBox.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

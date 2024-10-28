@@ -21,40 +21,17 @@ namespace ProjectLibrary.MVVM.View
     /// Логика взаимодействия для RegView.xaml
     /// </summary>
 
-    public partial class RegView : UserControl, IHavePassword
+    public partial class RegView : UserControl
     {
-        public SecureString Password
-        {
-            get
-            {
-                return PasswordPB.SecurePassword;
-            }
-        }
         public RegView()
         {
             InitializeComponent();
         }
-        private void PasswordPB_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty((sender as PasswordBox).Password))
-            {
-                (sender as PasswordBox).Tag = string.Empty;
-            }
-            else
-            {
-                (sender as PasswordBox).Tag = "Введите пароль";
-            }
-        }
 
-        private void ConfirmPasswordPB_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty((sender as PasswordBox).Password))
-            {
-                (sender as PasswordBox).Tag = string.Empty;
-            }
-            else
-            {
-                (sender as PasswordBox).Tag = "Подтвердите пароль";
+            if(string.IsNullOrEmpty((sender as DatePicker).SelectedDate.ToString())){
+                (sender as DatePicker).SelectedDate = DateTime.Now;
             }
         }
     }
