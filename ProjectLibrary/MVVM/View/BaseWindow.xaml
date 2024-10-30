@@ -14,7 +14,7 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Grid Background="{StaticResource MainBackgroundColor}">
+    <Grid Background="{StaticResource MainBackgroundColorBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition />
@@ -25,7 +25,7 @@
             Grid.Row="0"
             Height="auto"
             VerticalAlignment="Top"
-            Background="{StaticResource MainBackgroundColor}"
+            Background="{StaticResource MainBackgroundColorBrush}"
             MouseDown="DragArea_MouseDown">
             <StackPanel
                 x:Name="Tools"

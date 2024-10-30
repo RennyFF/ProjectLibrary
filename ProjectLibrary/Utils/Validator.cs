@@ -1,19 +1,29 @@
 ﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ProjectLibrary.Utils
 {
     class Validator : AbstractValidator<MVVM.ViewModel.RegViewModel>
     {
-        public Validator()
+        Npgsql.NpgsqlConnection ConnectionDB { get; set; }
+        public Validator(Npgsql.NpgsqlConnection Connection)
         {
+            ConnectionDB = Connection;
+
             RuleFor(x => x.Login)
-                .NotEmpty().WithMessage("Поле не может быть пустым.");
+                .NotEmpty().WithMessage("Поле не может быть пустым.")
+                .MustAsync(async (Login, cancellation) =>
+                {
+                    return await MVVM.Model.DataBaseFunctions.CheckIfUnique(ConnectionDB, true, Login);
+                }).WithMessage("Логин уже занят."); ;
 
             RuleFor(x => x.FirstName)
                 .NotEmpty().WithMessage("Поле не может быть пустым.");
@@ -26,7 +36,11 @@ namespace ProjectLibrary.Utils
 
             RuleFor(x => x.Mail)
                 .NotEmpty().WithMessage("Поле не может быть пустым.")
-                .EmailAddress().WithMessage("Введите существующую почту.");
+                .EmailAddress().WithMessage("Введите существующую почту.")
+                .MustAsync(async (Mail, cancellation) =>
+                {
+                    return await MVVM.Model.DataBaseFunctions.CheckIfUnique(ConnectionDB, false, Mail);
+                }).WithMessage("Почта уже занята.");
 
             RuleFor(x => x.Birthday)
                 .Must(BeAValidDate)
@@ -41,10 +55,10 @@ namespace ProjectLibrary.Utils
                 .Must((x, confirmPassword) => confirmPassword == x.Password).WithMessage("Пароли не совпадают."); ;
 
         }
-        //Make async Validation to check unique Login and Mail
-        private bool BeAValidDate(DateTime value)
+        private bool BeAValidDate(DateTime CheckingDate)
         {
-            return value < DateTime.Now ? true: false;
+            return CheckingDate < DateTime.Now ? true : false;
         }
+
     }
 }

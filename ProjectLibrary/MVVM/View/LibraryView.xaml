@@ -16,7 +16,7 @@
     <UserControl.Resources>
         <utils:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
-    <Grid Background="{StaticResource MainBackgroundColor}">
+    <Grid Background="{StaticResource MainBackgroundColorBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300" />
             <ColumnDefinition />
@@ -34,7 +34,7 @@
             Margin="10,0,20,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
-            Background="{StaticResource SecondBackgroundColor}"
+            Background="{StaticResource SecondBackgroundColorBrush}"
             CornerRadius="16">
             <Grid x:Name="AccountInfo">
                 <Grid.ColumnDefinitions>
@@ -47,7 +47,7 @@
                     Margin="0,0,10,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
-                    Background="{StaticResource SecondBackgroundColor}"
+                    Background="{StaticResource SecondBackgroundColorBrush}"
                     Cursor="Hand"
                     MouseLeftButtonUp="StackPanel_MouseLeftButtonUp"
                     Orientation="Horizontal">
@@ -80,7 +80,7 @@
                     <Border
                         Width="120"
                         Padding="10"
-                        Background="{StaticResource SecondBackgroundColor}"
+                        Background="{StaticResource SecondBackgroundColorBrush}"
                         CornerRadius="8">
                         <StackPanel>
                             <Button
@@ -108,7 +108,7 @@
             </Grid.RowDefinitions>
             <Border
                 Margin="40,0,0,0"
-                Background="{StaticResource SecondBackgroundColor}"
+                Background="{StaticResource SecondBackgroundColorBrush}"
                 CornerRadius="16">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -144,7 +144,11 @@
                             Command="{Binding NavigateHomeCommand}"
                             GroupName="MenuButtons"
                             Style="{StaticResource MenuButton}">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource SecondBackgroundColorBrush}"
+                                Orientation="Horizontal">
                                 <iconPacks:PackIconRemixIcon Kind="Home5Line" Style="{StaticResource MenuButtonIcon}" />
                                 <TextBlock Style="{StaticResource MenuButtonText}" Text="Главная" />
                             </StackPanel>
@@ -153,7 +157,12 @@
                             Command="{Binding NavigateHomeCommand}"
                             GroupName="MenuButtons"
                             Style="{StaticResource MenuButton}">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource SecondBackgroundColorBrush}"
+                                Cursor=""
+                                Orientation="Horizontal">
                                 <iconPacks:PackIconRemixIcon Kind="BookLine" Style="{StaticResource MenuButtonIcon}" />
                                 <TextBlock Style="{StaticResource MenuButtonText}" Text="Библиотека" />
                             </StackPanel>
@@ -162,7 +171,11 @@
                             Command="{Binding NavigateHomeCommand}"
                             GroupName="MenuButtons"
                             Style="{StaticResource MenuButton}">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource SecondBackgroundColorBrush}"
+                                Orientation="Horizontal">
                                 <iconPacks:PackIconRemixIcon Kind="SpyLine" Style="{StaticResource MenuButtonIcon}" />
                                 <TextBlock Style="{StaticResource MenuButtonText}" Text="Авторы" />
                             </StackPanel>
@@ -171,7 +184,11 @@
                             Command="{Binding NavigateHomeCommand}"
                             GroupName="MenuButtons"
                             Style="{StaticResource MenuButton}">
-                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <StackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource SecondBackgroundColorBrush}"
+                                Orientation="Horizontal">
                                 <iconPacks:PackIconRemixIcon Kind="TableView" Style="{StaticResource MenuButtonIcon}" />
                                 <TextBlock Style="{StaticResource MenuButtonText}" Text="Жанры" />
                             </StackPanel>
@@ -212,7 +229,7 @@
                 Grid.Row="1"
                 Height="180"
                 Margin="40,20,0,20"
-                Background="{StaticResource SecondBackgroundColor}"
+                Background="{StaticResource SecondBackgroundColorBrush}"
                 CornerRadius="16">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -258,7 +275,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             VerticalContentAlignment="Center"
-                            Background="{StaticResource SecondBackgroundColor}"
+                            Background="{StaticResource SecondBackgroundColorBrush}"
                             BorderThickness="0"
                             ItemContainerStyle="{StaticResource BestGenreListBox}"
                             ItemsSource="{Binding FavoriteGenreNames}"
@@ -283,7 +300,7 @@
                                 <DataTemplate>
                                     <Border
                                         Padding="8"
-                                        Background="{StaticResource HighLightBackgroundColor}"
+                                        Background="{StaticResource HighLightBackgroundColorBrush}"
                                         CornerRadius="14">
                                         <TextBlock
                                             HorizontalAlignment="Center"

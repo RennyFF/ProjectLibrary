@@ -12,7 +12,7 @@
     d:DataContext="{d:DesignInstance Type=viewmodel:RegViewModel}"
     d:DesignHeight="770"
     d:DesignWidth="1200"
-    Background="{StaticResource MainBackgroundColor}"
+    Background="{StaticResource MainBackgroundColorBrush}"
     mc:Ignorable="d">
     <Grid>
         <Border
@@ -20,7 +20,7 @@
             Height="600"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Background="{StaticResource SecondBackgroundColor}"
+            Background="{StaticResource SecondBackgroundColorBrush}"
             CornerRadius="16">
             <Grid
                 Margin="0,50,0,0"
@@ -158,7 +158,7 @@
                                 <TextBlock
                                     Margin="5,3,0,0"
                                     FontSize="11"
-                                    Foreground="{StaticResource ImportantRed}"
+                                    Foreground="{StaticResource ImportantRedBrush}"
                                     Text="{Binding [0].ErrorContent}" />
                             </StackPanel>
                         </ControlTemplate>
@@ -179,7 +179,7 @@
                                 <TextBlock
                                     Margin="5,3,0,0"
                                     FontSize="11"
-                                    Foreground="{StaticResource ImportantRed}"
+                                    Foreground="{StaticResource ImportantRedBrush}"
                                     Text="{Binding [0].ErrorContent}" />
                             </StackPanel>
                         </ControlTemplate>
@@ -200,7 +200,7 @@
                                 <TextBlock
                                     Margin="5,3,0,0"
                                     FontSize="11"
-                                    Foreground="{StaticResource ImportantRed}"
+                                    Foreground="{StaticResource ImportantRedBrush}"
                                     Text="{Binding [0].ErrorContent}" />
                             </StackPanel>
                         </ControlTemplate>
@@ -221,7 +221,7 @@
                                 <TextBlock
                                     Margin="5,3,0,0"
                                     FontSize="11"
-                                    Foreground="{StaticResource ImportantRed}"
+                                    Foreground="{StaticResource ImportantRedBrush}"
                                     Text="{Binding [0].ErrorContent}" />
                             </StackPanel>
                         </ControlTemplate>
@@ -243,7 +243,7 @@
                                 <TextBlock
                                     Margin="5,3,0,0"
                                     FontSize="11"
-                                    Foreground="{StaticResource ImportantRed}"
+                                    Foreground="{StaticResource ImportantRedBrush}"
                                     Text="{Binding [0].ErrorContent}" />
                             </StackPanel>
                         </ControlTemplate>
@@ -264,7 +264,7 @@
                                 <TextBlock
                                     Margin="5,3,0,0"
                                     FontSize="11"
-                                    Foreground="{StaticResource ImportantRed}"
+                                    Foreground="{StaticResource ImportantRedBrush}"
                                     Text="{Binding [0].ErrorContent}" />
                             </StackPanel>
                         </ControlTemplate>
@@ -285,7 +285,7 @@
                                 <TextBlock
                                     Margin="25,3,0,0"
                                     FontSize="11"
-                                    Foreground="{StaticResource ImportantRed}"
+                                    Foreground="{StaticResource ImportantRedBrush}"
                                     Text="{Binding [0].ErrorContent}" />
                             </StackPanel>
                         </ControlTemplate>
@@ -306,7 +306,7 @@
                                 <TextBlock
                                     Margin="25,3,0,0"
                                     FontSize="11"
-                                    Foreground="{StaticResource ImportantRed}"
+                                    Foreground="{StaticResource ImportantRedBrush}"
                                     Text="{Binding [0].ErrorContent}" />
                             </StackPanel>
                         </ControlTemplate>

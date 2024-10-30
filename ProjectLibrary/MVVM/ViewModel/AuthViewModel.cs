@@ -38,7 +38,7 @@ namespace ProjectLibrary.MVVM.ViewModel
         {
             get
             {
-                return authCommand ??= new RelayCommand(obj =>
+                return authCommand ??= new RelayCommand( async obj =>
                 {
                     try
                     {
@@ -46,7 +46,7 @@ namespace ProjectLibrary.MVVM.ViewModel
                         string? Password = PasswordFromSecure != null ? PasswordConverters.FromPasswordToHash(PasswordFromSecure) : null;
                         User? CurrentUser = null;
                         if(Password != null) {
-                            CurrentUser = Model.DataBaseFunctions.GetCurrentUser(ConnectionDB, Login, Password);
+                            CurrentUser = await Model.DataBaseFunctions.GetCurrentUser(ConnectionDB, Login, Password);
                         }
                         if (CurrentUser != null)
                         {

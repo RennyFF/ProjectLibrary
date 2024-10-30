@@ -10,14 +10,14 @@
     x:Name="AuthViewName"
     d:DesignHeight="770"
     d:DesignWidth="1200"
-    Background="{StaticResource MainBackgroundColor}"
+    Background="{StaticResource MainBackgroundColorBrush}"
     mc:Ignorable="d">
     <Grid>
         <Border
             Width="550"
             Height="450"
             VerticalAlignment="Center"
-            Background="{StaticResource SecondBackgroundColor}"
+            Background="{StaticResource SecondBackgroundColorBrush}"
             CornerRadius="16">
             <Grid
                 Margin="0,50,0,0"
@@ -124,12 +124,12 @@
                                     <Setter TargetName="WaterMarkLabel" Property="Visibility" Value="Visible" />
                                 </MultiTrigger>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColor}" />
+                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColorBrush}" />
                                     <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
                                     <Setter TargetName="Icon" Property="Foreground" Value="{StaticResource MainTextColor}" />
                                 </Trigger>
                                 <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColor}" />
+                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColorBrush}" />
                                     <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
                                     <Setter TargetName="Icon" Property="Foreground" Value="{StaticResource MainTextColor}" />
                                 </Trigger>
@@ -191,12 +191,12 @@
                                     <Setter TargetName="WaterMarkLabel" Property="Visibility" Value="Visible" />
                                 </MultiTrigger>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColor}" />
+                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColorBrush}" />
                                     <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
                                     <Setter TargetName="Icon" Property="Foreground" Value="{StaticResource MainTextColor}" />
                                 </Trigger>
                                 <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColor}" />
+                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColorBrush}" />
                                     <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
                                     <Setter TargetName="Icon" Property="Foreground" Value="{StaticResource MainTextColor}" />
                                 </Trigger>

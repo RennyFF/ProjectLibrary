@@ -14,8 +14,8 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Border
-        Background="{StaticResource SecondBackgroundColor}"
-        BorderBrush="{StaticResource HighLightBackgroundColor}"
+        Background="{StaticResource SecondBackgroundColorBrush}"
+        BorderBrush="{StaticResource HighLightBackgroundColorBrush}"
         BorderThickness="2"
         CornerRadius="16">
         <Grid>
