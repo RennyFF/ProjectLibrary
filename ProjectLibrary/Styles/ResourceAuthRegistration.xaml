@@ -1,0 +1,993 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+
+    <Style x:Key="AuthTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="{StaticResource SecondBackgroundColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource HighLightBackgroundColorBrush}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="10,4,0,4" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="CaretBrush" Value="White" />
+        <Setter Property="SelectionBrush" Value="White" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColorBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+
+    <Style x:Key="RegTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="220" />
+        <Setter Property="Margin" Value="20,0,40,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="Background" Value="{StaticResource SecondBackgroundColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource HighLightBackgroundColorBrush}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="CaretBrush" Value="{StaticResource MainTextColorBrush}" />
+        <Setter Property="SelectionBrush" Value="{StaticResource MainTextColorBrush}" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColorBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border
+                        x:Name="txtBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8"
+                        SnapsToDevicePixels="True">
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <ScrollViewer
+                                x:Name="PART_ContentHost"
+                                Margin="4,0,4,0"
+                                Focusable="False"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden" />
+                            <Label
+                                x:Name="WaterMarkLabel"
+                                Margin="4,0,4,0"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Tag}"
+                                FontWeight="{TemplateBinding FontWeight}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Visibility="Collapsed" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False" />
+                                <Condition Property="TextBox.Text" Value="" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="WaterMarkLabel" Property="Visibility" Value="Visible" />
+                        </MultiTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="txtBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HoverBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="txtBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HighLightBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource SecondTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="txtBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HoverBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="txtBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HighLightBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource SecondTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="AuthPasswordBox" TargetType="{x:Type PasswordBox}">
+        <Setter Property="Background" Value="{StaticResource SecondBackgroundColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource HighLightBackgroundColorBrush}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="10,4,0,4" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="CaretBrush" Value="White" />
+        <Setter Property="SelectionBrush" Value="White" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColorBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="RegPasswordBox" TargetType="{x:Type PasswordBox}">
+        <Setter Property="Background" Value="{StaticResource SecondBackgroundColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource HighLightBackgroundColorBrush}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="Width" Value="220" />
+        <Setter Property="Margin" Value="20,0,40,0" />
+        <Setter Property="CaretBrush" Value="White" />
+        <Setter Property="SelectionBrush" Value="White" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColorBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border
+                        x:Name="txtBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8">
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <ScrollViewer
+                                x:Name="PART_ContentHost"
+                                Margin="4,0,4,0"
+                                Focusable="False"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden" />
+                            <Label
+                                x:Name="WaterMarkLabel"
+                                Margin="4,0,4,0"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Tag}"
+                                FontWeight="{TemplateBinding FontWeight}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Visibility="Collapsed" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="WaterMarkLabel" Property="Visibility" Value="Visible" />
+                        </MultiTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="txtBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HoverBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="txtBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HighLightBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource SecondTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="txtBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HoverBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="txtBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HighLightBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource SecondTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CalendarDayButtonStyle" TargetType="CalendarDayButton">
+        <Setter Property="MinWidth" Value="5" />
+        <Setter Property="MinHeight" Value="5" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CalendarDayButton">
+                    <Grid>
+                        <Rectangle
+                            x:Name="TodayBackground"
+                            Opacity="0"
+                            RadiusX="1"
+                            RadiusY="1">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{StaticResource HoverBackgroundColor}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Rectangle
+                            x:Name="SelectedBackground"
+                            Opacity="0"
+                            RadiusX="1"
+                            RadiusY="1">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{StaticResource HoverBackgroundColor}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}" />
+                        <Rectangle
+                            x:Name="HighlightBackground"
+                            Opacity="0"
+                            RadiusX="1"
+                            RadiusY="1">
+                            <Rectangle.Stroke>
+                                <SolidColorBrush Color="{StaticResource HoverBackgroundColor}" />
+                            </Rectangle.Stroke>
+                        </Rectangle>
+                        <ContentPresenter
+                            x:Name="NormalText"
+                            Margin="5,1,5,1"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <TextElement.Foreground>
+                                <SolidColorBrush Color="{StaticResource MainTextColor}" />
+                            </TextElement.Foreground>
+                        </ContentPresenter>
+                        <Rectangle
+                            x:Name="DayButtonFocusVisual"
+                            IsHitTestVisible="false"
+                            RadiusX="1"
+                            RadiusY="1"
+                            Visibility="Collapsed">
+                            <Rectangle.Stroke>
+                                <SolidColorBrush Color="{StaticResource HoverBackgroundColor}" />
+                            </Rectangle.Stroke>
+                        </Rectangle>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.2" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState Name="Normal" />
+                                <VisualState Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="HighlightBackground"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.5"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="HighlightBackground"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.5"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="HighlightBackground"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="NormalText"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To=".35"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup Name="SelectionStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState Name="Unselected" />
+                                <VisualState Name="Selected">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="SelectedBackground"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To=".75"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup Name="CalendarButtonFocusStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState Name="CalendarButtonFocused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="DayButtonFocusVisual"
+                                            Storyboard.TargetProperty="Visibility"
+                                            Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState Name="CalendarButtonUnfocused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames
+                                            Storyboard.TargetName="DayButtonFocusVisual"
+                                            Storyboard.TargetProperty="Visibility"
+                                            Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup Name="ActiveStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState Name="Active" />
+                                <VisualState Name="Inactive">
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="NormalText"
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="#FF777777"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup Name="DayStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState Name="RegularDay" />
+                                <VisualState Name="Today">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="TodayBackground"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0" />
+                                        <ColorAnimation
+                                            Storyboard.TargetName="NormalText"
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="#FFFFFFFF"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup Name="BlackoutDayStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState Name="NormalDay" />
+                                <VisualState Name="BlackoutDay">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Blackout"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To=".2"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CalendarButtonStyle" TargetType="CalendarButton">
+        <Setter Property="MinWidth" Value="40" />
+        <Setter Property="MinHeight" Value="42" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CalendarButton">
+                    <Grid>
+                        <Rectangle
+                            x:Name="SelectedBackground"
+                            Opacity="0"
+                            RadiusX="4"
+                            RadiusY="4">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{StaticResource HoverBackgroundColor}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Rectangle
+                            x:Name="Background"
+                            Opacity="0"
+                            RadiusX="4"
+                            RadiusY="4">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{StaticResource HoverBackgroundColor}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <ContentPresenter
+                            x:Name="NormalText"
+                            Margin="1,0,1,1"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <TextElement.Foreground>
+                                <SolidColorBrush Color="{StaticResource MainTextColor}" />
+                            </TextElement.Foreground>
+                        </ContentPresenter>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.2" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState Name="Normal" />
+                                <VisualState Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Background"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To=".5"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="Background"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To=".5"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup Name="SelectionStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState Name="Unselected" />
+                                <VisualState Name="Selected">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="SelectedBackground"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To=".75"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="PreviousButtonTemplate" TargetType="{x:Type Button}">
+        <Grid
+            Margin="10,3,0,0"
+            Background="{StaticResource SecondBackgroundColorBrush}"
+            Cursor="Hand">
+            <iconPacks:PackIconBootstrapIcons Foreground="{StaticResource MainTextColorBrush}" Kind="ArrowLeftShort" />
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="NextButtonTemplate" TargetType="{x:Type Button}">
+        <Grid
+            Margin="0,3,0,0"
+            Background="{StaticResource SecondBackgroundColorBrush}"
+            Cursor="Hand">
+            <iconPacks:PackIconBootstrapIcons Foreground="{StaticResource MainTextColorBrush}" Kind="ArrowRightShort" />
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="HeaderButtonTemplate" TargetType="{x:Type Button}">
+        <Grid Cursor="Hand">
+            <ContentPresenter
+                x:Name="buttonContent"
+                Margin="1,9,1,9"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Content="{TemplateBinding Content}"
+                ContentTemplate="{TemplateBinding ContentTemplate}"
+                TextElement.Foreground="{StaticResource MainTextColorBrush}" />
+        </Grid>
+    </ControlTemplate>
+
+    <Style x:Key="CalendarItemStyle" TargetType="{x:Type CalendarItem}">
+        <Setter Property="Margin" Value="0,3,0,3" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CalendarItem}">
+                    <ControlTemplate.Resources>
+                        <DataTemplate x:Key="{x:Static CalendarItem.DayTitleTemplateResourceKey}">
+                            <TextBlock
+                                Margin="0,6,0,6"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="9.5"
+                                FontWeight="Bold"
+                                Foreground="{StaticResource MainTextColorBrush}"
+                                Text="{Binding}" />
+                        </DataTemplate>
+                    </ControlTemplate.Resources>
+                    <Grid x:Name="PART_Root">
+                        <Grid.Resources>
+                            <SolidColorBrush x:Key="DisabledColor" Color="Green" />
+                        </Grid.Resources>
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="1">
+                            <Border
+                                BorderBrush="{StaticResource MainTextColorBrush}"
+                                BorderThickness="1"
+                                CornerRadius="8">
+                                <Grid>
+                                    <Grid.Resources />
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Button
+                                        x:Name="PART_PreviousButton"
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Width="28"
+                                        Height="20"
+                                        HorizontalAlignment="Left"
+                                        Focusable="False"
+                                        Template="{StaticResource PreviousButtonTemplate}" />
+                                    <Button
+                                        x:Name="PART_HeaderButton"
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Focusable="False"
+                                        FontSize="10.5"
+                                        FontWeight="Bold"
+                                        Template="{StaticResource HeaderButtonTemplate}" />
+                                    <Button
+                                        x:Name="PART_NextButton"
+                                        Grid.Row="0"
+                                        Grid.Column="2"
+                                        Width="28"
+                                        Height="20"
+                                        HorizontalAlignment="Right"
+                                        Focusable="False"
+                                        Template="{StaticResource NextButtonTemplate}" />
+                                    <Grid
+                                        x:Name="PART_MonthView"
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="3"
+                                        Margin="6,-1,6,6"
+                                        HorizontalAlignment="Center"
+                                        Visibility="Visible">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                                    <Grid
+                                        x:Name="PART_YearView"
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="3"
+                                        Margin="6,-3,7,6"
+                                        HorizontalAlignment="Center"
+                                        Visibility="Hidden">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </Border>
+                        <Rectangle
+                            x:Name="PART_DisabledVisual"
+                            Fill="{StaticResource DisabledColor}"
+                            Opacity="0"
+                            RadiusX="2"
+                            RadiusY="2"
+                            Stretch="Fill"
+                            Stroke="{StaticResource DisabledColor}"
+                            StrokeThickness="1"
+                            Visibility="Collapsed" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_DisabledVisual"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="PART_DisabledVisual" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Year">
+                            <Setter TargetName="PART_MonthView" Property="Visibility" Value="Hidden" />
+                            <Setter TargetName="PART_YearView" Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding DisplayMode, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}" Value="Decade">
+                            <Setter TargetName="PART_MonthView" Property="Visibility" Value="Hidden" />
+                            <Setter TargetName="PART_YearView" Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Calendar}">
+        <Setter Property="CalendarButtonStyle" Value="{StaticResource CalendarButtonStyle}" />
+        <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CalendarDayButtonStyle}" />
+        <Setter Property="CalendarItemStyle" Value="{StaticResource CalendarItemStyle}" />
+        <Setter Property="Foreground" Value="#FF333333" />
+        <Setter Property="Background" Value="{StaticResource SecondBackgroundColorBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Calendar}">
+                    <Border CornerRadius="16">
+                        <StackPanel x:Name="PART_Root" HorizontalAlignment="Center">
+                            <CalendarItem
+                                x:Name="PART_CalendarItem"
+                                Background="{TemplateBinding Background}"
+                                Style="{TemplateBinding CalendarItemStyle}" />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="DatePickerCalendarStyle"
+        BasedOn="{StaticResource {x:Type Calendar}}"
+        TargetType="{x:Type Calendar}" />
+
+    <Style x:Key="DropDownButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        Width="30"
+                        Height="30"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="{StaticResource SecondBackgroundColorBrush}"
+                        BorderBrush="{StaticResource HighLightBackgroundColorBrush}">
+                        <iconPacks:PackIconRemixIcon
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="Calendar2Line" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="RegDatePicker"
+        x:Name="CalendarControl"
+        TargetType="{x:Type DatePicker}">
+        <Setter Property="Width" Value="220" />
+        <Setter Property="Margin" Value="20,0,40,0" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="IBeam" />
+        <Setter Property="Background" Value="{StaticResource SecondBackgroundColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource HighLightBackgroundColorBrush}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColorBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="IsTodayHighlighted" Value="True" />
+        <Setter Property="SelectedDateFormat" Value="Short" />
+        <Setter Property="CalendarStyle" Value="{DynamicResource DatePickerCalendarStyle}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DatePicker}">
+                    <Border
+                        x:Name="PickerBorder"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8"
+                        SnapsToDevicePixels="True">
+                        <Grid
+                            x:Name="PART_Root"
+                            Width="205"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button
+                                x:Name="PART_Button"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="3,0,0,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource SecondBackgroundColorBrush}"
+                                Cursor="Hand"
+                                Focusable="False"
+                                Foreground="{TemplateBinding Foreground}"
+                                Style="{StaticResource DropDownButtonStyle}" />
+                            <DatePickerTextBox
+                                x:Name="PART_TextBox"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                CaretBrush="{StaticResource MainTextColorBrush}"
+                                Focusable="True"
+                                Foreground="{TemplateBinding Foreground}"
+                                HorizontalScrollBarVisibility="Hidden"
+                                SelectedText="Выберите дату"
+                                SelectionBrush="{StaticResource MainTextColorBrush}"
+                                VerticalScrollBarVisibility="Hidden">
+                                <DatePickerTextBox.Template>
+                                    <ControlTemplate TargetType="{x:Type DatePickerTextBox}">
+                                        <Border SnapsToDevicePixels="True">
+                                            <Grid Margin="{TemplateBinding Padding}">
+                                                <ScrollViewer
+                                                    x:Name="PART_ContentHost"
+                                                    Margin="4,0,0,0"
+                                                    VerticalAlignment="Center"
+                                                    Focusable="False"
+                                                    HorizontalScrollBarVisibility="Hidden"
+                                                    VerticalScrollBarVisibility="Hidden" />
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </DatePickerTextBox.Template>
+                            </DatePickerTextBox>
+                            <Popup
+                                x:Name="PART_Popup"
+                                AllowsTransparency="True"
+                                Placement="Bottom"
+                                PlacementTarget="{Binding ElementName=PART_TextBox}"
+                                PopupAnimation="Slide"
+                                StaysOpen="False"
+                                VerticalOffset="15" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="PickerBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HoverBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetName="PART_Button"
+                                            Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="PickerBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HighLightBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetName="PART_Button"
+                                            Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource SecondTextColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource SecondTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="PickerBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HoverBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetName="PART_Button"
+                                            Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="PickerBorder"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            To="{StaticResource HighLightBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetName="PART_Button"
+                                            Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource SecondTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+</ResourceDictionary>

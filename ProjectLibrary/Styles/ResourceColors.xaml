@@ -14,12 +14,10 @@
     <Color x:Key="ImportantRed">#FFF34646</Color>
 
     <!--  Text Colors  -->
-    <SolidColorBrush x:Key="MainTextColor" Color="#FFFFFFFF" />
-    <SolidColorBrush x:Key="SecondTextColor" Color="#FF505050" />
+    <SolidColorBrush x:Key="MainTextColorBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="SecondTextColorBrush" Color="#FF505050" />
 
-
-    <Color x:Key="MainColor">#FFFFFFFF</Color>
-    <Color x:Key="SecondColor">#FF505050</Color>
-    <Color x:Key="ThirdColor">#FF0E0E0E</Color>
+    <Color x:Key="MainTextColor">#FFFFFFFF</Color>
+    <Color x:Key="SecondTextColor">#FF505050</Color>
 
 </ResourceDictionary>

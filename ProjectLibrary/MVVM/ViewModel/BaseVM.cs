@@ -21,7 +21,6 @@ namespace ProjectLibrary.MVVM.ViewModel
                 onPropertyChanged();
             }
         }
-        public RelayCommand NavigateToHome { get; set; }
         public BaseVM(INavigationService navService)
         {
             Navigation = navService;

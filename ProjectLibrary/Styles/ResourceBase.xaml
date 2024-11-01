@@ -1,0 +1,148 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+
+    <!--  Apply custom font  -->
+    <Style x:Key="WindowFont" TargetType="{x:Type Window}">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
+        <Setter Property="FontStyle" Value="Normal" />
+    </Style>
+
+    <Style x:Key="UserControlFont" TargetType="{x:Type UserControl}">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
+        <Setter Property="FontStyle" Value="Normal" />
+    </Style>
+
+    <Style x:Key="PageFont" TargetType="{x:Type Page}">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
+    </Style>
+
+    <!--  TextStyles for all categories  -->
+
+    <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorBrush}" />
+    </Style>
+
+    <Style x:Key="SimpleTextStyleWhite" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{StaticResource MainTextColorBrush}" />
+    </Style>
+
+    <Style x:Key="SimpleTextStyleGray" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColorBrush}" />
+    </Style>
+
+    <!--  Main template styles  -->
+    <Style x:Key="WindowStateButton" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Background" Value="{StaticResource MainBackgroundColorBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}" Cursor="Hand">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Button.Content}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource HoverBackgroundColorBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WindowStateButton--Close" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Width" Value="50" />
+        <Setter Property="Height" Value="31" />
+        <Setter Property="Background" Value="{StaticResource MainBackgroundColorBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}" Cursor="Hand">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Button.Content}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource ImportantRedBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource HighLightBackgroundColorBrush}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Foreground" Value="{StaticResource SecondTextColorBrush}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        x:Name="MainBorder"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="8"
+                        SnapsToDevicePixels="True">
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <ContentPresenter
+                                x:Name="Butt"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="MainBorder"
+                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                            To="{StaticResource HoverBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource MainTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="MainBorder"
+                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                            To="{StaticResource HighLightBackgroundColor}"
+                                            Duration="0:0:0.2" />
+                                        <ColorAnimation
+                                            Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                            To="{StaticResource SecondTextColor}"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

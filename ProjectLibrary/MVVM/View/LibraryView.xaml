@@ -65,7 +65,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Cursor=""
-                        Foreground="{StaticResource MainTextColor}"
+                        Foreground="{StaticResource MainTextColorBrush}"
                         Kind="AccountCircleLine" />
                 </StackPanel>
                 <Popup
@@ -93,7 +93,7 @@
                 <TextBox
                     Grid.Column="0"
                     Margin="8,0,10,0"
-                    Style="{StaticResource TextBoxStyle}"
+                    Style="{StaticResource SearchBoxStyle}"
                     Tag="Поиск книги, автора" />
             </Grid>
         </Border>
@@ -126,7 +126,7 @@
                             Height="42"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Foreground="{StaticResource MainTextColor}"
+                            Foreground="{StaticResource MainTextColorBrush}"
                             Kind="BookCover" />
                         <Label
                             HorizontalAlignment="Center"
@@ -239,24 +239,24 @@
                     <Label
                         Grid.Row="0"
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
+                        VerticalAlignment="Center"
                         Content="Ваши любимые жанры"
                         FontSize="18"
                         FontWeight="Bold"
-                        Foreground="{StaticResource MainTextColor}" />
+                        Foreground="{StaticResource MainTextColorBrush}" />
                     <Grid Grid.Row="1">
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock
                                 Margin="0,0,0,10"
                                 HorizontalAlignment="Center"
                                 FontSize="16"
-                                Foreground="{StaticResource SecondTextColor}"
+                                Foreground="{StaticResource SecondTextColorBrush}"
                                 Text="Мы еще мало знаем о вас" />
                             <iconPacks:PackIconForkAwesome
                                 Width="32"
                                 Height="32"
                                 HorizontalAlignment="Center"
-                                Foreground="{StaticResource SecondTextColor}"
+                                Foreground="{StaticResource SecondTextColorBrush}"
                                 Kind="StarHalfOutline" />
                             <StackPanel.Style>
                                 <Style TargetType="StackPanel">
@@ -305,7 +305,7 @@
                                         <TextBlock
                                             HorizontalAlignment="Center"
                                             FontSize="16"
-                                            Foreground="{StaticResource MainTextColor}"
+                                            Foreground="{StaticResource MainTextColorBrush}"
                                             Text="{Binding GenreName}"
                                             TextAlignment="Center"
                                             TextTrimming="CharacterEllipsis" />

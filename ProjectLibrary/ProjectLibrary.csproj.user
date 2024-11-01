@@ -44,10 +44,16 @@
     <Page Update="MVVM\View\RegView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\ResourceAuthRegistration.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\ResourceColors.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\ResourceElementStyles.xaml">
+    <Page Update="Styles\ResourceBase.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ResourceLibrary.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Utils\Components\PasswordBox.xaml">

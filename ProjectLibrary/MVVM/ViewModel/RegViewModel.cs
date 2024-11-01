@@ -82,10 +82,20 @@ namespace ProjectLibrary.MVVM.ViewModel
                 onPropertyChanged();
             }
         }
-        private RelayCommand registraionCommand;
-
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
+        private RelayCommand backButtonToAuth;
+        public RelayCommand BackButtonToAuth
+        {
+            get
+            {
+                return backButtonToAuth ??= new RelayCommand(obj =>
+                {
+                    Navigation.NavigateTo<AuthViewModel>();
+                }, obj => true);
+            }
+        }
+        private RelayCommand registraionCommand;
         public RelayCommand RegistraionCommand
         {
             get

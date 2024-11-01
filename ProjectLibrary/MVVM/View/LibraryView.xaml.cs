@@ -29,5 +29,6 @@ namespace ProjectLibrary.MVVM.View
         {
              DropdownPopup.IsOpen = !DropdownPopup.IsOpen;
         }
+
     }
 }

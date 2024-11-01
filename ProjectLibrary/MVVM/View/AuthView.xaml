@@ -43,7 +43,7 @@
                         Height="42"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Foreground="{StaticResource MainTextColor}"
+                        Foreground="{StaticResource MainTextColorBrush}"
                         Kind="WhiteBook" />
                     <Label
                         HorizontalAlignment="Center"
@@ -95,7 +95,7 @@
                                         Width="18"
                                         Height="18"
                                         VerticalAlignment="Center"
-                                        Foreground="{StaticResource SecondTextColor}"
+                                        Foreground="{StaticResource SecondTextColorBrush}"
                                         Kind="LockLine" />
                                     <ScrollViewer
                                         x:Name="PART_ContentHost"
@@ -124,14 +124,88 @@
                                     <Setter TargetName="WaterMarkLabel" Property="Visibility" Value="Visible" />
                                 </MultiTrigger>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColorBrush}" />
-                                    <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
-                                    <Setter TargetName="Icon" Property="Foreground" Value="{StaticResource MainTextColor}" />
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="txtBorder"
+                                                    Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                    To="{StaticResource HoverBackgroundColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="Icon"
+                                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource MainTextColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource MainTextColor}"
+                                                    Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="txtBorder"
+                                                    Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                    To="{StaticResource HighLightBackgroundColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="Icon"
+                                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource SecondTextColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource SecondTextColor}"
+                                                    Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
                                 </Trigger>
                                 <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColorBrush}" />
-                                    <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
-                                    <Setter TargetName="Icon" Property="Foreground" Value="{StaticResource MainTextColor}" />
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="txtBorder"
+                                                    Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                    To="{StaticResource HoverBackgroundColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="Icon"
+                                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource MainTextColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource MainTextColor}"
+                                                    Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="txtBorder"
+                                                    Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                    To="{StaticResource HighLightBackgroundColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="Icon"
+                                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource SecondTextColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource SecondTextColor}"
+                                                    Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -163,7 +237,7 @@
                                         Width="18"
                                         Height="18"
                                         VerticalAlignment="Center"
-                                        Foreground="{StaticResource SecondTextColor}"
+                                        Foreground="{StaticResource SecondTextColorBrush}"
                                         Kind="Key2Line" />
                                     <ScrollViewer
                                         x:Name="PART_ContentHost"
@@ -191,14 +265,88 @@
                                     <Setter TargetName="WaterMarkLabel" Property="Visibility" Value="Visible" />
                                 </MultiTrigger>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColorBrush}" />
-                                    <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
-                                    <Setter TargetName="Icon" Property="Foreground" Value="{StaticResource MainTextColor}" />
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="txtBorder"
+                                                    Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                    To="{StaticResource HoverBackgroundColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="Icon"
+                                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource MainTextColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource MainTextColor}"
+                                                    Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="txtBorder"
+                                                    Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                    To="{StaticResource HighLightBackgroundColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="Icon"
+                                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource SecondTextColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource SecondTextColor}"
+                                                    Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
                                 </Trigger>
                                 <Trigger Property="IsKeyboardFocused" Value="True">
-                                    <Setter Property="BorderBrush" Value="{StaticResource HoverBackgroundColorBrush}" />
-                                    <Setter Property="Foreground" Value="{StaticResource MainTextColor}" />
-                                    <Setter TargetName="Icon" Property="Foreground" Value="{StaticResource MainTextColor}" />
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="txtBorder"
+                                                    Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                    To="{StaticResource HoverBackgroundColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="Icon"
+                                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource MainTextColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource MainTextColor}"
+                                                    Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="txtBorder"
+                                                    Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                                    To="{StaticResource HighLightBackgroundColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetName="Icon"
+                                                    Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource SecondTextColor}"
+                                                    Duration="0:0:0.2" />
+                                                <ColorAnimation
+                                                    Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)"
+                                                    To="{StaticResource SecondTextColor}"
+                                                    Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
