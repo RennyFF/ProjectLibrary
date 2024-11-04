@@ -43,4 +43,32 @@ namespace ProjectLibrary.Utils
             CurrentView = ViewModel;
         }
     }
+    public interface ILibraryNavigationService
+    {
+        Core.BaseViewModel CurrentLibraryView { get; }
+        void NavigateLibraryTo<T>(object Param = null) where T : Core.BaseViewModel;
+    }
+    public class LibraryNavigationService : ObservableObject, ILibraryNavigationService
+    {
+        private Core.BaseViewModel _currentLibraryView;
+        private readonly Func<Type, Core.BaseViewModel> _viewModelFactory;
+
+        public Core.BaseViewModel CurrentLibraryView
+        {
+            get { return _currentLibraryView; }
+            private set { _currentLibraryView = value; onPropertyChanged(); }
+        }
+
+
+        public LibraryNavigationService(Func<Type, Core.BaseViewModel> viewModelFactory)
+        {
+            _viewModelFactory = viewModelFactory;
+        }
+
+        public void NavigateLibraryTo<TViewModel>(object Param = null) where TViewModel : Core.BaseViewModel
+        {
+            Core.BaseViewModel ViewModel = _viewModelFactory.Invoke(typeof(TViewModel));
+            CurrentLibraryView = ViewModel;
+        }
+    }
 }

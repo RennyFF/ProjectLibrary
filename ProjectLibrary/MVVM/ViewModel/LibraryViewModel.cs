@@ -57,9 +57,21 @@ namespace ProjectLibrary.MVVM.ViewModel
                 onPropertyChanged();
             }
         }
-        public LibraryViewModel(INavigationService navService)
+
+        private ILibraryNavigationService _libraryNavigation;
+        public ILibraryNavigationService LibraryNavigation
         {
-            Navigation = navService;
+            get => _libraryNavigation;
+            set
+            {
+                _libraryNavigation = value;
+                onPropertyChanged();
+            }
+        }
+        public LibraryViewModel(ILibraryNavigationService libraryNavService, INavigationService navservice)
+        {
+            LibraryNavigation = libraryNavService;
+            Navigation = navservice;
         }
     }
 }

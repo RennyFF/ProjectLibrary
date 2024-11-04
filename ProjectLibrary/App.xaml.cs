@@ -32,6 +32,7 @@ namespace ProjectLibrary
             services.AddSingleton<RegViewModel>();
             services.AddSingleton<LibraryViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
+            services.AddSingleton<ILibraryNavigationService, LibraryNavigationService>();
 
             services.AddSingleton<Func<Type, Core.BaseViewModel>>(serviceProvider =>
                 viewModelType => (Core.BaseViewModel)serviceProvider.GetRequiredService(viewModelType));
