@@ -2,6 +2,7 @@
 using ProjectLibrary.Core;
 using ProjectLibrary.MVVM.View;
 using ProjectLibrary.Utils;
+using ProjectLibrary.Utils.Converters;
 using ProjectLibrary.Utils.Types;
 using System;
 using System.Collections.Generic;

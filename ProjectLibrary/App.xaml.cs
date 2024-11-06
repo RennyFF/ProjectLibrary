@@ -31,6 +31,7 @@ namespace ProjectLibrary
             services.AddSingleton<AuthViewModel>();
             services.AddSingleton<RegViewModel>();
             services.AddSingleton<LibraryViewModel>();
+            services.AddSingleton<LibraryMainPageViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<ILibraryNavigationService, LibraryNavigationService>();
 

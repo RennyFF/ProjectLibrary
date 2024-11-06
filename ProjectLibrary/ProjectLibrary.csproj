@@ -17,9 +17,13 @@
     <None Remove="Resources\Font\Inter-Medium.ttf" />
     <None Remove="Resources\Font\Inter-Regular.ttf" />
     <None Remove="Resources\Font\Inter-SemiBold.ttf" />
+    <None Remove="Resources\meow.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\meow.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Font\Inter-Regular.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

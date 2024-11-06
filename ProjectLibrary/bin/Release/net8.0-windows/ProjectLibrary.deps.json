@@ -1,0 +1,1044 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ProjectLibrary/1.0.0": {
+        "dependencies": {
+          "FluentValidation": "11.10.0",
+          "MahApps.Metro.IconPacks": "5.1.0",
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.10"
+        },
+        "runtime": {
+          "ProjectLibrary.dll": {}
+        }
+      },
+      "FluentValidation/11.10.0": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.10.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.BootstrapIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.BoxIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.CircumIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.Codicons": "5.1.0",
+          "MahApps.Metro.IconPacks.Coolicons": "5.1.0",
+          "MahApps.Metro.IconPacks.Core": "5.1.0",
+          "MahApps.Metro.IconPacks.Entypo": "5.1.0",
+          "MahApps.Metro.IconPacks.EvaIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.FeatherIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.FileIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.FontAwesome": "5.1.0",
+          "MahApps.Metro.IconPacks.Fontaudio": "5.1.0",
+          "MahApps.Metro.IconPacks.Fontisto": "5.1.0",
+          "MahApps.Metro.IconPacks.ForkAwesome": "5.1.0",
+          "MahApps.Metro.IconPacks.GameIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.Ionicons": "5.1.0",
+          "MahApps.Metro.IconPacks.JamIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.Lucide": "5.1.0",
+          "MahApps.Metro.IconPacks.Material": "5.1.0",
+          "MahApps.Metro.IconPacks.MaterialDesign": "5.1.0",
+          "MahApps.Metro.IconPacks.MaterialLight": "5.1.0",
+          "MahApps.Metro.IconPacks.MemoryIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.Microns": "5.1.0",
+          "MahApps.Metro.IconPacks.Modern": "5.1.0",
+          "MahApps.Metro.IconPacks.Octicons": "5.1.0",
+          "MahApps.Metro.IconPacks.PhosphorIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.PicolIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.PixelartIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.RPGAwesome": "5.1.0",
+          "MahApps.Metro.IconPacks.RadixIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.RemixIcon": "5.1.0",
+          "MahApps.Metro.IconPacks.SimpleIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.Typicons": "5.1.0",
+          "MahApps.Metro.IconPacks.Unicons": "5.1.0",
+          "MahApps.Metro.IconPacks.VaadinIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.WeatherIcons": "5.1.0",
+          "MahApps.Metro.IconPacks.Zondicons": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.BootstrapIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.BootstrapIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.BoxIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.BoxIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.CircumIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.CircumIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Codicons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Codicons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Coolicons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Coolicons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Core/5.1.0": {
+        "dependencies": {
+          "System.Text.Json": "8.0.5"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Core.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Entypo/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Entypo.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.EvaIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.EvaIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.FeatherIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.FeatherIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.FileIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.FileIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Fontaudio/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Fontaudio.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.FontAwesome/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.FontAwesome.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Fontisto/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Fontisto.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.ForkAwesome/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.ForkAwesome.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.GameIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.GameIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Ionicons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Ionicons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.JamIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.JamIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Lucide/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Lucide.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Material/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Material.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.MaterialDesign/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.MaterialDesign.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.MaterialLight/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.MaterialLight.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.MemoryIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.MemoryIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Microns/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Microns.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Modern/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Modern.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Octicons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Octicons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.PhosphorIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.PhosphorIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.PicolIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.PicolIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.PixelartIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.PixelartIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.RadixIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.RadixIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.RemixIcon/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.RemixIcon.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.RPGAwesome/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.RPGAwesome.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.SimpleIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.SimpleIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Typicons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Typicons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Unicons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Unicons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.VaadinIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.VaadinIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.WeatherIcons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.WeatherIcons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "MahApps.Metro.IconPacks.Zondicons/5.1.0": {
+        "dependencies": {
+          "MahApps.Metro.IconPacks.Core": "5.1.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/MahApps.Metro.IconPacks.Zondicons.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore/8.0.10": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.10",
+          "Microsoft.EntityFrameworkCore.Analyzers": "8.0.10",
+          "Microsoft.Extensions.Caching.Memory": "8.0.1",
+          "Microsoft.Extensions.Logging": "8.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.dll": {
+            "assemblyVersion": "8.0.10.0",
+            "fileVersion": "8.0.1024.46708"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/8.0.10": {
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "8.0.10.0",
+            "fileVersion": "8.0.1024.46708"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Analyzers/8.0.10": {},
+      "Microsoft.EntityFrameworkCore.Relational/8.0.10": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.10",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "assemblyVersion": "8.0.10.0",
+            "fileVersion": "8.0.1024.46708"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options/8.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Options.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.224.6711"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/8.0.0": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "Npgsql/8.0.5": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.dll": {
+            "assemblyVersion": "8.0.5.0",
+            "fileVersion": "8.0.5.0"
+          }
+        }
+      },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/8.0.10": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.10",
+          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.10",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.10",
+          "Npgsql": "8.0.5"
+        },
+        "runtime": {
+          "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "assemblyVersion": "8.0.10.0",
+            "fileVersion": "8.0.10.0"
+          }
+        }
+      },
+      "System.Text.Json/8.0.5": {
+        "runtime": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProjectLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FluentValidation/11.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qsJGSJDdZ8qiG+lVJ70PZfJHcEdq8UQZ/tZDXoj78/iHKG6lVKtMJsD11zyyv/IPc7rwqGqnFoFLTNzpo3IPYg==",
+      "path": "fluentvalidation/11.10.0",
+      "hashPath": "fluentvalidation.11.10.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+R8cYdrG+xvHeYoiNh/K2mZLBP9+x6b8odEei+eGy2/DJvtwZw1G9fXjwO43X5pEkmyJLLeNchKIBadY7qn2zA==",
+      "path": "mahapps.metro.iconpacks/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.BootstrapIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wdJqJbbko/lwFQvQhhnq2+cWW3KT5RyQ01brukJ+Xl4KxTsNv7ClGTLqFesG1gp+O81mIK6trjCnQgt3d1TnGQ==",
+      "path": "mahapps.metro.iconpacks.bootstrapicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.bootstrapicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.BoxIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FcpJ8PZ6g6Vk/4ORknsb62AL22Gh+woWFUOp6FAs/msyTgCwz0xMEuLj+wVnvy4AK1JRzqAWfJciYC8zgtjtMw==",
+      "path": "mahapps.metro.iconpacks.boxicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.boxicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.CircumIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YFUrBWVcCWZsLdWvFGN8m4XngakVhKpjRo62Ps7WaRnA3D8x0gMLpY+3lmgr42O3gIIUWjJ7u+UKKaAty4tUOg==",
+      "path": "mahapps.metro.iconpacks.circumicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.circumicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Codicons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z8aIgtHRW9kxqxv+W/Pg1dyRTlLhmVjGCOnpCfa2hmRg/pNxBCcVSTa6zKOnB1zitW8u4HA50mchUoFzGuzC6g==",
+      "path": "mahapps.metro.iconpacks.codicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.codicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Coolicons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TqaeiTMhWZKXHB42sKc2bpBOKDK6m0dJzYtyBPdCsn+kYbxFSvpGlNOxWQ0iuDyfbo+Ouksxs6PH0G2QDPz+Ow==",
+      "path": "mahapps.metro.iconpacks.coolicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.coolicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Core/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DBvN+gsmx5iryZO4VCcrYH1iaV1o5Qwed+IZ4bElvfRqUcNs3+sqA6Y2lPYdzLDDtuEZ681fkWyEzlxe5f1pcQ==",
+      "path": "mahapps.metro.iconpacks.core/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.core.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Entypo/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ePuwcIy6VDuD3Kc5Opu4dfCsdnt4Z2zImhas3UXnwj/tCpq6GFT8cI1MraWOhUaf5lhokHFsS2033qrPuhIupQ==",
+      "path": "mahapps.metro.iconpacks.entypo/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.entypo.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.EvaIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6JFvb9TTSbaKjHKFOWzroSqm+9RlagJJbOMNIo4va2wYWOdZT62Gjx+txW4gbRMlODV9lolQeUgikkm3I/M9ng==",
+      "path": "mahapps.metro.iconpacks.evaicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.evaicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.FeatherIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fuBDFMn2YUMVex12yDXdh+H1Fp1XzqaF66omMweiS7SkELPQeE7e9CXI9kXe6XQZvgwqRz2um4KbpHH1JZiyUw==",
+      "path": "mahapps.metro.iconpacks.feathericons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.feathericons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.FileIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GrfKti0Z626E9fu9zpiPK3hCchwR8hcWy9vn75wTR4lQAq++22a1k4b3b3BGHXDSYqtP9+WolnQR6fiTrLPMkQ==",
+      "path": "mahapps.metro.iconpacks.fileicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.fileicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Fontaudio/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k9ttxX1LYz7IKXANBbdPWz9x/1Qn8jwki+N67+Vw9S8hanIrKZuoT63fqioRvmw+aHAmSuk2g1+uffydS9Ef6g==",
+      "path": "mahapps.metro.iconpacks.fontaudio/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.fontaudio.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.FontAwesome/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MZu5L29vYg97rXxvqOwDJAlmyq7gn0Vt07GdRdC0+DEY5uLBmutWOQPHexveE73X/m+1G4C5j4yZZ6SmjSWtvg==",
+      "path": "mahapps.metro.iconpacks.fontawesome/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.fontawesome.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Fontisto/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q2uwuZwCk6UOoVr3ks90PH2vWRchXCGzBSXJUvCxyQ2IUVNP0a1AL/fsYeB+sHtEDgsC7k/EXOgi4xJkk968Dg==",
+      "path": "mahapps.metro.iconpacks.fontisto/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.fontisto.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.ForkAwesome/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h9zsdYzXyA6ZpjqTg0ADnhTlxyCKzreBKgDS7cmO0aB1gBAt8dRYvuJGhYvcRlFbuY4GAXqBkfOVceQ5HbaFXw==",
+      "path": "mahapps.metro.iconpacks.forkawesome/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.forkawesome.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.GameIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-poBiGz9rPGOjgxNu+XhEYQZXJFQ0AAzN3lbgxyKxmg2Q8OdRVeIhw1I6aFBHOPcEiVpGLXRu+6lLZU83iAZnCA==",
+      "path": "mahapps.metro.iconpacks.gameicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.gameicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Ionicons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TXM9az0HAdcF9UirpGbrZFCRs0UMFj7DBTnx/2EtiAwUV1rVpMmC0XhdbmlnDfCMuAGOUOYFueVb6Iah6FsHng==",
+      "path": "mahapps.metro.iconpacks.ionicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.ionicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.JamIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QPVveu9Me7ny+ewPmRv6/gWXCM43FO+iAcvd1OqNZLdwqVQem7gGACRBMxGYBqGk+hbbk0WzYkluAwiN/sNePA==",
+      "path": "mahapps.metro.iconpacks.jamicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.jamicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Lucide/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7nZgyQnpo3mkHagcVkI2VpcyPEau2QzP5ysem49hrFOIG8zp1AGOvitxoJAP2THK+MT8vYM9vreVuxJzSVDPNg==",
+      "path": "mahapps.metro.iconpacks.lucide/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.lucide.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Material/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RWh43z0Ddd3jS0ktXpU6Y2DbvaNV8gY8uBVfmOuy7LrRzcLhd0ywUkWQrH1F3m6ODIO1vgMI5vEcKgqXP58s9Q==",
+      "path": "mahapps.metro.iconpacks.material/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.material.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.MaterialDesign/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YPe3yCobg+HHTsDIKbOcWj/k+nZL/JZTekZmQGxdK2SLXRb66VF8bkB1/459Tu+1kvo7qS/QPwk8jofUIkhRPA==",
+      "path": "mahapps.metro.iconpacks.materialdesign/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.materialdesign.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.MaterialLight/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-887pN4nAIqVg+oS3O1MQY3lF4Xqj9vixNN4y4ji0wIWlZjUZoM0DeMnLo6eRSZSa1PC2k+SmOpXQWy3ahB/+Xg==",
+      "path": "mahapps.metro.iconpacks.materiallight/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.materiallight.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.MemoryIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vAEA+3xxMmKVHAd4SSuECVxOgG8BIrRaxMo43POAWka8P+H1oZZNheZtRnGa0nJvtcOzX630dke9DR0xQuo8HQ==",
+      "path": "mahapps.metro.iconpacks.memoryicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.memoryicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Microns/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UP8JY/5Vs2R/fFQacRGV0aAFbu1MUs1FHHC2zslVWiXuXvZN2X70vUWNXtmA8Ww58lpWAgpjXEh76nUxC0f2LQ==",
+      "path": "mahapps.metro.iconpacks.microns/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.microns.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Modern/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DdTbEAEv12OH8wi6Vle8jy1APeShdrCR5UPutL3QKkSplyZdy2Kr6rsr+6rocM+2eDe2vEMEllvljQXcV4NaEA==",
+      "path": "mahapps.metro.iconpacks.modern/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.modern.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Octicons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IWMwHnfQ70dbfmxasgm+smPZN8z2kkRY0UBpi+S+PJMTPdG0y3TKq2hOvoot8Ob0gqj2ecY+wUGjglBFHYrwVw==",
+      "path": "mahapps.metro.iconpacks.octicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.octicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.PhosphorIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-d1h663ZWkacOOBZyL/6kOTh+mX58zhsLdEqTSLnQQLtkz3FJ3cugdj2wZIm3mPpj3UMuJFgfnt5aMnvO+AZhIg==",
+      "path": "mahapps.metro.iconpacks.phosphoricons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.phosphoricons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.PicolIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1gpm7uLF2CIxlV5I2T/oq7Fc+94WeB53ulCwjEN+Itz1oZtlcd98hqVHCByWwpf9kQCf6iDpmExO7LvwLIaNNQ==",
+      "path": "mahapps.metro.iconpacks.picolicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.picolicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.PixelartIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5ciUi0PsIvfuOjxWQjTrbYPC1Hzdyxhpqwm9cP/+8D8JmxT5o7GdOQ361murKtXeY20DH36l0sXZFTixPKoEtQ==",
+      "path": "mahapps.metro.iconpacks.pixelarticons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.pixelarticons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.RadixIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y6f+8tZfmprzKyYXM6xqf+BbayMIwofN7ix+FJxtreU7Z4/X6y8YprFxhX5GU2zmSDtf0QxFLEtQsEPOikYhGw==",
+      "path": "mahapps.metro.iconpacks.radixicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.radixicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.RemixIcon/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MY5KqzmCFnq7D8cm0BR9dqLbEUz3ns2u7IpMAi/+G5daWMUM3CrXhNErx2vuEgeQi6AbkdHvtozEkV9BsiwQEA==",
+      "path": "mahapps.metro.iconpacks.remixicon/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.remixicon.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.RPGAwesome/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dX4t9A3V6GDzUFZ3h4I66k5KDnPNepGUwCC+8biMiWTmqGMTe++gcXFUhAjlUkm65VANIk4qdtwiXZjkMTMWmA==",
+      "path": "mahapps.metro.iconpacks.rpgawesome/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.rpgawesome.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.SimpleIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-m3tdU4BzVHSpI8AfPXYHDm9VgLClgaHdhyGKvOlLFPmBPF8bT2ib26oldIFgZTensxDVy5Xq3FO/WI0ANR6n8Q==",
+      "path": "mahapps.metro.iconpacks.simpleicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.simpleicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Typicons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-A3yLUxyJgJ5RDcFkA3VPI43l8vMDeIVUcSwfqbTHvuskjwdGF4whOENEIb6Y8085ZszETZsyDogvvk5khBvw6g==",
+      "path": "mahapps.metro.iconpacks.typicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.typicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Unicons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OZpt9quy7spHNcoNcuLXYBEaggUvDVQzrjw8ZaQnNDyqvT2IY/4EHAdYcrPXMhPSJGMYCxRB6uwSxsRKR9jMyA==",
+      "path": "mahapps.metro.iconpacks.unicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.unicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.VaadinIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4uzL65rIPuJtO1F1/5Pv4yMtOaonBROYho8VyJ+ifWbQzF7n+ElmEHQin0ntuIOmpB8bmb+2THptsRA+ICZxjA==",
+      "path": "mahapps.metro.iconpacks.vaadinicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.vaadinicons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.WeatherIcons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-McjFxvUcYo03Imut0/nxTrIfJyV7FR4V1ShDke427aNMTSLQ1+MYbVoX8XNPd2i6iXL5rO6qDnyIRYKsGxystA==",
+      "path": "mahapps.metro.iconpacks.weathericons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.weathericons.5.1.0.nupkg.sha512"
+    },
+    "MahApps.Metro.IconPacks.Zondicons/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EiSwb2763RiczWsbeJJ+8TuZOW4wXGNAF0a8MAULNyCd7CREgjzKNB+vxXqEMXbVYhM5VcAtZSddQB/EhEuBsQ==",
+      "path": "mahapps.metro.iconpacks.zondicons/5.1.0",
+      "hashPath": "mahapps.metro.iconpacks.zondicons.5.1.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore/8.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PPkQdIqfR1nU3n6YgGGDk8G+eaYbaAKM1AzIQtlPNTKf10Osg3N9T+iK9AlnSA/ujsK00flPpFHVfJrbuBFS1A==",
+      "path": "microsoft.entityframeworkcore/8.0.10",
+      "hashPath": "microsoft.entityframeworkcore.8.0.10.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/8.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FV0QlcX9INY4kAD2o72uPtyOh0nZut2jB11Jf9mNYBtHay8gDLe+x4AbXFwuQg+eSvofjT7naV82e827zGfyMg==",
+      "path": "microsoft.entityframeworkcore.abstractions/8.0.10",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.8.0.10.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Analyzers/8.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-51KkPIc0EMv/gVXhPIUi6cwJE9Mvh+PLr4Lap4naLcsoGZ0lF2SvOPgUUprwRV3MnN7nyD1XPhT5RJ/p+xFAXw==",
+      "path": "microsoft.entityframeworkcore.analyzers/8.0.10",
+      "hashPath": "microsoft.entityframeworkcore.analyzers.8.0.10.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Relational/8.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OefBEE47kGKPRPV3OT+FAW6o5BFgLk2D9EoeWVy7NbOepzUneayLQxbVE098FfedTyMwxvZQoDD9LrvZc3MadA==",
+      "path": "microsoft.entityframeworkcore.relational/8.0.10",
+      "hashPath": "microsoft.entityframeworkcore.relational.8.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3KuSxeHoNYdxVYfg2IRZCThcrlJ1XJqIXkAWikCsbm5C/bCjv7G0WoKDyuR98Q+T607QT2Zl5GsbGRkENcV2yQ==",
+      "path": "microsoft.extensions.caching.abstractions/8.0.0",
+      "hashPath": "microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Caching.Memory/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HFDnhYLccngrzyGgHkjEDU5FMLn4MpOsr5ElgsBMC4yx6lJh4jeWO7fHS8+TXPq+dgxCmUa/Trl8svObmwW4QA==",
+      "path": "microsoft.extensions.caching.memory/8.0.1",
+      "hashPath": "microsoft.extensions.caching.memory.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3lE/iLSutpgX1CC0NOW70FJoGARRHbyKmG7dc0klnUZ9Dd9hS6N/POPWhKhMLCEuNN5nXEY5agmlFtH562vqhQ==",
+      "path": "microsoft.extensions.configuration.abstractions/8.0.0",
+      "hashPath": "microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BmANAnR5Xd4Oqw7yQ75xOAYODybZQRzdeNucg7kS5wWKd2PNnMdYtJ2Vciy0QLylRmv42DGl5+AFL9izA6F1Rw==",
+      "path": "microsoft.extensions.dependencyinjection/8.0.1",
+      "hashPath": "microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4x+pzsQEbqxhNf1QYRr5TDkLP9UsLT3A6MdRKDDEgrW7h1ljiEPgTNhKYUhNCCAaVpQECVQ+onA91PTPnIp6Lw==",
+      "path": "microsoft.extensions.logging/8.0.1",
+      "hashPath": "microsoft.extensions.logging.8.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nroMDjS7hNBPtkZqVBbSiQaQjWRDxITI8Y7XnDs97rqG3EbzVTNLZQf7bIeUJcaHOV8bca47s1Uxq94+2oGdxA==",
+      "path": "microsoft.extensions.logging.abstractions/8.0.2",
+      "hashPath": "microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dWGKvhFybsaZpGmzkGCbNNwBD1rVlWzrZKANLW/CcbFJpCEceMCGzT7zZwHOGBCbwM0SzBuceMj5HN1LKV1QqA==",
+      "path": "microsoft.extensions.options/8.0.2",
+      "hashPath": "microsoft.extensions.options.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
+      "path": "microsoft.extensions.primitives/8.0.0",
+      "hashPath": "microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    },
+    "Npgsql/8.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zRG5V8cyeZLpzJlKzFKjEwkRMYIYnHWJvEor2lWXeccS2E1G2nIWYYhnukB51iz5XsWSVEtqg3AxTWM0QJ6vfg==",
+      "path": "npgsql/8.0.5",
+      "hashPath": "npgsql.8.0.5.nupkg.sha512"
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/8.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gFPl9Dmxih7Yi4tZ3bITzZFzbxFMBx04gqTqcjoL2r5VEW+O2TA5UVw/wm/XW26NAJ7sg59Je0+9QrwiZt6MPQ==",
+      "path": "npgsql.entityframeworkcore.postgresql/8.0.10",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.8.0.10.nupkg.sha512"
+    },
+    "System.Text.Json/8.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0f1B50Ss7rqxXiaBJyzUu9bWFOO2/zSlifZ/UNMdiIpDYe4cY4LQQicP4nirK1OS31I43rn062UIJ1Q9bpmHpg==",
+      "path": "system.text.json/8.0.5",
+      "hashPath": "system.text.json.8.0.5.nupkg.sha512"
+    }
+  }
+}

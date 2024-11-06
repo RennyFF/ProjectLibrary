@@ -6,19 +6,20 @@
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:ProjectLibrary.MVVM.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:utils="clr-namespace:ProjectLibrary.Utils"
+    xmlns:utils="clr-namespace:ProjectLibrary.Utils.Converters"
     xmlns:viewmodel="clr-namespace:ProjectLibrary.MVVM.ViewModel"
     d:DataContext="{d:DesignInstance Type=viewmodel:LibraryViewModel}"
     d:DesignHeight="770"
     d:DesignWidth="1200"
     Background="Transparent"
+    SizeChanged="ListBox_SizeChanged"
     mc:Ignorable="d">
     <UserControl.Resources>
         <utils:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
-    <Grid Background="{StaticResource MainBackgroundColorBrush}">
+    <Grid Margin="20,0,20,20" Background="{StaticResource MainBackgroundColorBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="250" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -31,7 +32,7 @@
             Grid.Row="0"
             Grid.Column="1"
             Height="60"
-            Margin="10,0,20,0"
+            Margin="20,0,0,0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
             Background="{StaticResource SecondBackgroundColorBrush}"
@@ -76,11 +77,13 @@
                     PlacementTarget="{Binding ElementName=AccountInfo}"
                     PopupAnimation="Slide"
                     StaysOpen="False"
-                    VerticalOffset="65">
+                    VerticalOffset="67">
                     <Border
                         Width="120"
                         Padding="10"
                         Background="{StaticResource SecondBackgroundColorBrush}"
+                        BorderBrush="{StaticResource HoverBackgroundColorBrush}"
+                        BorderThickness="0.5"
                         CornerRadius="8">
                         <StackPanel>
                             <Button
@@ -104,10 +107,10 @@
             Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="0.35*" />
             </Grid.RowDefinitions>
             <Border
-                Margin="40,0,0,0"
+                Margin="0,0,0,0"
                 Background="{StaticResource SecondBackgroundColorBrush}"
                 CornerRadius="16">
                 <Grid>
@@ -143,6 +146,7 @@
                         <RadioButton
                             Command="{Binding NavigateHomeCommand}"
                             GroupName="MenuButtons"
+                            IsChecked="True"
                             Style="{StaticResource MenuButton}">
                             <StackPanel
                                 HorizontalAlignment="Left"
@@ -227,13 +231,13 @@
 
             <Border
                 Grid.Row="1"
-                Height="180"
-                Margin="40,20,0,20"
+                Height="auto"
+                Margin="0,20,0,0"
                 Background="{StaticResource SecondBackgroundColorBrush}"
                 CornerRadius="16">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="40" />
+                        <RowDefinition Height="50" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <Label
@@ -260,7 +264,7 @@
                                 Kind="StarHalfOutline" />
                             <StackPanel.Style>
                                 <Style TargetType="StackPanel">
-                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Setter Property="Visibility" Value="Hidden" />
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding FavoriteGenreNames.Count}" Value="0">
                                             <Setter Property="Visibility" Value="Visible" />
@@ -270,11 +274,11 @@
                             </StackPanel.Style>
                         </StackPanel>
                         <ListBox
-                            Width="260"
-                            Margin="0,0,0,10"
+                            x:Name="FavGenreListBox"
+                            Margin="10,0,10,20"
+                            Padding="0,0,0,10"
                             HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            VerticalContentAlignment="Center"
+                            VerticalAlignment="Stretch"
                             Background="{StaticResource SecondBackgroundColorBrush}"
                             BorderThickness="0"
                             ItemContainerStyle="{StaticResource BestGenreListBox}"
@@ -317,10 +321,13 @@
                 </Grid>
             </Border>
         </Grid>
-        <ContentControl
+        <Border
             Grid.Row="1"
             Grid.Column="1"
-            Margin="10"
-            Content="{Binding LibraryNavigation.CurrentLibraryView}" />
+            Margin="20,10,0,0"
+            Background="{StaticResource SecondBackgroundColorBrush}"
+            CornerRadius="16">
+            <ContentControl Content="{Binding LibraryNavigation.CurrentLibraryView}" />
+        </Border>
     </Grid>
 </UserControl>

@@ -18,10 +18,16 @@
     <Compile Update="MVVM\View\DialogWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\LibraryMainPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\LibraryView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\View\RegView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utils\Components\CustomView\BookCard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Utils\Components\PasswordBox.xaml.cs">
@@ -36,6 +42,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\DialogWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\LibraryMainPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\LibraryView.xaml">
@@ -54,6 +63,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ResourceLibrary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utils\Components\CustomView\BookCard.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Utils\Components\PasswordBox.xaml">

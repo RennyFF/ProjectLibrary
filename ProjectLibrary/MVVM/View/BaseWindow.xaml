@@ -24,12 +24,11 @@
             x:Name="DragArea"
             Grid.Row="0"
             Height="auto"
-            VerticalAlignment="Top"
+            VerticalAlignment="Bottom"
             Background="{StaticResource MainBackgroundColorBrush}"
             MouseDown="DragArea_MouseDown">
             <StackPanel
                 x:Name="Tools"
-                Height="auto"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Orientation="Horizontal">

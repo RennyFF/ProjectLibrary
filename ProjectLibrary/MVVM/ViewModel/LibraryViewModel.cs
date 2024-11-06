@@ -15,13 +15,34 @@ namespace ProjectLibrary.MVVM.ViewModel
 {
     class LibraryViewModel : Core.BaseViewModel
     {
+        private double listBoxHeight;
+        public double ListBoxHeight
+        {
+            get => listBoxHeight;
+            set
+            {
+                listBoxHeight = value;
+                UpdateVisibleFavoriteGenres();
+                onPropertyChanged();
+            }
+        }
+        private void UpdateVisibleFavoriteGenres()
+        {
+            int visibleCount = (int)(ListBoxHeight / 40);
+            FavoriteGenreNames = CurrentUser.ClickedGenres != null
+                ? new ObservableCollection<Genre>(CurrentUser.ClickedGenres
+                    .OrderBy(i => i.ClickedCountity)
+                    .Take(visibleCount))
+                : new ObservableCollection<Genre>();
+        }
+
         private User currentUser;
         public User CurrentUser
         {
             get { return currentUser; }
-            set { currentUser = value; FavoriteGenreNames = CurrentUser.ClickedGenres != null ? new ObservableCollection<Genre>(CurrentUser.ClickedGenres.OrderBy(i => i.ClickedCountity).Take(3)) : new ObservableCollection<Genre>(); onPropertyChanged(); }
+            set { currentUser = value; UpdateVisibleFavoriteGenres(); onPropertyChanged(); }
         }
-        private ObservableCollection<Genre> favoriteGenreNames;
+        private ObservableCollection<Genre> favoriteGenreNames = new ObservableCollection<Genre>();
         public ObservableCollection<Genre> FavoriteGenreNames
         {
             get { return favoriteGenreNames; }
@@ -72,6 +93,7 @@ namespace ProjectLibrary.MVVM.ViewModel
         {
             LibraryNavigation = libraryNavService;
             Navigation = navservice;
+            LibraryNavigation.NavigateLibraryTo<LibraryMainPageViewModel>();
         }
     }
 }

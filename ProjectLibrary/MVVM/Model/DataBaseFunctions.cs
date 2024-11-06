@@ -1,6 +1,8 @@
 ﻿using Npgsql;
-using ProjectLibrary.Utils;
+using ProjectLibrary.Utils.Converters;
 using ProjectLibrary.Utils.Types;
+using System.Data;
+using System.IO;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ProjectLibrary.MVVM.Model
@@ -32,8 +34,8 @@ namespace ProjectLibrary.MVVM.Model
                         Login = Reader.GetString(5),
                         PasswordHash = Reader.GetString(6),
                         BirthdayDate = Reader.GetDateTime(7),
-                        DateOfCreation = Utils.UnixTimeConverter.TimeStampToDateTime(Reader.GetInt32(8)),
-                        LastUpdated = Utils.UnixTimeConverter.TimeStampToDateTime(Reader.GetInt32(9)),
+                        DateOfCreation = UnixTimeConverter.TimeStampToDateTime(Reader.GetInt32(8)),
+                        LastUpdated = UnixTimeConverter.TimeStampToDateTime(Reader.GetInt32(9)),
                         ClickedGenres = Utils.AddoptationGenres.FromStringToGenresList(Reader.IsDBNull(10) ? null : Reader.GetString(10), AllGenres),
                         LikedObjects = Reader.IsDBNull(11) ? null : Reader.GetString(11),
                         LastViewed = Reader.IsDBNull(12) ? null : Reader.GetString(12)
@@ -88,6 +90,19 @@ namespace ProjectLibrary.MVVM.Model
             command.Parameters.AddWithValue("@LastUpdated", UnixTimeConverter.DateTimeToTimeStamp(NewUser.LastUpdated));
             await command.ExecuteNonQueryAsync();
         }
+        public static async void AddBook(NpgsqlConnection Connection, Book NewBook)
+        {
+            string Query = "INSERT INTO \"MasterProjectLibrary\".\"Books\" " +
+                "(\"AuthorId\", \"GenreId\", \"PublicationDate\", \"PagesCount\", \"Image\") " +
+                "VALUES (@AuthorId, @GenreId, @PublicationDate, @PagesCount, @Image)";
+            using var command = new NpgsqlCommand(Query, Connection);
+            command.Parameters.AddWithValue("@AuthorId", NewBook.Author.Id);
+            command.Parameters.AddWithValue("@GenreId", 1);
+            command.Parameters.AddWithValue("@PublicationDate", NewBook.PublicationDate);
+            command.Parameters.AddWithValue("@PagesCount", NewBook.PagesCout);
+            command.Parameters.AddWithValue("@Image", File.ReadAllBytes(Directory.GetCurrentDirectory() + "/Resources/meow.jpg"));
+            await command.ExecuteNonQueryAsync();
+        }
 
         public async static Task<bool> CheckIfUnique(NpgsqlConnection Connection, bool IsLogin, string CheckingString)
         {
@@ -113,6 +128,54 @@ namespace ProjectLibrary.MVVM.Model
             catch (Exception ex)
             {
                 return true;
+            }
+        }
+
+        public async static Task<List<Book>> GetAllBooks(NpgsqlConnection Connection)
+        {
+            string query = $"SELECT book.\"Id\", author.\"Id\", author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
+                $"genre.\"GenreName\", book.\"PublicationDate\", book.\"PagesCount\", book.\"Image\", book.\"Title\" " +
+                $"FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\" author on book.\"AuthorId\" = author.\"Id\" " +
+                $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\" " +
+                $"Where book.\"Id\" = '3'";
+            List<Book> AllBooks = new List<Book>();
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    var book = new Book
+                    {
+                        Id = Reader.GetInt32(0),
+                        Author = new Author() { Id = Reader.GetInt32(1), SecondName = Reader.GetString(2), FirstName = Reader.GetString(3), PatronomycName = Reader.GetString(4)},
+                        Genre = Reader.GetString(5),
+                        PublicationDate = Reader.GetDateTime(6),
+                        PagesCout = Reader.GetInt32(7),
+                        Image = (byte[])Reader["Image"],
+                        Title = Reader.GetString(9)
+                    };
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                    AllBooks.Add(book);
+                }
+                return AllBooks;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }
