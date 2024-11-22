@@ -1,6 +1,6 @@
 ﻿using ProjectLibrary.Core;
 using ProjectLibrary.MVVM.View;
-using ProjectLibrary.MVVM.ViewModel;
+using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.Utils.Types;
 using System;
 using System.Collections.Generic;

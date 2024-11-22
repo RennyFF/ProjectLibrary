@@ -15,5 +15,6 @@ namespace ProjectLibrary.Utils.Types
         public int PagesCout { get; set; }
         public byte[] Image { get; set; }
         public string Title { get; set; }
+        public DateTime AddedInDatabase { get; set; }
     }
 }

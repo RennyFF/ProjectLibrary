@@ -95,3 +95,10 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-win
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\ProjectLibrary.pdb
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\ProjectLibrary.genruntimeconfig.cache
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\ref\ProjectLibrary.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\CoreViews\AuthView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\CoreViews\BaseWindow.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\CoreViews\DialogWindow.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\CoreViews\LibraryView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\CoreViews\RegView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\LibraryViews\MainPageView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\Utils\Components\CustomView\BooksSlider.g.cs

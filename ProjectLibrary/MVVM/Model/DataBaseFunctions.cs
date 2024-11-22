@@ -93,14 +93,25 @@ namespace ProjectLibrary.MVVM.Model
         public static async void AddBook(NpgsqlConnection Connection, Book NewBook)
         {
             string Query = "INSERT INTO \"MasterProjectLibrary\".\"Books\" " +
-                "(\"AuthorId\", \"GenreId\", \"PublicationDate\", \"PagesCount\", \"Image\") " +
-                "VALUES (@AuthorId, @GenreId, @PublicationDate, @PagesCount, @Image)";
+                "(\"AuthorId\", \"GenreId\", \"PublicationDate\", \"PagesCount\", \"Image\", \"AddedInDatabase\") " +
+                "VALUES (@AuthorId, @GenreId, @PublicationDate, @PagesCount, @Image, @AddedInDatabase)";
             using var command = new NpgsqlCommand(Query, Connection);
             command.Parameters.AddWithValue("@AuthorId", NewBook.Author.Id);
             command.Parameters.AddWithValue("@GenreId", 1);
             command.Parameters.AddWithValue("@PublicationDate", NewBook.PublicationDate);
             command.Parameters.AddWithValue("@PagesCount", NewBook.PagesCout);
-            command.Parameters.AddWithValue("@Image", File.ReadAllBytes(Directory.GetCurrentDirectory() + "/Resources/meow.jpg"));
+            command.Parameters.AddWithValue("@Image", File.ReadAllBytes(Directory.GetCurrentDirectory() + "\\Resources\\photo.png"));
+            command.Parameters.AddWithValue("@Image", File.ReadAllBytes(Directory.GetCurrentDirectory() + "\\Resources\\photo.png"));
+            await command.ExecuteNonQueryAsync();
+        }
+
+        public static async void UpdateBook(NpgsqlConnection Connection)
+        {
+            string Query = "UPDATE \"MasterProjectLibrary\".\"Books\" SET " +
+                $"\"Image\" = @Image " +
+                "WHERE \"Books\".\"Id\" = 3";
+            using var command = new NpgsqlCommand(Query, Connection);
+            command.Parameters.AddWithValue("@Image", File.ReadAllBytes(Directory.GetCurrentDirectory() + "\\Resources\\photo.png"));
             await command.ExecuteNonQueryAsync();
         }
 
@@ -134,7 +145,7 @@ namespace ProjectLibrary.MVVM.Model
         public async static Task<List<Book>> GetAllBooks(NpgsqlConnection Connection)
         {
             string query = $"SELECT book.\"Id\", author.\"Id\", author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
-                $"genre.\"GenreName\", book.\"PublicationDate\", book.\"PagesCount\", book.\"Image\", book.\"Title\" " +
+                $"genre.\"GenreName\", book.\"PublicationDate\", book.\"PagesCount\", book.\"Image\", book.\"Title\", book.\"AddedInDatabase\" " +
                 $"FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\" author on book.\"AuthorId\" = author.\"Id\" " +
                 $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\" " +
                 $"Where book.\"Id\" = '3'";
@@ -148,12 +159,13 @@ namespace ProjectLibrary.MVVM.Model
                     var book = new Book
                     {
                         Id = Reader.GetInt32(0),
-                        Author = new Author() { Id = Reader.GetInt32(1), SecondName = Reader.GetString(2), FirstName = Reader.GetString(3), PatronomycName = Reader.GetString(4)},
+                        Author = new Author() { Id = Reader.GetInt32(1), SecondName = Reader.GetString(2), FirstName = Reader.GetString(3), PatronomycName = Reader.GetString(4) },
                         Genre = Reader.GetString(5),
                         PublicationDate = Reader.GetDateTime(6),
                         PagesCout = Reader.GetInt32(7),
                         Image = (byte[])Reader["Image"],
-                        Title = Reader.GetString(9)
+                        Title = Reader.GetString(9),
+                        AddedInDatabase = Reader.GetDateTime(10)
                     };
                     AllBooks.Add(book);
                     AllBooks.Add(book);

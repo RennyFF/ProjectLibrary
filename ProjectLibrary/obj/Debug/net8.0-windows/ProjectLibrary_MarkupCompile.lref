@@ -1,11 +1,11 @@
 ﻿
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\App.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\AuthView.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\BaseWindow.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\DialogWindow.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryMainPage.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryView.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\RegView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\AuthView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\BaseWindow.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\LibraryView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\RegView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\MainPageView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\BookCard.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\BooksSlider.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\PasswordBox.xaml;;
 

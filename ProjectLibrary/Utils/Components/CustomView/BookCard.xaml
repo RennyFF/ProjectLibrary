@@ -29,7 +29,9 @@
                             </Grid.RowDefinitions>
 
                             <Border Grid.Row="0" CornerRadius="8">
-                                <Image Source="{Binding ImageSource, ElementName=This, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill" />
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding ImageSource, ElementName=This, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill" />
+                                </Border.Background>
                             </Border>
                             <StackPanel
                                 Grid.Row="1"

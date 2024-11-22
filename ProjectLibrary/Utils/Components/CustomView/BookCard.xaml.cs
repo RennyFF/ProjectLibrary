@@ -25,13 +25,13 @@ namespace ProjectLibrary.Utils.Components.CustomView
         {
             InitializeComponent();
         }
-        public ImageSource ImageSource
+        public object ImageSource
         {
-            get => (ImageSource)GetValue(ImageSourceProperty);
+            get => (object)GetValue(ImageSourceProperty);
             set => SetValue(ImageSourceProperty, value);
         }
         public static readonly DependencyProperty ImageSourceProperty =
-            DependencyProperty.Register("ImageSource", typeof(ImageSource), typeof(BookCard));
+            DependencyProperty.Register("ImageSource", typeof(object), typeof(BookCard));
 
         public string Title
         {

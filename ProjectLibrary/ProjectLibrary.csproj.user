@@ -9,25 +9,28 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MVVM\View\AuthView.xaml.cs">
+    <Compile Update="MVVM\View\CoreViews\AuthView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\BaseWindow.xaml.cs">
+    <Compile Update="MVVM\View\CoreViews\BaseWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\DialogWindow.xaml.cs">
+    <Compile Update="MVVM\View\CoreViews\DialogWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\LibraryMainPage.xaml.cs">
+    <Compile Update="MVVM\View\CoreViews\LibraryView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\LibraryView.xaml.cs">
+    <Compile Update="MVVM\View\CoreViews\RegView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\RegView.xaml.cs">
+    <Compile Update="MVVM\View\LibraryViews\MainPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Utils\Components\CustomView\BookCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utils\Components\CustomView\BooksSlider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Utils\Components\PasswordBox.xaml.cs">
@@ -35,22 +38,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MVVM\View\AuthView.xaml">
+    <Page Update="MVVM\View\CoreViews\AuthView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\BaseWindow.xaml">
+    <Page Update="MVVM\View\CoreViews\BaseWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\DialogWindow.xaml">
+    <Page Update="MVVM\View\CoreViews\DialogWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\LibraryMainPage.xaml">
+    <Page Update="MVVM\View\CoreViews\LibraryView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\LibraryView.xaml">
+    <Page Update="MVVM\View\CoreViews\RegView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\RegView.xaml">
+    <Page Update="MVVM\View\LibraryViews\MainPageView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ResourceAuthRegistration.xaml">
@@ -66,6 +69,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Utils\Components\CustomView\BookCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utils\Components\CustomView\BooksSlider.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Utils\Components\PasswordBox.xaml">

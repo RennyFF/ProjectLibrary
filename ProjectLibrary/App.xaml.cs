@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
-using ProjectLibrary.MVVM.View;
-using ProjectLibrary.MVVM.ViewModel;
+using ProjectLibrary.MVVM.View.CoreViews;
+using ProjectLibrary.MVVM.ViewModel.CoreVMs;
+using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
 using System.Windows;
@@ -31,7 +32,7 @@ namespace ProjectLibrary
             services.AddSingleton<AuthViewModel>();
             services.AddSingleton<RegViewModel>();
             services.AddSingleton<LibraryViewModel>();
-            services.AddSingleton<LibraryMainPageViewModel>();
+            services.AddSingleton<MainViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<ILibraryNavigationService, LibraryNavigationService>();
 

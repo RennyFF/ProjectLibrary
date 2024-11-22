@@ -3,8 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:ProjectLibrary"
-    xmlns:view="clr-namespace:ProjectLibrary.MVVM.View"
-    xmlns:viewModel="clr-namespace:ProjectLibrary.MVVM.ViewModel">
+    xmlns:viewCores="clr-namespace:ProjectLibrary.MVVM.View.CoreViews"
+    xmlns:viewLibraries="clr-namespace:ProjectLibrary.MVVM.View.LibraryViews"
+    xmlns:viewModelCores="clr-namespace:ProjectLibrary.MVVM.ViewModel.CoreVMs"
+    xmlns:viewModelLibraries="clr-namespace:ProjectLibrary.MVVM.ViewModel.LibraryVMs">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -14,20 +16,22 @@
                 <ResourceDictionary Source="/Styles/ResourceAuthRegistration.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate DataType="{x:Type viewModel:AuthViewModel}">
-                <view:AuthView />
+            <DataTemplate DataType="{x:Type viewModelCores:AuthViewModel}">
+                <viewCores:AuthView />
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:RegViewModel}">
-                <view:RegView />
+            <DataTemplate DataType="{x:Type viewModelCores:RegViewModel}">
+                <viewCores:RegView />
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:LibraryViewModel}">
-                <view:LibraryView />
+            <DataTemplate DataType="{x:Type viewModelCores:LibraryViewModel}">
+                <viewCores:LibraryView />
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:LibraryMainPageViewModel}">
-                <view:LibraryMainPage />
+            <!--  Setting up dependency in Main Library  -->
+
+            <DataTemplate DataType="{x:Type viewModelLibraries:MainViewModel}">
+                <viewLibraries:MainPageView />
             </DataTemplate>
 
 

@@ -1,6 +1,12 @@
-﻿
-
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryMainPage.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryView.xaml;;
+﻿G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\GeneratedInternalTypeHelper.g.i.cs
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\App.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\AuthView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\BaseWindow.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\DialogWindow.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\LibraryView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\RegView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\MainPageView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\BookCard.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\BooksSlider.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\PasswordBox.xaml;;
 

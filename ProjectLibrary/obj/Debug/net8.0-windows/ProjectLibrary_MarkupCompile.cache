@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\App.xaml
-121583871686
+13-852398686
 
-341996638681
+35-393097731
 2511957159032
-MVVM\View\AuthView.xaml;MVVM\View\BaseWindow.xaml;MVVM\View\DialogWindow.xaml;MVVM\View\LibraryMainPage.xaml;MVVM\View\LibraryView.xaml;MVVM\View\RegView.xaml;Styles\ResourceAuthRegistration.xaml;Styles\ResourceBase.xaml;Styles\ResourceColors.xaml;Styles\ResourceLibrary.xaml;Utils\Components\CustomView\BookCard.xaml;Utils\Components\PasswordBox.xaml;
+MVVM\View\CoreViews\AuthView.xaml;MVVM\View\CoreViews\BaseWindow.xaml;MVVM\View\CoreViews\DialogWindow.xaml;MVVM\View\CoreViews\LibraryView.xaml;MVVM\View\CoreViews\RegView.xaml;MVVM\View\LibraryViews\MainPageView.xaml;Styles\ResourceAuthRegistration.xaml;Styles\ResourceBase.xaml;Styles\ResourceColors.xaml;Styles\ResourceLibrary.xaml;Utils\Components\CustomView\BookCard.xaml;Utils\Components\CustomView\BooksSlider.xaml;Utils\Components\PasswordBox.xaml;
 
 False
 

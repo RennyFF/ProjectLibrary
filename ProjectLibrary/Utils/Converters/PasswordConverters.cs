@@ -1,5 +1,5 @@
 ﻿using Npgsql.Internal;
-using ProjectLibrary.MVVM.View;
+using ProjectLibrary.MVVM.View.CoreViews;
 using System;
 using System.Collections.Generic;
 using System.IO;
