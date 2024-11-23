@@ -34,6 +34,10 @@
                 <viewLibraries:MainPageView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModelLibraries:CatalogViewModel}">
+                <viewLibraries:CatalogView />
+            </DataTemplate>
+
 
             <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>
         </ResourceDictionary>

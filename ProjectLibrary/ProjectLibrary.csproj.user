@@ -24,6 +24,9 @@
     <Compile Update="MVVM\View\CoreViews\RegView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\LibraryViews\CatalogView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\LibraryViews\MainPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -54,6 +57,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\CoreViews\RegView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\LibraryViews\CatalogView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\LibraryViews\MainPageView.xaml">

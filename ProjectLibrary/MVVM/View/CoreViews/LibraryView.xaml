@@ -178,7 +178,7 @@
                             VerticalAlignment="Center">
                             <TextBlock Style="{StaticResource NavigationCategories}" Text="Навигация" />
                             <RadioButton
-                                Command="{Binding NavigateHomeCommand}"
+                                Command="{Binding MainNavCommand}"
                                 GroupName="MenuButtons"
                                 IsChecked="True"
                                 Style="{StaticResource MenuButton}">
@@ -192,7 +192,7 @@
                                 </StackPanel>
                             </RadioButton>
                             <RadioButton
-                                Command="{Binding NavigateHomeCommand}"
+                                Command="{Binding CatalogNavCommand}"
                                 GroupName="MenuButtons"
                                 Style="{StaticResource MenuButton}">
                                 <StackPanel

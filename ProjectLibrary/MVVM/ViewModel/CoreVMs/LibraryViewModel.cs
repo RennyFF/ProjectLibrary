@@ -69,6 +69,47 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             }
         }
 
+        //Menu
+
+        private RelayCommand mainNavCommand;
+        public RelayCommand MainNavCommand
+        {
+            get
+            {
+                return mainNavCommand ??= new RelayCommand(obj =>
+                {
+                    try
+                    {
+                        LibraryNavigation.NavigateLibraryTo<MainViewModel>();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        throw;
+                    }
+                }, obj => true);
+            }
+        }
+        private RelayCommand catalogNavCommand;
+        public RelayCommand CatalogNavCommand
+        {
+            get
+            {
+                return catalogNavCommand ??= new RelayCommand(obj =>
+                {
+                    try
+                    {
+                        LibraryNavigation.NavigateLibraryTo<CatalogViewModel>();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        throw;
+                    }
+                }, obj => true);
+            }
+        }
+
         private INavigationService _navigation;
         public INavigationService Navigation
         {
@@ -94,7 +135,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         {
             LibraryNavigation = libraryNavService;
             Navigation = navservice;
-            LibraryNavigation.NavigateLibraryTo<MainViewModel>();
+            LibraryNavigation.NavigateLibraryTo<CatalogViewModel>();
         }
     }
 }
