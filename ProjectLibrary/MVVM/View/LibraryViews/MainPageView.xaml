@@ -4,16 +4,81 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:customControls="clr-namespace:ProjectLibrary.Utils.Components.CustomView"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:ProjectLibrary.MVVM.View.LibraryViews"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:ProjectLibrary.MVVM.ViewModel.LibraryVMs"
     d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
     d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignWidth="900"
     mc:Ignorable="d">
     <Grid Margin="10">
         <ScrollViewer Style="{StaticResource FavsScrollViewer}">
-            <StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <Border Margin="20,20,20,50" CornerRadius="10">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Offset="0" Color="#FF7F7062" />
+                            <GradientStop Offset="0.996" Color="#FF756656" />
+                            <GradientStop Offset="0.735" Color="#FFA58B6F" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image
+                            Width="400"
+                            HorizontalAlignment="Left"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Source="/Resources/book.png"
+                            UseLayoutRounding="True" />
+                        <StackPanel
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                Margin="0,0,0,20"
+                                HorizontalAlignment="Center"
+                                FontSize="24"
+                                FontWeight="Bold"
+                                Style="{StaticResource HeaderTextStyle}"
+                                Text="Как насчет волшебной книги?" />
+                            <TextBlock
+                                FontSize="16"
+                                FontWeight="Medium"
+                                Style="{StaticResource HeaderTextStyle}"
+                                Text="Вы получите совершенно новую для вас книгу, которую вы раньше не читали."
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                Margin="0,0,0,30"
+                                Style="{StaticResource HeaderTextStyle}"
+                                Text="Бесплтано!"
+                                TextWrapping="Wrap" />
+                            <Button
+                                Width="220"
+                                Height="40"
+                                Padding="0"
+                                FontSize="16"
+                                Style="{StaticResource ButtonStyle}">
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="10"
+                                        VerticalAlignment="Center"
+                                        Text="Получить" />
+                                    <iconPacks:PackIconGameIcons
+                                        Width="24"
+                                        Height="24"
+                                        Margin="10,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Kind="ArchiveResearch"
+                                        RenderTransformOrigin="-0.21,1.877" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Border>
                 <customControls:BooksSlider Title="Новое" Books="{Binding AllBooks}" />
                 <customControls:BooksSlider Title="Новое" Books="{Binding AllBooks}" />
                 <customControls:BooksSlider Title="Новое" Books="{Binding AllBooks}" />

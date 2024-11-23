@@ -42,9 +42,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                         }
                         if (CurrentUser != null)
                         {
-                            var ModalWindow = new DialogWindow("Успешный вход!", $"Добро пожаловать, {CurrentUser.FirstName}!");
-                            ModalWindow.Show();
-                            Navigation.NavigateTo<LibraryViewModel>(CurrentUser);
+                           Navigation.NavigateTo<LibraryViewModel>(CurrentUser);
                         }
                         else
                         {

@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Ancient_Open_Book_PNG_Transparent_Clipart.png" />
+    <None Remove="Resources\book.png" />
     <None Remove="Resources\Font\Inter-Black.ttf" />
     <None Remove="Resources\Font\Inter-Bold.ttf" />
     <None Remove="Resources\Font\Inter-ExtraBold.ttf" />
@@ -22,9 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\meow.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Content Include="Resources\book.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\Font\Inter-Regular.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

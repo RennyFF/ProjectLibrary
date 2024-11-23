@@ -3,52 +3,12 @@
   "WorkspaceRootPath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\components\\customview\\booksslider.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\components\\customview\\booksslider.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\libraryviews\\mainpageview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\libraryviews\\mainpageview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\styles\\resourcebase.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\styles\\resourcebase.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\components\\customview\\bookcard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\components\\customview\\bookcard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\converters\\booltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\converters\\booltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\model\\databasefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\model\\databasefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\corevms\\authviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\corevms\\authviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\corevms\\basevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\corevms\\basevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\components\\customview\\bookcard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\components\\customview\\bookcard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\converters\\bytearraytoimageconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\converters\\bytearraytoimageconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\libraryvms\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\libraryvms\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\components\\customview\\booksslider.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\components\\customview\\booksslider.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\coreviews\\authview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\coreviews\\authview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,154 +26,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ResourceBase.xaml",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceBase.xaml",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Styles\\ResourceBase.xaml",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceBase.xaml",
-              "RelativeToolTip": "ProjectLibrary\\Styles\\ResourceBase.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-22T16:35:25.53Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BookCard.xaml.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\BookCard.xaml.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Components\\CustomView\\BookCard.xaml.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\BookCard.xaml.cs",
-              "RelativeToolTip": "ProjectLibrary\\Utils\\Components\\CustomView\\BookCard.xaml.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABwAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T15:48:57.929Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MainViewModel.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\MainViewModel.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\MainViewModel.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\MainViewModel.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\MainViewModel.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACcAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T15:47:57.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ByteArrayToImageConverter.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\ByteArrayToImageConverter.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Converters\\ByteArrayToImageConverter.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\ByteArrayToImageConverter.cs",
-              "RelativeToolTip": "ProjectLibrary\\Utils\\Converters\\ByteArrayToImageConverter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T15:47:00.171Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AuthView.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\CoreViews\\AuthView.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\CoreViews\\AuthView.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\CoreViews\\AuthView.xaml",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\CoreViews\\AuthView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-23T15:39:27.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "MainPageView.xaml",
               "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\MainPageView.xaml",
               "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\LibraryViews\\MainPageView.xaml",
               "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\MainPageView.xaml",
               "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\LibraryViews\\MainPageView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-22T15:38:16.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "BooksSlider.xaml.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\BooksSlider.xaml.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Components\\CustomView\\BooksSlider.xaml.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\BooksSlider.xaml.cs",
-              "RelativeToolTip": "ProjectLibrary\\Utils\\Components\\CustomView\\BooksSlider.xaml.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAADwvzoAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T15:37:48.266Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BooksSlider.xaml",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\BooksSlider.xaml",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Components\\CustomView\\BooksSlider.xaml",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\BooksSlider.xaml",
-              "RelativeToolTip": "ProjectLibrary\\Utils\\Components\\CustomView\\BooksSlider.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-22T15:37:38.096Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BookCard.xaml",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\BookCard.xaml",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Components\\CustomView\\BookCard.xaml",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\BookCard.xaml",
-              "RelativeToolTip": "ProjectLibrary\\Utils\\Components\\CustomView\\BookCard.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-22T15:37:28.94Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BoolToVisibilityConverter.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\BoolToVisibilityConverter.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Converters\\BoolToVisibilityConverter.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\BoolToVisibilityConverter.cs",
-              "RelativeToolTip": "ProjectLibrary\\Utils\\Converters\\BoolToVisibilityConverter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T15:50:46.173Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DataBaseFunctions.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAuwHEAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T16:08:03.986Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BaseVM.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\BaseVM.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\BaseVM.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\BaseVM.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\BaseVM.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T16:20:21.001Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AuthViewModel.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\AuthViewModel.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\AuthViewModel.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\AuthViewModel.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\AuthViewModel.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAgwGkAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T16:20:41.067Z",
+              "WhenOpened": "2024-11-23T15:11:16.787Z",
               "EditorCaption": ""
             }
           ]
