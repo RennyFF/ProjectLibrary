@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using ProjectLibrary.Utils.Converters;
 using ProjectLibrary.Utils.Types;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.IO;
 using System.Windows.Controls.Primitives;
@@ -191,33 +192,28 @@ namespace ProjectLibrary.MVVM.Model
             }
         }
 
-        public async static Task<List<Book>> GetBooksByPage(NpgsqlConnection Connection, int Page, int CountityOnPage)
+        public async static Task<ObservableCollection<Cards>> GetBooksByPage(NpgsqlConnection Connection, int Page, int CountityOnPage)
         {
-            string query = $"SELECT book.\"Id\", author.\"Id\", author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
-                $"genre.\"GenreName\", book.\"PublicationDate\", book.\"PagesCount\", book.\"Image\", book.\"Title\", book.\"AddedInDatabase\" " +
+            string query = $"SELECT author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
+                $"book.\"Image\", book.\"Title\"" +
                 $"FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\" author on book.\"AuthorId\" = author.\"Id\" " +
                 $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\" limit {CountityOnPage} offset {Page * CountityOnPage}";
-            List<Book> AllBooks = new List<Book>();
+            ObservableCollection<Cards> Books = new ObservableCollection<Cards>();
             using var Command = new NpgsqlCommand(query, Connection);
             try
             {
                 using var Reader = Command.ExecuteReader();
                 while (await Reader.ReadAsync())
                 {
-                    var book = new Book
+                    var book = new Cards
                     {
-                        Id = Reader.GetInt32(0),
-                        Author = new Author() { Id = Reader.GetInt32(1), SecondName = Reader.GetString(2), FirstName = Reader.GetString(3), PatronomycName = Reader.GetString(4) },
-                        Genre = Reader.GetString(5),
-                        PublicationDate = Reader.GetDateTime(6),
-                        PagesCout = Reader.GetInt32(7),
-                        Image = (byte[])Reader["Image"],
-                        Title = Reader.GetString(9),
-                        AddedInDatabase = Reader.GetDateTime(10)
+                        Author = $"{Reader.GetString(0)} {Reader.GetString(1)[0]}. {Reader.GetString(2)[0]}.",
+                        ImageSource = (byte[])Reader["Image"],
+                        Title = Reader.GetString(4),
                     };
-                    AllBooks.Add(book);
+                    Books.Add(book);
                 }
-                return AllBooks;
+                return Books;
             }
             catch (Exception ex)
             {

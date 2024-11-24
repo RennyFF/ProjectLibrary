@@ -12,15 +12,30 @@ namespace ProjectLibrary.Utils.Converters
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            Visibility result = Visibility.Visible;
-
-            if (value is bool)
+            Visibility result;
+            if (parameter != null)
             {
-                if (!(bool)value)
+                result = Visibility.Collapsed;
+                if (value is bool)
                 {
-                    result = Visibility.Collapsed;
+                    if (!(bool)value)
+                    {
+                        result = Visibility.Visible;
+                    }
                 }
             }
+            else
+            {
+                result = Visibility.Visible;
+                if (value is bool)
+                {
+                    if (!(bool)value)
+                    {
+                        result = Visibility.Collapsed;
+                    }
+                }
+            }
+
 
             return result;
         }

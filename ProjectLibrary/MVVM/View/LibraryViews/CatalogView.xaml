@@ -5,11 +5,16 @@
     xmlns:customComponents="clr-namespace:ProjectLibrary.Utils.Components.CustomView"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:loading="clr-namespace:ProjectLibrary.Utils.Components"
     xmlns:local="clr-namespace:ProjectLibrary.MVVM.View.LibraryViews"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:utils="clr-namespace:ProjectLibrary.Utils.Converters"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <utils:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -74,6 +79,18 @@
                     Style="{StaticResource FlatComboBoxStyle1}" />
             </StackPanel>
         </Grid>
+        <Border
+            Grid.Row="2"
+            Background="Transparent"
+            Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="32"
+                Foreground="{StaticResource SecondTextColorBrush}"
+                Style="{StaticResource HeaderTextStyle}"
+                Text="ЗАГРУЗКА" />
+        </Border>
         <ListBox
             Grid.Row="2"
             Margin="0,30,0,0"
@@ -87,7 +104,8 @@
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             VirtualizingStackPanel.IsVirtualizing="True"
-            VirtualizingStackPanel.VirtualizationMode="Recycling">
+            VirtualizingStackPanel.VirtualizationMode="Recycling"
+            Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=ListBox, Mode=TwoWay}">
 
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>

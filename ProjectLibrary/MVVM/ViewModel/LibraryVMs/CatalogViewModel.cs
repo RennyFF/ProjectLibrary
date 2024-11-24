@@ -1,24 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Npgsql;
+﻿using Npgsql;
 using ProjectLibrary.Core;
-using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
     class CatalogViewModel : Core.BaseViewModel
     {
-        private Dictionary<int, string> SortFiltersDictionary = new Dictionary<int, string>() { 
+        private Dictionary<int, string> SortFiltersDictionary = new Dictionary<int, string>() {
             { 1, "По актуальности" },
             { 2, "По алфавиту" },
         };
@@ -28,6 +19,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get => connectionDB;
             set => connectionDB = value;
+        }
+
+        private bool isLoading;
+        public bool IsLoading
+        {
+            get { return isLoading; }
+            set { isLoading = value; onPropertyChanged(); }
         }
 
         private List<Genre> allGenresFilter;
@@ -48,7 +46,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public string SelectedSort
         {
             get { return selectedSort; }
-            set { selectedSort = value; onPropertyChanged(); }
+            set { selectedSort = value; SortBooks(); onPropertyChanged(); }
         }
 
         private Genre selectedGenre;
@@ -62,7 +60,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public ObservableCollection<Cards> AllBooks
         {
             get { return allBooks; }
-            set { allBooks = value; onPropertyChanged(); }
+            set { allBooks = value; StartsLoading(); onPropertyChanged(); }
         }
 
         private int allPages;
@@ -162,10 +160,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 
         private void SortBooks()
         {
-            //if(SelectedSort == SortFiltersDictionary[2]) { AllBooks = (ObservableCollection<Cards>)AllBooks.OrderBy(i => i.Title); }
-            //if(SelectedSort == SortFiltersDictionary[1]) {
-            //    PageChanged();
-            //}
+            //AllBooks = AllBooks.OrderBy(i => i.Title);
         }
         private void FilterBooks()
         {
@@ -173,14 +168,15 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 
         private async void PageChanged()
         {
-            var GettingAllBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
-            ObservableCollection<Cards> TempBooks = new();
-            foreach (var item in GettingAllBooks)
-            {
-                Cards newCard = new Cards() { Author = item.Author.SecondName + " " + item.Author.FirstName[0] + "." + item.Author.PatronomycName[0] + ".", Title = item.Title, ImageSource = item.Image };
-                TempBooks.Add(newCard);
-            }
-            AllBooks = TempBooks;
+            AllBooks.Clear();
+            StartsLoading();
+            var gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
+            await Task.Run(() => AllBooks = gettingBooks) ;
+        }
+
+        private void StartsLoading()
+        {
+            IsLoading = !IsLoading;
         }
     }
 }
