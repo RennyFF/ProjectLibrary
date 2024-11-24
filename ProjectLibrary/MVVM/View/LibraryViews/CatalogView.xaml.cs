@@ -25,14 +25,5 @@ namespace ProjectLibrary.MVVM.View.LibraryViews
             InitializeComponent();
         }
 
-        private void SortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void GenreComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

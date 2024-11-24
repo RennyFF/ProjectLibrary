@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:customComponents="clr-namespace:ProjectLibrary.Utils.Components.CustomView"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:ProjectLibrary.MVVM.View.LibraryViews"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
@@ -14,7 +15,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition />
-            <RowDefinition Height="40" />
+            <RowDefinition Height="60" />
         </Grid.RowDefinitions>
         <Border
             Grid.Row="0"
@@ -52,11 +53,9 @@
                     x:Name="SortComboBox"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    SelectedIndex="0"
-                    Style="{StaticResource FlatComboBoxStyle1}">
-                    <ComboBoxItem Content="По актуальности" />
-                    <ComboBoxItem Content="По названию" />
-                </ComboBox>
+                    ItemsSource="{Binding AllSortFilter}"
+                    SelectedItem="{Binding SelectedSort}"
+                    Style="{StaticResource FlatComboBoxStyle1}" />
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <TextBlock
@@ -71,83 +70,85 @@
                     VerticalAlignment="Center"
                     DisplayMemberPath="GenreName"
                     ItemsSource="{Binding AllGenresFilter}"
+                    SelectedItem="{Binding SelectedGenre}"
                     Style="{StaticResource FlatComboBoxStyle1}" />
             </StackPanel>
         </Grid>
-        <ScrollViewer
+        <ListBox
             Grid.Row="2"
             Margin="0,30,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            VerticalScrollBarVisibility="Auto">
-            <WrapPanel>
-                <customComponents:BookCard
-                    Title="Brave"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/brave.png" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-                <customComponents:BookCard
-                    Title="Brave"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/brave.png" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-                <customComponents:BookCard
-                    Title="Brave"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/brave.png" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-                <customComponents:BookCard
-                    Title="Brave"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/brave.png" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-                <customComponents:BookCard
-                    Title="Brave"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/brave.png" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-                <customComponents:BookCard
-                    Title="Fortnite"
-                    Margin="0,0,20,0"
-                    ImageSource="../Resources/fortnite.jpg" />
-            </WrapPanel>
-        </ScrollViewer>
-        <StackPanel Grid.Row="3">
+            Background="{StaticResource SecondBackgroundColorBrush}"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+            ItemContainerStyle="{StaticResource ItemContainerStyle}"
+            ItemsSource="{Binding AllBooks}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            VirtualizingStackPanel.IsVirtualizing="True"
+            VirtualizingStackPanel.VirtualizationMode="Recycling">
+
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <customComponents:BookCard
+                        Title="{Binding Title}"
+                        Margin="15"
+                        Author="{Binding Author}"
+                        ImageSource="{Binding ImageSource}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel
+            Grid.Row="3"
+            Margin="0,0,30,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Margin="0,0,5,0"
+                Command="{Binding FirstPage}"
+                Content="{iconPacks:Unicons Kind=AngleDoubleLeftLine,
+                                            Height=20,
+                                            Width=20}"
+                Style="{StaticResource ButtonStyle}" />
+            <Button
+                Command="{Binding PreviousPage}"
+                Content="{iconPacks:BootstrapIcons Kind=ArrowLeftShort,
+                                                   Height=20,
+                                                   Width=20}"
+                Style="{StaticResource ButtonStyle}" />
             <TextBlock
-                FontSize="32"
-                Foreground="Wheat"
-                Text="1 страница" />
+                Width="80"
+                Margin="20,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="14"
+                Foreground="{StaticResource SecondTextColorBrush}"
+                TextAlignment="Center">
+                <Run Text="{Binding CurrentPage}" />
+                <Run Text="из" />
+                <Run Text="{Binding AllPages}" />
+            </TextBlock>
+            <Button
+                Command="{Binding NextPage}"
+                Content="{iconPacks:BootstrapIcons Kind=ArrowRightShort,
+                                                   Height=20,
+                                                   Width=20}"
+                Style="{StaticResource ButtonStyle}" />
+            <Button
+                Margin="5,0,0,0"
+                Command="{Binding LastPage}"
+                Content="{iconPacks:Unicons Kind=AngleDoubleRightLine,
+                                            Height=20,
+                                            Width=20}"
+                Style="{StaticResource ButtonStyle}" />
         </StackPanel>
     </Grid>
 </UserControl>

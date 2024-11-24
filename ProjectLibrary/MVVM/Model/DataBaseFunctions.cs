@@ -3,17 +3,14 @@ using ProjectLibrary.Utils.Converters;
 using ProjectLibrary.Utils.Types;
 using System.Data;
 using System.IO;
+using System.Windows.Controls.Primitives;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace ProjectLibrary.MVVM.Model
 {
     public static class DataBaseFunctions
     {
-        public async static void ExecuteNonQueryDB(string QueryString, NpgsqlConnection Connection)
-        {
-            using var Command = new NpgsqlCommand(QueryString, Connection);
-            await Command.ExecuteNonQueryAsync();
-        }
         public async static Task<User?> GetCurrentUser(NpgsqlConnection Connection, string Login, string PasswordHash)
         {
             List<Genre> AllGenres = await GetAllGenres(Connection);
@@ -147,8 +144,7 @@ namespace ProjectLibrary.MVVM.Model
             string query = $"SELECT book.\"Id\", author.\"Id\", author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
                 $"genre.\"GenreName\", book.\"PublicationDate\", book.\"PagesCount\", book.\"Image\", book.\"Title\", book.\"AddedInDatabase\" " +
                 $"FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\" author on book.\"AuthorId\" = author.\"Id\" " +
-                $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\" " +
-                $"Where book.\"Id\" = '3'";
+                $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\"";
             List<Book> AllBooks = new List<Book>();
             using var Command = new NpgsqlCommand(query, Connection);
             try
@@ -168,19 +164,57 @@ namespace ProjectLibrary.MVVM.Model
                         AddedInDatabase = Reader.GetDateTime(10)
                     };
                     AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
-                    AllBooks.Add(book);
+                }
+                return AllBooks;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public async static Task<int> GetBooksCountity(NpgsqlConnection Connection)
+        {
+            string query = $"SELECT Count(*) FROM \"MasterProjectLibrary\".\"Books\"";
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    return Convert.ToInt32(Math.Ceiling(Reader.GetInt32(0) / 44.0));
+                }
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+
+        public async static Task<List<Book>> GetBooksByPage(NpgsqlConnection Connection, int Page, int CountityOnPage)
+        {
+            string query = $"SELECT book.\"Id\", author.\"Id\", author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
+                $"genre.\"GenreName\", book.\"PublicationDate\", book.\"PagesCount\", book.\"Image\", book.\"Title\", book.\"AddedInDatabase\" " +
+                $"FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\" author on book.\"AuthorId\" = author.\"Id\" " +
+                $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\" limit {CountityOnPage} offset {Page * CountityOnPage}";
+            List<Book> AllBooks = new List<Book>();
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    var book = new Book
+                    {
+                        Id = Reader.GetInt32(0),
+                        Author = new Author() { Id = Reader.GetInt32(1), SecondName = Reader.GetString(2), FirstName = Reader.GetString(3), PatronomycName = Reader.GetString(4) },
+                        Genre = Reader.GetString(5),
+                        PublicationDate = Reader.GetDateTime(6),
+                        PagesCout = Reader.GetInt32(7),
+                        Image = (byte[])Reader["Image"],
+                        Title = Reader.GetString(9),
+                        AddedInDatabase = Reader.GetDateTime(10)
+                    };
                     AllBooks.Add(book);
                 }
                 return AllBooks;
