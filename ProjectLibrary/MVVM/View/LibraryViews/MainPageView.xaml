@@ -9,7 +9,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:ProjectLibrary.MVVM.ViewModel.LibraryVMs"
     d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
-    d:DesignHeight="450"
     d:DesignWidth="900"
     mc:Ignorable="d">
     <Grid Margin="10">
@@ -79,9 +78,8 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <customControls:BooksSlider Title="Новое" Books="{Binding AllBooks}" />
-                <customControls:BooksSlider Title="Новое" Books="{Binding AllBooks}" />
-                <customControls:BooksSlider Title="Новое" Books="{Binding AllBooks}" />
+                <customControls:CardSlider Title="Топ-12 новых книг" Books="{Binding NewBooksCategory}" />
+                <customControls:CardSlider Title="Бестселлеры" Books="{Binding BestSellerCategory}" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

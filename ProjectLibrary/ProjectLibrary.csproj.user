@@ -30,16 +30,22 @@
     <Compile Update="MVVM\View\LibraryViews\MainPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Utils\Components\CustomView\BookCard.xaml.cs">
+    <Compile Update="Utils\Components\CustomView\AuthorMiniature.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Utils\Components\CustomView\BooksSlider.xaml.cs">
+    <Compile Update="Utils\Components\CustomView\Card.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utils\Components\CustomView\CardSlider.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Utils\Components\LoadingSpinner.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Utils\Components\PasswordBox.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utils\Components\RatingStars.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -77,16 +83,22 @@
     <Page Update="Styles\ResourceLibrary.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Utils\Components\CustomView\BookCard.xaml">
+    <Page Update="Utils\Components\CustomView\AuthorMiniature.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Utils\Components\CustomView\BooksSlider.xaml">
+    <Page Update="Utils\Components\CustomView\Card.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utils\Components\CustomView\CardSlider.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Utils\Components\LoadingSpinner.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Utils\Components\PasswordBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utils\Components\RatingStars.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -16,5 +16,6 @@ namespace ProjectLibrary.Utils.Types
         public byte[] Image { get; set; }
         public string Title { get; set; }
         public DateTime AddedInDatabase { get; set; }
+        public int RatingStars { get; set; }
     }
 }

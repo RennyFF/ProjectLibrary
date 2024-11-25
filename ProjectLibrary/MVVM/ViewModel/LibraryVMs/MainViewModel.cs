@@ -13,12 +13,19 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
     class MainViewModel : Core.BaseViewModel
     {
-        private ObservableCollection<Cards> allBooks = new();
+        private ObservableCollection<Cards> newBooksCategory = new();
 
-        public ObservableCollection<Cards> AllBooks
+        public ObservableCollection<Cards> NewBooksCategory
         {
-            get { return allBooks; }
-            set { allBooks = value; }
+            get { return newBooksCategory; }
+            set { newBooksCategory = value; }
+        }
+
+        private ObservableCollection<Cards> bestSellerCategory = new();
+        public ObservableCollection<Cards> BestSellerCategory
+        {
+            get { return bestSellerCategory; }
+            set { bestSellerCategory = value; }
         }
 
         private ILibraryNavigationService _libraryNavigation;
@@ -28,7 +35,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             set
             {
                 _libraryNavigation = value;
-                onPropertyChanged();
+                onPropertyChanged(nameof(LibraryNavigation));
             }
         }
         public MainViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
@@ -39,12 +46,12 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 
         private async void InitMainViewModel(NpgsqlConnection connection)
         {
-            var GettingAllBooks = await Model.DataBaseFunctions.GetAllBooks(connection);
-            foreach (var item in GettingAllBooks)
-            {
-                Cards newCard = new Cards() { Author = item.Author.SecondName + " " + item.Author.FirstName[0] + "." + item.Author.PatronomycName[0] + ".", Title = item.Title, ImageSource = item.Image };
-                AllBooks.Add(newCard);
-            }
+            var GettingBooksFirstCategroy = await Model.DataBaseFunctions.GetNewBooks(connection);
+            await Task.Run(() => NewBooksCategory = GettingBooksFirstCategroy);
+            await Task.Run(() => onPropertyChanged(nameof(NewBooksCategory)));
+            var GettingBooksSecondCategroy = await Model.DataBaseFunctions.GetBestSellers(connection);
+            await Task.Run(() => BestSellerCategory = GettingBooksSecondCategroy);
+            await Task.Run(() => onPropertyChanged(nameof(BestSellerCategory)));
         }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\App.xaml
-15-678154698
+17-1490763322
 1-480088270
-401179858581
+42-209839750
 2511957159032
-MVVM\View\CoreViews\AuthView.xaml;MVVM\View\CoreViews\BaseWindow.xaml;MVVM\View\CoreViews\DialogWindow.xaml;MVVM\View\CoreViews\LibraryView.xaml;MVVM\View\CoreViews\RegView.xaml;MVVM\View\LibraryViews\CatalogView.xaml;MVVM\View\LibraryViews\MainPageView.xaml;Styles\ResourceAuthRegistration.xaml;Styles\ResourceBase.xaml;Styles\ResourceColors.xaml;Styles\ResourceLibrary.xaml;Utils\Components\CustomView\BookCard.xaml;Utils\Components\CustomView\BooksSlider.xaml;Utils\Components\LoadingSpinner.xaml;Utils\Components\PasswordBox.xaml;
+MVVM\View\CoreViews\AuthView.xaml;MVVM\View\CoreViews\BaseWindow.xaml;MVVM\View\CoreViews\DialogWindow.xaml;MVVM\View\CoreViews\LibraryView.xaml;MVVM\View\CoreViews\RegView.xaml;MVVM\View\LibraryViews\CatalogView.xaml;MVVM\View\LibraryViews\MainPageView.xaml;Styles\ResourceAuthRegistration.xaml;Styles\ResourceBase.xaml;Styles\ResourceColors.xaml;Styles\ResourceLibrary.xaml;Utils\Components\CustomView\AuthorMiniature.xaml;Utils\Components\CustomView\Card.xaml;Utils\Components\CustomView\CardSlider.xaml;Utils\Components\LoadingSpinner.xaml;Utils\Components\PasswordBox.xaml;Utils\Components\RatingStars.xaml;
 
-False
+True
 

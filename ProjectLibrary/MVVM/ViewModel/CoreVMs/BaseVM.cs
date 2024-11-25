@@ -18,7 +18,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             set
             {
                 _navigation = value;
-                onPropertyChanged();
+                onPropertyChanged(nameof(Navigation));
             }
         }
         public BaseVM(INavigationService navService)

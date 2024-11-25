@@ -6,7 +6,8 @@ FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\L
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\RegView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\CatalogView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\MainPageView.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\BookCard.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\BooksSlider.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\Card.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\CardSlider.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\PasswordBox.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\RatingStars.xaml;;
 

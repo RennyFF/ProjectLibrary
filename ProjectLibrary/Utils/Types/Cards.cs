@@ -11,5 +11,6 @@ namespace ProjectLibrary.Utils.Types
         public string Title { get; set; }
         public string Author { get; set; }
         public byte[] ImageSource { get; set; }
+        public int RatingStars { get; set; }
     }
 }

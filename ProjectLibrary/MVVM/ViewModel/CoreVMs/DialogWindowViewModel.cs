@@ -30,7 +30,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             set
             {
                 mainMessage = value;
-                onPropertyChanged();
+                onPropertyChanged(nameof(MainMessage));
             }
         }
 

@@ -94,7 +94,7 @@
         <ListBox
             Grid.Row="2"
             Margin="0,30,0,0"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
             Background="{StaticResource SecondBackgroundColorBrush}"
             BorderBrush="Transparent"
@@ -109,17 +109,23 @@
 
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel />
+                    <WrapPanel HorizontalAlignment="Center" />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <customComponents:BookCard
+                    <customComponents:Card
                         Title="{Binding Title}"
-                        Margin="15"
+                        Margin="0,0,0,12"
                         Author="{Binding Author}"
-                        ImageSource="{Binding ImageSource}" />
+                        AuthorVisibility="Visible"
+                        CornerRadius="8"
+                        ImageHeight="170"
+                        ImageSource="{Binding ImageSource}"
+                        ImageWidth="150"
+                        Rating="{Binding RatingStars}"
+                        TitleVisibility="Visible" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

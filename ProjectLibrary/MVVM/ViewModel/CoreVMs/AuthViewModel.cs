@@ -21,7 +21,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         public string Login
         {
             get { return login; }
-            set { login = value; onPropertyChanged(); }
+            set { login = value; onPropertyChanged(nameof(Login)); }
         }
 
         private RelayCommand authCommand;

@@ -25,7 +25,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public bool IsLoading
         {
             get { return isLoading; }
-            set { isLoading = value; onPropertyChanged(); }
+            set { isLoading = value; onPropertyChanged(nameof(IsLoading)); }
         }
 
         private List<Genre> allGenresFilter;
@@ -46,21 +46,21 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public string SelectedSort
         {
             get { return selectedSort; }
-            set { selectedSort = value; SortBooks(); onPropertyChanged(); }
+            set { selectedSort = value; SortBooks(); onPropertyChanged(nameof(SelectedSort)); }
         }
 
         private Genre selectedGenre;
         public Genre SelectedGenre
         {
             get { return selectedGenre; }
-            set { selectedGenre = value; onPropertyChanged(); }
+            set { selectedGenre = value; onPropertyChanged(nameof(SelectedGenre)); }
         }
 
         private ObservableCollection<Cards> allBooks = new();
         public ObservableCollection<Cards> AllBooks
         {
             get { return allBooks; }
-            set { allBooks = value; StartsLoading(); onPropertyChanged(); }
+            set { allBooks = value; StartsLoading();}
         }
 
         private int allPages;
@@ -74,7 +74,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public int CurrentPage
         {
             get { return currentPage; }
-            set { currentPage = value; PageChanged(); onPropertyChanged(); }
+            set { currentPage = value; PageChanged(); onPropertyChanged(nameof(CurrentPage)); }
         }
 
         private RelayCommand nextPage;
@@ -128,7 +128,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             set
             {
                 _libraryNavigation = value;
-                onPropertyChanged();
+                onPropertyChanged(nameof(LibraryNavigation));
             }
         }
         public CatalogViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
@@ -172,6 +172,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             StartsLoading();
             var gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
             await Task.Run(() => AllBooks = gettingBooks) ;
+            await Task.Run( () => onPropertyChanged(nameof(AllBooks)));
         }
 
         private void StartsLoading()

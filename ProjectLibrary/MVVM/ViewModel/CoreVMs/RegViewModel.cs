@@ -24,49 +24,49 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         public string FirstName
         {
             get { return firstName; }
-            set { firstName = value; onPropertyChanged(); ValidatePropertyAsync(nameof(FirstName)); }
+            set { firstName = value; onPropertyChanged(nameof(FirstName)); ValidatePropertyAsync(nameof(FirstName)); }
         }
         private string secondName;
         public string SecondName
         {
             get { return secondName; }
-            set { secondName = value; onPropertyChanged(); ValidatePropertyAsync(nameof(SecondName)); }
+            set { secondName = value; onPropertyChanged(nameof(SecondName)); ValidatePropertyAsync(nameof(SecondName)); }
         }
         private string patronomycName;
         public string PatronomycName
         {
             get { return patronomycName; }
-            set { patronomycName = value; onPropertyChanged(); ValidatePropertyAsync(nameof(PatronomycName)); }
+            set { patronomycName = value; onPropertyChanged(nameof(PatronomycName)); ValidatePropertyAsync(nameof(PatronomycName)); }
         }
         private string login;
         public string Login
         {
             get { return login; }
-            set { login = value; onPropertyChanged(); ValidatePropertyAsync(nameof(Login)); }
+            set { login = value; onPropertyChanged(nameof(Login)); ValidatePropertyAsync(nameof(Login)); }
         }
         private string mail;
         public string Mail
         {
             get { return mail; }
-            set { mail = value; onPropertyChanged(); ValidatePropertyAsync(nameof(Mail)); }
+            set { mail = value; onPropertyChanged(nameof(Mail)); ValidatePropertyAsync(nameof(Mail)); }
         }
         private string password;
         public string Password
         {
             get { return password; }
-            set { password = value; onPropertyChanged(); ValidatePropertyAsync(nameof(Password)); }
+            set { password = value; onPropertyChanged(nameof(Password)); ValidatePropertyAsync(nameof(Password)); }
         }
         private string confirmPassword;
         public string ConfirmPassword
         {
             get { return confirmPassword; }
-            set { confirmPassword = value; onPropertyChanged(); ValidatePropertyAsync(nameof(ConfirmPassword)); }
+            set { confirmPassword = value; onPropertyChanged(nameof(ConfirmPassword)); ValidatePropertyAsync(nameof(ConfirmPassword)); }
         }
         private DateTime birthday = DateTime.Now;
         public DateTime Birthday
         {
             get { return birthday; }
-            set { birthday = value; onPropertyChanged(); ValidatePropertyAsync(nameof(Birthday)); }
+            set { birthday = value; onPropertyChanged(nameof(Birthday)); ValidatePropertyAsync(nameof(Birthday)); }
         }
         private INavigationService _navigation;
         public INavigationService Navigation
@@ -75,7 +75,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             set
             {
                 _navigation = value;
-                onPropertyChanged();
+                onPropertyChanged(nameof(Navigation));
             }
         }
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;

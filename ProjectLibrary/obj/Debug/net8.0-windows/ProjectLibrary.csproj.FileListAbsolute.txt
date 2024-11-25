@@ -9,8 +9,6 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windo
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\LibraryView.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\RegView.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\MainPageView.g.cs
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\BookCard.g.cs
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\BooksSlider.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\PasswordBox.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\App.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -82,8 +80,6 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windo
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\LibraryView.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\RegView.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\MainPageView.baml
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\BookCard.baml
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\BooksSlider.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\PasswordBox.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.g.resources
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.GeneratedMSBuildEditorConfig.editorconfig
@@ -103,3 +99,9 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windo
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Resources\book.png
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\CatalogView.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\CatalogView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\Card.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\CardSlider.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\Card.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\CardSlider.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\RatingStars.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\RatingStars.baml

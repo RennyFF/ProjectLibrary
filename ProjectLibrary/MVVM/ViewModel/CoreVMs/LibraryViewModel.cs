@@ -24,7 +24,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             {
                 listBoxHeight = value;
                 UpdateVisibleFavoriteGenres();
-                onPropertyChanged();
+                onPropertyChanged(nameof(ListBoxHeight));
             }
         }
         private void UpdateVisibleFavoriteGenres()
@@ -41,13 +41,13 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         public User CurrentUser
         {
             get { return currentUser; }
-            set { currentUser = value; UpdateVisibleFavoriteGenres(); onPropertyChanged(); }
+            set { currentUser = value; UpdateVisibleFavoriteGenres(); onPropertyChanged(nameof(CurrentUser)); }
         }
         private ObservableCollection<Genre> favoriteGenreNames = new ObservableCollection<Genre>();
         public ObservableCollection<Genre> FavoriteGenreNames
         {
             get { return favoriteGenreNames; }
-            set { favoriteGenreNames = value; onPropertyChanged(); }
+            set { favoriteGenreNames = value; onPropertyChanged(nameof(FavoriteGenreNames)); }
         }
         private RelayCommand logoutCommand;
         public RelayCommand LogoutCommand
@@ -117,7 +117,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             set
             {
                 _navigation = value;
-                onPropertyChanged();
+                onPropertyChanged(nameof(Navigation));
             }
         }
 
@@ -128,7 +128,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             set
             {
                 _libraryNavigation = value;
-                onPropertyChanged();
+                onPropertyChanged(nameof(LibraryNavigation));
             }
         }
         public LibraryViewModel(ILibraryNavigationService libraryNavService, INavigationService navservice)
