@@ -17,5 +17,9 @@ namespace ProjectLibrary.Utils.Types
         public string Title { get; set; }
         public DateTime AddedInDatabase { get; set; }
         public int RatingStars { get; set; }
+        public bool IsBestSeller { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
+        public bool IsPromo { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using Npgsql;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
+using ProjectLibrary.MVVM.ViewModel.LibraryVMs.Items;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
 using System.Windows;
@@ -14,6 +15,7 @@ namespace ProjectLibrary
     /// </summary>
     public partial class App : Application
     {
+        public User ActiveUser { get; set; }
         private readonly ServiceProvider _serviceProvider;
         public App()
         {
@@ -34,6 +36,8 @@ namespace ProjectLibrary
             services.AddSingleton<LibraryViewModel>();
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<CatalogViewModel>();
+            services.AddSingleton<PreviewBookViewModel>();
+            services.AddSingleton<CardViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<ILibraryNavigationService, LibraryNavigationService>();
 

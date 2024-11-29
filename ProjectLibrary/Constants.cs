@@ -9,5 +9,6 @@ namespace ProjectLibrary
     public static class Constants
     {
         public static string ConnectionStringDB { get; } = @"Server=localhost;Port=5432;User id=postgres;Password=root;Database=ProjectLibrary";
+        public static int ActiveUserId { get; set; }
     }
 }

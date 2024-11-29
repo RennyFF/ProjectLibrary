@@ -102,3 +102,13 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-win
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\CoreViews\RegView.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\LibraryViews\MainPageView.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\Utils\Components\CustomView\BooksSlider.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\CoreViews\DialogWindow.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\Utils\Components\LoadingSpinner.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\LibraryViews\CatalogView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\LibraryViews\Items\Card.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\MVVM\View\LibraryViews\PreviewBookView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\Utils\Components\CustomView\AuthorMiniature.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\Utils\Components\CustomView\CardSlider.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\Utils\Components\LoadingSpinner.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\Utils\Components\RatingStars.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Release\net8.0-windows\ProjectLibrary_Content.g.cs

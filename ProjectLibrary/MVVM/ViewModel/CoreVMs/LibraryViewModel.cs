@@ -16,6 +16,28 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
 {
     class LibraryViewModel : BaseViewModel
     {
+        #region Values
+        private INavigationService _navigation;
+        public INavigationService Navigation
+        {
+            get => _navigation;
+            set
+            {
+                _navigation = value;
+                onPropertyChanged(nameof(Navigation));
+            }
+        }
+
+        private ILibraryNavigationService _libraryNavigation;
+        public ILibraryNavigationService LibraryNavigation
+        {
+            get => _libraryNavigation;
+            set
+            {
+                _libraryNavigation = value;
+                onPropertyChanged(nameof(LibraryNavigation));
+            }
+        }
         private double listBoxHeight;
         public double ListBoxHeight
         {
@@ -26,15 +48,6 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 UpdateVisibleFavoriteGenres();
                 onPropertyChanged(nameof(ListBoxHeight));
             }
-        }
-        private void UpdateVisibleFavoriteGenres()
-        {
-            int visibleCount = (int)(ListBoxHeight / 40);
-            FavoriteGenreNames = CurrentUser.ClickedGenres != null
-                ? new ObservableCollection<Genre>(CurrentUser.ClickedGenres
-                    .OrderBy(i => i.ClickedCountity)
-                    .Take(visibleCount))
-                : new ObservableCollection<Genre>();
         }
 
         private User currentUser;
@@ -49,6 +62,8 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             get { return favoriteGenreNames; }
             set { favoriteGenreNames = value; onPropertyChanged(nameof(FavoriteGenreNames)); }
         }
+        #endregion
+        #region Commands
         private RelayCommand logoutCommand;
         public RelayCommand LogoutCommand
         {
@@ -109,33 +124,21 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 }, obj => true);
             }
         }
-
-        private INavigationService _navigation;
-        public INavigationService Navigation
+        #endregion
+        private void UpdateVisibleFavoriteGenres()
         {
-            get => _navigation;
-            set
-            {
-                _navigation = value;
-                onPropertyChanged(nameof(Navigation));
-            }
-        }
-
-        private ILibraryNavigationService _libraryNavigation;
-        public ILibraryNavigationService LibraryNavigation
-        {
-            get => _libraryNavigation;
-            set
-            {
-                _libraryNavigation = value;
-                onPropertyChanged(nameof(LibraryNavigation));
-            }
+            int visibleCount = (int)(ListBoxHeight / 40);
+            FavoriteGenreNames = CurrentUser.ClickedGenres != null
+                ? new ObservableCollection<Genre>(CurrentUser.ClickedGenres
+                    .OrderBy(i => i.ClickedCountity)
+                    .Take(visibleCount))
+                : new ObservableCollection<Genre>();
         }
         public LibraryViewModel(ILibraryNavigationService libraryNavService, INavigationService navservice)
         {
             LibraryNavigation = libraryNavService;
             Navigation = navservice;
-            LibraryNavigation.NavigateLibraryTo<CatalogViewModel>();
+            LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(1);
         }
     }
 }

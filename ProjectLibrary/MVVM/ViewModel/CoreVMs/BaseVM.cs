@@ -10,6 +10,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
 {
     class BaseVM : BaseViewModel
     {
+        #region Values
         private INavigationService _navigation;
 
         public INavigationService Navigation
@@ -21,6 +22,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 onPropertyChanged(nameof(Navigation));
             }
         }
+        #endregion
         public BaseVM(INavigationService navService)
         {
             Navigation = navService;

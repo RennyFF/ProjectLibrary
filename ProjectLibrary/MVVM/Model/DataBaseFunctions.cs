@@ -141,6 +141,21 @@ namespace ProjectLibrary.MVVM.Model
             }
         }
 
+        public async static Task<bool> CheckIfOwned(NpgsqlConnection Connection, int UserId, int BookId)
+        {
+            string Query = $"SELECT * FROM \"MasterProjectLibrary\".\"Orders\" WHERE \"UserId\"={UserId} and \"BookId\"={BookId}";
+            using var Command = new NpgsqlCommand(Query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                return Reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public async static Task<List<Book>> GetAllBooks(NpgsqlConnection Connection)
         {
             string query = $"SELECT book.\"Id\", author.\"Id\", author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
@@ -175,11 +190,49 @@ namespace ProjectLibrary.MVVM.Model
                 return null;
             }
         }
+        public async static Task<Book> GetFullBook(NpgsqlConnection Connection, int BookId)
+        {
+            string query = $"SELECT book.\"Id\", author.\"Id\", author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
+                $"genre.\"GenreName\", book.\"PublicationDate\", book.\"PagesCount\", book.\"Image\", book.\"Title\", book.\"AddedInDatabase\", book.\"RatingStars\"," +
+                $"book.\"IsBestSeller\", book.\"Description\", book.\"Price\", book.\"IsPromo\"" +
+                $"FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\" author on book.\"AuthorId\" = author.\"Id\" " +
+                $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\" Where book.\"Id\" = {BookId}";
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    var book = new Book
+                    {
+                        Id = Reader.GetInt32(0),
+                        Author = new Author() { Id = Reader.GetInt32(1), SecondName = Reader.GetString(2), FirstName = Reader.GetString(3), PatronomycName = Reader.GetString(4) },
+                        Genre = Reader.GetString(5),
+                        PublicationDate = Reader.GetDateTime(6),
+                        PagesCout = Reader.GetInt32(7),
+                        Image = (byte[])Reader["Image"],
+                        Title = Reader.GetString(9),
+                        AddedInDatabase = Reader.GetDateTime(10),
+                        RatingStars = Reader.GetInt32(11),
+                        IsBestSeller = Reader.GetBoolean(12),
+                        Description = Reader.GetString(13),
+                        Price = Reader.GetDecimal(14),
+                        IsPromo = Reader.GetBoolean(15),
+                    };
+                    return book;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         public async static Task<ObservableCollection<Cards>> GetNewBooks(NpgsqlConnection Connection)
         {
             string query = $"SELECT author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
-                $"book.\"Image\", book.\"Title\", book.\"RatingStars\"" +
+                $"book.\"Image\", book.\"Title\", book.\"RatingStars\", book.\"Id\"" +
                 $" FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\"" +
                 $" author on book.\"AuthorId\" = author.\"Id\" join " +
                 $"\"MasterProjectLibrary\".\"Genres\" \r\ngenre on genre.\"Id\" = book.\"GenreId\" " +
@@ -196,7 +249,8 @@ namespace ProjectLibrary.MVVM.Model
                         Author = $"{Reader.GetString(0)} {Reader.GetString(1)[0]}. {Reader.GetString(2)[0]}.",
                         ImageSource = (byte[])Reader["Image"],
                         Title = Reader.GetString(4),
-                        RatingStars = Reader.GetInt32(5)
+                        RatingStars = Reader.GetInt32(5),
+                        BookId = Reader.GetInt32(6)
                     };
                     Books.Add(book);
                 }
@@ -210,11 +264,11 @@ namespace ProjectLibrary.MVVM.Model
         public async static Task<ObservableCollection<Cards>> GetBestSellers(NpgsqlConnection Connection)
         {
             string query = $"SELECT author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
-                $"book.\"Image\", book.\"Title\", book.\"RatingStars\"" +
+                $"book.\"Image\", book.\"Title\", book.\"RatingStars\", book.\"Id\"" +
                 $" FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\"" +
                 $" author on book.\"AuthorId\" = author.\"Id\" join " +
                 $"\"MasterProjectLibrary\".\"Genres\" \r\ngenre on genre.\"Id\" = book.\"GenreId\" " +
-                $"Where book.\"isBestSeller\" = true limit 15;";
+                $"Where book.\"IsBestSeller\" = true limit 15;";
             ObservableCollection<Cards> Books = new ObservableCollection<Cards>();
             using var Command = new NpgsqlCommand(query, Connection);
             try
@@ -227,7 +281,8 @@ namespace ProjectLibrary.MVVM.Model
                         Author = $"{Reader.GetString(0)} {Reader.GetString(1)[0]}. {Reader.GetString(2)[0]}.",
                         ImageSource = (byte[])Reader["Image"],
                         Title = Reader.GetString(4),
-                        RatingStars = Reader.GetInt32(5)
+                        RatingStars = Reader.GetInt32(5),
+                        BookId = Reader.GetInt32(6)
                     };
                     Books.Add(book);
                 }
@@ -258,10 +313,29 @@ namespace ProjectLibrary.MVVM.Model
             }
         }
 
+        public async static Task<int> GetBooksCountity(NpgsqlConnection Connection, Genre Genre)
+        {
+            string query = $"SELECT Count(*) FROM \"MasterProjectLibrary\".\"Books\" books Where books.\"GenreId\" = {Genre.Id}";
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    return Convert.ToInt32(Math.Ceiling(Reader.GetInt32(0) / 44.0));
+                }
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+
         public async static Task<ObservableCollection<Cards>> GetBooksByPage(NpgsqlConnection Connection, int Page, int CountityOnPage)
         {
             string query = $"SELECT author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
-                $"book.\"Image\", book.\"Title\", book.\"RatingStars\"" +
+                $"book.\"Image\", book.\"Title\", book.\"RatingStars\", book.\"AddedInDatabase\", book.\"Id\"" +
                 $"FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\" author on book.\"AuthorId\" = author.\"Id\" " +
                 $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\" limit {CountityOnPage} offset {Page * CountityOnPage}";
             ObservableCollection<Cards> Books = new ObservableCollection<Cards>();
@@ -276,7 +350,41 @@ namespace ProjectLibrary.MVVM.Model
                         Author = $"{Reader.GetString(0)} {Reader.GetString(1)[0]}. {Reader.GetString(2)[0]}.",
                         ImageSource = (byte[])Reader["Image"],
                         Title = Reader.GetString(4),
-                        RatingStars = Reader.GetInt32(5)
+                        RatingStars = Reader.GetInt32(5),
+                        AddedInDatabase = Reader.GetDateTime(6),
+                        BookId = Reader.GetInt32(7)
+                    };
+                    Books.Add(book);
+                }
+                return Books;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public async static Task<ObservableCollection<Cards>> GetBooksByPageGenre(NpgsqlConnection Connection, int Page, int CountityOnPage, Genre Genre)
+        {
+            string query = $"SELECT author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
+                $"book.\"Image\", book.\"Title\", book.\"RatingStars\", book.\"AddedInDatabase\", book.\"Id\"" +
+                $"FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\" author on book.\"AuthorId\" = author.\"Id\" " +
+                $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\" Where book.\"GenreId\" = {Genre.Id} limit {CountityOnPage} offset {Page * CountityOnPage}";
+            ObservableCollection<Cards> Books = new ObservableCollection<Cards>();
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    var book = new Cards
+                    {
+                        Author = $"{Reader.GetString(0)} {Reader.GetString(1)[0]}. {Reader.GetString(2)[0]}.",
+                        ImageSource = (byte[])Reader["Image"],
+                        Title = Reader.GetString(4),
+                        RatingStars = Reader.GetInt32(5),
+                        AddedInDatabase = Reader.GetDateTime(6),
+                        BookId = Reader.GetInt32(7)
                     };
                     Books.Add(book);
                 }

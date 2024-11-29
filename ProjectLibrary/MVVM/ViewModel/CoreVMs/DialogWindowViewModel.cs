@@ -12,6 +12,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
 {
     class DialogWindowViewModel : BaseViewModel
     {
+        #region Values
         private readonly Window WindowContext;
         private string headerMessage;
         public string HeaderMessage
@@ -33,7 +34,8 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 onPropertyChanged(nameof(MainMessage));
             }
         }
-
+        #endregion
+        #region Commands
         private RelayCommand closeCommand { get; set; }
         public RelayCommand CloseCommand
         {
@@ -45,6 +47,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 }, obj => true);
             }
         }
+        #endregion
 
         public DialogWindowViewModel(Window Window, string HeaderMessage, string MainMessage)
         {

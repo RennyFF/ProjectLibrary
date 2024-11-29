@@ -10,11 +10,22 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
 {
     class AuthViewModel : BaseViewModel
     {
+        #region Values
         private NpgsqlConnection connectionDB;
         public NpgsqlConnection ConnectionDB
         {
             get => connectionDB;
             set => connectionDB = value;
+        }
+        private INavigationService _navigation;
+        public INavigationService Navigation
+        {
+            get => _navigation;
+            set
+            {
+                _navigation = value;
+                onPropertyChanged();
+            }
         }
         private string login = "root";
 
@@ -23,7 +34,8 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             get { return login; }
             set { login = value; onPropertyChanged(nameof(Login)); }
         }
-
+        #endregion
+        #region Commands
         private RelayCommand authCommand;
         public RelayCommand AuthCommand
         {
@@ -42,6 +54,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                         }
                         if (CurrentUser != null)
                         {
+                           Constants.ActiveUserId = CurrentUser.Id;
                            Navigation.NavigateTo<LibraryViewModel>(CurrentUser);
                         }
                         else
@@ -77,16 +90,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 }, obj => true);
             }
         }
-        private INavigationService _navigation;
-        public INavigationService Navigation
-        {
-            get => _navigation;
-            set
-            {
-                _navigation = value;
-                onPropertyChanged();
-            }
-        }
+        #endregion
         public AuthViewModel(INavigationService navService, NpgsqlConnection connection)
         {
             Navigation = navService;

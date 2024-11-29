@@ -12,5 +12,7 @@ namespace ProjectLibrary.Utils.Types
         public string Author { get; set; }
         public byte[] ImageSource { get; set; }
         public int RatingStars { get; set; }
+        public DateTime AddedInDatabase { get; set; }
+        public int BookId { get; set; }
     }
 }

@@ -146,6 +146,7 @@
         </Setter>
     </Style>
 
+
     <SolidColorBrush x:Key="EslScrollbarThumb" Color="{StaticResource SecondTextColor}" />
 
     <Style x:Key="ScrollBarPageButton" TargetType="{x:Type RepeatButton}">

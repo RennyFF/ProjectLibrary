@@ -13,6 +13,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
 {
     class RegViewModel : BaseViewModel, INotifyDataErrorInfo
     {
+        #region Values
         private readonly Utils.Validator _validator;
         private NpgsqlConnection connectionDB;
         public NpgsqlConnection ConnectionDB
@@ -78,7 +79,8 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 onPropertyChanged(nameof(Navigation));
             }
         }
-        public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
+        #endregion
+#region Commands
 
         private RelayCommand backButtonToAuth;
         public RelayCommand BackButtonToAuth
@@ -147,12 +149,15 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 }, obj => true);
             }
         }
+        #endregion
         public RegViewModel(INavigationService navigation, NpgsqlConnection connection)
         {
             Navigation = navigation;
             ConnectionDB = connection;
             _validator = new Utils.Validator(ConnectionDB);
         }
+        #region ErrorsFunctionality
+        public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
         private async void ValidateAllFields()
         {
             ValidatePropertyAsync(nameof(FirstName));
@@ -197,5 +202,6 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             }
             OnErrorsChanged(propertyName);
         }
+        #endregion
     }
 }

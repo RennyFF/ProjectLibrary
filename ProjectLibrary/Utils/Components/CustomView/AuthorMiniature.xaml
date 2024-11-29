@@ -105,8 +105,5 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Button
-        VerticalContentAlignment="Top"
-        Background="Transparent"
-        Click="Button_Click" />
+    <Button VerticalContentAlignment="Top" Background="Transparent" />
 </UserControl>

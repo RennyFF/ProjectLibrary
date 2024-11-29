@@ -1,6 +1,8 @@
-﻿using ProjectLibrary.Core;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using ProjectLibrary.Core;
 using ProjectLibrary.MVVM.View;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
+using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
 using ProjectLibrary.Utils.Types;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ProjectLibrary.Utils
 {
@@ -68,6 +71,10 @@ namespace ProjectLibrary.Utils
         public void NavigateLibraryTo<TViewModel>(object Param = null) where TViewModel : Core.BaseViewModel
         {
             Core.BaseViewModel ViewModel = _viewModelFactory.Invoke(typeof(TViewModel));
+            if (ViewModel is PreviewBookViewModel previewBookViewModel && Param is int BookId)
+            {
+                previewBookViewModel.GetPreviewedBook(BookId);
+            }
             CurrentLibraryView = ViewModel;
         }
     }

@@ -9,9 +9,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
     class CatalogViewModel : Core.BaseViewModel
     {
-        private Dictionary<int, string> SortFiltersDictionary = new Dictionary<int, string>() {
+        #region Values
+        private readonly Dictionary<int, string> SortDictionary = new() {
             { 1, "По актуальности" },
-            { 2, "По алфавиту" },
+            { 2, "По алфавиту (А-Я)" },
+            { 3, "По алфавиту (Я-А)" },
+            { 4, "По возрастанию оценок" },
+            { 5, "По убыванию оценок" },
         };
         private int CountityOnPage = 27;
         private NpgsqlConnection connectionDB;
@@ -20,7 +24,16 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             get => connectionDB;
             set => connectionDB = value;
         }
-
+        private ILibraryNavigationService _libraryNavigation;
+        public ILibraryNavigationService LibraryNavigation
+        {
+            get => _libraryNavigation;
+            set
+            {
+                _libraryNavigation = value;
+                onPropertyChanged(nameof(LibraryNavigation));
+            }
+        }
         private bool isLoading;
         public bool IsLoading
         {
@@ -46,36 +59,38 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public string SelectedSort
         {
             get { return selectedSort; }
-            set { selectedSort = value; SortBooks(); onPropertyChanged(nameof(SelectedSort)); }
+            set { ChangeLoadingState(); selectedSort = value; SortBooks(AllBooks); onPropertyChanged(nameof(SelectedSort)); }
         }
 
         private Genre selectedGenre;
         public Genre SelectedGenre
         {
             get { return selectedGenre; }
-            set { selectedGenre = value; onPropertyChanged(nameof(SelectedGenre)); }
+            set { selectedGenre = value; FilterBooks(); onPropertyChanged(nameof(SelectedGenre)); }
         }
 
         private ObservableCollection<Cards> allBooks = new();
         public ObservableCollection<Cards> AllBooks
         {
             get { return allBooks; }
-            set { allBooks = value; StartsLoading();}
+            set { allBooks = value; }
         }
 
         private int allPages;
         public int AllPages
         {
             get { return allPages; }
-            set { allPages = value; }
+            set { allPages = value; onPropertyChanged(nameof(AllPages)); }
         }
 
         private int currentPage;
         public int CurrentPage
         {
             get { return currentPage; }
-            set { currentPage = value; PageChanged(); onPropertyChanged(nameof(CurrentPage)); }
+            set { currentPage = value; onPropertyChanged(nameof(CurrentPage)); }
         }
+        #endregion
+        #region Commands
 
         private RelayCommand nextPage;
         public RelayCommand NextPage
@@ -85,6 +100,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 return nextPage ??= new RelayCommand(obj =>
                 {
                     CurrentPage += 1;
+                    PageChanged();
                 }, obj => CurrentPage != AllPages);
             }
         }
@@ -96,6 +112,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 return previousPage ??= new RelayCommand(obj =>
                 {
                     CurrentPage -= 1;
+                    PageChanged();
                 }, obj => CurrentPage != 1);
             }
         }
@@ -107,6 +124,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 return firstPage ??= new RelayCommand(obj =>
                 {
                     CurrentPage = 1;
+                    PageChanged();
                 }, obj => (CurrentPage != 1));
             }
         }
@@ -118,19 +136,12 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 return lastPage ??= new RelayCommand(obj =>
                 {
                     CurrentPage = AllPages;
+                    PageChanged();
                 }, obj => CurrentPage != AllPages);
             }
         }
-        private ILibraryNavigationService _libraryNavigation;
-        public ILibraryNavigationService LibraryNavigation
-        {
-            get => _libraryNavigation;
-            set
-            {
-                _libraryNavigation = value;
-                onPropertyChanged(nameof(LibraryNavigation));
-            }
-        }
+        #endregion
+        
         public CatalogViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
         {
             LibraryNavigation = libraryNavigation;
@@ -143,11 +154,11 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             CurrentPage = 1;
 
             AllGenresFilter = await Model.DataBaseFunctions.GetAllGenres(connection);
-            AllGenresFilter.Insert(0, new Genre() { GenreName = "Все жанры" });
+            AllGenresFilter.Insert(0, new Genre() { Id = 0, GenreName = "Все жанры" });
             SelectedGenre = AllGenresFilter.First();
 
             AllSortFilter = new List<string>();
-            foreach (var item in SortFiltersDictionary)
+            foreach (var item in SortDictionary)
             {
                 AllSortFilter.Add(item.Value);
             }
@@ -157,27 +168,69 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 
             PageChanged();
         }
-
-        private void SortBooks()
+        #region BooksFunc
+        private async void SortBooks(ObservableCollection<Cards> UnSortedList)
         {
-            //AllBooks = AllBooks.OrderBy(i => i.Title);
+            switch (SelectedSort)
+            {
+                case "По алфавиту (А-Я)":
+                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.Title).ToList()));
+                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    break;
+                case "По алфавиту (Я-А)":
+                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderByDescending(i => i.Title).ToList()));
+                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    break;
+                case "По актуальности":
+                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.AddedInDatabase).ToList()));
+                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    break;
+                case "По возрастанию оценок":
+                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.RatingStars).ToList()));
+                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    break;
+                case "По убыванию оценок":
+                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderByDescending(i => i.RatingStars).ToList()));
+                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    break;
+                default:
+                    break;
+            }
+            ChangeLoadingState();
         }
-        private void FilterBooks()
+        private async void FilterBooks()
         {
+            CurrentPage = 1;
+            if (selectedGenre.Id == 0)
+            {
+                AllPages = await Model.DataBaseFunctions.GetBooksCountity(ConnectionDB);
+                PageChanged();
+                return;
+            }
+            AllPages = await Model.DataBaseFunctions.GetBooksCountity(ConnectionDB, SelectedGenre);
+            PageChanged(SelectedGenre);
         }
 
         private async void PageChanged()
         {
             AllBooks.Clear();
-            StartsLoading();
-            var gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
-            await Task.Run(() => AllBooks = gettingBooks) ;
-            await Task.Run( () => onPropertyChanged(nameof(AllBooks)));
+            ChangeLoadingState();
+            ObservableCollection<Cards> gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
+            await Task.Run(() => SortBooks(gettingBooks));
         }
 
-        private void StartsLoading()
+        private async void PageChanged(Genre SelectedGenre)
+        {
+            AllBooks.Clear();
+            ChangeLoadingState();
+            ObservableCollection<Cards> gettingBooks = await Model.DataBaseFunctions.GetBooksByPageGenre(ConnectionDB, CurrentPage - 1, CountityOnPage, SelectedGenre);
+            await Task.Run(() => SortBooks(gettingBooks));
+        }
+
+        private void ChangeLoadingState()
         {
             IsLoading = !IsLoading;
         }
+        #endregion
     }
 }

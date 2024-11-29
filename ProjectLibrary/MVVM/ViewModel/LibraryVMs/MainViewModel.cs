@@ -13,6 +13,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
     class MainViewModel : Core.BaseViewModel
     {
+        #region Values
         private ObservableCollection<Cards> newBooksCategory = new();
 
         public ObservableCollection<Cards> NewBooksCategory
@@ -38,6 +39,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 onPropertyChanged(nameof(LibraryNavigation));
             }
         }
+        #endregion
         public MainViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
         {
             LibraryNavigation = libraryNavigation;

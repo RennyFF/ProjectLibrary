@@ -30,10 +30,13 @@
     <Compile Update="MVVM\View\LibraryViews\MainPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\LibraryViews\PreviewBookView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Utils\Components\CustomView\AuthorMiniature.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Utils\Components\CustomView\Card.xaml.cs">
+    <Compile Update="MVVM\View\LibraryViews\Items\Card.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Utils\Components\CustomView\CardSlider.xaml.cs">
@@ -71,6 +74,9 @@
     <Page Update="MVVM\View\LibraryViews\MainPageView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MVVM\View\LibraryViews\PreviewBookView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\ResourceAuthRegistration.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -86,7 +92,7 @@
     <Page Update="Utils\Components\CustomView\AuthorMiniature.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Utils\Components\CustomView\Card.xaml">
+    <Page Update="MVVM\View\LibraryViews\Items\Card.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Utils\Components\CustomView\CardSlider.xaml">
