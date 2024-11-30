@@ -115,10 +115,8 @@
                         <Border
                             Width="120"
                             Padding="10"
-                            Background="{StaticResource SecondBackgroundColorBrush}"
-                            BorderBrush="{StaticResource HoverBackgroundColorBrush}"
-                            BorderThickness="0.5"
-                            CornerRadius="8">
+                            Background="{StaticResource HighLightBackgroundColorBrush}"
+                            CornerRadius="4">
                             <StackPanel>
                                 <Button
                                     Command="{Binding LogoutCommand}"

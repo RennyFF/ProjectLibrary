@@ -261,6 +261,26 @@ namespace ProjectLibrary.MVVM.Model
                 return null;
             }
         }
+        public async static Task<int> GetMagicBook(NpgsqlConnection Connection)
+        {
+            string query = $"SELECT book.\"Id\"" +
+                $" FROM \"MasterProjectLibrary\".\"Books\" book" +
+                $"Where book.\"IsPromo\" = true;";
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    return Reader.GetInt32(0);
+                }
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 1;
+            }
+        }
         public async static Task<ObservableCollection<Cards>> GetBestSellers(NpgsqlConnection Connection)
         {
             string query = $"SELECT author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +

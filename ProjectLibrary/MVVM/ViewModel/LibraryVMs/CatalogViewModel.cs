@@ -92,6 +92,22 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         #endregion
         #region Commands
 
+        private RelayCommand goToPreview;
+        public RelayCommand GoToPreview
+        {
+            get
+            {
+                return goToPreview ??= new RelayCommand(obj =>
+                {
+                    if (obj is Cards SelectedBook)
+                    {
+                        Constants.PreviousVM = PreviousViewModels.CatalogVM;
+                        LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.BookId);
+                    }
+                }, obj => true);
+            }
+        }
+
         private RelayCommand nextPage;
         public RelayCommand NextPage
         {
@@ -174,24 +190,24 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             switch (SelectedSort)
             {
                 case "По алфавиту (А-Я)":
-                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.Title).ToList()));
-                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.Title).ToList());
+                    onPropertyChanged(nameof(AllBooks));
                     break;
                 case "По алфавиту (Я-А)":
-                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderByDescending(i => i.Title).ToList()));
-                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    allBooks = new ObservableCollection<Cards>(UnSortedList.OrderByDescending(i => i.Title).ToList());
+                    onPropertyChanged(nameof(AllBooks));
                     break;
                 case "По актуальности":
-                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.AddedInDatabase).ToList()));
-                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.AddedInDatabase).ToList());
+                    onPropertyChanged(nameof(AllBooks));
                     break;
                 case "По возрастанию оценок":
-                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.RatingStars).ToList()));
-                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.RatingStars).ToList());
+                    onPropertyChanged(nameof(AllBooks));
                     break;
                 case "По убыванию оценок":
-                    await Task.Run(() => AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderByDescending(i => i.RatingStars).ToList()));
-                    await Task.Run(() => onPropertyChanged(nameof(AllBooks)));
+                    AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderByDescending(i => i.RatingStars).ToList());
+                    onPropertyChanged(nameof(AllBooks));
                     break;
                 default:
                     break;

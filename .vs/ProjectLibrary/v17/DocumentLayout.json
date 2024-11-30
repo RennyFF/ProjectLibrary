@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\libraryviews\\items\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\libraryviews\\items\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\coreviews\\libraryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\coreviews\\libraryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\styles\\resourcelibrary.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\styles\\resourcelibrary.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\corevms\\libraryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\corevms\\libraryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\libraryviews\\catalogview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\libraryviews\\catalogview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\libraryvms\\catalogviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\libraryvms\\catalogviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\libraryvms\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\libraryvms\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\libraryvms\\items\\cardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\libraryvms\\items\\cardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\corevms\\regviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\corevms\\regviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\libraryviews\\items\\card.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\libraryviews\\items\\card.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\model\\databasefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\model\\databasefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\libraryviews\\mainpageview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\mvvm\\view\\libraryviews\\mainpageview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\components\\customview\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.csproj|solutionrelative:projectlibrary\\utils\\components\\customview\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,65 +54,114 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Card.xaml",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\Items\\Card.xaml",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\LibraryViews\\Items\\Card.xaml",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\Items\\Card.xaml",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\LibraryViews\\Items\\Card.xaml",
+              "DocumentIndex": 1,
+              "Title": "ResourceLibrary.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceLibrary.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Styles\\ResourceLibrary.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Styles\\ResourceLibrary.xaml",
+              "RelativeToolTip": "ProjectLibrary\\Styles\\ResourceLibrary.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-29T15:30:42.271Z",
+              "WhenOpened": "2024-11-30T18:10:10.894Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Card.xaml.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\Items\\Card.xaml.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\LibraryViews\\Items\\Card.xaml.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\Items\\Card.xaml.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\LibraryViews\\Items\\Card.xaml.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAAAGwAAABJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T15:27:55.783Z",
+              "DocumentIndex": 0,
+              "Title": "LibraryView.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\CoreViews\\LibraryView.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\CoreViews\\LibraryView.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\CoreViews\\LibraryView.xaml",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\CoreViews\\LibraryView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-30T18:06:54.731Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CatalogViewModel.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\CatalogViewModel.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\CatalogViewModel.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\CatalogViewModel.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\CatalogViewModel.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAwwF8AAAAkAAAA",
+              "Title": "LibraryViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\LibraryViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\LibraryViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\LibraryViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\LibraryViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T15:26:38.61Z",
+              "WhenOpened": "2024-11-30T18:06:51.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RegViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\RegViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\RegViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\RegViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\RegViewModel.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-30T18:01:43.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DataBaseFunctions.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\Model\\DataBaseFunctions.cs",
+              "ViewState": "AQIAAPMAAAAAAAAAAAAuwBMBAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-30T17:58:27.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\MainViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\MainViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\MainViewModel.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAuwEgAAACXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-30T17:56:42.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Card.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\Card.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Components\\CustomView\\Card.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\CustomView\\Card.xaml",
+              "RelativeToolTip": "ProjectLibrary\\Utils\\Components\\CustomView\\Card.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-30T17:53:40.826Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CardViewModel.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\Items\\CardViewModel.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\Items\\CardViewModel.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\Items\\CardViewModel.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\Items\\CardViewModel.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABcAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T15:26:37.161Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "CatalogView.xaml",
               "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\CatalogView.xaml",
               "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\LibraryViews\\CatalogView.xaml",
               "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\CatalogView.xaml",
               "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\LibraryViews\\CatalogView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-29T15:25:13.584Z",
+              "WhenOpened": "2024-11-30T17:49:55.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainPageView.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\MainPageView.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\LibraryViews\\MainPageView.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\MainPageView.xaml",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\LibraryViews\\MainPageView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-30T17:49:46.963Z",
               "EditorCaption": ""
             }
           ]

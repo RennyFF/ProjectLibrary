@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using ProjectLibrary.Core;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
@@ -43,6 +44,29 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get { return isOwned; }
             set {  isOwned = value; onPropertyChanged(); }
+        }
+        #endregion
+        #region Commands
+        private RelayCommand goBack;
+        public RelayCommand GoBack
+        {
+            get
+            {
+                return goBack ??= new RelayCommand(obj =>
+                {
+                    switch (Constants.PreviousVM)
+                    {
+                        case PreviousViewModels.CatalogVM:
+                            LibraryNavigation.NavigateLibraryTo<CatalogViewModel>();
+                            break;
+                        case PreviousViewModels.MainVM:
+                            LibraryNavigation.NavigateLibraryTo<MainViewModel>();
+                            break;
+                        default:
+                            break;
+                    }
+                }, obj => true);
+            }
         }
         #endregion
         public PreviewBookViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)

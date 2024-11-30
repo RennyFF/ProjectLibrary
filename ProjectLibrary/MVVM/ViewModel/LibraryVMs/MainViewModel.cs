@@ -8,12 +8,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using ProjectLibrary.Core;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
     class MainViewModel : Core.BaseViewModel
     {
         #region Values
+        private ILibraryNavigationService _libraryNavigation;
+        public ILibraryNavigationService LibraryNavigation
+        {
+            get => _libraryNavigation;
+            set
+            {
+                _libraryNavigation = value;
+                onPropertyChanged(nameof(LibraryNavigation));
+            }
+        }
+        private NpgsqlConnection connectionDB;
+        public NpgsqlConnection ConnectionDB
+        {
+            get => connectionDB;
+            set => connectionDB = value;
+        }
         private ObservableCollection<Cards> newBooksCategory = new();
 
         public ObservableCollection<Cards> NewBooksCategory
@@ -28,21 +45,40 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             get { return bestSellerCategory; }
             set { bestSellerCategory = value; }
         }
-
-        private ILibraryNavigationService _libraryNavigation;
-        public ILibraryNavigationService LibraryNavigation
+        #endregion
+        #region Commands
+        private RelayCommand goToPreview;
+        public RelayCommand GoToPreview
         {
-            get => _libraryNavigation;
-            set
+            get
             {
-                _libraryNavigation = value;
-                onPropertyChanged(nameof(LibraryNavigation));
+                return goToPreview ??= new RelayCommand(obj =>
+                {
+                    if (obj is Cards SelectedBook)
+                    {
+                        Constants.PreviousVM = PreviousViewModels.MainVM;
+                        LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.BookId);
+                    }
+                }, obj => true);
+            }
+        }
+        private RelayCommand goToMagicBook;
+        public RelayCommand GoToMagicBook
+        {
+            get
+            {
+                return goToMagicBook ??= new RelayCommand(async obj =>
+                {
+                    Constants.PreviousVM = PreviousViewModels.MainVM;
+                    LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(await Task.Run( () => Model.DataBaseFunctions.GetMagicBook(ConnectionDB)));
+                }, obj => true);
             }
         }
         #endregion
         public MainViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
         {
             LibraryNavigation = libraryNavigation;
+            ConnectionDB = connection;
             InitMainViewModel(connection);
         }
 

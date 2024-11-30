@@ -138,7 +138,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         {
             LibraryNavigation = libraryNavService;
             Navigation = navservice;
-            LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(1);
+            LibraryNavigation.NavigateLibraryTo<MainViewModel>();
         }
     }
 }

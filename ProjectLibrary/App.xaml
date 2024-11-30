@@ -4,10 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:ProjectLibrary"
     xmlns:viewCores="clr-namespace:ProjectLibrary.MVVM.View.CoreViews"
-    xmlns:viewItems="clr-namespace:ProjectLibrary.MVVM.View.LibraryViews.Items"
     xmlns:viewLibraries="clr-namespace:ProjectLibrary.MVVM.View.LibraryViews"
     xmlns:viewModelCores="clr-namespace:ProjectLibrary.MVVM.ViewModel.CoreVMs"
-    xmlns:viewModelItems="clr-namespace:ProjectLibrary.MVVM.ViewModel.LibraryVMs.Items"
     xmlns:viewModelLibraries="clr-namespace:ProjectLibrary.MVVM.ViewModel.LibraryVMs">
     <Application.Resources>
         <ResourceDictionary>
@@ -43,14 +41,6 @@
             <DataTemplate DataType="{x:Type viewModelLibraries:PreviewBookViewModel}">
                 <viewLibraries:PreviewBookView />
             </DataTemplate>
-
-            <!--  Items  -->
-
-            <DataTemplate DataType="{x:Type viewModelItems:CardViewModel}">
-                <viewItems:Card />
-            </DataTemplate>
-
-
 
             <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>
         </ResourceDictionary>

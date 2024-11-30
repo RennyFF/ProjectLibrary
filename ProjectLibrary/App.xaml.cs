@@ -3,7 +3,6 @@ using Npgsql;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
-using ProjectLibrary.MVVM.ViewModel.LibraryVMs.Items;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
 using System.Windows;
@@ -37,7 +36,6 @@ namespace ProjectLibrary
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<CatalogViewModel>();
             services.AddSingleton<PreviewBookViewModel>();
-            services.AddSingleton<CardViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<ILibraryNavigationService, LibraryNavigationService>();
 

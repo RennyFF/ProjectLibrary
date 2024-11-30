@@ -200,5 +200,16 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            Width="40"
+            Height="40"
+            HorizontalAlignment="Left"
+            Command="{Binding GoBack}"
+            Cursor="Hand"
+            Style="{StaticResource ButtonStyle}">
+            <iconPacks:PackIconFontAwesome Margin="5" Kind="ArrowLeftSolid" />
+        </Button>
     </Grid>
 </UserControl>

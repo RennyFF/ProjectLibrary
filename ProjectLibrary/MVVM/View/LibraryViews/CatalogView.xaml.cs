@@ -24,6 +24,5 @@ namespace ProjectLibrary.MVVM.View.LibraryViews
         {
             InitializeComponent();
         }
-
     }
 }
