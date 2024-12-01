@@ -31,16 +31,16 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             get => connectionDB;
             set => connectionDB = value;
         }
-        private ObservableCollection<Cards> newBooksCategory = new();
+        private ObservableCollection<BookCard> newBooksCategory = new();
 
-        public ObservableCollection<Cards> NewBooksCategory
+        public ObservableCollection<BookCard> NewBooksCategory
         {
             get { return newBooksCategory; }
             set { newBooksCategory = value; }
         }
 
-        private ObservableCollection<Cards> bestSellerCategory = new();
-        public ObservableCollection<Cards> BestSellerCategory
+        private ObservableCollection<BookCard> bestSellerCategory = new();
+        public ObservableCollection<BookCard> BestSellerCategory
         {
             get { return bestSellerCategory; }
             set { bestSellerCategory = value; }
@@ -54,9 +54,10 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreview ??= new RelayCommand(obj =>
                 {
-                    if (obj is Cards SelectedBook)
+                    if (obj is BookCard SelectedBook)
                     {
                         Constants.PreviousVM = PreviousViewModels.MainVM;
+                        HistoryCache.AppendHistoryCacheAll(SelectedBook);
                         LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.BookId);
                     }
                 }, obj => true);

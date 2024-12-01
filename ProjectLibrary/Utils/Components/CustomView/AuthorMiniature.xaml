@@ -35,7 +35,9 @@
                                     <ImageBrush ImageSource="{Binding ImageSource, ElementName=This, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill" />
                                 </Border.Background>
                             </Border>
+
                             <StackPanel
+                                Name="TextStackPanel"
                                 Grid.Row="1"
                                 Margin="0,10"
                                 VerticalAlignment="Center"
@@ -47,8 +49,7 @@
                                     FontSize="15"
                                     FontWeight="Medium"
                                     Text="{Binding Author, ElementName=This}"
-                                    TextTrimming="CharacterEllipsis"
-                                    Visibility="{Binding TitleVisibility, ElementName=This}">
+                                    TextTrimming="CharacterEllipsis">
                                     <TextBlock.ToolTip>
                                         <ToolTip Content="{Binding PlacementTarget.Text, RelativeSource={RelativeSource Self}}" Style="{StaticResource ToolTipStyle}" />
                                     </TextBlock.ToolTip>
@@ -56,24 +57,31 @@
                             </StackPanel>
 
                             <Border
-                                Name="MaskBorder"
+                                Name="MaskPhoto"
                                 Grid.Row="0"
-                                Background="{StaticResource MainTextColorBrush}"
-                                CornerRadius="8"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource HoverBackgroundColorBrush}"
+                                CornerRadius="{Binding CornerRadius, ElementName=This}"
                                 Opacity="0">
-                                <Border
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Background="{StaticResource HoverBackgroundColorBrush}"
-                                    CornerRadius="6">
-                                    <iconPacks:PackIconEvaIcons
-                                        Width="28"
-                                        Height="28"
-                                        Margin="6"
-                                        Foreground="{StaticResource MainTextColorBrush}"
-                                        Kind="SearchOutline" />
-                                </Border>
+                                <iconPacks:PackIconEvaIcons
+                                    Width="28"
+                                    Height="28"
+                                    Margin="6"
+                                    Foreground="{StaticResource MainTextColorBrush}"
+                                    Kind="SearchOutline" />
                             </Border>
+
+                            <Border
+                                Name="MaskText"
+                                Grid.Row="1"
+                                Width="{Binding ActualWidth, ElementName=TextStackPanel}"
+                                Height="{Binding ActualHeight, ElementName=TextStackPanel}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Background="{StaticResource HoverBackgroundColorBrush}"
+                                CornerRadius="{Binding CornerRadius, ElementName=This}"
+                                Opacity="0" />
                         </Grid>
 
                         <ControlTemplate.Triggers>
@@ -82,7 +90,11 @@
                                     <BeginStoryboard>
                                         <Storyboard SpeedRatio="4">
                                             <DoubleAnimation
-                                                Storyboard.TargetName="MaskBorder"
+                                                Storyboard.TargetName="MaskPhoto"
+                                                Storyboard.TargetProperty="Opacity"
+                                                To=".3" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="MaskText"
                                                 Storyboard.TargetProperty="Opacity"
                                                 To=".3" />
                                         </Storyboard>
@@ -92,7 +104,11 @@
                                     <BeginStoryboard>
                                         <Storyboard SpeedRatio="8">
                                             <DoubleAnimation
-                                                Storyboard.TargetName="MaskBorder"
+                                                Storyboard.TargetName="MaskPhoto"
+                                                Storyboard.TargetProperty="Opacity"
+                                                To="0" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="MaskText"
                                                 Storyboard.TargetProperty="Opacity"
                                                 To="0" />
                                         </Storyboard>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\App.xaml
-17-1645658367
+18-312284717
 1-480088270
-43-1118465984
-252-459071379
-MVVM\View\CoreViews\AuthView.xaml;MVVM\View\CoreViews\BaseWindow.xaml;MVVM\View\CoreViews\DialogWindow.xaml;MVVM\View\CoreViews\LibraryView.xaml;MVVM\View\CoreViews\RegView.xaml;MVVM\View\LibraryViews\CatalogView.xaml;MVVM\View\LibraryViews\MainPageView.xaml;MVVM\View\LibraryViews\PreviewBookView.xaml;Styles\ResourceAuthRegistration.xaml;Styles\ResourceBase.xaml;Styles\ResourceColors.xaml;Styles\ResourceLibrary.xaml;Utils\Components\CustomView\AuthorMiniature.xaml;Utils\Components\CustomView\Card.xaml;Utils\Components\LoadingSpinner.xaml;Utils\Components\PasswordBox.xaml;Utils\Components\RatingStars.xaml;
+46-1766876181
+253344029895
+MVVM\View\CoreViews\AuthView.xaml;MVVM\View\CoreViews\BaseWindow.xaml;MVVM\View\CoreViews\DialogWindow.xaml;MVVM\View\CoreViews\LibraryView.xaml;MVVM\View\CoreViews\RegView.xaml;MVVM\View\LibraryViews\CatalogView.xaml;MVVM\View\LibraryViews\HistoryView.xaml;MVVM\View\LibraryViews\MainPageView.xaml;MVVM\View\LibraryViews\PreviewBookView.xaml;Styles\ResourceAuthRegistration.xaml;Styles\ResourceBase.xaml;Styles\ResourceColors.xaml;Styles\ResourceLibrary.xaml;Utils\Components\CustomView\AuthorMiniature.xaml;Utils\Components\CustomView\Card.xaml;Utils\Components\LoadingSpinner.xaml;Utils\Components\PasswordBox.xaml;Utils\Components\RatingStars.xaml;
 
-True
+False
 

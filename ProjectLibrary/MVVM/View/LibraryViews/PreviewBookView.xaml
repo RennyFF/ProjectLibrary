@@ -98,11 +98,8 @@
                     Margin="0,0,0,10"
                     FontSize="20"
                     Style="{StaticResource HeaderTextStyle}"
-                    TextTrimming="CharacterEllipsis">
-                    <Run Text="{Binding PreviewedBook.Author.SecondName}" />
-                    <Run Text="{Binding PreviewedBook.Author.FirstName}" />
-                    <Run Text="{Binding PreviewedBook.Author.PatronomycName}" />
-                </TextBlock>
+                    Text="{Binding PreviewedBook.Author.FullName}"
+                    TextTrimming="CharacterEllipsis" />
                 <StackPanel
                     Grid.Row="3"
                     Margin="0,0,0,10"

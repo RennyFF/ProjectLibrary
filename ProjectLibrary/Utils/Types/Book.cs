@@ -9,7 +9,7 @@ namespace ProjectLibrary.Utils.Types
     public class Book
     {
         public int Id { get; set; }
-        public Author Author { get; set; }
+        public AuthorCard Author { get; set; }
         public string Genre { get; set; }
         public DateTime PublicationDate { get; set; }
         public int PagesCout { get; set; }

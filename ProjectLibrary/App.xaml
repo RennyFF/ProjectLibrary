@@ -42,6 +42,10 @@
                 <viewLibraries:PreviewBookView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModelLibraries:HistoryViewModel}">
+                <viewLibraries:HistoryView />
+            </DataTemplate>
+
             <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>
         </ResourceDictionary>
     </Application.Resources>

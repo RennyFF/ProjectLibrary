@@ -69,8 +69,8 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             set { selectedGenre = value; FilterBooks(); onPropertyChanged(nameof(SelectedGenre)); }
         }
 
-        private ObservableCollection<Cards> allBooks = new();
-        public ObservableCollection<Cards> AllBooks
+        private ObservableCollection<BookCard> allBooks = new();
+        public ObservableCollection<BookCard> AllBooks
         {
             get { return allBooks; }
             set { allBooks = value; }
@@ -99,9 +99,10 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreview ??= new RelayCommand(obj =>
                 {
-                    if (obj is Cards SelectedBook)
+                    if (obj is BookCard SelectedBook)
                     {
                         Constants.PreviousVM = PreviousViewModels.CatalogVM;
+                        HistoryCache.AppendHistoryCacheAll(SelectedBook);
                         LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.BookId);
                     }
                 }, obj => true);
@@ -185,28 +186,28 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             PageChanged();
         }
         #region BooksFunc
-        private async void SortBooks(ObservableCollection<Cards> UnSortedList)
+        private async void SortBooks(ObservableCollection<BookCard> UnSortedList)
         {
             switch (SelectedSort)
             {
                 case "По алфавиту (А-Я)":
-                    AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.Title).ToList());
+                    AllBooks = new ObservableCollection<BookCard>(UnSortedList.OrderBy(i => i.Title).ToList());
                     onPropertyChanged(nameof(AllBooks));
                     break;
                 case "По алфавиту (Я-А)":
-                    allBooks = new ObservableCollection<Cards>(UnSortedList.OrderByDescending(i => i.Title).ToList());
+                    allBooks = new ObservableCollection<BookCard>(UnSortedList.OrderByDescending(i => i.Title).ToList());
                     onPropertyChanged(nameof(AllBooks));
                     break;
                 case "По актуальности":
-                    AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.AddedInDatabase).ToList());
+                    AllBooks = new ObservableCollection<BookCard>(UnSortedList.OrderBy(i => i.AddedInDatabase).ToList());
                     onPropertyChanged(nameof(AllBooks));
                     break;
                 case "По возрастанию оценок":
-                    AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderBy(i => i.RatingStars).ToList());
+                    AllBooks = new ObservableCollection<BookCard>(UnSortedList.OrderBy(i => i.RatingStars).ToList());
                     onPropertyChanged(nameof(AllBooks));
                     break;
                 case "По убыванию оценок":
-                    AllBooks = new ObservableCollection<Cards>(UnSortedList.OrderByDescending(i => i.RatingStars).ToList());
+                    AllBooks = new ObservableCollection<BookCard>(UnSortedList.OrderByDescending(i => i.RatingStars).ToList());
                     onPropertyChanged(nameof(AllBooks));
                     break;
                 default:
@@ -231,7 +232,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             AllBooks.Clear();
             ChangeLoadingState();
-            ObservableCollection<Cards> gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
+            ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
             await Task.Run(() => SortBooks(gettingBooks));
         }
 
@@ -239,7 +240,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             AllBooks.Clear();
             ChangeLoadingState();
-            ObservableCollection<Cards> gettingBooks = await Model.DataBaseFunctions.GetBooksByPageGenre(ConnectionDB, CurrentPage - 1, CountityOnPage, SelectedGenre);
+            ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPageGenre(ConnectionDB, CurrentPage - 1, CountityOnPage, SelectedGenre);
             await Task.Run(() => SortBooks(gettingBooks));
         }
 
