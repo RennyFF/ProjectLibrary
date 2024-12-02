@@ -233,7 +233,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             AllBooks.Clear();
             ChangeLoadingState();
             ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
-            await Task.Run(() => SortBooks(gettingBooks));
+            Task.Run(() => SortBooks(gettingBooks));
         }
 
         private async void PageChanged(Genre SelectedGenre)
@@ -241,7 +241,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             AllBooks.Clear();
             ChangeLoadingState();
             ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPageGenre(ConnectionDB, CurrentPage - 1, CountityOnPage, SelectedGenre);
-            await Task.Run(() => SortBooks(gettingBooks));
+            Task.Run(() => SortBooks(gettingBooks));
         }
 
         private void ChangeLoadingState()

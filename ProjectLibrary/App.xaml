@@ -46,6 +46,14 @@
                 <viewLibraries:HistoryView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModelLibraries:PreviewGenreViewModel}">
+                <viewLibraries:PreviewGenreView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelLibraries:PreviewAuthorViewModel}">
+                <viewLibraries:PreviewAuthorView />
+            </DataTemplate>
+
             <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>
         </ResourceDictionary>
     </Application.Resources>

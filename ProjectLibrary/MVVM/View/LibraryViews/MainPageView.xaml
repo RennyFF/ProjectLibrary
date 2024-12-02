@@ -119,7 +119,7 @@
 
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <customControls:Card
+                                        <customControls:BookMiniature
                                             Title="{Binding Title}"
                                             Author="{Binding Author}"
                                             AuthorVisibility="Visible"
@@ -134,7 +134,7 @@
                                                     <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
                                                 </b:EventTrigger>
                                             </b:Interaction.Triggers>
-                                        </customControls:Card>
+                                        </customControls:BookMiniature>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
@@ -208,7 +208,7 @@
 
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <customControls:Card
+                                        <customControls:BookMiniature
                                             Title="{Binding Title}"
                                             Author="{Binding Author}"
                                             AuthorVisibility="Visible"
@@ -223,7 +223,7 @@
                                                     <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
                                                 </b:EventTrigger>
                                             </b:Interaction.Triggers>
-                                        </customControls:Card>
+                                        </customControls:BookMiniature>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>

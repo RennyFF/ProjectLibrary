@@ -9,7 +9,9 @@ namespace ProjectLibrary
     public enum PreviousViewModels
     {
         CatalogVM,
-        MainVM
+        MainVM,
+        HistoryVM,
+        FavoriteVM
     }
     public static class Constants
     {

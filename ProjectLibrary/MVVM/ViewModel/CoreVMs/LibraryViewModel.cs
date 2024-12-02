@@ -124,6 +124,25 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 }, obj => true);
             }
         }
+        private RelayCommand historyNavCommand;
+        public RelayCommand HistoryNavCommand
+        {
+            get
+            {
+                return historyNavCommand ??= new RelayCommand(obj =>
+                {
+                    try
+                    {
+                        LibraryNavigation.NavigateLibraryTo<HistoryViewModel>();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        throw;
+                    }
+                }, obj => true);
+            }
+        }
         #endregion
         private void UpdateVisibleFavoriteGenres()
         {

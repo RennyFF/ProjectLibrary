@@ -33,13 +33,22 @@
     <Compile Update="MVVM\View\LibraryViews\MainPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\LibraryViews\PreviewAuthorView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\LibraryViews\PreviewBookView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\LibraryViews\PreviewGenreView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Utils\Components\CustomView\AuthorMiniature.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Utils\Components\CustomView\Card.xaml.cs">
+    <Compile Update="Utils\Components\CustomView\BookMiniature.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Utils\Components\CustomView\GenreMiniature.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Utils\Components\LoadingSpinner.xaml.cs">
@@ -77,7 +86,13 @@
     <Page Update="MVVM\View\LibraryViews\MainPageView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MVVM\View\LibraryViews\PreviewAuthorView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MVVM\View\LibraryViews\PreviewBookView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\LibraryViews\PreviewGenreView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ResourceAuthRegistration.xaml">
@@ -95,7 +110,10 @@
     <Page Update="Utils\Components\CustomView\AuthorMiniature.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Utils\Components\CustomView\Card.xaml">
+    <Page Update="Utils\Components\CustomView\BookMiniature.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Utils\Components\CustomView\GenreMiniature.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Utils\Components\LoadingSpinner.xaml">

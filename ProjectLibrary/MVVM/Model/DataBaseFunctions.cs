@@ -7,6 +7,7 @@ using System.Data;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static System.Reflection.Metadata.BlobBuilder;
 
@@ -49,7 +50,32 @@ namespace ProjectLibrary.MVVM.Model
                 return null;
             }
         }
-        public async static Task<ObservableCollection<AuthorCard>> GetAllAuthors(NpgsqlConnection Connection)
+        public async static Task<List<Genre>> GetAllGenres(NpgsqlConnection Connection)
+        {
+            string query = $"SELECT * FROM \"MasterProjectLibrary\".\"Genres\"";
+            List<Genre> AllGenres = new List<Genre>();
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    var genre = new Genre
+                    {
+                        Id = Reader.GetInt32(0),
+                        GenreName = Reader.GetString(1)
+                    };
+                    AllGenres.Add(genre);
+                }
+                return AllGenres;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public async static Task<ObservableCollection<AuthorCard>> GetAllAuthorsCards(NpgsqlConnection Connection)
         {
             try
             {
@@ -75,20 +101,21 @@ namespace ProjectLibrary.MVVM.Model
                 return null;
             }
         }
-        public async static Task<List<Genre>> GetAllGenres(NpgsqlConnection Connection)
+        public async static Task<ObservableCollection<GenreCard>> GetAllGenresCards(NpgsqlConnection Connection)
         {
-            string query = $"SELECT * FROM \"MasterProjectLibrary\".\"Genres\"";
-            List<Genre> AllGenres = new List<Genre>();
+            string query = $"SELECT genre.\"GenreName\",genre.\"ImageAvatar\", genre.\"Id\" FROM \"MasterProjectLibrary\".\"Genres\" genre";
+            ObservableCollection<GenreCard> AllGenres = new ObservableCollection<GenreCard>();
             using var Command = new NpgsqlCommand(query, Connection);
             try
             {
                 using var Reader = Command.ExecuteReader();
                 while (await Reader.ReadAsync())
                 {
-                    var genre = new Genre
+                    var genre = new GenreCard
                     {
-                        Id = Reader.GetInt32(0),
-                        GenreName = Reader.GetString(1)
+                        GenreName = Reader.GetString(0),
+                        ImageAvatar = (byte[])Reader["ImageAvatar"],
+                        Id = Reader.GetInt32(2)
                     };
                     AllGenres.Add(genre);
                 }
@@ -180,6 +207,41 @@ namespace ProjectLibrary.MVVM.Model
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+
+        public async static Task<bool> CheckIfFavorite(NpgsqlConnection Connection, int UserId, int BookId)
+        {
+            string Query = $"SELECT * FROM \"MasterProjectLibrary\".\"Favorites\" WHERE \"UserId\"={UserId} and \"BookId\"={BookId}";
+            using var Command = new NpgsqlCommand(Query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                return Reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public static async void ChangeFavoriteBook(NpgsqlConnection Connection, int UserId, int BookId, bool Status)
+        {
+            string Query;
+            if (Status) { 
+            Query = "INSERT INTO \"MasterProjectLibrary\".\"Favorites\" " +
+                "(\"UserId\", \"BookId\") " +
+                "VALUES (@UserId, @BookId)";
+            using var command = new NpgsqlCommand(Query, Connection);
+            command.Parameters.AddWithValue("@UserId", UserId);
+            command.Parameters.AddWithValue("@BookId", BookId);
+            await command.ExecuteNonQueryAsync();
+            }
+            else
+            {
+                Query = $"DELETE FROM \"MasterProjectLibrary\".\"Favorites\" fav WHERE fav.\"BookId\" = {BookId} and fav.\"UserId\" = {UserId};";
+                using var command = new NpgsqlCommand(Query, Connection);
+                await command.ExecuteNonQueryAsync();
             }
         }
 
@@ -507,7 +569,7 @@ namespace ProjectLibrary.MVVM.Model
                         var book = new AuthorCard
                         {
                             FullName = $"{Reader.GetString(0)} {Reader.GetString(1)[0]}. {Reader.GetString(2)[0]}.",
-                            ImageAvatar = (byte[])Reader["Image"],
+                            ImageAvatar = (byte[])Reader["ImageAvatar"],
                             Id = Reader.GetInt32(4)
                         };
                         Authors.Add(book);
@@ -520,15 +582,13 @@ namespace ProjectLibrary.MVVM.Model
                 return null;
             }
         }
-        public async static Task<ObservableCollection<BookCard>> GetGenreFromHistory(NpgsqlConnection Connection, List<GenreHistory> HistoryList)
+        public async static Task<ObservableCollection<GenreCard>> GetGenreFromHistory(NpgsqlConnection Connection, List<GenreHistory> HistoryList)
         {
             try
             {
-                ObservableCollection<BookCard> Books = new ObservableCollection<BookCard>();
-                string query = $"SELECT author.\"SecondName\", author.\"FirstName\",author.\"PatronomycName\", " +
-                    $"book.\"Image\", book.\"Title\", book.\"RatingStars\", book.\"AddedInDatabase\", book.\"Id\", author.\"Id\", genre.\"Id\"" +
-                    $"FROM \"MasterProjectLibrary\".\"Books\" book join \"MasterProjectLibrary\".\"Authors\" author on book.\"AuthorId\" = author.\"Id\" " +
-                    $"join \"MasterProjectLibrary\".\"Genres\" genre on genre.\"Id\" = book.\"GenreId\" Where genre.\"Id\" = ";
+                ObservableCollection<GenreCard> Genres = new ObservableCollection<GenreCard>();
+                string query = $"SELECT genre.\"GenreName\",genre.\"ImageAvatar\", genre.\"Id\"  " +
+                    $"FROM \"MasterProjectLibrary\".\"Genres\" genre Where genre.\"Id\" = ";
                 foreach (var item in HistoryList)
                 {
                     string Finalquery = query + $"{item.GenreId}";
@@ -536,21 +596,16 @@ namespace ProjectLibrary.MVVM.Model
                     using var Reader = Command.ExecuteReader();
                     while (await Reader.ReadAsync())
                     {
-                        var book = new BookCard
+                        var genre = new GenreCard
                         {
-                            Author = $"{Reader.GetString(0)} {Reader.GetString(1)[0]}. {Reader.GetString(2)[0]}.",
-                            ImageSource = (byte[])Reader["Image"],
-                            Title = Reader.GetString(4),
-                            RatingStars = Reader.GetInt32(5),
-                            AddedInDatabase = Reader.GetDateTime(6),
-                            BookId = Reader.GetInt32(7),
-                            AuthorId = Reader.GetInt32(8),
-                            GenreId = Reader.GetInt32(9)
+                            GenreName = Reader.GetString(0),
+                            ImageAvatar = (byte[])Reader["ImageAvatar"],
+                            Id = Reader.GetInt32(2)
                         };
-                        Books.Add(book);
+                        Genres.Add(genre);
                     }
                 }
-                return Books;
+                return Genres;
             }
             catch (Exception ex)
             {

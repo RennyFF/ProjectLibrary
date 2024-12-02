@@ -45,8 +45,8 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             set { historyAuthors = value; onPropertyChanged(nameof(HistoryAuthors)); }
         }
 
-        private ObservableCollection<BookCard> historyGenres = new();
-        public ObservableCollection<BookCard> HistoryGenres
+        private ObservableCollection<GenreCard> historyGenres = new();
+        public ObservableCollection<GenreCard> HistoryGenres
         {
             get { return historyGenres; }
             set { historyGenres = value; onPropertyChanged(nameof(HistoryGenres)); }
@@ -62,22 +62,10 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 {
                     if (obj is BookCard SelectedBook)
                     {
-                        Constants.PreviousVM = PreviousViewModels.MainVM;
+                        Constants.PreviousVM = PreviousViewModels.HistoryVM;
                         HistoryCache.AppendHistoryCacheAll(SelectedBook);
                         LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.BookId);
                     }
-                }, obj => true);
-            }
-        }
-        private RelayCommand goToMagicBook;
-        public RelayCommand GoToMagicBook
-        {
-            get
-            {
-                return goToMagicBook ??= new RelayCommand(async obj =>
-                {
-                    Constants.PreviousVM = PreviousViewModels.MainVM;
-                    LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(await Task.Run(() => Model.DataBaseFunctions.GetMagicBook(ConnectionDB)));
                 }, obj => true);
             }
         }
@@ -91,9 +79,10 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 
         private async void InitHistoryViewModel(NpgsqlConnection connection)
         {
-            HistoryAuthors = await Task.Run(() => Model.DataBaseFunctions.GetAllAuthors(ConnectionDB));
-            //var GettingBooks = HistoryCache.GetHistory();
-            //HistoryBooks = GettingBooks.bookHistory;
+            HistoryStruct GettingBooks = HistoryCache.GetHistory();
+            HistoryBooks = await Task.Run(() => Model.DataBaseFunctions.GetBooksFromHistory(ConnectionDB, GettingBooks.bookHistory));
+            HistoryAuthors = await Task.Run(() => Model.DataBaseFunctions.GetAuthorsFromHistory(ConnectionDB, GettingBooks.authorHistory));
+            HistoryGenres = await Task.Run(() => Model.DataBaseFunctions.GetGenreFromHistory(ConnectionDB, GettingBooks.genreHistory));
         }
     }
 }

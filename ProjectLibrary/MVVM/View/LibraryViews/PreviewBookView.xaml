@@ -46,6 +46,9 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <StackPanel
@@ -107,16 +110,57 @@
                     <TextBlock
                         Margin="0,0,10,0"
                         FontSize="18"
+                        Foreground="{StaticResource SecondTextColorBrush}"
                         Style="{StaticResource SimpleTextStyleWhite}"
                         Text="Рейтинг:" />
                     <customComponents:RatingStars HorizontalAlignment="Left" Stars="{Binding PreviewedBook.RatingStars}" />
                 </StackPanel>
-                <TextBlock
+                <StackPanel
                     Grid.Row="4"
-                    FontSize="16"
+                    Margin="0,0,0,10"
+                    Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0" Style="{StaticResource SimpleTextStyleWhite}">
+                        <Run
+                            FontSize="18"
+                            Foreground="{StaticResource SecondTextColorBrush}"
+                            Text="Жанр:" />
+                        <Run FontSize="16" Text="{Binding PreviewedBook.Genre}" />
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="5"
+                    Margin="0,0,0,10"
+                    Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0" Style="{StaticResource SimpleTextStyleWhite}">
+                        <Run
+                            FontSize="18"
+                            Foreground="{StaticResource SecondTextColorBrush}"
+                            Text="Дата издания:" />
+                        <Run FontSize="16" Text="{Binding PreviewedBook.PublicationDate, StringFormat=dd.MM.yyyy}" />
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+                    Grid.Row="6"
+                    Margin="0,0,0,10"
+                    Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0" Style="{StaticResource SimpleTextStyleWhite}">
+                        <Run
+                            FontSize="18"
+                            Foreground="{StaticResource SecondTextColorBrush}"
+                            Text="Количество страниц:" />
+                        <Run FontSize="16" Text="{Binding PreviewedBook.PagesCout}" />
+                    </TextBlock>
+                </StackPanel>
+                <TextBlock
+                    Grid.Row="7"
                     Style="{StaticResource SimpleTextStyleWhite}"
-                    Text="{Binding PreviewedBook.Description}"
-                    TextWrapping="Wrap" />
+                    TextWrapping="Wrap">
+                    <Run
+                        FontSize="18"
+                        Foreground="{StaticResource SecondTextColorBrush}"
+                        Text="Описание:" />
+                    <Run FontSize="16" Text="{Binding PreviewedBook.Description}" />
+                </TextBlock>
             </Grid>
         </Border>
         <StackPanel
@@ -199,7 +243,7 @@
         </StackPanel>
         <Button
             Grid.Row="2"
-            Grid.Column="0"
+            Grid.ColumnSpan="2"
             Width="40"
             Height="40"
             HorizontalAlignment="Left"
@@ -207,6 +251,26 @@
             Cursor="Hand"
             Style="{StaticResource ButtonStyle}">
             <iconPacks:PackIconFontAwesome Margin="5" Kind="ArrowLeftSolid" />
+        </Button>
+        <Button
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Width="40"
+            Height="40"
+            HorizontalAlignment="Right"
+            Command="{Binding ChangeFavoriteValue}"
+            Cursor="Hand"
+            Style="{StaticResource ButtonStyle}">
+            <Grid>
+                <iconPacks:PackIconFontAwesome
+                    Margin="5"
+                    Kind="StarRegular"
+                    Visibility="{Binding IsFavorite, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert, Mode=TwoWay}" />
+                <iconPacks:PackIconFontAwesome
+                    Margin="5"
+                    Kind="StarSolid"
+                    Visibility="{Binding IsFavorite, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}" />
+            </Grid>
         </Button>
     </Grid>
 </UserControl>

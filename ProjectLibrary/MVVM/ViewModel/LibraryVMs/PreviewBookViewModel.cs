@@ -43,7 +43,14 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public bool IsOwned
         {
             get { return isOwned; }
-            set {  isOwned = value; onPropertyChanged(); }
+            set { isOwned = value; onPropertyChanged(); }
+        }
+        private bool isFavorite;
+
+        public bool IsFavorite
+        {
+            get { return isFavorite; }
+            set { isFavorite = value; onPropertyChanged(); }
         }
         #endregion
         #region Commands
@@ -62,9 +69,24 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                         case PreviousViewModels.MainVM:
                             LibraryNavigation.NavigateLibraryTo<MainViewModel>();
                             break;
+                        case PreviousViewModels.HistoryVM:
+                            LibraryNavigation.NavigateLibraryTo<HistoryViewModel>();
+                            break;
                         default:
                             break;
                     }
+                }, obj => true);
+            }
+        }
+        private RelayCommand changeFavoriteValue;
+        public RelayCommand ChangeFavoriteValue
+        {
+            get
+            {
+                return changeFavoriteValue ??= new RelayCommand(obj =>
+                {
+                    IsFavorite = !IsFavorite;
+                    Task.Run(() => Model.DataBaseFunctions.ChangeFavoriteBook(ConnectionDB, Constants.ActiveUserId, PreviewedBook.Id, IsFavorite));
                 }, obj => true);
             }
         }
@@ -78,6 +100,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             await Task.Run(async () => PreviewedBook = await Model.DataBaseFunctions.GetFullBook(ConnectionDB, BookId));
             await Task.Run(async () => IsOwned = await Model.DataBaseFunctions.CheckIfOwned(ConnectionDB, Constants.ActiveUserId, BookId));
+            await Task.Run(async () => IsFavorite = await Model.DataBaseFunctions.CheckIfFavorite(ConnectionDB, Constants.ActiveUserId, BookId));
         }
     }
 }

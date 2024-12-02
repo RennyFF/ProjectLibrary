@@ -113,7 +113,7 @@
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <customComponents:Card
+                    <customComponents:BookMiniature
                         Title="{Binding Title}"
                         Margin="0,0,0,12"
                         Author="{Binding Author}"
@@ -129,7 +129,7 @@
                                 <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
                             </b:EventTrigger>
                         </b:Interaction.Triggers>
-                    </customComponents:Card>
+                    </customComponents:BookMiniature>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

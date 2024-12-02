@@ -237,7 +237,7 @@
                             VerticalAlignment="Bottom">
                             <TextBlock Style="{StaticResource NavigationCategories}" Text="Активность" />
                             <RadioButton
-                                Command="{Binding NavigateHomeCommand}"
+                                Command="{Binding HistoryNavCommand}"
                                 GroupName="MenuButtons"
                                 Style="{StaticResource MenuButton}">
                                 <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
