@@ -114,3 +114,7 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windo
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\BookMiniature.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\GenreMiniature.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\GenreMiniature.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewAuthorView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewGenreView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewAuthorView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewGenreView.baml

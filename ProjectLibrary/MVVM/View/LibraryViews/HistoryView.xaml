@@ -33,7 +33,7 @@
         <ScrollViewer
             Grid.Row="1"
             Margin="0,0,10,10"
-            CanContentScroll="True"
+            CanContentScroll="False"
             Style="{StaticResource FavsScrollViewer}"
             VerticalScrollBarVisibility="Visible">
             <StackPanel>
@@ -50,6 +50,7 @@
                         BorderThickness="0"
                         ItemContainerStyle="{StaticResource ItemContainerStyle}"
                         ItemsSource="{Binding HistoryBooks}"
+                        ScrollViewer.CanContentScroll="False"
                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
                         VirtualizingStackPanel.IsVirtualizing="True"
@@ -121,11 +122,11 @@
                                     ImageHeight="150"
                                     ImageSource="{Binding ImageAvatar}"
                                     ImageWidth="150">
-                                    <!--<b:Interaction.Triggers>
-                                <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
-                                    <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
-                                </b:EventTrigger>
-                            </b:Interaction.Triggers>-->
+                                    <b:Interaction.Triggers>
+                                        <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                            <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
+                                        </b:EventTrigger>
+                                    </b:Interaction.Triggers>
                                 </customComponents:AuthorMiniature>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -166,11 +167,11 @@
                                     ImageHeight="150"
                                     ImageSource="{Binding ImageAvatar}"
                                     ImageWidth="150">
-                                    <!--<b:Interaction.Triggers>
-                                <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
-                                    <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
-                                </b:EventTrigger>
-                            </b:Interaction.Triggers>-->
+                                    <b:Interaction.Triggers>
+                                        <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                            <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
+                                        </b:EventTrigger>
+                                    </b:Interaction.Triggers>
                                 </customComponents:GenreMiniature>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

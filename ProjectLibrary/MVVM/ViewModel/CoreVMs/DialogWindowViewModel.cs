@@ -1,12 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using ProjectLibrary.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProjectLibrary.Core;
 using System.Windows;
-using System.Windows.Input;
 
 namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
 {

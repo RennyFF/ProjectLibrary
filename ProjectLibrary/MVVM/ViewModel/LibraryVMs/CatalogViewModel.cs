@@ -3,7 +3,6 @@ using ProjectLibrary.Core;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
 using System.Collections.ObjectModel;
-using System.Windows;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
@@ -102,8 +101,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                     if (obj is BookCard SelectedBook)
                     {
                         Constants.PreviousVM = PreviousViewModels.CatalogVM;
-                        HistoryCache.AppendHistoryCacheAll(SelectedBook);
-                        LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.BookId);
+                        LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.Id);
                     }
                 }, obj => true);
             }
@@ -224,7 +222,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 PageChanged();
                 return;
             }
-            AllPages = await Model.DataBaseFunctions.GetBooksCountity(ConnectionDB, SelectedGenre);
+            AllPages = await Model.DataBaseFunctions.GetBooksCountity(ConnectionDB, SelectedGenre.Id);
             PageChanged(SelectedGenre);
         }
 
@@ -240,7 +238,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             AllBooks.Clear();
             ChangeLoadingState();
-            ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPageGenre(ConnectionDB, CurrentPage - 1, CountityOnPage, SelectedGenre);
+            ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPageGenre(ConnectionDB, CurrentPage - 1, CountityOnPage, SelectedGenre.Id);
             Task.Run(() => SortBooks(gettingBooks));
         }
 

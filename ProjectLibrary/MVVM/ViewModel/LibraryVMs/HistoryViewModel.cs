@@ -2,12 +2,7 @@
 using ProjectLibrary.Core;
 using ProjectLibrary.Utils.Types;
 using ProjectLibrary.Utils;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
@@ -60,11 +55,21 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreview ??= new RelayCommand(obj =>
                 {
+                    Constants.PreviousVM = PreviousViewModels.HistoryVM;
                     if (obj is BookCard SelectedBook)
                     {
-                        Constants.PreviousVM = PreviousViewModels.HistoryVM;
-                        HistoryCache.AppendHistoryCacheAll(SelectedBook);
-                        LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.BookId);
+                        LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.Id);
+                        return;
+                    }
+                    else if (obj is AuthorCard SelectedAuthor)
+                    {
+                        LibraryNavigation.NavigateLibraryTo<PreviewAuthorViewModel>(SelectedAuthor.Id);
+                        return;
+                    }
+                    else if (obj is GenreCard SelectedGenre)
+                    {
+                        LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>(SelectedGenre.Id);
+                        return;
                     }
                 }, obj => true);
             }

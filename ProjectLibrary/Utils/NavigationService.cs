@@ -1,16 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using ProjectLibrary.Core;
-using ProjectLibrary.MVVM.View;
+﻿using ProjectLibrary.Core;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
 using ProjectLibrary.Utils.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace ProjectLibrary.Utils
 {
@@ -74,6 +65,14 @@ namespace ProjectLibrary.Utils
             if (ViewModel is PreviewBookViewModel previewBookViewModel && Param is int BookId)
             {
                 previewBookViewModel.GetPreviewedBook(BookId);
+            }
+            else if (ViewModel is PreviewAuthorViewModel previewAuthorViewModel && Param is int AuthorId)
+            {
+                previewAuthorViewModel.GetPreviewedAuthor(AuthorId);
+            }
+            else if (ViewModel is PreviewGenreViewModel previewGenreViewModel && Param is int GenreId)
+            {
+                previewGenreViewModel.GetPreviewedGenre(GenreId);
             }
             CurrentLibraryView = ViewModel;
         }

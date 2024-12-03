@@ -1,14 +1,7 @@
 ﻿using Npgsql;
 using ProjectLibrary.Core;
-using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
@@ -54,6 +47,30 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         }
         #endregion
         #region Commands
+        private RelayCommand goToPreviewGenre;
+        public RelayCommand GoToPreviewGenre
+        {
+            get
+            {
+                return goToPreviewGenre ??= new RelayCommand(obj =>
+                {
+                    Constants.PreviousVM = PreviousViewModels.BookPreviewVM;
+                    LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>(PreviewedBook.Genre.Id);
+                }, obj => true);
+            }
+        }
+        private RelayCommand goToPreviewAuthor;
+        public RelayCommand GoToPreviewAuthor
+        {
+            get
+            {
+                return goToPreviewAuthor ??= new RelayCommand(obj =>
+                {
+                    Constants.PreviousVM = PreviousViewModels.BookPreviewVM;
+                    LibraryNavigation.NavigateLibraryTo<PreviewAuthorViewModel>(PreviewedBook.Author.Id);
+                }, obj => true);
+            }
+        }
         private RelayCommand goBack;
         public RelayCommand GoBack
         {
@@ -71,6 +88,12 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                             break;
                         case PreviousViewModels.HistoryVM:
                             LibraryNavigation.NavigateLibraryTo<HistoryViewModel>();
+                            break;
+                        case PreviousViewModels.AuthorPreviewVM:
+                            LibraryNavigation.NavigateLibraryTo<PreviewAuthorViewModel>();
+                            break;
+                        case PreviousViewModels.GenrePreviewVM:
+                            LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>();
                             break;
                         default:
                             break;
@@ -98,6 +121,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         }
         public async void GetPreviewedBook(int BookId)
         {
+            HistoryCache.AppendHistoryCache(BookId, HistoryType.Book);
             await Task.Run(async () => PreviewedBook = await Model.DataBaseFunctions.GetFullBook(ConnectionDB, BookId));
             await Task.Run(async () => IsOwned = await Model.DataBaseFunctions.CheckIfOwned(ConnectionDB, Constants.ActiveUserId, BookId));
             await Task.Run(async () => IsFavorite = await Model.DataBaseFunctions.CheckIfFavorite(ConnectionDB, Constants.ActiveUserId, BookId));

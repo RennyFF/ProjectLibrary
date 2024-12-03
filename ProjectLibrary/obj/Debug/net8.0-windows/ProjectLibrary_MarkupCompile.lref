@@ -7,7 +7,9 @@ FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\R
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\CatalogView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\HistoryView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\MainPageView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\PreviewAuthorView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\PreviewBookView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\PreviewGenreView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\AuthorMiniature.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\BookMiniature.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\GenreMiniature.xaml;;

@@ -1,13 +1,6 @@
-﻿using Microsoft.Windows.Themes;
-using Newtonsoft.Json;
-using ProjectLibrary.Utils.Components.CustomView;
+﻿using Newtonsoft.Json;
 using ProjectLibrary.Utils.Types;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectLibrary.Utils
 {
@@ -103,11 +96,17 @@ namespace ProjectLibrary.Utils
             }
             File.WriteAllText(CacheFile, JsonConvert.SerializeObject(History));
         }
-        public static async void AppendHistoryCacheAll(BookCard Card)
+        public static async void AppendHistoryCache(BookCard Card)
         {
-            await Task.Run(() => AppendHistoryCache(Card.BookId, HistoryType.Book));
-            await Task.Run(() => AppendHistoryCache(Card.AuthorId, HistoryType.Author));
-            await Task.Run(() => AppendHistoryCache(Card.GenreId, HistoryType.Genre));
+            await Task.Run(() => AppendHistoryCache(Card.Id, HistoryType.Book));
+        }
+        public static async void AppendHistoryCache(AuthorCard Card)
+        {
+            await Task.Run(() => AppendHistoryCache(Card.Id, HistoryType.Author));
+        }
+        public static async void AppendHistoryCache(GenreCard Card)
+        {
+            await Task.Run(() => AppendHistoryCache(Card.Id, HistoryType.Genre));
         }
     }
 }

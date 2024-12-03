@@ -1,14 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using ProjectLibrary.Core;
+﻿using ProjectLibrary.Core;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Types;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Windows;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
 
@@ -143,6 +136,21 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 }, obj => true);
             }
         }
+        private RelayCommand goToPreviewGenre;
+        public RelayCommand GoToPreviewGenre
+        {
+            get
+            {
+                return goToPreviewGenre ??= new RelayCommand(obj =>
+                {
+                    if (obj is Genre SelectedFavoriteGenre)
+                    {
+                        LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>(SelectedFavoriteGenre.Id);
+                        return;
+                    }
+                }, obj => true);
+            }
+        }
         #endregion
         private void UpdateVisibleFavoriteGenres()
         {
@@ -157,7 +165,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         {
             LibraryNavigation = libraryNavService;
             Navigation = navservice;
-            LibraryNavigation.NavigateLibraryTo<HistoryViewModel>();
+            LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>(1);
         }
     }
 }

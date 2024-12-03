@@ -65,8 +65,7 @@ namespace ProjectLibrary.Utils.Components.CustomView {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectLibrary;V1.0.0.0;component/utils/components/customview/genreminiature.xam" +
-                    "l", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectLibrary;component/utils/components/customview/genreminiature.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\Utils\Components\CustomView\GenreMiniature.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

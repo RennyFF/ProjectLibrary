@@ -1,13 +1,7 @@
 ﻿using Npgsql;
 using ProjectLibrary.Utils.Types;
 using ProjectLibrary.Utils;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using ProjectLibrary.Core;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
@@ -57,8 +51,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                     if (obj is BookCard SelectedBook)
                     {
                         Constants.PreviousVM = PreviousViewModels.MainVM;
-                        HistoryCache.AppendHistoryCacheAll(SelectedBook);
-                        LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.BookId);
+                        LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.Id);
                     }
                 }, obj => true);
             }

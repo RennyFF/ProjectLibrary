@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProjectLibrary
+﻿namespace ProjectLibrary
 {
     public enum PreviousViewModels
     {
         CatalogVM,
         MainVM,
         HistoryVM,
+        AuthorPreviewVM,
+        GenrePreviewVM,
+        BookPreviewVM,
         FavoriteVM
     }
     public static class Constants
