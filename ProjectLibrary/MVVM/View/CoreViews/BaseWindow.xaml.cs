@@ -11,44 +11,42 @@ namespace ProjectLibrary.MVVM.View.CoreViews
         public BaseWindow()
         {
             InitializeComponent();
+            StateChanged += MainWindowStateChangeRaised;
         }
-        private void DragArea_MouseDown(object sender, MouseButtonEventArgs e)
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                DragMove();
-            }
+            e.CanExecute = true;
         }
-
-        private void ResizeToFullScreen_Click(object sender, RoutedEventArgs e)
+        private void CommandBinding_Executed_Minimize(object sender, ExecutedRoutedEventArgs e)
         {
-            Resize();
+            SystemCommands.MinimizeWindow(this);
         }
-
-        private void Resize()
+        private void CommandBinding_Executed_Maximize(object sender, ExecutedRoutedEventArgs e)
         {
-            Thickness thicknessSmall = new Thickness(0);
-            Thickness thicknessFS = new Thickness(0, 7, 7, 0);
+            SystemCommands.MaximizeWindow(this);
+        }
+        private void CommandBinding_Executed_Restore(object sender, ExecutedRoutedEventArgs e)
+        {
+            SystemCommands.RestoreWindow(this);
+        }
+        private void CommandBinding_Executed_Close(object sender, ExecutedRoutedEventArgs e)
+        {
+            SystemCommands.CloseWindow(this);
+        }
+        private void MainWindowStateChangeRaised(object sender, EventArgs e)
+        {
             if (WindowState == WindowState.Maximized)
             {
-                WindowState = WindowState.Normal;
-                Tools.Margin = thicknessSmall;
+                MainWindowBorder.BorderThickness = new Thickness(8);
+                RestoreButton.Visibility = Visibility.Visible;
+                MaximizeButton.Visibility = Visibility.Collapsed;
             }
-            else if (WindowState == WindowState.Normal)
+            else
             {
-                WindowState = WindowState.Maximized;
-                Tools.Margin = thicknessFS;
+                MainWindowBorder.BorderThickness = new Thickness(0);
+                RestoreButton.Visibility = Visibility.Collapsed;
+                MaximizeButton.Visibility = Visibility.Visible;
             }
-        }
-
-        private void HideWindow_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

@@ -8,58 +8,91 @@
     xmlns:viewmodel="clr-namespace:ProjectLibrary.MVVM.ViewModel.CoreVMs"
     Width="1200"
     Height="800"
-    AllowsTransparency="True"
-    Background="Transparent"
+    d:Background="Transparent"
+    Cursor=""
+    ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
-    WindowStyle="None"
+    WindowStyle="ToolWindow"
     mc:Ignorable="d">
-    <Grid Background="{StaticResource MainBackgroundColorBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <!--  Tools Bar  -->
-        <StackPanel
-            x:Name="DragArea"
-            Grid.Row="0"
-            Height="auto"
-            VerticalAlignment="Bottom"
-            Background="{StaticResource MainBackgroundColorBrush}"
-            MouseDown="DragArea_MouseDown">
-            <StackPanel
-                x:Name="Tools"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Orientation="Horizontal">
-                <Button
-                    x:Name="HideWindow"
-                    Click="HideWindow_Click"
-                    Style="{StaticResource WindowStateButton}">
-                    <iconPacks:PackIconUnicons
-                        Height="13"
-                        Foreground="White"
-                        Kind="MinusLine" />
-                </Button>
-                <Button
-                    x:Name="ResizeToFullScreen"
-                    Click="ResizeToFullScreen_Click"
-                    Style="{StaticResource WindowStateButton}">
-                    <iconPacks:PackIconUnicons
-                        Height="13"
-                        Foreground="White"
-                        Kind="SquareFullLine" />
-                </Button>
-                <Button
-                    x:Name="Close"
-                    Click="Close_Click"
-                    Style="{StaticResource WindowStateButton--Close}">
-                    <iconPacks:PackIconUnicons
-                        Height="13"
-                        Foreground="White"
-                        Kind="MultiplyLine" />
-                </Button>
-            </StackPanel>
-        </StackPanel>
-        <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}" />
-    </Grid>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="34" />
+    </WindowChrome.WindowChrome>
+    <Window.CommandBindings>
+        <CommandBinding
+            CanExecute="CommandBinding_CanExecute"
+            Command="{x:Static SystemCommands.CloseWindowCommand}"
+            Executed="CommandBinding_Executed_Close" />
+        <CommandBinding
+            CanExecute="CommandBinding_CanExecute"
+            Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+            Executed="CommandBinding_Executed_Maximize" />
+        <CommandBinding
+            CanExecute="CommandBinding_CanExecute"
+            Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+            Executed="CommandBinding_Executed_Minimize" />
+        <CommandBinding
+            CanExecute="CommandBinding_CanExecute"
+            Command="{x:Static SystemCommands.RestoreWindowCommand}"
+            Executed="CommandBinding_Executed_Restore" />
+    </Window.CommandBindings>
+    <Border
+        x:Name="MainWindowBorder"
+        BorderBrush="{StaticResource MainBackgroundColorBrush}"
+        BorderThickness="0">
+        <Grid x:Name="parentContainer" Background="{StaticResource MainBackgroundColorBrush}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid
+                Grid.Row="0"
+                Height="30"
+                Background="{StaticResource MainBackgroundColorBrush}">
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button
+                        Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+                        Style="{StaticResource CaptionButtonStyle}"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <iconPacks:PackIconLucide
+                            Height="13"
+                            Foreground="White"
+                            Kind="Minus" />
+                    </Button>
+                    <Button
+                        x:Name="RestoreButton"
+                        Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                        Style="{StaticResource CaptionButtonStyle}"
+                        Visibility="Collapsed"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <iconPacks:PackIconLucide
+                            Height="13"
+                            Foreground="White"
+                            Kind="Minimize" />
+                    </Button>
+                    <Button
+                        x:Name="MaximizeButton"
+                        Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                        Style="{StaticResource CaptionButtonStyle}"
+                        Visibility="Visible"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <iconPacks:PackIconLucide
+                            Height="13"
+                            Foreground="White"
+                            Kind="Square" />
+                    </Button>
+                    <Button
+                        Command="{x:Static SystemCommands.CloseWindowCommand}"
+                        Style="{StaticResource CaptionButtonStyle--Close}"
+                        WindowChrome.IsHitTestVisibleInChrome="True">
+                        <iconPacks:PackIconLucide
+                            Height="13"
+                            Foreground="White"
+                            Kind="X" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <ContentControl Grid.Row="1" Content="{Binding Navigation.CurrentView}" />
+        </Grid>
+    </Border>
 </Window>
