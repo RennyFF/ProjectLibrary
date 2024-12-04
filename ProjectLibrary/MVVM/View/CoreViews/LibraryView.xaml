@@ -247,7 +247,7 @@
                                 </StackPanel>
                             </RadioButton>
                             <RadioButton
-                                Command="{Binding NavigateHomeCommand}"
+                                Command="{Binding FavoriteNavCommand}"
                                 GroupName="MenuButtons"
                                 Style="{StaticResource MenuButton}">
                                 <StackPanel VerticalAlignment="Center" Orientation="Horizontal">

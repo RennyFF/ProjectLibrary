@@ -27,6 +27,9 @@
     <Compile Update="MVVM\View\LibraryViews\CatalogView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\LibraryViews\FavoriteBooksView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\LibraryViews\HistoryView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -78,6 +81,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\LibraryViews\CatalogView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\LibraryViews\FavoriteBooksView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\LibraryViews\HistoryView.xaml">

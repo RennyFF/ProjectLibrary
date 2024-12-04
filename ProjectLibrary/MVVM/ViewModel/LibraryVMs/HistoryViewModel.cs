@@ -85,9 +85,9 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         private async void InitHistoryViewModel(NpgsqlConnection connection)
         {
             HistoryStruct GettingBooks = HistoryCache.GetHistory();
-            HistoryBooks = await Task.Run(() => Model.DataBaseFunctions.GetBooksFromHistory(ConnectionDB, GettingBooks.bookHistory));
-            HistoryAuthors = await Task.Run(() => Model.DataBaseFunctions.GetAuthorsFromHistory(ConnectionDB, GettingBooks.authorHistory));
-            HistoryGenres = await Task.Run(() => Model.DataBaseFunctions.GetGenreFromHistory(ConnectionDB, GettingBooks.genreHistory));
+            HistoryBooks = await Task.Run(() => Model.DataBaseFunctions.GetAllBookCards(ConnectionDB, GettingBooks.bookHistory));
+            HistoryAuthors = await Task.Run(() => Model.DataBaseFunctions.GetAllAuthorsCards(ConnectionDB, GettingBooks.authorHistory));
+            HistoryGenres = await Task.Run(() => Model.DataBaseFunctions.GetAllGenreCards(ConnectionDB, GettingBooks.genreHistory));
         }
     }
 }

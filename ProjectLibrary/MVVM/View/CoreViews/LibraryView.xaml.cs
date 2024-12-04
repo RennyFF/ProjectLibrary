@@ -15,8 +15,6 @@ namespace ProjectLibrary.MVVM.View.CoreViews
 
         private void _dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            MainGrid.Height = 220;
-
             _dispatcherTimer.Tick += _dispatcherTimer_Tick1;
             _dispatcherTimer.Stop();
 

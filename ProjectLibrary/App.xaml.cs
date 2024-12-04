@@ -33,12 +33,13 @@ namespace ProjectLibrary
             services.AddSingleton<AuthViewModel>();
             services.AddSingleton<RegViewModel>();
             services.AddSingleton<LibraryViewModel>();
-            services.AddSingleton<MainViewModel>();
+            services.AddTransient<MainViewModel>();
             services.AddSingleton<CatalogViewModel>();
             services.AddSingleton<PreviewBookViewModel>();
             services.AddSingleton<PreviewAuthorViewModel>();
             services.AddSingleton<PreviewGenreViewModel>();
-            services.AddSingleton<HistoryViewModel>();
+            services.AddTransient<HistoryViewModel>();
+            services.AddTransient<FavoriteBooksViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<ILibraryNavigationService, LibraryNavigationService>();
 

@@ -14,7 +14,7 @@ namespace ProjectLibrary.Utils
                 .NotEmpty().WithMessage("Поле не может быть пустым.")
                 .MustAsync(async (Login, cancellation) =>
                 {
-                    return await MVVM.Model.DataBaseFunctions.CheckIfUnique(ConnectionDB, true, Login);
+                    return await MVVM.Model.DataBaseFunctions.CheckIfUniqueUser(ConnectionDB, true, Login);
                 }).WithMessage("Логин уже занят."); ;
 
             RuleFor(x => x.FirstName)
@@ -31,7 +31,7 @@ namespace ProjectLibrary.Utils
                 .EmailAddress().WithMessage("Введите существующую почту.")
                 .MustAsync(async (Mail, cancellation) =>
                 {
-                    return await MVVM.Model.DataBaseFunctions.CheckIfUnique(ConnectionDB, false, Mail);
+                    return await MVVM.Model.DataBaseFunctions.CheckIfUniqueUser(ConnectionDB, false, Mail);
                 }).WithMessage("Почта уже занята.");
 
             RuleFor(x => x.Birthday)

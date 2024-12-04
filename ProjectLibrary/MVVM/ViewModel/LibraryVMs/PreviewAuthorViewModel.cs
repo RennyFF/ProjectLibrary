@@ -98,8 +98,8 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public async void GetPreviewedAuthor(int AuthorId)
         {
             HistoryCache.AppendHistoryCache(AuthorId, HistoryType.Author);
-            await Task.Run(async () => AuhorsBooks = await Model.DataBaseFunctions.GetAuthorsBooks(ConnectionDB, AuthorId));
-            await Task.Run(async () => PreviewedAuthor = await Model.DataBaseFunctions.GetFullAuthor(ConnectionDB, AuthorId));
+            await Task.Run(async () => AuhorsBooks = await Model.DataBaseFunctions.GetAllBookCards(ConnectionDB, AuthorId));
+            await Task.Run(async () => PreviewedAuthor = await Model.DataBaseFunctions.GetSingleAuthorCard(ConnectionDB, AuthorId));
         }
     }
 }

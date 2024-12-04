@@ -161,13 +161,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public async void GetPreviewedGenre(int GenreId)
         {
             HistoryCache.AppendHistoryCache(GenreId, HistoryType.Genre);
-            await Task.Run(async () => PreviewedGenre = await Model.DataBaseFunctions.GetFullGenre(ConnectionDB, GenreId));
+            await Task.Run(async () => PreviewedGenre = await Model.DataBaseFunctions.GetSingleGenreCard(ConnectionDB, GenreId));
             InitGenreViewModel(ConnectionDB);
         }
         private async void InitGenreViewModel(NpgsqlConnection connection)
         {
             CurrentPage = 1;
-            AllPages = await Model.DataBaseFunctions.GetBooksCountity(connection, PreviewedGenre.Id);
+            AllPages = await Model.DataBaseFunctions.GetBooksCountity(connection, PreviewedGenre);
             PageChanged();
         }
         #region BooksFunc
@@ -175,7 +175,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             GenreBooks.Clear();
             ChangeLoadingState();
-            ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPageGenre(ConnectionDB, CurrentPage - 1, CountityOnPage, PreviewedGenre.Id);
+            ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage, PreviewedGenre);
             await Task.Run(
                 () =>
                 {

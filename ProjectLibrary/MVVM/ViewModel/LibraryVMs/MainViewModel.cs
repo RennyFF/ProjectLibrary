@@ -64,7 +64,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 return goToMagicBook ??= new RelayCommand(async obj =>
                 {
                     Constants.PreviousVM = PreviousViewModels.MainVM;
-                    LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(await Task.Run( () => Model.DataBaseFunctions.GetMagicBook(ConnectionDB)));
+                    LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(await Task.Run( () => Model.DataBaseFunctions.GetMagicBookId(ConnectionDB)));
                 }, obj => true);
             }
         }
@@ -78,10 +78,10 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 
         private async void InitMainViewModel(NpgsqlConnection connection)
         {
-            var GettingBooksFirstCategroy = await Model.DataBaseFunctions.GetNewBooks(connection);
+            var GettingBooksFirstCategroy = await Model.DataBaseFunctions.GetNewBookCards(connection);
             await Task.Run(() => NewBooksCategory = GettingBooksFirstCategroy);
             await Task.Run(() => onPropertyChanged(nameof(NewBooksCategory)));
-            var GettingBooksSecondCategroy = await Model.DataBaseFunctions.GetBestSellers(connection);
+            var GettingBooksSecondCategroy = await Model.DataBaseFunctions.GetBestSellersBookCards(connection);
             await Task.Run(() => BestSellerCategory = GettingBooksSecondCategroy);
             await Task.Run(() => onPropertyChanged(nameof(BestSellerCategory)));
         }

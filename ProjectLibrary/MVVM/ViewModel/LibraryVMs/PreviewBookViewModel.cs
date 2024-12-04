@@ -95,6 +95,9 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                         case PreviousViewModels.GenrePreviewVM:
                             LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>();
                             break;
+                        case PreviousViewModels.FavoriteVM:
+                            LibraryNavigation.NavigateLibraryTo<FavoriteBooksViewModel>();
+                            break;
                         default:
                             break;
                     }
@@ -122,7 +125,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         public async void GetPreviewedBook(int BookId)
         {
             HistoryCache.AppendHistoryCache(BookId, HistoryType.Book);
-            await Task.Run(async () => PreviewedBook = await Model.DataBaseFunctions.GetFullBook(ConnectionDB, BookId));
+            await Task.Run(async () => PreviewedBook = await Model.DataBaseFunctions.GetSingleBookCard(ConnectionDB, BookId));
             await Task.Run(async () => IsOwned = await Model.DataBaseFunctions.CheckIfOwned(ConnectionDB, Constants.ActiveUserId, BookId));
             await Task.Run(async () => IsFavorite = await Model.DataBaseFunctions.CheckIfFavorite(ConnectionDB, Constants.ActiveUserId, BookId));
         }
