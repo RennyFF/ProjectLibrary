@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\App.xaml
-2298711328
+24261127180
 1-480088270
-54-257915196
+58-1685600635
 253344029895
-MVVM\View\CoreViews\AuthView.xaml;MVVM\View\CoreViews\BaseWindow.xaml;MVVM\View\CoreViews\DialogWindow.xaml;MVVM\View\CoreViews\LibraryView.xaml;MVVM\View\CoreViews\RegView.xaml;MVVM\View\LibraryViews\CatalogView.xaml;MVVM\View\LibraryViews\FavoriteBooksView.xaml;MVVM\View\LibraryViews\HistoryView.xaml;MVVM\View\LibraryViews\MainPageView.xaml;MVVM\View\LibraryViews\PreviewAuthorView.xaml;MVVM\View\LibraryViews\PreviewBookView.xaml;MVVM\View\LibraryViews\PreviewGenreView.xaml;Styles\ResourceAuthRegistration.xaml;Styles\ResourceBase.xaml;Styles\ResourceColors.xaml;Styles\ResourceLibrary.xaml;Utils\Components\CustomView\AuthorMiniature.xaml;Utils\Components\CustomView\BookMiniature.xaml;Utils\Components\CustomView\GenreMiniature.xaml;Utils\Components\LoadingSpinner.xaml;Utils\Components\PasswordBox.xaml;Utils\Components\RatingStars.xaml;
+MVVM\View\CoreViews\AuthView.xaml;MVVM\View\CoreViews\BaseWindow.xaml;MVVM\View\CoreViews\DialogWindow.xaml;MVVM\View\CoreViews\LibraryView.xaml;MVVM\View\CoreViews\RegView.xaml;MVVM\View\LibraryViews\AuthorsView.xaml;MVVM\View\LibraryViews\CatalogView.xaml;MVVM\View\LibraryViews\FavoriteBooksView.xaml;MVVM\View\LibraryViews\GenresView.xaml;MVVM\View\LibraryViews\HistoryView.xaml;MVVM\View\LibraryViews\MainPageView.xaml;MVVM\View\LibraryViews\PreviewAuthorView.xaml;MVVM\View\LibraryViews\PreviewBookView.xaml;MVVM\View\LibraryViews\PreviewGenreView.xaml;Styles\ResourceAuthRegistration.xaml;Styles\ResourceBase.xaml;Styles\ResourceColors.xaml;Styles\ResourceLibrary.xaml;Utils\Components\CustomView\AuthorMiniature.xaml;Utils\Components\CustomView\BookMiniature.xaml;Utils\Components\CustomView\GenreMiniature.xaml;Utils\Components\LoadingSpinner.xaml;Utils\Components\PasswordBox.xaml;Utils\Components\RatingStars.xaml;
 
 False
 

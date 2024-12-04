@@ -8,6 +8,8 @@
         AuthorPreviewVM,
         GenrePreviewVM,
         BookPreviewVM,
+        AuthorsVM,
+        GenresVM,
         FavoriteVM
     }
     public static class Constants

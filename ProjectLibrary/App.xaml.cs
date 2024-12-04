@@ -35,6 +35,8 @@ namespace ProjectLibrary
             services.AddSingleton<LibraryViewModel>();
             services.AddTransient<MainViewModel>();
             services.AddSingleton<CatalogViewModel>();
+            services.AddSingleton<AuthorsViewModel>();
+            services.AddSingleton<GenresViewModel>();
             services.AddSingleton<PreviewBookViewModel>();
             services.AddSingleton<PreviewAuthorViewModel>();
             services.AddSingleton<PreviewGenreViewModel>();

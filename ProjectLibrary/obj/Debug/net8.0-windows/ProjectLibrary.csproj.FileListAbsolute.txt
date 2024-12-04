@@ -120,3 +120,7 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windo
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ref\ProjectLibrary.dll
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\FavoriteBooksView.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\FavoriteBooksView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\AuthorsView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\GenresView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\AuthorsView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\GenresView.baml

@@ -2,9 +2,11 @@
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Converters;
 using ProjectLibrary.Utils.Types;
+using System;
 using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.IO;
+using System.Windows.Controls.Primitives;
 
 namespace ProjectLibrary.MVVM.Model
 {
@@ -118,6 +120,51 @@ namespace ProjectLibrary.MVVM.Model
         }
         #endregion
         #region Genre tasks
+        public async static Task<int> GetGenresCountity(NpgsqlConnection Connection)
+        {
+            string query = $"SELECT Count(*) FROM \"MasterProjectLibrary\".\"Genres\"";
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    return Convert.ToInt32(Math.Ceiling(Reader.GetInt32(0) / 27.0));
+                }
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+        public async static Task<ObservableCollection<GenreCard>> GetGenresByPage(NpgsqlConnection Connection, int Page, int CountityOnPage)
+        {
+            string query = $"SELECT genre.\"GenreName\",genre.\"ImageAvatar\", genre.\"Id\" " +
+                    $"FROM \"MasterProjectLibrary\".\"Genres\" genre " +
+                $"limit {CountityOnPage} offset {Page * CountityOnPage}";
+            ObservableCollection<GenreCard> Genres = new ObservableCollection<GenreCard>();
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    var genre = new GenreCard
+                    {
+                        GenreName = Reader.GetString(0),
+                        ImageAvatar = (byte[])Reader["ImageAvatar"],
+                        Id = Reader.GetInt32(2)
+                    };
+                    Genres.Add(genre);
+                }
+                return Genres;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public async static Task<ObservableCollection<GenreCard>> GetAllGenreCards(NpgsqlConnection Connection)
         {
             string query = $"SELECT genre.\"GenreName\",genre.\"ImageAvatar\",genre.\"Id\" " +
@@ -203,6 +250,51 @@ namespace ProjectLibrary.MVVM.Model
         }
         #endregion
         #region Author tasks
+        public async static Task<int> GetAuthorsCountity(NpgsqlConnection Connection)
+        {
+            string query = $"SELECT Count(*) FROM \"MasterProjectLibrary\".\"Authors\"";
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    return Convert.ToInt32(Math.Ceiling(Reader.GetInt32(0) / 27.0));
+                }
+                return -1;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+        public async static Task<ObservableCollection<AuthorCard>> GetAuthorsByPage(NpgsqlConnection Connection, int Page, int CountityOnPage)
+        {
+            string query = $"SELECT author.\"SecondName\", author.\"FirstName\", author.\"PatronomycName\",author.\"ImageAvatar\", author.\"Id\" " +
+                $"FROM \"MasterProjectLibrary\".\"Authors\" author " +
+                $"limit {CountityOnPage} offset {Page * CountityOnPage}";
+            ObservableCollection<AuthorCard> Authors = new ObservableCollection<AuthorCard>();
+            using var Command = new NpgsqlCommand(query, Connection);
+            try
+            {
+                using var Reader = Command.ExecuteReader();
+                while (await Reader.ReadAsync())
+                {
+                    var author = new AuthorCard
+                    {
+                        FullName = $"{Reader.GetString(0)} {Reader.GetString(1)[0]}. {Reader.GetString(2)[0]}.",
+                        ImageAvatar = (byte[])Reader["ImageAvatar"],
+                        Id = Reader.GetInt32(4)
+                    };
+                    Authors.Add(author);
+                }
+                return Authors;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public async static Task<ObservableCollection<AuthorCard>> GetAllAuthorsCards(NpgsqlConnection Connection)
         {
             try
@@ -288,7 +380,6 @@ namespace ProjectLibrary.MVVM.Model
                 return null;
             }
         }
-
         #endregion
         #region Book tasks
         public async static Task<bool> CheckIfOwned(NpgsqlConnection Connection, int UserId, int BookId)

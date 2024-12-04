@@ -205,7 +205,7 @@
                                 </StackPanel>
                             </RadioButton>
                             <RadioButton
-                                Command="{Binding NavigateHomeCommand}"
+                                Command="{Binding AuthorsNavCommand}"
                                 GroupName="MenuButtons"
                                 Style="{StaticResource MenuButton}">
                                 <StackPanel
@@ -218,7 +218,7 @@
                                 </StackPanel>
                             </RadioButton>
                             <RadioButton
-                                Command="{Binding NavigateHomeCommand}"
+                                Command="{Binding GenresNavCommand}"
                                 GroupName="MenuButtons"
                                 Style="{StaticResource MenuButton}">
                                 <StackPanel
@@ -330,7 +330,7 @@
                                 </ListBox.Style>
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Top" />
                                     </ItemsPanelTemplate>
                                 </ListBox.ItemsPanel>
                                 <ListBox.ItemTemplate>

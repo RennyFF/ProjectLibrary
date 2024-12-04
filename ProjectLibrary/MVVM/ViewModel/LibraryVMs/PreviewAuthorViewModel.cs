@@ -83,6 +83,9 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                         case PreviousViewModels.BookPreviewVM:
                             LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>();
                             break;
+                        case PreviousViewModels.AuthorsVM:
+                            LibraryNavigation.NavigateLibraryTo<AuthorsViewModel>();
+                            break;
                         default:
                             break;
                     }

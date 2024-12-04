@@ -24,10 +24,16 @@
     <Compile Update="MVVM\View\CoreViews\RegView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\LibraryViews\AuthorsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\View\LibraryViews\CatalogView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\View\LibraryViews\FavoriteBooksView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\View\LibraryViews\GenresView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\View\LibraryViews\HistoryView.xaml.cs">
@@ -80,10 +86,16 @@
     <Page Update="MVVM\View\CoreViews\RegView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MVVM\View\LibraryViews\AuthorsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MVVM\View\LibraryViews\CatalogView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\LibraryViews\FavoriteBooksView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\LibraryViews\GenresView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\LibraryViews\HistoryView.xaml">

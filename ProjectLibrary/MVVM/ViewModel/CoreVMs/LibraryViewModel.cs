@@ -155,6 +155,44 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 }, obj => true);
             }
         }
+        private RelayCommand authorsNavCommand;
+        public RelayCommand AuthorsNavCommand
+        {
+            get
+            {
+                return authorsNavCommand ??= new RelayCommand(obj =>
+                {
+                    try
+                    {
+                        LibraryNavigation.NavigateLibraryTo<AuthorsViewModel>();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        throw;
+                    }
+                }, obj => true);
+            }
+        }
+        private RelayCommand genresNavCommand;
+        public RelayCommand GenresNavCommand
+        {
+            get
+            {
+                return genresNavCommand ??= new RelayCommand(obj =>
+                {
+                    try
+                    {
+                        LibraryNavigation.NavigateLibraryTo<GenresViewModel>();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        throw;
+                    }
+                }, obj => true);
+            }
+        }
         private RelayCommand goToPreviewGenre;
         public RelayCommand GoToPreviewGenre
         {
@@ -184,7 +222,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         {
             LibraryNavigation = libraryNavService;
             Navigation = navservice;
-            LibraryNavigation.NavigateLibraryTo<FavoriteBooksViewModel>();
+            LibraryNavigation.NavigateLibraryTo<AuthorsViewModel>();
         }
     }
 }

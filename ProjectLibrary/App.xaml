@@ -58,6 +58,14 @@
                 <viewLibraries:FavoriteBooksView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModelLibraries:AuthorsViewModel}">
+                <viewLibraries:AuthorsView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModelLibraries:GenresViewModel}">
+                <viewLibraries:GenresView />
+            </DataTemplate>
+
             <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
