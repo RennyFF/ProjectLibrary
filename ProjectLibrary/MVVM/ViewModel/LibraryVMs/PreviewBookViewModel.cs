@@ -54,7 +54,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreviewGenre ??= new RelayCommand(obj =>
                 {
-                    Constants.PreviousVM = PreviousViewModels.BookPreviewVM;
+                    Constants.PreviousVM.Add(PreviousViewModels.BookPreviewVM);
                     LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>(PreviewedBook.Genre.Id);
                 }, obj => true);
             }
@@ -66,7 +66,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreviewAuthor ??= new RelayCommand(obj =>
                 {
-                    Constants.PreviousVM = PreviousViewModels.BookPreviewVM;
+                    Constants.PreviousVM.Add(PreviousViewModels.BookPreviewVM);
                     LibraryNavigation.NavigateLibraryTo<PreviewAuthorViewModel>(PreviewedBook.Author.Id);
                 }, obj => true);
             }
@@ -78,29 +78,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goBack ??= new RelayCommand(obj =>
                 {
-                    switch (Constants.PreviousVM)
-                    {
-                        case PreviousViewModels.CatalogVM:
-                            LibraryNavigation.NavigateLibraryTo<CatalogViewModel>();
-                            break;
-                        case PreviousViewModels.MainVM:
-                            LibraryNavigation.NavigateLibraryTo<MainViewModel>();
-                            break;
-                        case PreviousViewModels.HistoryVM:
-                            LibraryNavigation.NavigateLibraryTo<HistoryViewModel>();
-                            break;
-                        case PreviousViewModels.AuthorPreviewVM:
-                            LibraryNavigation.NavigateLibraryTo<PreviewAuthorViewModel>();
-                            break;
-                        case PreviousViewModels.GenrePreviewVM:
-                            LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>();
-                            break;
-                        case PreviousViewModels.FavoriteVM:
-                            LibraryNavigation.NavigateLibraryTo<FavoriteBooksViewModel>();
-                            break;
-                        default:
-                            break;
-                    }
+                    BackToPreviousVM.GoToPrevious(LibraryNavigation);
                 }, obj => true);
             }
         }

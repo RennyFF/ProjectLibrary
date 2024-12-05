@@ -4,12 +4,18 @@ FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\A
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\BaseWindow.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\LibraryView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\CoreViews\RegView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\AuthorsView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\CatalogView.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\Items\Card.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\FavoriteBooksView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\GenresView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\HistoryView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\MainPageView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\PreviewAuthorView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\PreviewBookView.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\MVVM\View\LibraryViews\PreviewGenreView.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\AuthorMiniature.xaml;;
-FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\CardSlider.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\BookMiniature.xaml;;
+FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\CustomView\GenreMiniature.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\PasswordBox.xaml;;
 FG:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\Utils\Components\RatingStars.xaml;;
 

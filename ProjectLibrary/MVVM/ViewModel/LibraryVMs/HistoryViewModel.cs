@@ -55,7 +55,8 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreview ??= new RelayCommand(obj =>
                 {
-                    Constants.PreviousVM = PreviousViewModels.HistoryVM;
+                    Constants.PreviousVM = new List<PreviousViewModels?>();
+                    Constants.PreviousVM.Add(PreviousViewModels.HistoryVM);
                     if (obj is BookCard SelectedBook)
                     {
                         LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.Id);

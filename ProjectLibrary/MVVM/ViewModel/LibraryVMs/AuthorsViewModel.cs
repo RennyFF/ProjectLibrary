@@ -89,7 +89,8 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 {
                     if (obj is AuthorCard SelectedAuthor)
                     {
-                        Constants.PreviousVM = PreviousViewModels.AuthorsVM;
+                        Constants.PreviousVM = new List<PreviousViewModels?>();
+                        Constants.PreviousVM.Add(PreviousViewModels.AuthorsVM);
                         LibraryNavigation.NavigateLibraryTo<PreviewAuthorViewModel>(SelectedAuthor.Id);
                     }
                 }, obj => true);

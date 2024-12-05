@@ -73,7 +73,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 {
                     if (obj is BookCard SelectedBook)
                     {
-                        Constants.PreviousVM = PreviousViewModels.GenrePreviewVM;
+                        Constants.PreviousVM.Add(PreviousViewModels.GenrePreviewVM);
                         LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.Id);
                     }
                 }, obj => true);
@@ -87,20 +87,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goBack ??= new RelayCommand(obj =>
                 {
-                    switch (Constants.PreviousVM)
-                    {
-                        case PreviousViewModels.MainVM:
-                            LibraryNavigation.NavigateLibraryTo<MainViewModel>();
-                            break;
-                        case PreviousViewModels.HistoryVM:
-                            LibraryNavigation.NavigateLibraryTo<HistoryViewModel>();
-                            break;
-                        case PreviousViewModels.BookPreviewVM:
-                            LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>();
-                            break;
-                        default:
-                            break;
-                    }
+                    BackToPreviousVM.GoToPrevious(LibraryNavigation);
                 }, obj => true);
             }
         }

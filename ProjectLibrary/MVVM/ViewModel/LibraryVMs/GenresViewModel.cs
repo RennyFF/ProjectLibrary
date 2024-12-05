@@ -89,7 +89,8 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 {
                     if (obj is GenreCard SelectedGenre)
                     {
-                        Constants.PreviousVM = PreviousViewModels.GenresVM;
+                        Constants.PreviousVM = new List<PreviousViewModels?>();
+                        Constants.PreviousVM.Add(PreviousViewModels.GenresVM);
                         LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>(SelectedGenre.Id);
                     }
                 }, obj => true);

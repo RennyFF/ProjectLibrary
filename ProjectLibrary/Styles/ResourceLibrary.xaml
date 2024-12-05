@@ -106,7 +106,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <ContentPresenter Margin="0,5,5,0" HorizontalAlignment="Center" />
+                    <ContentPresenter />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -76,7 +76,8 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 {
                     if (obj is BookCard SelectedBook)
                     {
-                        Constants.PreviousVM = PreviousViewModels.FavoriteVM;
+                        Constants.PreviousVM = new List<PreviousViewModels?>();
+                        Constants.PreviousVM.Add(PreviousViewModels.FavoriteVM);
                         LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.Id);
                     }
                 }, obj => true);

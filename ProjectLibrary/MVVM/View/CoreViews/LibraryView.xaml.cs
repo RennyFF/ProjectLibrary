@@ -25,7 +25,7 @@ namespace ProjectLibrary.MVVM.View.CoreViews
         private void _dispatcherTimer_Tick1(object sender, EventArgs e)
         {
             MainViewGrid.Visibility = Visibility.Visible;
-            LoadingViewGrid.Visibility = Visibility.Hidden;
+            LoadingView.Visibility = Visibility.Hidden;
             _dispatcherTimer.Stop();
         }
         public LibraryView()
@@ -41,12 +41,5 @@ namespace ProjectLibrary.MVVM.View.CoreViews
             DropdownPopup.IsOpen = !DropdownPopup.IsOpen;
         }
 
-        private void ListBox_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (DataContext is LibraryViewModel viewModel)
-            {
-                viewModel.ListBoxHeight = FavGenreListBox.ActualHeight;
-            }
-        }
     }
 }

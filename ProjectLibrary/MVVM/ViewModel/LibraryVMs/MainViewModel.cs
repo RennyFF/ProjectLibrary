@@ -50,7 +50,8 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 {
                     if (obj is BookCard SelectedBook)
                     {
-                        Constants.PreviousVM = PreviousViewModels.MainVM;
+                        Constants.PreviousVM = new List<PreviousViewModels?>();
+                        Constants.PreviousVM.Add(PreviousViewModels.MainVM);
                         LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.Id);
                     }
                 }, obj => true);
@@ -63,8 +64,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToMagicBook ??= new RelayCommand(async obj =>
                 {
-                    Constants.PreviousVM = PreviousViewModels.MainVM;
-                    LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(await Task.Run( () => Model.DataBaseFunctions.GetMagicBookId(ConnectionDB)));
+                    LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(await Task.Run(() => Model.DataBaseFunctions.GetMagicBookId(ConnectionDB)));
                 }, obj => true);
             }
         }

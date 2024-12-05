@@ -31,23 +31,16 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 onPropertyChanged(nameof(LibraryNavigation));
             }
         }
-        private double listBoxHeight;
-        public double ListBoxHeight
-        {
-            get => listBoxHeight;
-            set
-            {
-                listBoxHeight = value;
-                UpdateVisibleFavoriteGenres();
-                onPropertyChanged(nameof(ListBoxHeight));
-            }
-        }
 
         private User currentUser;
         public User CurrentUser
         {
             get { return currentUser; }
-            set { currentUser = value; UpdateVisibleFavoriteGenres(); onPropertyChanged(nameof(CurrentUser)); }
+            set { currentUser = value; onPropertyChanged(nameof(CurrentUser)); FavoriteGenreNames = value.ClickedGenres != null
+                ? new ObservableCollection<Genre>(value.ClickedGenres
+                    .OrderBy(i => i.ClickedCountity).Take(3)
+                    ) : new ObservableCollection<Genre>();
+            }
         }
         private ObservableCollection<Genre> favoriteGenreNames = new ObservableCollection<Genre>();
         public ObservableCollection<Genre> FavoriteGenreNames
@@ -202,6 +195,8 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 {
                     if (obj is Genre SelectedFavoriteGenre)
                     {
+                        Constants.PreviousVM = new List<PreviousViewModels?>();
+                        Constants.PreviousVM.Add(PreviousViewModels.MainVM);
                         LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>(SelectedFavoriteGenre.Id);
                         return;
                     }
@@ -209,15 +204,6 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             }
         }
         #endregion
-        private void UpdateVisibleFavoriteGenres()
-        {
-            int visibleCount = (int)(ListBoxHeight / 40);
-            FavoriteGenreNames = CurrentUser.ClickedGenres != null
-                ? new ObservableCollection<Genre>(CurrentUser.ClickedGenres
-                    .OrderBy(i => i.ClickedCountity)
-                    .Take(visibleCount))
-                : new ObservableCollection<Genre>();
-        }
         public LibraryViewModel(ILibraryNavigationService libraryNavService, INavigationService navservice)
         {
             LibraryNavigation = libraryNavService;
