@@ -1,0 +1,126 @@
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Resources\book.png
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\FluentValidation.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.BootstrapIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.BoxIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.CircumIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Codicons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Coolicons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Core.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Entypo.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.EvaIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.FeatherIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.FileIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Fontaudio.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.FontAwesome.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Fontisto.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.ForkAwesome.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.GameIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Ionicons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.JamIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Lucide.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Material.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.MaterialDesign.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.MaterialLight.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.MemoryIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Microns.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Modern.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Octicons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.PhosphorIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.PicolIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.PixelartIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.RadixIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.RemixIcon.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.RPGAwesome.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.SimpleIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Typicons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Unicons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.VaadinIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.WeatherIcons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.Zondicons.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Npgsql.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\System.Text.Json.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.csproj.AssemblyReference.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\DialogWindow.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Styles\ResourceAuthRegistration.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Styles\ResourceBase.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Styles\ResourceColors.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Styles\ResourceLibrary.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\LoadingSpinner.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\AuthView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\BaseWindow.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\DialogWindow.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\LibraryView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\RegView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\AuthorsView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\CatalogView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\FavoriteBooksView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\GenresView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\HistoryView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\MainPageView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewAuthorView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewBookView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewGenreView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\AuthorMiniature.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\BookMiniature.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\GenreMiniature.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\LoadingSpinner.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\PasswordBox.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\RatingStars.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\App.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\App.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\AuthView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\BaseWindow.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\LibraryView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\RegView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\AuthorsView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\CatalogView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\FavoriteBooksView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\GenresView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\HistoryView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\MainPageView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewAuthorView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewBookView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\PreviewGenreView.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\AuthorMiniature.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\BookMiniature.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\GenreMiniature.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\PasswordBox.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\RatingStars.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.GeneratedMSBuildEditorConfig.editorconfig
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.AssemblyInfoInputs.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.AssemblyInfo.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.csproj.CoreCompileInputs.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.sourcelink.json
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectL.F2928F18.Up2Date
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.genruntimeconfig.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.exe
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.deps.json
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.runtimeconfig.json
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.pdb
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave_Content.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave_MarkupCompile.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave_MarkupCompile.lref
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave.g.resources
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\refint\Librars Cave.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave.pdb
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ref\Librars Cave.dll

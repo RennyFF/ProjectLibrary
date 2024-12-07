@@ -65,7 +65,8 @@ namespace ProjectLibrary.Utils.Components.CustomView {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectLibrary;component/utils/components/customview/authorminiature.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library Cave;V1.0.0.0;component/utils/components/customview/authorminiature.xaml" +
+                    "", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\Utils\Components\CustomView\AuthorMiniature.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

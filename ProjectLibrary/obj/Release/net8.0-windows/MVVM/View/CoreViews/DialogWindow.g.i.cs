@@ -54,7 +54,7 @@ namespace ProjectLibrary.MVVM.View.CoreViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectLibrary;component/mvvm/view/coreviews/dialogwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library Cave;V1.0.0.0;component/mvvm/view/coreviews/dialogwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\MVVM\View\CoreViews\DialogWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -71,7 +71,7 @@ namespace ProjectLibrary.MVVM.View.LibraryViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectLibrary;component/mvvm/view/libraryviews/previewauthorview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library Cave;V1.0.0.0;component/mvvm/view/libraryviews/previewauthorview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\MVVM\View\LibraryViews\PreviewAuthorView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

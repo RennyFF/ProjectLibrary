@@ -77,7 +77,7 @@ namespace ProjectLibrary.MVVM.View.LibraryViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectLibrary;component/mvvm/view/libraryviews/catalogview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Librars Cave;component/mvvm/view/libraryviews/catalogview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\MVVM\View\LibraryViews\CatalogView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

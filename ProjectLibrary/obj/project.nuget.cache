@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MbpXwldJY1nSjtRn3UwVI3u+YxmB2LTj5p8Qvjbmbk1yaDB2hR5iWIfebypk07DJLAwBqVA59f+gdmp0TaaFCg==",
+  "dgSpecHash": "Q0oxaMFIPS/6FDF7465heGM0SZd+ZXW8c1479TWEhJn4Nd+9J6oHzncDbCiHOTJALRsg5mRkCKOKnfiHcgmZdw==",
   "success": true,
-  "projectFilePath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.csproj",
+  "projectFilePath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\steam\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks\\5.1.0\\mahapps.metro.iconpacks.5.1.0.nupkg.sha512",

@@ -2736,9 +2736,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.csproj",
-      "projectName": "ProjectLibrary",
-      "projectPath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.csproj",
+      "projectUniqueName": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.Client.csproj",
+      "projectName": "Librars Cave",
+      "projectPath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.Client.csproj",
       "packagesPath": "C:\\Users\\steam\\.nuget\\packages\\",
       "outputPath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\obj\\",
       "projectStyle": "PackageReference",

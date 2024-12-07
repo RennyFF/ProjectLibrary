@@ -65,7 +65,7 @@ namespace ProjectLibrary.Utils.Components.CustomView {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectLibrary;component/utils/components/customview/bookminiature.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectLibrary.Client;component/utils/components/customview/bookminiature.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\Utils\Components\CustomView\BookMiniature.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

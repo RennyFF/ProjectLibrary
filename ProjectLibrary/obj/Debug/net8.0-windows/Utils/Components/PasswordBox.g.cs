@@ -61,7 +61,7 @@ namespace ProjectLibrary.Utils.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectLibrary;component/utils/components/passwordbox.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Librars Cave;component/utils/components/passwordbox.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Utils\Components\PasswordBox.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

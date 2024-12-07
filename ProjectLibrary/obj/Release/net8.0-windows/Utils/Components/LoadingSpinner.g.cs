@@ -52,7 +52,7 @@ namespace ProjectLibrary.Utils.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectLibrary;component/utils/components/loadingspinner.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectLibrary.Client;component/utils/components/loadingspinner.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Utils\Components\LoadingSpinner.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
