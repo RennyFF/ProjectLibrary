@@ -1,0 +1,4 @@
+obj\Debug\net8.0-windows\MVVM\Model\Protos/Users.cs \
+obj\Debug\net8.0-windows\MVVM\Model\Protos/UsersGrpc.cs: C:/Users/steam/.nuget/packages/grpc.tools/2.68.1/build/native/include/google/protobuf/timestamp.proto\
+ C:/Users/steam/.nuget/packages/grpc.tools/2.68.1/build/native/include/google/protobuf/wrappers.proto\
+ MVVM/Model/Protos/users.proto

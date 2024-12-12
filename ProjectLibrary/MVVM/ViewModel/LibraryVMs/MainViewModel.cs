@@ -1,8 +1,14 @@
 ﻿using Npgsql;
-using ProjectLibrary.Utils.Types;
 using ProjectLibrary.Utils;
 using System.Collections.ObjectModel;
 using ProjectLibrary.Core;
+using Grpc.Net.Client;
+using ProjectLibrary.Client.Book;
+using Grpc.Core;
+using ProjectLibrary.Core.Types.Client;
+using System.ComponentModel;
+using ProjectLibrary.MVVM.View.CoreViews;
+using System.Windows;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
@@ -19,22 +25,22 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 onPropertyChanged(nameof(LibraryNavigation));
             }
         }
-        private NpgsqlConnection connectionDB;
-        public NpgsqlConnection ConnectionDB
+        private bool isLoading;
+        public bool IsLoading
         {
-            get => connectionDB;
-            set => connectionDB = value;
+            get { return isLoading; }
+            set { isLoading = value; onPropertyChanged(nameof(IsLoading)); }
         }
-        private ObservableCollection<BookCard> newBooksCategory = new();
+        private ObservableCollection<BookCardType> newBooksCategory = new();
 
-        public ObservableCollection<BookCard> NewBooksCategory
+        public ObservableCollection<BookCardType> NewBooksCategory
         {
             get { return newBooksCategory; }
             set { newBooksCategory = value; }
         }
 
-        private ObservableCollection<BookCard> bestSellerCategory = new();
-        public ObservableCollection<BookCard> BestSellerCategory
+        private ObservableCollection<BookCardType> bestSellerCategory = new();
+        public ObservableCollection<BookCardType> BestSellerCategory
         {
             get { return bestSellerCategory; }
             set { bestSellerCategory = value; }
@@ -48,7 +54,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreview ??= new RelayCommand(obj =>
                 {
-                    if (obj is BookCard SelectedBook)
+                    if (obj is BookCardType SelectedBook)
                     {
                         Constants.PreviousVM = new List<PreviousViewModels?>();
                         Constants.PreviousVM.Add(PreviousViewModels.MainVM);
@@ -64,26 +70,101 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToMagicBook ??= new RelayCommand(async obj =>
                 {
-                    LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(await Task.Run(() => Model.DataBaseFunctions.GetMagicBookId(ConnectionDB)));
+                    Constants.PreviousVM = new List<PreviousViewModels?>();
+                    Constants.PreviousVM.Add(PreviousViewModels.MainVM);
+                    LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(await GetMagicBookId());
                 }, obj => true);
             }
         }
         #endregion
-        public MainViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
+        public MainViewModel(ILibraryNavigationService libraryNavigation)
         {
             LibraryNavigation = libraryNavigation;
-            ConnectionDB = connection;
-            InitMainViewModel(connection);
+            InitMainViewModel();
         }
 
-        private async void InitMainViewModel(NpgsqlConnection connection)
+        private async Task<int> GetMagicBookId()
         {
-            var GettingBooksFirstCategroy = await Model.DataBaseFunctions.GetNewBookCards(connection);
-            await Task.Run(() => NewBooksCategory = GettingBooksFirstCategroy);
-            await Task.Run(() => onPropertyChanged(nameof(NewBooksCategory)));
-            var GettingBooksSecondCategroy = await Model.DataBaseFunctions.GetBestSellersBookCards(connection);
-            await Task.Run(() => BestSellerCategory = GettingBooksSecondCategroy);
-            await Task.Run(() => onPropertyChanged(nameof(BestSellerCategory)));
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new BookService.BookServiceClient(Channel);
+            try
+            {
+                ResponseMagicBookId response = await Client.GetMagicBookIdAsync(new Google.Protobuf.WellKnownTypes.Empty());
+                return response.BookId;
+            }
+            catch (RpcException ex)
+            {
+                Console.WriteLine("Status code: " + ex.Status.StatusCode);
+                Console.WriteLine("Message: " + ex.Status.Detail);
+            }
+            return -1;
+        }
+        private async void InitMainViewModel()
+        {
+            await Task.Run( () => IsLoading = true);
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new BookService.BookServiceClient(Channel);
+
+            var newBooksTask = LoadNewBooks(Client);
+            var bestSellerTask = LoadBestSellers(Client);
+
+            await Task.WhenAll(newBooksTask, bestSellerTask);
+
+            onPropertyChanged(nameof(NewBooksCategory));
+            onPropertyChanged(nameof(BestSellerCategory));
+            await Task.Run(() => IsLoading = false) ;
+        }
+
+        private async Task LoadNewBooks(BookService.BookServiceClient Client)
+        {
+            try
+            {
+                ResponseNewBooks response = await Client.GetNewBooksAsync(new Google.Protobuf.WellKnownTypes.Empty());
+                NewBooksCategory.Clear();
+                foreach (var book in response.Books)
+                {
+                    NewBooksCategory.Add(new BookCardType
+                    {
+                        Id = book.Id,
+                        Title = book.Title,
+                        AddedInDatabase = book.AddedInDatabase.ToDateTime(),
+                        Image = book.Image.ToByteArray(),
+                        AuthorFullNameShort = book.AuthorFullnameShort,
+                        RatingStars = book.RatingStars
+                    });
+                }
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
+        }
+
+        private async Task LoadBestSellers(BookService.BookServiceClient Client)
+        {
+            try
+            {
+                ResponseBestsellerBooks response = await Client.GetBestSellerBooksAsync(new Google.Protobuf.WellKnownTypes.Empty());
+                BestSellerCategory.Clear();
+                foreach (var book in response.Books)
+                {
+                    BestSellerCategory.Add(new BookCardType
+                    {
+                        Id = book.Id,
+                        Title = book.Title,
+                        AddedInDatabase = book.AddedInDatabase.ToDateTime(),
+                        Image = book.Image.ToByteArray(),
+                        AuthorFullNameShort = book.AuthorFullnameShort,
+                        RatingStars = book.RatingStars
+                    });
+                }
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
         }
     }
 }

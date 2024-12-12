@@ -1,9 +1,12 @@
-﻿using Npgsql;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
+using Npgsql;
+using ProjectLibrary.Client.User;
 using ProjectLibrary.Core;
+using ProjectLibrary.Core.Types.Client;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Converters;
-using ProjectLibrary.Utils.Types;
 using System.Windows;
 
 namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
@@ -11,12 +14,6 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
     class AuthViewModel : BaseViewModel
     {
         #region Values
-        private NpgsqlConnection connectionDB;
-        public NpgsqlConnection ConnectionDB
-        {
-            get => connectionDB;
-            set => connectionDB = value;
-        }
         private INavigationService _navigation;
         public INavigationService Navigation
         {
@@ -43,30 +40,31 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             {
                 return authCommand ??= new RelayCommand(async obj =>
                 {
-                    try
+                    string? PasswordFromSecure = PasswordConverters.GetPasswordFromSecureString(obj);
+                    string? Password = PasswordFromSecure != null ? PasswordConverters.FromPasswordToHash(PasswordFromSecure) : null;
+                    UserShort CurrentUser = new UserShort();
+                    if (Password != null)
                     {
-                        string? PasswordFromSecure = PasswordConverters.GetPasswordFromSecureString(obj);
-                        string? Password = PasswordFromSecure != null ? PasswordConverters.FromPasswordToHash(PasswordFromSecure) : null;
-                        User? CurrentUser = null;
-                        if (Password != null)
+                        using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+                        var Client = new UserService.UserServiceClient(Channel);
+                        try
                         {
-                            CurrentUser = await Model.DataBaseFunctions.GetCurrentUser(ConnectionDB, Login, Password);
+                            ResponseAuthorize Response = await Client.AuthorizeUserAsync(new RequestAuthorize() { Login = Login, PasswordHash = Password });
+                            CurrentUser.Id = Response.Id;
+                            CurrentUser.FirstName = Response.FirstName;
+                            CurrentUser.SecondName = Response.SecondName;
+                            CurrentUser.PatronomycName = Response.PatronomycName;
+                            List<FavGenreType> FavGenres = new List<FavGenreType>();
+                            FavGenres.AddRange(Response.FavoriteGenres.Select(i => new FavGenreType() { Id = i.GenreId, GenreName = i.GenreName, ClickedCountity = i.ClickedCountity }));
+                            CurrentUser.ClickedGenres = FavGenres;
+                            Constants.ActiveUserId = CurrentUser.Id;
+                            Navigation.NavigateTo<LibraryViewModel>(CurrentUser);
                         }
-                        if (CurrentUser != null)
+                        catch (RpcException ex)
                         {
-                           Constants.ActiveUserId = CurrentUser.Id;
-                           Navigation.NavigateTo<LibraryViewModel>(CurrentUser);
-                        }
-                        else
-                        {
-                            var ModalWindow = new DialogWindow("Ошибка!", $"Неверный логин или пароль!");
+                            var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
                             ModalWindow.Show();
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                        throw;
                     }
                 }, obj => true);
             }
@@ -91,10 +89,9 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             }
         }
         #endregion
-        public AuthViewModel(INavigationService navService, NpgsqlConnection connection)
+        public AuthViewModel(INavigationService navService)
         {
             Navigation = navService;
-            ConnectionDB = connection;
         }
 
     }

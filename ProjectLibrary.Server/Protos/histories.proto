@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectLibrary.Server.History";
+
+package historyproto;
+
+service HistoryService {
+	rpc GetHistoryCards (RequestHistory) returns (ResponseHistory);
+}
+
+message RequestHistory{
+	repeated BookHistoryReq books = 1;
+	repeated AuthorHistoryReq authors = 2;
+	repeated GenreHistoryReq genres = 3;
+}
+
+message ResponseHistory{
+	repeated BookCardHistory books = 1;
+	repeated AuthorCardHistory authors = 2;
+	repeated GenreCardHistory genres = 3;
+}
+
+message BookHistoryReq{
+	int32 id = 1;
+}
+
+message AuthorHistoryReq {
+	int32 id = 1;
+}
+
+message GenreHistoryReq {
+	int32 id = 1;
+}
+
+message BookCardHistory{
+	int32 id = 1;
+	string author_fullname_short = 2;
+	bytes image = 3;
+	string title = 4;
+	int32 rating_stars = 5;
+}
+
+message AuthorCardHistory {
+	int32 id = 1;
+	string author_fullname = 2;
+	bytes image = 3;
+}
+
+message GenreCardHistory {
+	int32 id = 1;
+	string genre_name = 2;
+	bytes image = 3;
+}

@@ -1,10 +1,16 @@
 ﻿using FluentValidation;
+using FluentValidation.Internal;
+using Grpc.Core;
+using Grpc.Net.Client;
 using Npgsql;
+using ProjectLibrary.Client.User;
 using ProjectLibrary.Core;
+using ProjectLibrary.Core.Types;
 using ProjectLibrary.MVVM.Model;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Utils;
-using ProjectLibrary.Utils.Types;
+using ProjectLibrary.Utils.Converters;
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows;
@@ -15,12 +21,6 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
     {
         #region Values
         private readonly Utils.Validator _validator;
-        private NpgsqlConnection connectionDB;
-        public NpgsqlConnection ConnectionDB
-        {
-            get => connectionDB;
-            set => connectionDB = value;
-        }
         private string firstName;
         public string FirstName
         {
@@ -80,7 +80,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             }
         }
         #endregion
-#region Commands
+        #region Commands
 
         private RelayCommand backButtonToAuth;
         public RelayCommand BackButtonToAuth
@@ -100,61 +100,81 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             {
                 return registraionCommand ??= new RelayCommand(async obj =>
                 {
-                    try
+                    ValidateAllFields();
+                    if (!HasErrors)
                     {
-                        ValidateAllFields();
-                        if (!HasErrors)
+                        bool LoginIsUnique, EmailIsUnique;
+                        LoginIsUnique = EmailIsUnique = true;
+                        using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+                        var Client = new UserService.UserServiceClient(Channel);
+                        try
                         {
-                            DateTime now = DateTime.Now;
-                            User NewUser = new()
-                            {
-                                FirstName = FirstName,
-                                SecondName = SecondName,
-                                PatronomycName = PatronomycName,
-                                Email = Mail,
-                                BirthdayDate = Birthday,
-                                Login = Login,
-                                DateOfCreation = now,
-                                LastUpdated = now,
-                                LikedObjects = null,
-                                ClickedGenres = null,
-                                LastViewed = null,
-                                PasswordHash = Password
-                            };
-                            FirstName = string.Empty;
-                            SecondName = string.Empty;
-                            PatronomycName = string.Empty;
-                            Mail = string.Empty;
-                            Birthday = DateTime.Now;
-                            Login = string.Empty;
-                            Password = string.Empty;
-                            ConfirmPassword = string.Empty;
-                            _errors = new();
-                            DataBaseFunctions.AddUser(ConnectionDB, NewUser);
-                            var ModalWindow = new DialogWindow("Успешная регистрация!", $"Вы попали к нам в клуб!");
+                            ResponseCheckUnique response = await Client.CheckUniqueFieldAsync(new RequestCheckUnique { ValidStringEmail = Mail, ValidStringLogin = Login });
+                            LoginIsUnique = response.LoginIsUnique;
+                            EmailIsUnique = response.EmailIsUnique;
+                        }
+                        catch (RpcException ex)
+                        {
+                            var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.StatusCode}");
                             ModalWindow.Show();
-                            Navigation.NavigateTo<AuthViewModel>();
+                        }
+                        if (LoginIsUnique && EmailIsUnique)
+                        {
+                            try
+                            {
+                                ResponseRegister response = await Client.RegisterUserAsync(new RequestRegister()
+                                {
+                                    FirstName = FirstName,
+                                    SecondName = SecondName,
+                                    PatronomycName = PatronomycName,
+                                    Email = Mail,
+                                    Login = Login,
+                                    PasswordHash = PasswordConverters.FromPasswordToHash(Password),
+                                    BirthdayDate = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(Birthday.ToUniversalTime()),
+                                });
+                                if (response.IsSuccess)
+                                {
+                                    FirstName = string.Empty;
+                                    SecondName = string.Empty;
+                                    PatronomycName = string.Empty;
+                                    Mail = string.Empty;
+                                    Birthday = DateTime.Now;
+                                    Login = string.Empty;
+                                    Password = string.Empty;
+                                    ConfirmPassword = string.Empty;
+                                    _errors = new();
+                                    var ModalWindow = new DialogWindow("Успешная регистрация!", $"Вы попали к нам в клуб!");
+                                    ModalWindow.Show();
+                                    Navigation.NavigateTo<AuthViewModel>();
+                                }
+                            }
+                            catch (RpcException ex)
+                            {
+                                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.StatusCode}");
+                                ModalWindow.Show();
+                            }
                         }
                         else
                         {
-                            var ModalWindow = new DialogWindow("Ошибка!", $"Заполните все поля!");
+                            var ModalWindow = new DialogWindow("Ошибка!", !LoginIsUnique ? "Логин уже занят" :
+                                !EmailIsUnique ? "Почта уже занята" :
+                                "Логин и Почта заняты!") ;
                             ModalWindow.Show();
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.ToString());
-                        throw;
+                        var ModalWindow = new DialogWindow("Ошибка!", $"Заполните все поля!");
+                        ModalWindow.Show();
                     }
                 }, obj => true);
             }
         }
         #endregion
-        public RegViewModel(INavigationService navigation, NpgsqlConnection connection)
+        public RegViewModel(INavigationService navigation)
         {
             Navigation = navigation;
-            ConnectionDB = connection;
-            _validator = new Utils.Validator(ConnectionDB);
+            _validator = new Utils.Validator();
         }
         #region ErrorsFunctionality
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
@@ -186,7 +206,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         }
         private async void ValidatePropertyAsync(string propertyName)
         {
-            var context = new ValidationContext<RegViewModel>(this);
+            var context = new ValidationContext<RegViewModel>(this, new PropertyChain(), new MemberNameValidatorSelector(new[] { propertyName }));
             var result = await _validator.ValidateAsync(context);
             _errors.Remove(propertyName);
             foreach (var error in result.Errors)

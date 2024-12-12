@@ -20,12 +20,6 @@ namespace ProjectLibrary.Utils.Converters
                 bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapImage.EndInit();
             }
-            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
-            using (FileStream fileStream = new FileStream("cum.jpg", FileMode.Create))
-            {
-                encoder.Save(fileStream);
-            }
             return bitmapImage;
         }
 

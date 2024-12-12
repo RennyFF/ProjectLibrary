@@ -10,6 +10,13 @@
 	  <AssemblyName>Librars Cave</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="MVVM\Model\Protos\authors.proto" />
+    <None Remove="MVVM\Model\Protos\books.proto" />
+    <None Remove="MVVM\Model\Protos\favbooks.proto" />
+    <None Remove="MVVM\Model\Protos\genres.proto" />
+    <None Remove="MVVM\Model\Protos\histories.proto" />
+    <None Remove="MVVM\Model\Protos\orders.proto" />
+    <None Remove="MVVM\Model\Protos\users.proto" />
     <None Remove="Resources\Ancient_Open_Book_PNG_Transparent_Clipart.png" />
     <None Remove="Resources\book.png" />
     <None Remove="Resources\Font\Inter-Black.ttf" />
@@ -34,11 +41,21 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.29.1" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.67.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.68.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="MahApps.Metro.IconPacks" Version="5.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectLibrary.Core\ProjectLibrary.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,6 +80,16 @@
     <Resource Include="Resources\Font\Inter-SemiBold.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="MVVM\Model\Protos\authors.proto" GrpcServices="Client" />
+    <Protobuf Include="MVVM\Model\Protos\books.proto" GrpcServices="Client" />
+    <Protobuf Include="MVVM\Model\Protos\favbooks.proto" GrpcServices="Client" />
+    <Protobuf Include="MVVM\Model\Protos\genres.proto" GrpcServices="Client" />
+    <Protobuf Include="MVVM\Model\Protos\histories.proto" GrpcServices="Client" />
+    <Protobuf Include="MVVM\Model\Protos\orders.proto" GrpcServices="Client" />
+    <Protobuf Include="MVVM\Model\Protos\users.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>

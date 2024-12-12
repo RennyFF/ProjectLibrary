@@ -19,32 +19,7 @@
         <utils:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition />
-            <RowDefinition Height="60" />
-        </Grid.RowDefinitions>
-        <Border
-            Grid.Row="0"
-            Margin="10"
-            VerticalAlignment="Center"
-            Background="{StaticResource MainBackgroundColorBrush}"
-            CornerRadius="16">
-            <Grid VerticalAlignment="Center">
-                <TextBlock
-                    Margin="20,10,0,10"
-                    VerticalAlignment="Center"
-                    FontSize="20"
-                    Style="{StaticResource HeaderTextStyle}">
-                    <Run Text="Книги в жанре:" />
-                    <Run Text="{Binding PreviewedGenre.GenreName}" />
-                </TextBlock>
-            </Grid>
-        </Border>
-        <Border
-            Grid.Row="1"
-            Background="Transparent"
-            Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}">
+        <Border Background="Transparent" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}">
             <TextBlock
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -53,103 +28,139 @@
                 Style="{StaticResource HeaderTextStyle}"
                 Text="ЗАГРУЗКА" />
         </Border>
-        <ListBox
-            Grid.Row="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Top"
-            Background="{StaticResource SecondBackgroundColorBrush}"
-            BorderBrush="Transparent"
-            BorderThickness="0"
-            ItemContainerStyle="{StaticResource ItemContainerStyle}"
-            ItemsSource="{Binding GenreBooks}"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-            VirtualizingStackPanel.IsVirtualizing="True"
-            VirtualizingStackPanel.VirtualizationMode="Recycling"
-            Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=ListBox, Mode=TwoWay}">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel HorizontalAlignment="Center" IsItemsHost="True" />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <customComponents:BookMiniature
-                        Title="{Binding Title}"
-                        Margin="0,0,0,12"
-                        Author="{Binding Author}"
-                        AuthorVisibility="Visible"
-                        CornerRadius="8"
-                        ImageHeight="170"
-                        ImageSource="{Binding ImageSource}"
-                        ImageWidth="150"
-                        Rating="{Binding RatingStars}"
-                        TitleVisibility="Visible">
-                        <b:Interaction.Triggers>
-                            <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
-                                <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
-                            </b:EventTrigger>
-                        </b:Interaction.Triggers>
-                    </customComponents:BookMiniature>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button
-            Grid.Row="3"
-            Width="40"
-            Height="40"
-            Margin="10,0,0,0"
-            HorizontalAlignment="Left"
-            Command="{Binding GoBack}"
-            Cursor="Hand"
-            Style="{StaticResource ButtonStyle}">
-            <iconPacks:PackIconFontAwesome Margin="5" Kind="ArrowLeftSolid" />
-        </Button>
-        <StackPanel
-            Grid.Row="3"
-            Margin="0,0,30,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Orientation="Horizontal">
-            <Button
-                Margin="0,0,5,0"
-                Command="{Binding FirstPage}"
-                Content="{iconPacks:Unicons Kind=AngleDoubleLeftLine,
-                                            Height=20,
-                                            Width=20}"
-                Style="{StaticResource ButtonStyle}" />
-            <Button
-                Command="{Binding PreviousPage}"
-                Content="{iconPacks:BootstrapIcons Kind=ArrowLeftShort,
-                                                   Height=20,
-                                                   Width=20}"
-                Style="{StaticResource ButtonStyle}" />
-            <TextBlock
-                Width="80"
-                Margin="20,0"
-                HorizontalAlignment="Center"
+        <Grid Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert, Mode=TwoWay}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Border
+                Grid.Row="0"
+                Margin="10"
                 VerticalAlignment="Center"
-                FontSize="14"
-                Foreground="{StaticResource SecondTextColorBrush}"
-                TextAlignment="Center">
-                <Run Text="{Binding CurrentPage}" />
-                <Run Text="из" />
-                <Run Text="{Binding AllPages}" />
-            </TextBlock>
+                Background="{StaticResource MainBackgroundColorBrush}"
+                CornerRadius="16">
+                <Grid VerticalAlignment="Center">
+                    <TextBlock
+                        Margin="20,10,0,10"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Style="{StaticResource HeaderTextStyle}">
+                        <Run Text="Книги в жанре:" />
+                        <Run Text="{Binding PreviewedGenre.GenreName}" />
+                    </TextBlock>
+                </Grid>
+            </Border>
+            <Border
+                Grid.Row="1"
+                Background="Transparent"
+                Visibility="{Binding IsContentLoading, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="24"
+                    Foreground="{StaticResource SecondTextColorBrush}"
+                    Style="{StaticResource HeaderTextStyle}"
+                    Text="ЗАГРУЗКА" />
+            </Border>
+            <ListBox
+                Grid.Row="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                Background="{StaticResource SecondBackgroundColorBrush}"
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                ItemContainerStyle="{StaticResource ItemContainerStyle}"
+                ItemsSource="{Binding GenreBooks}"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                VirtualizingStackPanel.IsVirtualizing="True"
+                VirtualizingStackPanel.VirtualizationMode="Recycling"
+                Visibility="{Binding IsContentLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=ListBox, Mode=TwoWay}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center" IsItemsHost="True" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <customComponents:BookMiniature
+                            Title="{Binding Title}"
+                            Margin="0,0,0,12"
+                            Author="{Binding AuthorFullNameShort}"
+                            AuthorVisibility="Visible"
+                            CornerRadius="8"
+                            ImageHeight="170"
+                            ImageSource="{Binding Image}"
+                            ImageWidth="150"
+                            Rating="{Binding RatingStars}"
+                            TitleVisibility="Visible">
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                    <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </customComponents:BookMiniature>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <Button
-                Command="{Binding NextPage}"
-                Content="{iconPacks:BootstrapIcons Kind=ArrowRightShort,
-                                                   Height=20,
-                                                   Width=20}"
-                Style="{StaticResource ButtonStyle}" />
-            <Button
-                Margin="5,0,0,0"
-                Command="{Binding LastPage}"
-                Content="{iconPacks:Unicons Kind=AngleDoubleRightLine,
-                                            Height=20,
-                                            Width=20}"
-                Style="{StaticResource ButtonStyle}" />
-        </StackPanel>
+                Grid.Row="3"
+                Width="40"
+                Height="40"
+                Margin="10,0,0,0"
+                HorizontalAlignment="Left"
+                Command="{Binding GoBack}"
+                Cursor="Hand"
+                Style="{StaticResource ButtonStyle}">
+                <iconPacks:PackIconFontAwesome Margin="5" Kind="ArrowLeftSolid" />
+            </Button>
+            <StackPanel
+                Grid.Row="3"
+                Margin="0,0,30,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Margin="0,0,5,0"
+                    Command="{Binding FirstPage}"
+                    Content="{iconPacks:Unicons Kind=AngleDoubleLeftLine,
+                                                Height=20,
+                                                Width=20}"
+                    Style="{StaticResource ButtonStyle}" />
+                <Button
+                    Command="{Binding PreviousPage}"
+                    Content="{iconPacks:BootstrapIcons Kind=ArrowLeftShort,
+                                                       Height=20,
+                                                       Width=20}"
+                    Style="{StaticResource ButtonStyle}" />
+                <TextBlock
+                    Width="80"
+                    Margin="20,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Foreground="{StaticResource SecondTextColorBrush}"
+                    TextAlignment="Center">
+                    <Run Text="{Binding CurrentPage}" />
+                    <Run Text="из" />
+                    <Run Text="{Binding AllPages}" />
+                </TextBlock>
+                <Button
+                    Command="{Binding NextPage}"
+                    Content="{iconPacks:BootstrapIcons Kind=ArrowRightShort,
+                                                       Height=20,
+                                                       Width=20}"
+                    Style="{StaticResource ButtonStyle}" />
+                <Button
+                    Margin="5,0,0,0"
+                    Command="{Binding LastPage}"
+                    Content="{iconPacks:Unicons Kind=AngleDoubleRightLine,
+                                                Height=20,
+                                                Width=20}"
+                    Style="{StaticResource ButtonStyle}" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

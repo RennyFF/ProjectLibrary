@@ -1,0 +1,2 @@
+obj\Debug\net8.0-windows\MVVM\Model\Protos/Histories.cs \
+obj\Debug\net8.0-windows\MVVM\Model\Protos/HistoriesGrpc.cs: MVVM/Model/Protos/histories.proto

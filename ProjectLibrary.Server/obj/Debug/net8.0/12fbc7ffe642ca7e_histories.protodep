@@ -1,0 +1,2 @@
+obj\Debug\net8.0\Protos/Histories.cs \
+obj\Debug\net8.0\Protos/HistoriesGrpc.cs: Protos/histories.proto

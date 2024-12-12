@@ -1,9 +1,10 @@
 ﻿using ProjectLibrary.Core;
 using ProjectLibrary.Utils;
-using ProjectLibrary.Utils.Types;
 using System.Collections.ObjectModel;
 using System.Windows;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
+using ProjectLibrary.Core.Types;
+using ProjectLibrary.Core.Types.Client;
 
 namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
 {
@@ -32,18 +33,18 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             }
         }
 
-        private User currentUser;
-        public User CurrentUser
+        private UserShort currentUser;
+        public UserShort CurrentUser
         {
             get { return currentUser; }
             set { currentUser = value; onPropertyChanged(nameof(CurrentUser)); FavoriteGenreNames = value.ClickedGenres != null
-                ? new ObservableCollection<Genre>(value.ClickedGenres
+                ? new ObservableCollection<FavGenreType>(value.ClickedGenres
                     .OrderBy(i => i.ClickedCountity).Take(3)
-                    ) : new ObservableCollection<Genre>();
+                    ) : new ObservableCollection<FavGenreType>();
             }
         }
-        private ObservableCollection<Genre> favoriteGenreNames = new ObservableCollection<Genre>();
-        public ObservableCollection<Genre> FavoriteGenreNames
+        private ObservableCollection<FavGenreType> favoriteGenreNames = new ObservableCollection<FavGenreType>();
+        public ObservableCollection<FavGenreType> FavoriteGenreNames
         {
             get { return favoriteGenreNames; }
             set { favoriteGenreNames = value; onPropertyChanged(nameof(FavoriteGenreNames)); }
@@ -193,7 +194,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             {
                 return goToPreviewGenre ??= new RelayCommand(obj =>
                 {
-                    if (obj is Genre SelectedFavoriteGenre)
+                    if (obj is FavGenreType SelectedFavoriteGenre)
                     {
                         Constants.PreviousVM = new List<PreviousViewModels?>();
                         Constants.PreviousVM.Add(PreviousViewModels.MainVM);
@@ -208,7 +209,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         {
             LibraryNavigation = libraryNavService;
             Navigation = navservice;
-            LibraryNavigation.NavigateLibraryTo<AuthorsViewModel>();
+            LibraryNavigation.NavigateLibraryTo<MainViewModel>();
         }
     }
 }

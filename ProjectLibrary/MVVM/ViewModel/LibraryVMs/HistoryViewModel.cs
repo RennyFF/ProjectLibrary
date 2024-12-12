@@ -1,6 +1,11 @@
-﻿using Npgsql;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
+using Npgsql;
+using ProjectLibrary.Client.History;
 using ProjectLibrary.Core;
-using ProjectLibrary.Utils.Types;
+using ProjectLibrary.Core.Types;
+using ProjectLibrary.Core.Types.Client;
+using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Utils;
 using System.Collections.ObjectModel;
 
@@ -19,33 +24,17 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 onPropertyChanged(nameof(LibraryNavigation));
             }
         }
-        private NpgsqlConnection connectionDB;
-        public NpgsqlConnection ConnectionDB
+        private bool isLoading;
+        public bool IsLoading
         {
-            get => connectionDB;
-            set => connectionDB = value;
-        }
-        private ObservableCollection<BookCard> historyBooks = new();
-
-        public ObservableCollection<BookCard> HistoryBooks
-        {
-            get { return historyBooks; }
-            set { historyBooks = value; onPropertyChanged(nameof(HistoryBooks)); }
+            get { return isLoading; }
+            set { isLoading = value; onPropertyChanged(nameof(IsLoading)); }
         }
 
-        private ObservableCollection<AuthorCard> historyAuthors = new();
-        public ObservableCollection<AuthorCard> HistoryAuthors
-        {
-            get { return historyAuthors; }
-            set { historyAuthors = value; onPropertyChanged(nameof(HistoryAuthors)); }
-        }
+        public ObservableCollection<BookCardType> HistoryBooks { get; set; } = new();
+        public ObservableCollection<AuthorCardType> HistoryAuthors { get; set; } = new();
+        public ObservableCollection<GenreCardType> HistoryGenres { get; set; } = new();
 
-        private ObservableCollection<GenreCard> historyGenres = new();
-        public ObservableCollection<GenreCard> HistoryGenres
-        {
-            get { return historyGenres; }
-            set { historyGenres = value; onPropertyChanged(nameof(HistoryGenres)); }
-        }
         #endregion
         #region Commands
         private RelayCommand goToPreview;
@@ -57,17 +46,17 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 {
                     Constants.PreviousVM = new List<PreviousViewModels?>();
                     Constants.PreviousVM.Add(PreviousViewModels.HistoryVM);
-                    if (obj is BookCard SelectedBook)
+                    if (obj is BookCardType SelectedBook)
                     {
                         LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.Id);
                         return;
                     }
-                    else if (obj is AuthorCard SelectedAuthor)
+                    else if (obj is AuthorCardType SelectedAuthor)
                     {
                         LibraryNavigation.NavigateLibraryTo<PreviewAuthorViewModel>(SelectedAuthor.Id);
                         return;
                     }
-                    else if (obj is GenreCard SelectedGenre)
+                    else if (obj is GenreCardType SelectedGenre)
                     {
                         LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>(SelectedGenre.Id);
                         return;
@@ -76,19 +65,60 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-        public HistoryViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
+        public HistoryViewModel(ILibraryNavigationService libraryNavigation)
         {
             LibraryNavigation = libraryNavigation;
-            ConnectionDB = connection;
-            InitHistoryViewModel(connection);
+            InitHistoryViewModel();
         }
 
-        private async void InitHistoryViewModel(NpgsqlConnection connection)
+        private async void InitHistoryViewModel()
         {
-            HistoryStruct GettingBooks = HistoryCache.GetHistory();
-            HistoryBooks = await Task.Run(() => Model.DataBaseFunctions.GetAllBookCards(ConnectionDB, GettingBooks.bookHistory));
-            HistoryAuthors = await Task.Run(() => Model.DataBaseFunctions.GetAllAuthorsCards(ConnectionDB, GettingBooks.authorHistory));
-            HistoryGenres = await Task.Run(() => Model.DataBaseFunctions.GetAllGenreCards(ConnectionDB, GettingBooks.genreHistory));
+            await Task.Run(() => IsLoading = true); 
+            var loadHistoryTask = LoadHistory(HistoryCache.GetHistory());
+            await Task.WhenAll(loadHistoryTask);
+            onPropertyChanged(nameof(HistoryBooks));
+            onPropertyChanged(nameof(HistoryAuthors));
+            onPropertyChanged(nameof(HistoryGenres));
+            await Task.Run(() => IsLoading = false);
+        }
+        private async Task LoadHistory(HistoryStruct HistoryLocal)
+        {
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new HistoryService.HistoryServiceClient(Channel);
+            try
+            {
+                ResponseHistory response = await Client.GetHistoryCardsAsync(new RequestHistory
+                {
+                    Authors = { HistoryLocal.authorHistory.Select(i => new AuthorHistoryReq { Id = i.AuthorId }) },
+                    Books = { HistoryLocal.bookHistory.Select(i => new BookHistoryReq { Id = i.BookId }) },
+                    Genres = { HistoryLocal.genreHistory.Select(i => new GenreHistoryReq { Id = i.GenreId }) },
+                });
+                HistoryBooks = new ObservableCollection<BookCardType>(response.Books.Select(i => new BookCardType()
+                {
+                    Id = i.Id,
+                    AuthorFullNameShort = i.AuthorFullnameShort,
+                    RatingStars = i.RatingStars,
+                    Title = i.Title,
+                    Image = i.Image.ToByteArray()
+                }));
+                HistoryAuthors = new ObservableCollection<AuthorCardType>(response.Authors.Select(i => new AuthorCardType()
+                {
+                    Id = i.Id,
+                    FullName = i.AuthorFullname,
+                    ImageAvatar = i.Image.ToByteArray(),
+                }));
+                HistoryGenres = new ObservableCollection<GenreCardType>(response.Genres.Select(i => new GenreCardType()
+                {
+                    Id = i.Id,
+                    GenreName = i.GenreName,
+                    ImageAvatar = i.Image.ToByteArray()
+                }));
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
         }
     }
 }

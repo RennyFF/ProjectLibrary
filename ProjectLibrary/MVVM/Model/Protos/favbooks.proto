@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectLibrary.Client.FavoriteBook";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+package favbookproto;
+
+service FavoriteBookService {
+  rpc GetCountity (RequestCountity) returns (ResponseCountity);
+  rpc CheckFavoriteBook (RequestCheckFavoriteBook) returns (ResponseCheckFavoriteBook);
+  rpc ChangeFavoriteBook (RequestChangeFavoriteBook) returns (google.protobuf.Empty);
+  rpc GetFavoriteBooksByUser (RequestFavoriteBookByUser) returns (ResponseFavoriteBookByUser);
+}
+message RequestCountity {
+  int32 countity_on_page = 1;
+  int32 user_id = 2;
+}
+
+message ResponseCountity {
+  int32 countity = 1;
+}
+
+message RequestCheckFavoriteBook {
+  int32 user_id = 1;
+  int32 book_id = 2;
+}
+
+message ResponseCheckFavoriteBook {
+	bool is_favorite = 1;
+}
+
+message RequestChangeFavoriteBook {
+   int32 user_id = 1;
+   int32 book_id = 2;
+   bool status = 3;
+}
+
+message RequestFavoriteBookByUser{
+	int32 user_id = 1;
+	int32 page = 2;
+	int32 countity_on_page = 3;
+}
+message ResponseFavoriteBookByUser{
+	repeated BookCard favorite_books = 1;
+}
+message BookCard{
+	int32 id = 1;
+	string author_fullname_short = 2;
+	bytes image = 3;
+	string title = 4;
+	int32 rating_stars = 5;
+	google.protobuf.Timestamp added_in_database = 7;
+}

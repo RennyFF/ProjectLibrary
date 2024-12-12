@@ -30,7 +30,7 @@
                 VerticalAlignment="Top"
                 Background="Transparent"
                 Command="{Binding CloseCommand}"
-                Style="{StaticResource WindowStateButton}">
+                Style="{StaticResource CaptionButtonStyle--Close}" Cursor="Hand">
                 <iconPacks:PackIconUnicons
                     Width="16"
                     Height="16"

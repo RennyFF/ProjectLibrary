@@ -7,177 +7,222 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ProjectLibrary.MVVM.View.LibraryViews"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:utils="clr-namespace:ProjectLibrary.Utils.Converters"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <utils:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Border
-            Grid.Row="0"
-            Margin="10"
-            VerticalAlignment="Center"
-            Background="{StaticResource MainBackgroundColorBrush}"
-            CornerRadius="16">
-            <Grid VerticalAlignment="Center">
-                <TextBlock
-                    Margin="20,10,0,10"
-                    VerticalAlignment="Center"
-                    FontSize="20"
-                    Style="{StaticResource HeaderTextStyle}"
-                    Text="История" />
-            </Grid>
+        <Border Background="Transparent" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="32"
+                Foreground="{StaticResource SecondTextColorBrush}"
+                Style="{StaticResource HeaderTextStyle}"
+                Text="ЗАГРУЗКА" />
         </Border>
-        <ScrollViewer
-            Grid.Row="1"
-            Margin="0,0,10,10"
-            CanContentScroll="False"
-            Style="{StaticResource FavsScrollViewer}"
-            VerticalScrollBarVisibility="Visible">
-            <StackPanel>
-                <StackPanel Grid.Row="0" Margin="10,10,0,0">
+        <Grid Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert, Mode=TwoWay}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border
+                Grid.Row="0"
+                Margin="10"
+                VerticalAlignment="Center"
+                Background="{StaticResource MainBackgroundColorBrush}"
+                CornerRadius="16">
+                <Grid VerticalAlignment="Center">
                     <TextBlock
-                        Margin="0,0,0,10"
+                        Margin="20,10,0,10"
+                        VerticalAlignment="Center"
+                        FontSize="20"
                         Style="{StaticResource HeaderTextStyle}"
-                        Text="Просмотренные книги" />
-                    <ListBox
-                        Height="auto"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0"
-                        ItemContainerStyle="{StaticResource ItemContainerStyle}"
-                        ItemsSource="{Binding HistoryBooks}"
-                        ScrollViewer.CanContentScroll="False"
-                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                        VirtualizingStackPanel.IsVirtualizing="True"
-                        VirtualizingStackPanel.VirtualizationMode="Recycling">
+                        Text="История" />
+                </Grid>
+            </Border>
+            <ScrollViewer
+                Grid.Row="1"
+                Margin="0,0,10,10"
+                CanContentScroll="False"
+                Style="{StaticResource FavsScrollViewer}"
+                VerticalScrollBarVisibility="Visible">
+                <StackPanel>
+                    <StackPanel Grid.Row="0" Margin="10,10,0,0">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HistoryBooks.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock
+                            Margin="0,0,0,10"
+                            Style="{StaticResource HeaderTextStyle}"
+                            Text="Просмотренные книги" />
+                        <ListBox
+                            Height="auto"
+                            VerticalContentAlignment="Center"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            ItemContainerStyle="{StaticResource ItemContainerStyle}"
+                            ItemsSource="{Binding HistoryBooks}"
+                            ScrollViewer.CanContentScroll="False"
+                            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            VirtualizingStackPanel.IsVirtualizing="True"
+                            VirtualizingStackPanel.VirtualizationMode="Recycling">
 
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <UniformGrid
-                                    HorizontalAlignment="Left"
-                                    IsItemsHost="True"
-                                    Rows="1" />
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid
+                                        HorizontalAlignment="Left"
+                                        IsItemsHost="True"
+                                        Rows="1" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
 
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <customComponents:BookMiniature
-                                    Title="{Binding Title}"
-                                    Author="{Binding Author}"
-                                    AuthorVisibility="Visible"
-                                    CornerRadius="8"
-                                    ImageHeight="150"
-                                    ImageSource="{Binding ImageSource}"
-                                    ImageWidth="120"
-                                    Rating="{Binding RatingStars}"
-                                    TitleVisibility="Visible">
-                                    <b:Interaction.Triggers>
-                                        <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
-                                            <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
-                                        </b:EventTrigger>
-                                    </b:Interaction.Triggers>
-                                </customComponents:BookMiniature>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <customComponents:BookMiniature
+                                        Title="{Binding Title}"
+                                        Author="{Binding AuthorFullNameShort}"
+                                        AuthorVisibility="Visible"
+                                        CornerRadius="8"
+                                        ImageHeight="150"
+                                        ImageSource="{Binding Image}"
+                                        ImageWidth="120"
+                                        Rating="{Binding RatingStars}"
+                                        TitleVisibility="Visible">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                    </customComponents:BookMiniature>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Margin="10,10,0,0">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HistoryAuthors.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock
+                            Margin="0,0,0,10"
+                            Style="{StaticResource HeaderTextStyle}"
+                            Text="Просмотренные авторы" />
+                        <ListBox
+                            Height="auto"
+                            VerticalContentAlignment="Center"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            ItemContainerStyle="{StaticResource ItemContainerStyle}"
+                            ItemsSource="{Binding HistoryAuthors}"
+                            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            VirtualizingStackPanel.IsVirtualizing="True"
+                            VirtualizingStackPanel.VirtualizationMode="Recycling">
+
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid
+                                        HorizontalAlignment="Left"
+                                        IsItemsHost="True"
+                                        Rows="1" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <customComponents:AuthorMiniature
+                                        Author="{Binding FullName}"
+                                        CornerRadius="8"
+                                        ImageHeight="150"
+                                        ImageSource="{Binding ImageAvatar}"
+                                        ImageWidth="150">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                    </customComponents:AuthorMiniature>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Margin="10,10,0,0">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding HistoryGenres.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBlock
+                            Margin="0,0,0,10"
+                            Style="{StaticResource HeaderTextStyle}"
+                            Text="Просмотренные жанры" />
+                        <ListBox
+                            Height="auto"
+                            VerticalContentAlignment="Center"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            ItemContainerStyle="{StaticResource ItemContainerStyle}"
+                            ItemsSource="{Binding HistoryGenres}"
+                            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                            VirtualizingStackPanel.IsVirtualizing="True"
+                            VirtualizingStackPanel.VirtualizationMode="Recycling">
+
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid
+                                        HorizontalAlignment="Left"
+                                        IsItemsHost="True"
+                                        Rows="1" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <customComponents:GenreMiniature
+                                        CornerRadius="8"
+                                        GenreName="{Binding GenreName}"
+                                        ImageHeight="150"
+                                        ImageSource="{Binding ImageAvatar}"
+                                        ImageWidth="150">
+                                        <b:Interaction.Triggers>
+                                            <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                                <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
+                                            </b:EventTrigger>
+                                        </b:Interaction.Triggers>
+                                    </customComponents:GenreMiniature>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Margin="10,10,0,0">
-                    <TextBlock
-                        Margin="0,0,0,10"
-                        Style="{StaticResource HeaderTextStyle}"
-                        Text="Просмотренные авторы" />
-                    <ListBox
-                        Height="auto"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0"
-                        ItemContainerStyle="{StaticResource ItemContainerStyle}"
-                        ItemsSource="{Binding HistoryAuthors}"
-                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                        VirtualizingStackPanel.IsVirtualizing="True"
-                        VirtualizingStackPanel.VirtualizationMode="Recycling">
-
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <UniformGrid
-                                    HorizontalAlignment="Left"
-                                    IsItemsHost="True"
-                                    Rows="1" />
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <customComponents:AuthorMiniature
-                                    Author="{Binding FullName}"
-                                    CornerRadius="8"
-                                    ImageHeight="150"
-                                    ImageSource="{Binding ImageAvatar}"
-                                    ImageWidth="150">
-                                    <b:Interaction.Triggers>
-                                        <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
-                                            <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
-                                        </b:EventTrigger>
-                                    </b:Interaction.Triggers>
-                                </customComponents:AuthorMiniature>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
-                <StackPanel Grid.Row="2" Margin="10,10,0,0">
-                    <TextBlock
-                        Margin="0,0,0,10"
-                        Style="{StaticResource HeaderTextStyle}"
-                        Text="Просмотренные жанры" />
-                    <ListBox
-                        Height="auto"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0"
-                        ItemContainerStyle="{StaticResource ItemContainerStyle}"
-                        ItemsSource="{Binding HistoryGenres}"
-                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                        VirtualizingStackPanel.IsVirtualizing="True"
-                        VirtualizingStackPanel.VirtualizationMode="Recycling">
-
-                        <ListBox.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <UniformGrid
-                                    HorizontalAlignment="Left"
-                                    IsItemsHost="True"
-                                    Rows="1" />
-                            </ItemsPanelTemplate>
-                        </ListBox.ItemsPanel>
-
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <customComponents:GenreMiniature
-                                    CornerRadius="8"
-                                    GenreName="{Binding GenreName}"
-                                    ImageHeight="150"
-                                    ImageSource="{Binding ImageAvatar}"
-                                    ImageWidth="150">
-                                    <b:Interaction.Triggers>
-                                        <b:EventTrigger EventName="PreviewMouseLeftButtonUp">
-                                            <b:InvokeCommandAction Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}" />
-                                        </b:EventTrigger>
-                                    </b:Interaction.Triggers>
-                                </customComponents:GenreMiniature>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
-            </StackPanel>
-        </ScrollViewer>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </UserControl>

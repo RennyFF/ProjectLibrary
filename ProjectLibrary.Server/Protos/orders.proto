@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectLibrary.Server.Order";
+package orderproto;
+
+service OrderService {
+  rpc PlaceOrder (RequestPlaceOrder) returns (ResponsePlaceOrder);
+  rpc IsBought (RequestIsBought) returns (ResponseIsBought);
+}
+
+message RequestIsBought {
+  int32 user_id = 1;
+  int32 book_id = 2;
+}
+
+message ResponseIsBought {
+  bool is_ordered = 1;
+}
+
+message RequestPlaceOrder {
+  int32 user_id = 1;
+  int32 book_id = 2;
+  bool is_promo = 3;
+}
+
+message ResponsePlaceOrder {
+  bool is_success = 1;
+}

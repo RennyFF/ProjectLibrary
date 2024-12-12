@@ -1,30 +1,10 @@
 ﻿using Newtonsoft.Json;
-using ProjectLibrary.Utils.Types;
+using ProjectLibrary.Core.Types;
+using ProjectLibrary.Core.Types.Client;
 using System.IO;
 
 namespace ProjectLibrary.Utils
 {
-    public class BookHistory
-    {
-        public int BookId { get; set; }
-        public DateTime AddedInHistory { get; set; }
-    }
-    public class AuthorHistory
-    {
-        public int AuthorId { get; set; }
-        public DateTime AddedInHistory { get; set; }
-    }
-    public class GenreHistory
-    {
-        public int GenreId { get; set; }
-        public DateTime AddedInHistory { get; set; }
-    }
-    public class HistoryStruct
-    {
-        public List<BookHistory> bookHistory { get; set; } = new List<BookHistory>();
-        public List<AuthorHistory> authorHistory { get; set; } = new List<AuthorHistory>();
-        public List<GenreHistory> genreHistory { get; set; } = new List<GenreHistory>();
-    }
     public enum HistoryType
     {
         Book,
@@ -96,15 +76,15 @@ namespace ProjectLibrary.Utils
             }
             File.WriteAllText(CacheFile, JsonConvert.SerializeObject(History));
         }
-        public static async void AppendHistoryCache(BookCard Card)
+        public static async void AppendHistoryCache(BookCardType Card)
         {
             await Task.Run(() => AppendHistoryCache(Card.Id, HistoryType.Book));
         }
-        public static async void AppendHistoryCache(AuthorCard Card)
+        public static async void AppendHistoryCache(AuthorCardType Card)
         {
             await Task.Run(() => AppendHistoryCache(Card.Id, HistoryType.Author));
         }
-        public static async void AppendHistoryCache(GenreCard Card)
+        public static async void AppendHistoryCache(GenreCardType Card)
         {
             await Task.Run(() => AppendHistoryCache(Card.Id, HistoryType.Genre));
         }

@@ -1,10 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
+using ProjectLibrary.Core.Types;
+using ProjectLibrary.Core.Types.Client;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
 using ProjectLibrary.Utils;
-using ProjectLibrary.Utils.Types;
 using System.Windows;
 
 namespace ProjectLibrary
@@ -14,17 +15,10 @@ namespace ProjectLibrary
     /// </summary>
     public partial class App : Application
     {
-        public User ActiveUser { get; set; }
         private readonly ServiceProvider _serviceProvider;
         public App()
         {
             IServiceCollection services = new ServiceCollection();
-            services.AddSingleton<NpgsqlConnection>(provider =>
-            {
-                var connection = new NpgsqlConnection(Constants.ConnectionStringDB);
-                connection.Open();
-                return connection;
-            });
             services.AddSingleton<BaseWindow>(provider => new BaseWindow
             {
                 DataContext = provider.GetRequiredService<BaseVM>()

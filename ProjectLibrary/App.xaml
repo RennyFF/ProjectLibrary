@@ -67,6 +67,7 @@
             </DataTemplate>
 
             <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>
+            <FontFamily x:Key="NunitoSans">pack://application:,,,/Resources/Font/#NunitoSans</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

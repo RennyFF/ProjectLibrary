@@ -30,6 +30,7 @@ namespace ProjectLibrary.Utils.Components
         }
         private void SetUpRating(int Rating)
         {
+            StarsPanel.Children.Clear();
             int EmptyRating = 5 - Rating;
             for (int i = 1; i <= Rating; i++)
             {

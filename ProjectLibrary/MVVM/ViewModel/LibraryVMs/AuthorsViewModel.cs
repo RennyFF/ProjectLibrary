@@ -1,13 +1,12 @@
-﻿using Npgsql;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
+using Npgsql;
+using ProjectLibrary.Client.Author;
 using ProjectLibrary.Core;
-using ProjectLibrary.Utils.Types;
+using ProjectLibrary.Core.Types.Client;
+using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Utils;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
@@ -19,13 +18,6 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             { 2, "По алфавиту (А-Я)" },
             { 3, "По алфавиту (Я-А)" }
         };
-        private int CountityOnPage = 27;
-        private NpgsqlConnection connectionDB;
-        public NpgsqlConnection ConnectionDB
-        {
-            get => connectionDB;
-            set => connectionDB = value;
-        }
         private ILibraryNavigationService _libraryNavigation;
         public ILibraryNavigationService LibraryNavigation
         {
@@ -36,6 +28,12 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 onPropertyChanged(nameof(LibraryNavigation));
             }
         }
+        private bool isContentLoading;
+        public bool IsContentLoading
+        {
+            get { return isContentLoading; }
+            set { isContentLoading = value; onPropertyChanged(nameof(IsContentLoading)); }
+        }
         private bool isLoading;
         public bool IsLoading
         {
@@ -43,35 +41,14 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             set { isLoading = value; onPropertyChanged(nameof(IsLoading)); }
         }
 
-        private List<string> allSortFilter;
-        public List<string> AllSortFilter
-        {
-            get { return allSortFilter; }
-            set { allSortFilter = value; }
-        }
+        public List<string> AllSortFilter { get; set; } = new();
+        public string SelectedSort { get; set; }
 
-        private string selectedSort = "По актуальности";
-        public string SelectedSort
-        {
-            get { return selectedSort; }
-            set { selectedSort = value; ChangeLoadingState(); SortAuthors(AllCards); onPropertyChanged(nameof(SelectedSort)); }
-        }
+        public ObservableCollection<AuthorCardType> AllAuthors { get; set; } = new();
 
-        private ObservableCollection<AuthorCard> allCards = new();
-        public ObservableCollection<AuthorCard> AllCards
-        {
-            get { return allCards; }
-            set { allCards = value; }
-        }
+        public int AllPages { get; set; }
 
-        private int allPages;
-        public int AllPages
-        {
-            get { return allPages; }
-            set { allPages = value; onPropertyChanged(nameof(AllPages)); }
-        }
-
-        private int currentPage;
+        private int currentPage = 1;
         public int CurrentPage
         {
             get { return currentPage; }
@@ -87,7 +64,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreview ??= new RelayCommand(obj =>
                 {
-                    if (obj is AuthorCard SelectedAuthor)
+                    if (obj is AuthorCardType SelectedAuthor)
                     {
                         Constants.PreviousVM = new List<PreviousViewModels?>();
                         Constants.PreviousVM.Add(PreviousViewModels.AuthorsVM);
@@ -102,10 +79,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return nextPage ??= new RelayCommand(obj =>
+                return nextPage ??= new RelayCommand( async obj =>
                 {
                     CurrentPage += 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != AllPages);
             }
         }
@@ -114,10 +94,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return previousPage ??= new RelayCommand(obj =>
+                return previousPage ??= new RelayCommand( async obj =>
                 {
                     CurrentPage -= 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != 1);
             }
         }
@@ -126,10 +109,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return firstPage ??= new RelayCommand(obj =>
+                return firstPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage = 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => (CurrentPage != 1));
             }
         }
@@ -138,70 +124,116 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return lastPage ??= new RelayCommand(obj =>
+                return lastPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage = AllPages;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != AllPages);
+            }
+        }
+        private RelayCommand sortChanged;
+        public RelayCommand SortChanged
+        {
+            get
+            {
+                return sortChanged ??= new RelayCommand(async obj =>
+                {
+                    await Task.Run(() => IsContentLoading = true);
+                    var sortAuthorsTask = SortAuthors(AllAuthors);
+                    await Task.WhenAll(sortAuthorsTask);
+                    await Task.Run(() => IsContentLoading = false);
+                }, obj => IsLoading != true);
             }
         }
         #endregion
 
-        public AuthorsViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
+        public AuthorsViewModel(ILibraryNavigationService libraryNavigation)
         {
             LibraryNavigation = libraryNavigation;
-            ConnectionDB = connection;
-            InitAuthorsViewModel(connection);
+            InitAuthorsViewModel();
         }
 
-        private async void InitAuthorsViewModel(NpgsqlConnection connection)
+        private async void InitAuthorsViewModel()
         {
-            CurrentPage = 1;
-            AllSortFilter = new List<string>();
+            await Task.Run(() => IsLoading = true);
+            var loadMiscTask = LoadStartUp();
+            var authorCountityTask = LoadPagesCountity();
+            var loadAuthorsTask = ChangePage();
+            await Task.WhenAll(loadMiscTask, authorCountityTask, loadAuthorsTask);
+            onPropertyChanged(nameof(SelectedSort));
+            await Task.Run(() => IsLoading = false);
+        }
+
+        private async Task LoadStartUp()
+        {
             foreach (var item in SortDictionary)
             {
                 AllSortFilter.Add(item.Value);
             }
-            AllPages = await Model.DataBaseFunctions.GetAuthorsCountity(connection);
-            PageChanged();
+            SelectedSort = SortDictionary[1];
         }
-        #region AuthorsFunc
-        private async void SortAuthors(ObservableCollection<AuthorCard> UnSortedList)
+
+        private async Task LoadPagesCountity()
+        {
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new AuthorService.AuthorServiceClient(Channel);
+            try
+            {
+                ResponseCountity response = await Client.GetCountityAsync(new RequestCountity() { CountityOnPage = Constants.CountityOnPage });
+                AllPages = response.Countity;
+                onPropertyChanged(nameof(AllPages));
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
+        }
+        private async Task SortAuthors(ObservableCollection<AuthorCardType> UnSortedList)
         {
             switch (SelectedSort)
             {
                 case "По алфавиту (А-Я)":
-                    AllCards = new ObservableCollection<AuthorCard>(UnSortedList.OrderBy(i => i.FullName).ToList());
+                    AllAuthors = new ObservableCollection<AuthorCardType>(UnSortedList.OrderBy(i => i.FullName));
                     await Task.Delay(100);
-                    onPropertyChanged(nameof(AllCards));
                     break;
                 case "По алфавиту (Я-А)":
-                    AllCards = new ObservableCollection<AuthorCard>(UnSortedList.OrderByDescending(i => i.FullName).ToList());
+                    AllAuthors = new ObservableCollection<AuthorCardType>(UnSortedList.OrderByDescending(i => i.FullName));
                     await Task.Delay(100);
-                    onPropertyChanged(nameof(AllCards));
                     break;
                 case "По актуальности":
-                    AllCards = new ObservableCollection<AuthorCard>(UnSortedList.OrderBy(i => i.Id).ToList());
+                    AllAuthors = new ObservableCollection<AuthorCardType>(UnSortedList.OrderBy(i => i.Id));
                     await Task.Delay(100);
-                    onPropertyChanged(nameof(AllCards));
                     break;
                 default:
                     break;
             }
-            ChangeLoadingState();
+            onPropertyChanged(nameof(AllAuthors));
         }
-        private async void PageChanged()
+        private async Task ChangePage()
         {
-            ChangeLoadingState();
-            AllCards.Clear();
-            ObservableCollection<AuthorCard> gettingBooks = await Model.DataBaseFunctions.GetAuthorsByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
-            Task.Run(() => SortAuthors(gettingBooks));
+            AllAuthors.Clear();
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new AuthorService.AuthorServiceClient(Channel);
+            try
+            {
+                ResponseAuthorsByPage response = await Client.GetAuthorsByPageAsync(new RequestAuthorsByPage { CountityOnPage = Constants.CountityOnPage, Page = CurrentPage });
+                var UnsortedOC = new ObservableCollection<AuthorCardType>(response.Authors.Select(i => new AuthorCardType
+                {
+                    Id = i.Id,
+                    FullName = i.AuthorFullnameShort,
+                    ImageAvatar = i.Image.ToByteArray(),
+                }));
+                await SortAuthors(UnsortedOC);
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
         }
-
-        private void ChangeLoadingState()
-        {
-            IsLoading = !IsLoading;
-        }
-        #endregion
     }
 }

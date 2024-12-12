@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectLibrary.Client.Author";
+
+import "google/protobuf/timestamp.proto";
+
+package authorproto;
+
+service AuthorService {
+	rpc GetCountity (RequestCountity) returns (ResponseCountity);
+	rpc GetAuthorsByPage (RequestAuthorsByPage) returns (ResponseAuthorsByPage);
+	rpc GetSingleAuthor (RequestSingleAuthor) returns (ResponseSingleAuthor);
+}
+message RequestCountity {
+  int32 countity_on_page = 1;
+}
+
+message ResponseCountity {
+  int32 countity = 1;
+}
+
+message RequestAuthorsByPage {
+  int32 page = 1;
+  int32 countity_on_page = 2;
+}
+
+message ResponseAuthorsByPage {
+  repeated AuthorCard Authors = 1;
+}
+
+message RequestSingleAuthor {
+	int32 author_id = 1;
+}
+
+message ResponseSingleAuthor {
+	int32 id = 1;
+	string first_name = 2;
+	string second_name = 3;
+	string patronomyc_name = 4;
+	bytes image = 5;
+	google.protobuf.Timestamp date_of_birth = 6;
+	google.protobuf.Timestamp date_of_death = 7;
+}
+
+message AuthorCard {
+	int32 id = 1;
+	string author_fullname_short = 2;
+	bytes image = 5;
+}

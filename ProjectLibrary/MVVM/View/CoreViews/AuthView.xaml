@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewmodel="clr-namespace:ProjectLibrary.MVVM.ViewModel.CoreVMs"
     x:Name="AuthViewName"
     d:DesignHeight="770"
     d:DesignWidth="1200"
@@ -218,6 +217,7 @@
                     Width="220"
                     Margin="20,0,0,0"
                     VerticalAlignment="Center"
+                    FontSize="10"
                     LostKeyboardFocus="PasswordPB_LostKeyboardFocus"
                     Style="{StaticResource AuthPasswordBox}"
                     Tag="Введите пароль">
@@ -262,6 +262,7 @@
                                         <Condition Property="IsFocused" Value="False" />
                                     </MultiTrigger.Conditions>
                                     <Setter TargetName="WaterMarkLabel" Property="Visibility" Value="Visible" />
+                                    <Setter TargetName="WaterMarkLabel" Property="FontSize" Value="14" />
                                 </MultiTrigger>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Trigger.EnterActions>

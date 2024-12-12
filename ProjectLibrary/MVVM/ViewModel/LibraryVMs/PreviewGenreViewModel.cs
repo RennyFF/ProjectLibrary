@@ -1,21 +1,20 @@
 ﻿using Npgsql;
 using ProjectLibrary.Core;
-using ProjectLibrary.Utils.Types;
 using ProjectLibrary.Utils;
 using System.Collections.ObjectModel;
+using ProjectLibrary.Core.Types.Client;
+using Grpc.Net.Client;
+using ProjectLibrary.Client.Genre;
+using Grpc.Core;
+using ProjectLibrary.MVVM.View.CoreViews;
+using ProjectLibrary.Client.Book;
+using ResponseCountity = ProjectLibrary.Client.Book.ResponseCountity;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
     public class PreviewGenreViewModel : Core.BaseViewModel
     {
         #region Values
-        private int CountityOnPage = 27;
-        private NpgsqlConnection connectionDB;
-        public NpgsqlConnection ConnectionDB
-        {
-            get => connectionDB;
-            set => connectionDB = value;
-        }
         private ILibraryNavigationService _libraryNavigation;
         public ILibraryNavigationService LibraryNavigation
         {
@@ -26,21 +25,8 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 onPropertyChanged(nameof(LibraryNavigation));
             }
         }
-        private GenreCard previewedGenre;
-
-        public GenreCard PreviewedGenre
-        {
-            get { return previewedGenre; }
-            set { previewedGenre = value; onPropertyChanged(nameof(PreviewedGenre)); }
-        }
-
-        private ObservableCollection<BookCard> genreBooks = new ObservableCollection<BookCard>();
-
-        public ObservableCollection<BookCard> GenreBooks
-        {
-            get { return genreBooks; }
-            set { genreBooks = value; onPropertyChanged(nameof(GenreBooks)); }
-        }
+        public GenreCardType PreviewedGenre { get; set; }
+        public ObservableCollection<BookCardType> GenreBooks { get; set; } = new();
         private bool isLoading;
         public bool IsLoading
         {
@@ -48,14 +34,14 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             set { isLoading = value; onPropertyChanged(nameof(IsLoading)); }
         }
 
-        private int allPages;
-        public int AllPages
+        private bool isContentLoading;
+        public bool IsContentLoading
         {
-            get { return allPages; }
-            set { allPages = value; onPropertyChanged(nameof(AllPages)); }
+            get { return isContentLoading; }
+            set { isContentLoading = value; onPropertyChanged(nameof(IsContentLoading)); }
         }
-
-        private int currentPage;
+        public int AllPages { get; set; }
+        private int currentPage = 1;
         public int CurrentPage
         {
             get { return currentPage; }
@@ -71,7 +57,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreview ??= new RelayCommand(obj =>
                 {
-                    if (obj is BookCard SelectedBook)
+                    if (obj is BookCardType SelectedBook)
                     {
                         Constants.PreviousVM.Add(PreviousViewModels.GenrePreviewVM);
                         LibraryNavigation.NavigateLibraryTo<PreviewBookViewModel>(SelectedBook.Id);
@@ -96,10 +82,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return nextPage ??= new RelayCommand(obj =>
+                return nextPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage += 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage(PreviewedGenre.Id);
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != AllPages);
             }
         }
@@ -108,10 +97,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return previousPage ??= new RelayCommand(obj =>
+                return previousPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage -= 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage(PreviewedGenre.Id);
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != 1);
             }
         }
@@ -120,10 +112,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return firstPage ??= new RelayCommand(obj =>
+                return firstPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage = 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage(PreviewedGenre.Id);
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => (CurrentPage != 1));
             }
         }
@@ -132,50 +127,92 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return lastPage ??= new RelayCommand(obj =>
+                return lastPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage = AllPages;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage(PreviewedGenre.Id);
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != AllPages);
             }
         }
         #endregion
-        public PreviewGenreViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
+        public PreviewGenreViewModel(ILibraryNavigationService libraryNavigation)
         {
             LibraryNavigation = libraryNavigation;
-            ConnectionDB = connection;
         }
         public async void GetPreviewedGenre(int GenreId)
         {
             HistoryCache.AppendHistoryCache(GenreId, HistoryType.Genre);
-            await Task.Run(async () => PreviewedGenre = await Model.DataBaseFunctions.GetSingleGenreCard(ConnectionDB, GenreId));
-            InitGenreViewModel(ConnectionDB);
+            await Task.Run(() => IsLoading = true);
+            var loadGenreTask = LoadPreviewedGenre(GenreId);
+            var loadBooksCountityTask = LoadBooksCountity(GenreId);
+            var loadBooksTask = ChangePage(GenreId);
+            await Task.WhenAll(loadGenreTask, loadBooksCountityTask, loadBooksTask);
+            onPropertyChanged(nameof(PreviewedGenre));
+            await Task.Run(() => IsLoading = false);
         }
-        private async void InitGenreViewModel(NpgsqlConnection connection)
+        private async Task LoadPreviewedGenre(int GenreId)
         {
-            CurrentPage = 1;
-            AllPages = await Model.DataBaseFunctions.GetBooksCountity(connection, PreviewedGenre);
-            PageChanged();
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new GenreService.GenreServiceClient(Channel);
+            try
+            {
+                ResponseSingleGenre response = await Client.GetSingleGenreAsync(new RequestSingleGenre() { GenreId = GenreId });
+                PreviewedGenre = new GenreCardType()
+                {
+                    GenreName = response.GenreName,
+                    Id = response.Id,
+                    ImageAvatar = response.Image.ToByteArray()
+                };
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
+        }
+        private async Task LoadBooksCountity(int GenreId)
+        {
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new BookService.BookServiceClient(Channel);
+            try
+            {
+                ResponseCountity response = await Client.GetCountityAsync(new ProjectLibrary.Client.Book.RequestCountity() { GenreId = GenreId, CountityOnPage = Constants.CountityOnPage, AuthorId = null });
+                AllPages = response.Countity;
+                onPropertyChanged(nameof(AllPages));
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
         }
         #region BooksFunc
-        private async void PageChanged()
+        private async Task ChangePage(int GenreId)
         {
             GenreBooks.Clear();
-            ChangeLoadingState();
-            ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage, PreviewedGenre);
-            await Task.Run(
-                () =>
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new BookService.BookServiceClient(Channel);
+            try
+            {
+                ResponseBooksByPage response = await Client.GetBooksByPageAsync(new RequestBooksByPage() { Page = CurrentPage, CountityOnPage = Constants.CountityOnPage, GenreId = GenreId });
+                GenreBooks = new ObservableCollection<BookCardType>(response.Books.Select(i => new BookCardType
                 {
-                    GenreBooks = gettingBooks; 
-                    onPropertyChanged(nameof(GenreBooks));
-                }
-                );
-            await Task.Run(() => ChangeLoadingState());
-        }
-
-        private void ChangeLoadingState()
-        {
-            IsLoading = !IsLoading;
+                    Id = i.Id,
+                    Title = i.Title,
+                    Image = i.Image.ToByteArray(),
+                    AuthorFullNameShort = i.AuthorFullnameShort,
+                    RatingStars = i.RatingStars
+                }));
+                onPropertyChanged(nameof(GenreBooks));
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
         }
         #endregion
     }

@@ -1,26 +1,18 @@
 ﻿using Npgsql;
 using ProjectLibrary.Core;
-using ProjectLibrary.Utils.Types;
 using ProjectLibrary.Utils;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ProjectLibrary.Core.Types.Client;
+using Grpc.Net.Client;
+using ProjectLibrary.Client.FavoriteBook;
+using Grpc.Core;
+using ProjectLibrary.MVVM.View.CoreViews;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
     public class FavoriteBooksViewModel : Core.BaseViewModel
     {
         #region Values
-        private int CountityOnPage = 27;
-        private NpgsqlConnection connectionDB;
-        public NpgsqlConnection ConnectionDB
-        {
-            get => connectionDB;
-            set => connectionDB = value;
-        }
         private ILibraryNavigationService _libraryNavigation;
         public ILibraryNavigationService LibraryNavigation
         {
@@ -37,28 +29,23 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             get { return isLoading; }
             set { isLoading = value; onPropertyChanged(nameof(IsLoading)); }
         }
+        private bool isContentLoading;
+        public bool IsContentLoading
+        {
+            get { return isContentLoading; }
+            set { isContentLoading = value; onPropertyChanged(nameof(IsContentLoading)); }
+        }
         private bool isHasItems;
         public bool IsHasItems
         {
             get { return isHasItems; }
             set { isHasItems = value; onPropertyChanged(nameof(IsHasItems)); }
         }
+        public ObservableCollection<BookCardType> FavoriteBooks { get; set; } = new();
 
-        private ObservableCollection<BookCard> favoriteBooks = new();
-        public ObservableCollection<BookCard> FavoriteBooks
-        {
-            get { return favoriteBooks; }
-            set { favoriteBooks = value; }
-        }
+        public int AllPages { get; set; }
 
-        private int allPages;
-        public int AllPages
-        {
-            get { return allPages; }
-            set { allPages = value; onPropertyChanged(nameof(AllPages)); }
-        }
-
-        private int currentPage;
+        private int currentPage = 1;
         public int CurrentPage
         {
             get { return currentPage; }
@@ -74,7 +61,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreview ??= new RelayCommand(obj =>
                 {
-                    if (obj is BookCard SelectedBook)
+                    if (obj is BookCardType SelectedBook)
                     {
                         Constants.PreviousVM = new List<PreviousViewModels?>();
                         Constants.PreviousVM.Add(PreviousViewModels.FavoriteVM);
@@ -89,10 +76,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return nextPage ??= new RelayCommand(obj =>
+                return nextPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage += 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != AllPages);
             }
         }
@@ -101,10 +91,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return previousPage ??= new RelayCommand(obj =>
+                return previousPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage -= 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != 1);
             }
         }
@@ -113,10 +106,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return firstPage ??= new RelayCommand(obj =>
+                return firstPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage = 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => (CurrentPage != 1));
             }
         }
@@ -125,52 +121,78 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return lastPage ??= new RelayCommand(obj =>
+                return lastPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage = AllPages;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != AllPages);
             }
         }
         #endregion
 
-        public FavoriteBooksViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
+        public FavoriteBooksViewModel(ILibraryNavigationService libraryNavigation)
         {
             LibraryNavigation = libraryNavigation;
-            ConnectionDB = connection;
-            InitFavoriteViewModel(ConnectionDB);
+            InitFavoriteViewModel();
         }
 
-        private async void InitFavoriteViewModel(NpgsqlConnection connection)
+        private async void InitFavoriteViewModel()
         {
-            CurrentPage = 1;
-            AllPages = await Model.DataBaseFunctions.GetBooksCountity(connection, Constants.ActiveUserId);
-            PageChanged();
+            await Task.Run(() => IsLoading = true);
+            var bookCountityTask = LoadPagesCountity();
+            var loadBooksTask = ChangePage();
+            await Task.WhenAll(bookCountityTask, loadBooksTask);
+            await Task.Run(() => IsLoading = false);
         }
         #region BooksFunc
-        private async void PageChanged()
+        private async Task LoadPagesCountity()
+        {
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new FavoriteBookService.FavoriteBookServiceClient(Channel);
+            try
+            {
+                ResponseCountity response = await Client.GetCountityAsync(new RequestCountity() { CountityOnPage = Constants.CountityOnPage, UserId = Constants.ActiveUserId});
+                AllPages = response.Countity;
+                onPropertyChanged(nameof(AllPages));
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
+        }
+        private async Task ChangePage()
         {
             FavoriteBooks.Clear();
-            ChangeLoadingState();
-            ObservableCollection<BookCard> gettingBooks = await Model.DataBaseFunctions.GetBooksByPage(ConnectionDB, CurrentPage - 1, CountityOnPage, Constants.ActiveUserId);
-            if (gettingBooks.Count > 0)
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new FavoriteBookService.FavoriteBookServiceClient(Channel);
+            try
             {
-                IsHasItems = true;
-            }
-            else { IsHasItems = false; }
-            await Task.Run(
-                () =>
+                ResponseFavoriteBookByUser response = await Client.GetFavoriteBooksByUserAsync(new RequestFavoriteBookByUser() { CountityOnPage = Constants.CountityOnPage, Page = CurrentPage, UserId = Constants.ActiveUserId});
+                FavoriteBooks = new ObservableCollection<BookCardType>(response.FavoriteBooks.Select(i => new BookCardType
                 {
-                    FavoriteBooks = gettingBooks;
-                    onPropertyChanged(nameof(FavoriteBooks));
+                    Id = i.Id,
+                    Title = i.Title,
+                    AddedInDatabase = i.AddedInDatabase.ToDateTime(),
+                    Image = i.Image.ToByteArray(),
+                    AuthorFullNameShort = i.AuthorFullnameShort,
+                    RatingStars = i.RatingStars
+                }));
+                if (FavoriteBooks.Count > 0)
+                {
+                    IsHasItems = true;
                 }
-                );
-            await Task.Run(() => ChangeLoadingState());
-        }
-
-        private void ChangeLoadingState()
-        {
-            IsLoading = !IsLoading;
+                else { IsHasItems = false; }
+                onPropertyChanged(nameof(FavoriteBooks));
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
         }
         #endregion
     }

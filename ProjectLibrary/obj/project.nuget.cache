@@ -1,10 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "Q0oxaMFIPS/6FDF7465heGM0SZd+ZXW8c1479TWEhJn4Nd+9J6oHzncDbCiHOTJALRsg5mRkCKOKnfiHcgmZdw==",
+  "dgSpecHash": "a0lT6+oucYn955RV4mZOUG9/VeBjPR8T9iZMKRSrlHuFubw/YLQTtlaV9aPOhfDq709Bn2fTvO54sovLaqmLnA==",
   "success": true,
   "projectFilePath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\steam\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
+    "C:\\Users\\steam\\.nuget\\packages\\google.protobuf\\3.29.1\\google.protobuf.3.29.1.nupkg.sha512",
+    "C:\\Users\\steam\\.nuget\\packages\\grpc.core.api\\2.67.0\\grpc.core.api.2.67.0.nupkg.sha512",
+    "C:\\Users\\steam\\.nuget\\packages\\grpc.net.client\\2.67.0\\grpc.net.client.2.67.0.nupkg.sha512",
+    "C:\\Users\\steam\\.nuget\\packages\\grpc.net.common\\2.67.0\\grpc.net.common.2.67.0.nupkg.sha512",
+    "C:\\Users\\steam\\.nuget\\packages\\grpc.tools\\2.68.1\\grpc.tools.2.68.1.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks\\5.1.0\\mahapps.metro.iconpacks.5.1.0.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks.bootstrapicons\\5.1.0\\mahapps.metro.iconpacks.bootstrapicons.5.1.0.nupkg.sha512",
     "C:\\Users\\steam\\.nuget\\packages\\mahapps.metro.iconpacks.boxicons\\5.1.0\\mahapps.metro.iconpacks.boxicons.5.1.0.nupkg.sha512",

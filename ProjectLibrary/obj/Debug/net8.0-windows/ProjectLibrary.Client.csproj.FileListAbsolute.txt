@@ -1,4 +1,9 @@
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.exe
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Resources\book.png
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.deps.json
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.runtimeconfig.json
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.pdb
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\FluentValidation.dll
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.dll
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\MahApps.Metro.IconPacks.BootstrapIcons.dll
@@ -84,7 +89,10 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windo
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\PasswordBox.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\RatingStars.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\App.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave_Content.g.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave_MarkupCompile.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave_MarkupCompile.lref
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\App.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\AuthView.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\CoreViews\BaseWindow.baml
@@ -104,23 +112,21 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windo
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\CustomView\GenreMiniature.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\PasswordBox.baml
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Utils\Components\RatingStars.baml
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave.g.resources
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.GeneratedMSBuildEditorConfig.editorconfig
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.AssemblyInfoInputs.cache
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.AssemblyInfo.cs
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.csproj.CoreCompileInputs.cache
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.sourcelink.json
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectL.F2928F18.Up2Date
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.genruntimeconfig.cache
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.exe
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.deps.json
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.runtimeconfig.json
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.dll
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Librars Cave.pdb
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave_Content.g.cs
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave_MarkupCompile.cache
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave_MarkupCompile.lref
-G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave.g.resources
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave.dll
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\refint\Librars Cave.dll
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\Librars Cave.pdb
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ProjectLibrary.Client.genruntimeconfig.cache
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\ref\Librars Cave.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\ProjectLibrary.Core.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\ProjectLibrary.Core.pdb
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Google.Protobuf.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Grpc.Core.Api.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Grpc.Net.Client.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Grpc.Net.Common.dll

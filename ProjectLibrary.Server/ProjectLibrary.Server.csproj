@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\books.proto" />
+    <None Remove="Protos\favbooks.proto" />
+    <None Remove="Protos\genres.proto" />
+    <None Remove="Protos\histories.proto" />
+    <None Remove="Protos\orders.proto" />
+    <None Remove="Protos\users.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\histories.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\orders.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\genres.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\users.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\favbooks.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\books.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\authors.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.29.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.67.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.68.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql" Version="9.0.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectLibrary.Core\ProjectLibrary.Core.csproj" />
+  </ItemGroup>
+
+</Project>

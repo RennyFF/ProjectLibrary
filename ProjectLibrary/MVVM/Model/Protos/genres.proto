@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectLibrary.Client.Genre";
+
+import "google/protobuf/empty.proto";
+
+package genreproto;
+
+service GenreService {
+  rpc GetCountity (RequestCountity) returns (ResponseCountity);
+  rpc GetGenresByPage (RequestGenresByPage) returns (ResponseGenresByPage);
+  rpc GetAllGenreNames (google.protobuf.Empty) returns (ResponseGenreNames);
+  rpc GetSingleGenre (RequestSingleGenre) returns (ResponseSingleGenre);
+}
+
+message RequestCountity {
+  int32 countity_on_page = 1;
+} 
+
+message ResponseCountity {
+  int32 countity = 1;
+}
+
+message RequestGenresByPage {
+  int32 page = 1;
+  int32 countity_on_page = 2;
+}
+
+message ResponseGenresByPage {
+  repeated ResponseSingleGenre Genres = 1;
+}
+
+message ResponseGenreNames {
+  repeated GenreNameAndId Genres = 1;
+}
+
+message RequestSingleGenre {
+	int32 genre_id = 1;
+}
+
+message ResponseSingleGenre {
+	int32 id = 1;
+	string genre_name = 2;
+	bytes image = 3;
+}
+
+message GenreNameAndId {
+	int32 id = 1;
+	string genre_name = 2;
+}

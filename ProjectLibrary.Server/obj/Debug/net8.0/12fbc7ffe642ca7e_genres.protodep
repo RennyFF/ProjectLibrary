@@ -1,0 +1,3 @@
+obj\Debug\net8.0\Protos/Genres.cs \
+obj\Debug\net8.0\Protos/GenresGrpc.cs: C:/Users/steam/.nuget/packages/grpc.tools/2.68.1/build/native/include/google/protobuf/empty.proto\
+ Protos/genres.proto

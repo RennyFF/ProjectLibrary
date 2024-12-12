@@ -1,14 +1,15 @@
 ﻿using ProjectLibrary.Core;
+using ProjectLibrary.Core.Types;
+using ProjectLibrary.Core.Types.Client;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
-using ProjectLibrary.Utils.Types;
 
 namespace ProjectLibrary.Utils
 {
     public interface INavigationService
     {
         Core.BaseViewModel CurrentView { get; }
-        void NavigateTo<T>(object Param = null) where T : Core.BaseViewModel;
+        void NavigateTo<T>(object? Param = null) where T : Core.BaseViewModel;
     }
     public class NavigationService : ObservableObject, INavigationService
     {
@@ -30,7 +31,7 @@ namespace ProjectLibrary.Utils
         public void NavigateTo<TViewModel>(object Param = null) where TViewModel : Core.BaseViewModel
         {
             Core.BaseViewModel ViewModel = _viewModelFactory.Invoke(typeof(TViewModel));
-            if (ViewModel is LibraryViewModel LibraryViewModel && Param is User UserDataContext)
+            if (ViewModel is LibraryViewModel LibraryViewModel && Param is UserShort UserDataContext)
             {
                 LibraryViewModel.CurrentUser = UserDataContext;
             }

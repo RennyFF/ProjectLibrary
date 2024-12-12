@@ -8,12 +8,33 @@
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:ProjectLibrary.MVVM.View.LibraryViews"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:utils="clr-namespace:ProjectLibrary.Utils.Converters"
     xmlns:viewmodel="clr-namespace:ProjectLibrary.MVVM.ViewModel.LibraryVMs"
     d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
     d:DesignWidth="900"
     mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <utils:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
+
     <Grid Margin="10">
-        <ScrollViewer CanContentScroll="False" Style="{StaticResource FavsScrollViewer}">
+        <Border
+            Grid.Row="2"
+            Background="Transparent"
+            Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="32"
+                Foreground="{StaticResource SecondTextColorBrush}"
+                Style="{StaticResource HeaderTextStyle}"
+                Text="ЗАГРУЗКА" />
+        </Border>
+        <ScrollViewer
+            CanContentScroll="False"
+            Style="{StaticResource FavsScrollViewer}"
+            Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert, Mode=TwoWay}">
             <StackPanel HorizontalAlignment="Center">
                 <Border Margin="20,20,20,50" CornerRadius="10">
                     <Border.Background>
@@ -121,11 +142,11 @@
                                     <DataTemplate>
                                         <customControls:BookMiniature
                                             Title="{Binding Title}"
-                                            Author="{Binding Author}"
+                                            Author="{Binding AuthorFullNameShort}"
                                             AuthorVisibility="Visible"
                                             CornerRadius="8"
                                             ImageHeight="150"
-                                            ImageSource="{Binding ImageSource}"
+                                            ImageSource="{Binding Image}"
                                             ImageWidth="120"
                                             Rating="{Binding RatingStars}"
                                             TitleVisibility="Visible">
@@ -210,11 +231,11 @@
                                     <DataTemplate>
                                         <customControls:BookMiniature
                                             Title="{Binding Title}"
-                                            Author="{Binding Author}"
+                                            Author="{Binding AuthorFullNameShort}"
                                             AuthorVisibility="Visible"
                                             CornerRadius="8"
                                             ImageHeight="150"
-                                            ImageSource="{Binding ImageSource}"
+                                            ImageSource="{Binding Image}"
                                             ImageWidth="120"
                                             Rating="{Binding RatingStars}"
                                             TitleVisibility="Visible">

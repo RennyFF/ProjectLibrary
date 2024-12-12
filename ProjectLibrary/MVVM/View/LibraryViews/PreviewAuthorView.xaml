@@ -17,172 +17,230 @@
     mc:Ignorable="d">
     <UserControl.Resources>
         <utils:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter" />
+        <utils:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     </UserControl.Resources>
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition />
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <StackPanel
-            Grid.Row="0"
-            Grid.RowSpan="2"
-            Grid.Column="0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center">
-            <Border
-                Grid.Column="0"
-                Width="200"
-                Height="200"
-                Margin="0,0,0,20"
-                HorizontalAlignment="Center"
-                CornerRadius="8">
-                <Border.Background>
-                    <ImageBrush
-                        ImageSource="{Binding PreviewedAuthor.ImageAvatar, Converter={StaticResource ByteArrayToImageConverter}}"
-                        RenderOptions.BitmapScalingMode="HighQuality"
-                        Stretch="UniformToFill" />
-                </Border.Background>
-            </Border>
+    <Grid>
+        <Border Background="Transparent" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}">
             <TextBlock
                 HorizontalAlignment="Center"
-                FontSize="20"
-                Style="{StaticResource SimpleTextStyleWhite}"
-                Text="{Binding PreviewedAuthor.FullName}"
-                TextAlignment="Center"
-                TextWrapping="Wrap" />
-            <TextBlock
-                HorizontalAlignment="Center"
-                FontSize="18"
-                Style="{StaticResource SimpleTextStyleGray}"
-                TextAlignment="Center"
-                TextWrapping="Wrap">
-                <Run Text="{Binding PreviewedAuthor.DateOfBirth, StringFormat=dd.MM.yyyy, TargetNullValue=xxxx}" />
-                <Run Text="-" />
-                <Run Text="{Binding PreviewedAuthor.DateOfDeath, StringFormat=dd.MM.yyyy, TargetNullValue=xxxx}" />
-            </TextBlock>
-        </StackPanel>
-        <Border
-            Grid.Row="0"
-            Grid.Column="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Top"
-            Background="{StaticResource MainBackgroundColorBrush}"
-            CornerRadius="8">
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBlock
-                    Width="auto"
-                    Margin="20,10,0,10"
-                    VerticalAlignment="Center"
-                    FontSize="18"
-                    Style="{StaticResource HeaderTextStyle}"
-                    Text="Произведения автора" />
-            </Grid>
+                VerticalAlignment="Center"
+                FontSize="32"
+                Foreground="{StaticResource SecondTextColorBrush}"
+                Style="{StaticResource HeaderTextStyle}"
+                Text="ЗАГРУЗКА" />
         </Border>
-        <ListBox
-            Name="BooksListBox"
-            Grid.Row="1"
-            Grid.Column="1"
-            Margin="0,10,0,0"
-            VerticalAlignment="Top"
-            Background="{StaticResource SecondBackgroundColorBrush}"
-            BorderBrush="Transparent"
-            BorderThickness="0"
-            ItemContainerStyle="{StaticResource ItemContainerStyle}"
-            ItemsSource="{Binding AuhorsBooks}"
-            ScrollViewer.CanContentScroll="False"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-            VirtualizingStackPanel.IsVirtualizing="True"
-            VirtualizingStackPanel.VirtualizationMode="Recycling">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel HorizontalAlignment="Left" IsItemsHost="True" />
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border
-                        Margin="0,0,0,10"
+        <Grid Margin="10" Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert, Mode=TwoWay}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Border
+                    Grid.Column="0"
+                    Width="200"
+                    Height="200"
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Center"
+                    CornerRadius="8">
+                    <Border.Background>
+                        <ImageBrush
+                            ImageSource="{Binding PreviewedAuthor.ImageAvatar, Converter={StaticResource ByteArrayToImageConverter}}"
+                            RenderOptions.BitmapScalingMode="HighQuality"
+                            Stretch="UniformToFill" />
+                    </Border.Background>
+                </Border>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="20"
+                    Style="{StaticResource SimpleTextStyleWhite}"
+                    Text="{Binding PreviewedAuthor.FullName}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    Style="{StaticResource SimpleTextStyleGray}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap">
+                    <Run Text="{Binding PreviewedAuthor.DateOfBirth, StringFormat=dd.MM.yyyy, TargetNullValue=xxxx}" />
+                    <Run Text="-" />
+                    <Run Text="{Binding PreviewedAuthor.DateOfDeath, StringFormat=dd.MM.yyyy, TargetNullValue=xxxx}" />
+                </TextBlock>
+            </StackPanel>
+            <Border
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                Background="{StaticResource MainBackgroundColorBrush}"
+                CornerRadius="8">
+                <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBlock
+                        Width="auto"
+                        Margin="20,10,0,10"
                         VerticalAlignment="Center"
-                        Background="{StaticResource MainBackgroundColorBrush}"
-                        CornerRadius="12">
-                        <Grid Width="{Binding ActualWidth, ElementName=BooksListBox}" VerticalAlignment="Center">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0" HorizontalAlignment="Left">
+                        FontSize="18"
+                        Style="{StaticResource HeaderTextStyle}"
+                        Text="Произведения автора" />
+                </Grid>
+            </Border>
+            <Border
+                Grid.Row="1"
+                Grid.Column="1"
+                Background="Transparent"
+                Visibility="{Binding IsContentLoading, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="24"
+                    Foreground="{StaticResource SecondTextColorBrush}"
+                    Style="{StaticResource HeaderTextStyle}"
+                    Text="ЗАГРУЗКА" />
+            </Border>
+            <ListBox
+                Name="BooksListBox"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,10,0,0"
+                VerticalAlignment="Top"
+                Background="{StaticResource SecondBackgroundColorBrush}"
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                ItemContainerStyle="{StaticResource ItemContainerStyle}"
+                ItemsSource="{Binding AuthorsBooks}"
+                ScrollViewer.CanContentScroll="False"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                VirtualizingStackPanel.IsVirtualizing="True"
+                VirtualizingStackPanel.VirtualizationMode="Recycling"
+                Visibility="{Binding IsContentLoading, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert, Mode=TwoWay}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Left" IsItemsHost="True" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Margin="0,0,0,10"
+                            VerticalAlignment="Center"
+                            Background="{StaticResource MainBackgroundColorBrush}"
+                            CornerRadius="12">
+                            <Grid Width="{Binding ActualWidth, ElementName=BooksListBox}" VerticalAlignment="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Border
-                                    Grid.Column="0"
-                                    Width="80"
-                                    Height="100"
-                                    HorizontalAlignment="Left"
-                                    CornerRadius="8">
-                                    <Border.Background>
-                                        <ImageBrush ImageSource="{Binding ImageSource, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill" />
-                                    </Border.Background>
-                                </Border>
-                                <StackPanel
-                                    Grid.Column="1"
-                                    Margin="20,0,0,0"
-                                    VerticalAlignment="Center">
-                                    <TextBlock
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Center"
-                                        FontSize="18"
-                                        Style="{StaticResource SimpleTextStyleWhite}"
-                                        Text="{Binding Title}"
-                                        TextTrimming="CharacterEllipsis" />
-                                    <customComponents:RatingStars
-                                        Margin="0,5,0,0"
-                                        HorizontalAlignment="Left"
-                                        Stars="{Binding RatingStars}" />
-                                </StackPanel>
-                            </Grid>
-                            <Grid
-                                Grid.Column="1"
-                                Margin="0,0,50,0"
-                                HorizontalAlignment="Right">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition />
                                     <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <Button
+                                <Grid Grid.Column="0" HorizontalAlignment="Left">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border
+                                        Grid.Column="0"
+                                        Width="80"
+                                        Height="100"
+                                        HorizontalAlignment="Left"
+                                        CornerRadius="8">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding Image, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill" />
+                                        </Border.Background>
+                                    </Border>
+                                    <StackPanel
+                                        Grid.Column="1"
+                                        Margin="20,0,0,0"
+                                        VerticalAlignment="Center">
+                                        <TextBlock
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            FontSize="18"
+                                            Style="{StaticResource SimpleTextStyleWhite}"
+                                            Text="{Binding Title}"
+                                            TextTrimming="CharacterEllipsis" />
+                                        <customComponents:RatingStars
+                                            Margin="0,5,0,0"
+                                            HorizontalAlignment="Left"
+                                            Stars="{Binding RatingStars}" />
+                                    </StackPanel>
+                                </Grid>
+                                <Grid
                                     Grid.Column="1"
-                                    Width="auto"
-                                    Height="35"
-                                    Padding="20,0"
-                                    HorizontalAlignment="Center"
-                                    Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"
-                                    CommandParameter="{Binding}"
-                                    Content="Перейти к книге"
-                                    Style="{StaticResource ButtonStyle}" />
+                                    Margin="0,0,50,0"
+                                    HorizontalAlignment="Right">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button
+                                        Grid.Column="1"
+                                        Width="auto"
+                                        Height="35"
+                                        Padding="20,0"
+                                        HorizontalAlignment="Center"
+                                        Command="{Binding DataContext.GoToPreview, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"
+                                        CommandParameter="{Binding}"
+                                        Content="Перейти к книге"
+                                        Style="{StaticResource ButtonStyle}" />
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button
-            Grid.Row="2"
-            Grid.ColumnSpan="2"
-            Width="40"
-            Height="40"
-            HorizontalAlignment="Left"
-            Command="{Binding GoBack}"
-            Cursor="Hand"
-            Style="{StaticResource ButtonStyle}">
-            <iconPacks:PackIconFontAwesome Margin="5" Kind="ArrowLeftSolid" />
-        </Button>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                Visibility="{Binding IsHasItems, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}">
+                <Button
+                    Command="{Binding PreviousPage}"
+                    Content="{iconPacks:BootstrapIcons Kind=ArrowLeftShort,
+                                                       Height=20,
+                                                       Width=20}"
+                    Style="{StaticResource ButtonStyle}" />
+                <TextBlock
+                    Width="60"
+                    Margin="20,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Foreground="{StaticResource SecondTextColorBrush}"
+                    TextAlignment="Center">
+                    <Run Text="{Binding CurrentPage}" />
+                    <Run Text="из" />
+                    <Run Text="{Binding AllPages}" />
+                </TextBlock>
+                <Button
+                    Command="{Binding NextPage}"
+                    Content="{iconPacks:BootstrapIcons Kind=ArrowRightShort,
+                                                       Height=20,
+                                                       Width=20}"
+                    Style="{StaticResource ButtonStyle}" />
+            </StackPanel>
+            <Button
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Width="40"
+                Height="40"
+                HorizontalAlignment="Left"
+                Command="{Binding GoBack}"
+                Cursor="Hand"
+                Style="{StaticResource ButtonStyle}">
+                <iconPacks:PackIconFontAwesome Margin="5" Kind="ArrowLeftSolid" />
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>

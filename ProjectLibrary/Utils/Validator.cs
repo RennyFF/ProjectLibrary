@@ -1,21 +1,17 @@
 ﻿using FluentValidation;
+using Grpc.Core;
+using Grpc.Net.Client;
+using ProjectLibrary.Client.User;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 
 namespace ProjectLibrary.Utils
 {
     class Validator : AbstractValidator<RegViewModel>
     {
-        Npgsql.NpgsqlConnection ConnectionDB { get; set; }
-        public Validator(Npgsql.NpgsqlConnection Connection)
+        public Validator()
         {
-            ConnectionDB = Connection;
-
             RuleFor(x => x.Login)
-                .NotEmpty().WithMessage("Поле не может быть пустым.")
-                .MustAsync(async (Login, cancellation) =>
-                {
-                    return await MVVM.Model.DataBaseFunctions.CheckIfUniqueUser(ConnectionDB, true, Login);
-                }).WithMessage("Логин уже занят."); ;
+                .NotEmpty().WithMessage("Поле не может быть пустым.");
 
             RuleFor(x => x.FirstName)
                 .NotEmpty().WithMessage("Поле не может быть пустым.");
@@ -28,12 +24,7 @@ namespace ProjectLibrary.Utils
 
             RuleFor(x => x.Mail)
                 .NotEmpty().WithMessage("Поле не может быть пустым.")
-                .EmailAddress().WithMessage("Введите существующую почту.")
-                .MustAsync(async (Mail, cancellation) =>
-                {
-                    return await MVVM.Model.DataBaseFunctions.CheckIfUniqueUser(ConnectionDB, false, Mail);
-                }).WithMessage("Почта уже занята.");
-
+                .EmailAddress().WithMessage("Введите существующую почту.");
             RuleFor(x => x.Birthday)
                 .Must(BeAValidDate)
                 .WithMessage("Введена неправильная дата.");

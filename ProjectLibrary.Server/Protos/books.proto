@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectLibrary.Server.Book";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+package bookproto;
+
+service BookService {
+  rpc GetCountity (RequestCountity) returns (ResponseCountity);
+  rpc GetMagicBookId (google.protobuf.Empty) returns (ResponseMagicBookId);
+  rpc GetBooksByPage (RequestBooksByPage) returns (ResponseBooksByPage);
+  rpc GetAuthorsBooks (RequestBooksByAuthor) returns (ResponseBooksByAuthor);
+  rpc GetBestSellerBooks (google.protobuf.Empty) returns (ResponseBestsellerBooks);
+  rpc GetNewBooks (google.protobuf.Empty) returns (ResponseNewBooks);
+  rpc GetFullBook (RequestFullBook) returns (ResponseFullBook);
+}
+
+message RequestCountity {
+	int32 countity_on_page = 1;
+	google.protobuf.Int32Value genre_id = 2;
+	google.protobuf.Int32Value author_id = 3;
+} 
+
+message ResponseCountity {
+	int32 countity = 1;
+}
+message RequestFullBook {
+	int32 book_id = 1;
+}
+
+message ResponseMagicBookId{
+	int32 book_id = 1;
+}
+
+message RequestBooksByPage{
+	int32 page = 1;
+	int32 countity_on_page = 2;
+	google.protobuf.Int32Value genre_id = 3;
+}
+
+message ResponseBooksByPage{
+	repeated BookCard Books = 1;
+}
+
+message RequestBooksByAuthor{
+	int32 page = 1;
+	int32 countity_on_page = 2;
+	int32 author_id = 3;
+}
+
+message ResponseBooksByAuthor{
+	repeated BookCard Books = 1;
+}
+
+message ResponseBestsellerBooks{
+	repeated BookCard Books = 1;
+}
+
+message ResponseNewBooks{
+	repeated BookCard Books = 1;
+}
+
+message ResponseFullBook {
+	int32 id = 1;
+	google.protobuf.Timestamp publication_date = 2;
+	int32 page_count = 3;
+	bytes image = 4;
+	string title = 5;
+	int32 rating_stars = 6;
+	bool is_bestseller = 7;
+	string description = 8;
+	double price = 9;
+	bool is_promo = 10;
+	FullBookAuthor author = 11;
+	FullBookGenre genre = 12;
+}
+
+message FullBookAuthor{
+	int32 id = 1;
+	string author_fullname = 2;
+}
+
+message FullBookGenre{
+	int32 id = 1;
+	string genre_name = 2;
+}
+
+message BookCard{
+	int32 id = 1;
+	string author_fullname_short = 2;
+	bytes image = 3;
+	string title = 4;
+	int32 rating_stars = 5;
+	google.protobuf.Timestamp added_in_database = 6;
+}

@@ -1,13 +1,12 @@
-﻿using Npgsql;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
+using Npgsql;
+using ProjectLibrary.Client.Genre;
 using ProjectLibrary.Core;
-using ProjectLibrary.Utils.Types;
+using ProjectLibrary.Core.Types.Client;
+using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Utils;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
@@ -19,13 +18,6 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             { 2, "По алфавиту (А-Я)" },
             { 3, "По алфавиту (Я-А)" }
         };
-        private int CountityOnPage = 27;
-        private NpgsqlConnection connectionDB;
-        public NpgsqlConnection ConnectionDB
-        {
-            get => connectionDB;
-            set => connectionDB = value;
-        }
         private ILibraryNavigationService _libraryNavigation;
         public ILibraryNavigationService LibraryNavigation
         {
@@ -42,36 +34,20 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             get { return isLoading; }
             set { isLoading = value; onPropertyChanged(nameof(IsLoading)); }
         }
-
-        private List<string> allSortFilter;
-        public List<string> AllSortFilter
+        private bool isContentLoading;
+        public bool IsContentLoading
         {
-            get { return allSortFilter; }
-            set { allSortFilter = value; }
+            get { return isContentLoading; }
+            set { isContentLoading = value; onPropertyChanged(nameof(IsContentLoading)); }
         }
 
-        private string selectedSort = "По актуальности";
-        public string SelectedSort
-        {
-            get { return selectedSort; }
-            set { selectedSort = value; ChangeLoadingState(); SortGenres(AllCards); onPropertyChanged(nameof(SelectedSort)); }
-        }
+        public List<string> AllSortFilter { get; set; } = new();
+        public string SelectedSort { get; set; }
 
-        private ObservableCollection<GenreCard> allCards = new();
-        public ObservableCollection<GenreCard> AllCards
-        {
-            get { return allCards; }
-            set { allCards = value; }
-        }
+        public ObservableCollection<GenreCardType> AllGenres { get; set; } = new();
+        public int AllPages { get; set; }
 
-        private int allPages;
-        public int AllPages
-        {
-            get { return allPages; }
-            set { allPages = value; onPropertyChanged(nameof(AllPages)); }
-        }
-
-        private int currentPage;
+        private int currentPage = 1;
         public int CurrentPage
         {
             get { return currentPage; }
@@ -87,7 +63,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 return goToPreview ??= new RelayCommand(obj =>
                 {
-                    if (obj is GenreCard SelectedGenre)
+                    if (obj is GenreCardType SelectedGenre)
                     {
                         Constants.PreviousVM = new List<PreviousViewModels?>();
                         Constants.PreviousVM.Add(PreviousViewModels.GenresVM);
@@ -102,10 +78,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return nextPage ??= new RelayCommand(obj =>
+                return nextPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage += 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != AllPages);
             }
         }
@@ -114,10 +93,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return previousPage ??= new RelayCommand(obj =>
+                return previousPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage -= 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != 1);
             }
         }
@@ -126,10 +108,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return firstPage ??= new RelayCommand(obj =>
+                return firstPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage = 1;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => (CurrentPage != 1));
             }
         }
@@ -138,69 +123,117 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         {
             get
             {
-                return lastPage ??= new RelayCommand(obj =>
+                return lastPage ??= new RelayCommand(async obj =>
                 {
                     CurrentPage = AllPages;
-                    PageChanged();
+                    await Task.Run(() => IsContentLoading = true);
+                    var changePageTask = ChangePage();
+                    await Task.WhenAll(changePageTask);
+                    await Task.Run(() => IsContentLoading = false);
                 }, obj => CurrentPage != AllPages);
+            }
+        }
+        private RelayCommand sortChanged;
+        public RelayCommand SortChanged
+        {
+            get
+            {
+                return sortChanged ??= new RelayCommand(async obj =>
+                {
+                    await Task.Run(() => IsContentLoading = true);
+                    var sortGenreTask = SortGenres(AllGenres);
+                    await Task.WhenAll(sortGenreTask);
+                    await Task.Run(() => IsContentLoading = false);
+                }, obj => IsLoading != true);
             }
         }
         #endregion
 
-        public GenresViewModel(ILibraryNavigationService libraryNavigation, NpgsqlConnection connection)
+        public GenresViewModel(ILibraryNavigationService libraryNavigation)
         {
             LibraryNavigation = libraryNavigation;
-            ConnectionDB = connection;
-            InitGenresViewModel(connection);
+            InitGenresViewModel();
         }
 
-        private async void InitGenresViewModel(NpgsqlConnection connection)
+        private async void InitGenresViewModel()
         {
-            CurrentPage = 1;
-            AllSortFilter = new List<string>();
+            await Task.Run(() => IsLoading = true);
+            var genresCountityTask = LoadPagesCountity();
+            var loadGenresTask = ChangePage();
+            var loadMiscTask = LoadStartUp();
+            await Task.WhenAll(genresCountityTask, loadGenresTask, loadMiscTask);
+            onPropertyChanged(nameof(SelectedSort));
+            await Task.Run(() => IsLoading = false);
+        }
+        #region GenresFunc
+        private async Task LoadStartUp()
+        {
             foreach (var item in SortDictionary)
             {
                 AllSortFilter.Add(item.Value);
             }
-            AllPages = await Model.DataBaseFunctions.GetGenresCountity(connection);
-            PageChanged();
+            SelectedSort = SortDictionary[1];
         }
-        #region GenresFunc
-        private async void SortGenres(ObservableCollection<GenreCard> UnSortedList)
+
+        private async Task LoadPagesCountity()
+        {
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new GenreService.GenreServiceClient(Channel);
+            try
+            {
+                ResponseCountity response = await Client.GetCountityAsync(new RequestCountity() { CountityOnPage = Constants.CountityOnPage });
+                AllPages = response.Countity;
+                onPropertyChanged(nameof(AllPages));
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
+        }
+
+        private async Task SortGenres(ObservableCollection<GenreCardType> UnSortedList)
         {
             switch (SelectedSort)
             {
                 case "По алфавиту (А-Я)":
-                    AllCards = new ObservableCollection<GenreCard>(UnSortedList.OrderBy(i => i.GenreName).ToList());
+                    AllGenres = new ObservableCollection<GenreCardType>(UnSortedList.OrderBy(i => i.GenreName));
                     await Task.Delay(100);
-                    onPropertyChanged(nameof(AllCards));
                     break;
                 case "По алфавиту (Я-А)":
-                    AllCards = new ObservableCollection<GenreCard>(UnSortedList.OrderByDescending(i => i.GenreName).ToList());
+                    AllGenres = new ObservableCollection<GenreCardType>(UnSortedList.OrderByDescending(i => i.GenreName));
                     await Task.Delay(100);
-                    onPropertyChanged(nameof(AllCards));
                     break;
                 case "По актуальности":
-                    AllCards = new ObservableCollection<GenreCard>(UnSortedList.OrderBy(i => i.Id).ToList());
+                    AllGenres = new ObservableCollection<GenreCardType>(UnSortedList.OrderBy(i => i.Id));
                     await Task.Delay(100);
-                    onPropertyChanged(nameof(AllCards));
                     break;
                 default:
                     break;
             }
-            ChangeLoadingState();
+            onPropertyChanged(nameof(AllGenres));
         }
-        private async void PageChanged()
+        private async Task ChangePage()
         {
-            ChangeLoadingState();
-            AllCards.Clear();
-            ObservableCollection<GenreCard> gettingBooks = await Model.DataBaseFunctions.GetGenresByPage(ConnectionDB, CurrentPage - 1, CountityOnPage);
-            Task.Run(() => SortGenres(gettingBooks));
-        }
-
-        private void ChangeLoadingState()
-        {
-            IsLoading = !IsLoading;
+            AllGenres.Clear();
+            using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
+            var Client = new GenreService.GenreServiceClient(Channel);
+            try
+            {
+                ResponseGenresByPage response = await Client.GetGenresByPageAsync(new RequestGenresByPage { CountityOnPage = Constants.CountityOnPage, Page = CurrentPage });
+                var UnsortedOC = new ObservableCollection<GenreCardType>(response.Genres.Select(i => new GenreCardType
+                {
+                    Id = i.Id,
+                    GenreName = i.GenreName,
+                    ImageAvatar = i.Image.ToByteArray(),
+                }));
+                await SortGenres(UnsortedOC);
+            }
+            catch (RpcException ex)
+            {
+                var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
+                ModalWindow.Show();
+            }
         }
         #endregion
     }
