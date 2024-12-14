@@ -75,6 +75,10 @@ namespace ProjectLibrary.Utils
             {
                 previewGenreViewModel.GetPreviewedGenre(GenreId);
             }
+            else if (ViewModel is SearchViewModel searchViewModel && Param is string SearchString)
+            {
+                searchViewModel.InitSearchViewModel(SearchString);
+            }
             CurrentLibraryView = ViewModel;
         }
     }

@@ -45,6 +45,7 @@ message ResponseRegister{
 	bool is_success = 1;
 }
 
+
 message RequestCheckUnique{
 	string valid_string_login = 1;
 	string valid_string_email = 2;

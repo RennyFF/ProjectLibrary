@@ -3,28 +3,60 @@
   "WorkspaceRootPath": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\corevms\\libraryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\corevms\\libraryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\converters\\typetocheckedconventer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\utils\\converters\\typetocheckedconventer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\libraryviews\\searchview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\view\\libraryviews\\searchview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A34ECA7-FB46-46A4-A7ED-396C988538A0}|ProjectLibrary.Server\\ProjectLibrary.Server.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary.server\\services\\searchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A34ECA7-FB46-46A4-A7ED-396C988538A0}|ProjectLibrary.Server\\ProjectLibrary.Server.csproj|solutionrelative:projectlibrary.server\\services\\searchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\converters\\booltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\utils\\converters\\booltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\converters\\multibooltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\utils\\converters\\multibooltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\libraryvms\\searchviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\libraryvms\\searchviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\coreviews\\libraryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\view\\coreviews\\libraryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\libraryviews\\authorsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\view\\libraryviews\\authorsview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\utils\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\libraryvms\\authorsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\libraryvms\\authorsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\libraryvms\\previewauthorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\libraryvms\\previewauthorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\libraryvms\\genresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\libraryvms\\genresviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\components\\ratingstars.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\utils\\components\\ratingstars.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\utils\\components\\ratingstars.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\utils\\components\\ratingstars.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\viewmodel\\libraryvms\\previewbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\viewmodel\\libraryvms\\previewbookviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\view\\libraryviews\\previewbookview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\view\\libraryviews\\previewbookview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|g:\\project29\\projectlibrary\\projectlibrary\\projectlibrary\\mvvm\\model\\protos\\searchs.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{41053CEF-1D56-44BB-BBD6-445F3804A2D2}|ProjectLibrary\\ProjectLibrary.Client.csproj|solutionrelative:projectlibrary\\mvvm\\model\\protos\\searchs.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +66,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SearchService.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.Server\\Services\\SearchService.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary.Server\\Services\\SearchService.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary.Server\\Services\\SearchService.cs",
+              "RelativeToolTip": "ProjectLibrary.Server\\Services\\SearchService.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAuwFMAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T14:46:58.947Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -46,78 +92,168 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthorsViewModel.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\AuthorsViewModel.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\AuthorsViewModel.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\AuthorsViewModel.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\AuthorsViewModel.cs",
-              "ViewState": "AQIAAH0AAAAAAAAAAAAywJEAAAA4AAAA",
+              "DocumentIndex": 5,
+              "Title": "BoolToVisibilityConverter.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\BoolToVisibilityConverter.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Converters\\BoolToVisibilityConverter.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\BoolToVisibilityConverter.cs",
+              "RelativeToolTip": "ProjectLibrary\\Utils\\Converters\\BoolToVisibilityConverter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:50:31.009Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PreviewAuthorViewModel.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\PreviewAuthorViewModel.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\PreviewAuthorViewModel.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\PreviewAuthorViewModel.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\PreviewAuthorViewModel.cs",
-              "ViewState": "AQIAAKUAAAAAAAAAAAAzwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:50:14.863Z",
+              "WhenOpened": "2024-12-14T15:36:28.16Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "RatingStars.xaml.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\RatingStars.xaml.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Components\\RatingStars.xaml.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\RatingStars.xaml.cs",
-              "RelativeToolTip": "ProjectLibrary\\Utils\\Components\\RatingStars.xaml.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAcwCAAAAAoAAAA",
+              "Title": "TypeToCheckedConventer.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\TypeToCheckedConventer.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Converters\\TypeToCheckedConventer.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\TypeToCheckedConventer.cs",
+              "RelativeToolTip": "ProjectLibrary\\Utils\\Converters\\TypeToCheckedConventer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:47:32.391Z",
+              "WhenOpened": "2024-12-14T15:36:11.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\App.xaml.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\App.xaml.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\App.xaml.cs",
+              "RelativeToolTip": "ProjectLibrary\\App.xaml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABwAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T15:29:25.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthorsView.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\AuthorsView.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\LibraryViews\\AuthorsView.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\AuthorsView.xaml",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\LibraryViews\\AuthorsView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-14T15:23:04.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LibraryView.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\CoreViews\\LibraryView.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\CoreViews\\LibraryView.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\CoreViews\\LibraryView.xaml",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\CoreViews\\LibraryView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-14T15:22:38.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "NavigationService.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\NavigationService.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\NavigationService.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\NavigationService.cs",
+              "RelativeToolTip": "ProjectLibrary\\Utils\\NavigationService.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAxwE8AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T15:20:04.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LibraryViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\LibraryViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\LibraryViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\LibraryViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\CoreVMs\\LibraryViewModel.cs",
+              "ViewState": "AQIAANYAAAAAAAAAAAAmwPIAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T15:19:02.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MultiBoolToVisibilityConverter.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\MultiBoolToVisibilityConverter.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Converters\\MultiBoolToVisibilityConverter.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Converters\\MultiBoolToVisibilityConverter.cs",
+              "RelativeToolTip": "ProjectLibrary\\Utils\\Converters\\MultiBoolToVisibilityConverter.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAswEMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T14:59:02.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "RatingStars.xaml",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\RatingStars.xaml",
-              "RelativeDocumentMoniker": "ProjectLibrary\\Utils\\Components\\RatingStars.xaml",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\Utils\\Components\\RatingStars.xaml",
-              "RelativeToolTip": "ProjectLibrary\\Utils\\Components\\RatingStars.xaml",
+              "Title": "SearchView.xaml",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\SearchView.xaml",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\LibraryViews\\SearchView.xaml",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\SearchView.xaml",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\LibraryViews\\SearchView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-12T16:47:23.379Z",
+              "WhenOpened": "2024-12-14T14:40:30.312Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PreviewBookViewModel.cs",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\PreviewBookViewModel.cs",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\PreviewBookViewModel.cs",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\PreviewBookViewModel.cs",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\PreviewBookViewModel.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACEAAAA8AAAA",
+              "DocumentIndex": 12,
+              "Title": "GenresViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\GenresViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\GenresViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\GenresViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\GenresViewModel.cs",
+              "ViewState": "AQIAAMUAAAAAAAAAAAAAAOQAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T16:46:06.305Z",
+              "WhenOpened": "2024-12-14T14:33:50.945Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PreviewBookView.xaml",
-              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\PreviewBookView.xaml",
-              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\View\\LibraryViews\\PreviewBookView.xaml",
-              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\View\\LibraryViews\\PreviewBookView.xaml",
-              "RelativeToolTip": "ProjectLibrary\\MVVM\\View\\LibraryViews\\PreviewBookView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-12T16:45:15.927Z",
+              "DocumentIndex": 11,
+              "Title": "AuthorsViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\AuthorsViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\AuthorsViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\AuthorsViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\AuthorsViewModel.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAAAAOQAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T14:32:39.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "searchs.proto",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\Protos\\searchs.proto",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\Model\\Protos\\searchs.proto",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\Model\\Protos\\searchs.proto",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\Model\\Protos\\searchs.proto",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA8AAAA",
+              "Icon": "cb4a8fc6-efe7-424a-b611-23adf22b568e.000046|",
+              "WhenOpened": "2024-12-14T14:13:14.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SearchViewModel.cs",
+              "DocumentMoniker": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\SearchViewModel.cs",
+              "RelativeDocumentMoniker": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\SearchViewModel.cs",
+              "ToolTip": "G:\\Project29\\ProjectLibrary\\ProjectLibrary\\ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\SearchViewModel.cs",
+              "RelativeToolTip": "ProjectLibrary\\MVVM\\ViewModel\\LibraryVMs\\SearchViewModel.cs",
+              "ViewState": "AQIAAM0AAAAAAAAAAAAewNwAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T14:10:24.815Z",
               "EditorCaption": ""
             }
           ]

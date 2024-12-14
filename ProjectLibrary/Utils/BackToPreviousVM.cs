@@ -42,6 +42,9 @@ namespace ProjectLibrary.Utils
                     case PreviousViewModels.GenrePreviewVM:
                         Navigation.NavigateLibraryTo<PreviewGenreViewModel>();
                         break;
+                    case PreviousViewModels.SearchVM:
+                        Navigation.NavigateLibraryTo<SearchViewModel>();
+                        break;
                     default:
                         break;
                 }

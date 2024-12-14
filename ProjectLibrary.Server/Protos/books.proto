@@ -18,6 +18,10 @@ service BookService {
   rpc GetFullBook (RequestFullBook) returns (ResponseFullBook);
 }
 
+message ResponseMagicBookId{
+	int32 book_id = 1;
+}
+
 message RequestCountity {
 	int32 countity_on_page = 1;
 	google.protobuf.Int32Value genre_id = 2;
@@ -27,11 +31,8 @@ message RequestCountity {
 message ResponseCountity {
 	int32 countity = 1;
 }
-message RequestFullBook {
-	int32 book_id = 1;
-}
 
-message ResponseMagicBookId{
+message RequestFullBook {
 	int32 book_id = 1;
 }
 

@@ -37,7 +37,7 @@ namespace ProjectLibrary.Client.Author {
             "ASgMEjEKDWRhdGVfb2ZfYmlydGgYBiABKAsyGi5nb29nbGUucHJvdG9idWYu",
             "VGltZXN0YW1wEjEKDWRhdGVfb2ZfZGVhdGgYByABKAsyGi5nb29nbGUucHJv",
             "dG9idWYuVGltZXN0YW1wIkYKCkF1dGhvckNhcmQSCgoCaWQYASABKAUSHQoV",
-            "YXV0aG9yX2Z1bGxuYW1lX3Nob3J0GAIgASgJEg0KBWltYWdlGAUgASgMMo4C",
+            "YXV0aG9yX2Z1bGxuYW1lX3Nob3J0GAIgASgJEg0KBWltYWdlGAMgASgMMo4C",
             "Cg1BdXRob3JTZXJ2aWNlEkoKC0dldENvdW50aXR5EhwuYXV0aG9ycHJvdG8u",
             "UmVxdWVzdENvdW50aXR5Gh0uYXV0aG9ycHJvdG8uUmVzcG9uc2VDb3VudGl0",
             "eRJZChBHZXRBdXRob3JzQnlQYWdlEiEuYXV0aG9ycHJvdG8uUmVxdWVzdEF1",
@@ -1587,7 +1587,7 @@ namespace ProjectLibrary.Client.Author {
     }
 
     /// <summary>Field number for the "image" field.</summary>
-    public const int ImageFieldNumber = 5;
+    public const int ImageFieldNumber = 3;
     private pb::ByteString image_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1653,7 +1653,7 @@ namespace ProjectLibrary.Client.Author {
         output.WriteString(AuthorFullnameShort);
       }
       if (Image.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(26);
         output.WriteBytes(Image);
       }
       if (_unknownFields != null) {
@@ -1675,7 +1675,7 @@ namespace ProjectLibrary.Client.Author {
         output.WriteString(AuthorFullnameShort);
       }
       if (Image.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(26);
         output.WriteBytes(Image);
       }
       if (_unknownFields != null) {
@@ -1745,7 +1745,7 @@ namespace ProjectLibrary.Client.Author {
             AuthorFullnameShort = input.ReadString();
             break;
           }
-          case 42: {
+          case 26: {
             Image = input.ReadBytes();
             break;
           }
@@ -1776,7 +1776,7 @@ namespace ProjectLibrary.Client.Author {
             AuthorFullnameShort = input.ReadString();
             break;
           }
-          case 42: {
+          case 26: {
             Image = input.ReadBytes();
             break;
           }

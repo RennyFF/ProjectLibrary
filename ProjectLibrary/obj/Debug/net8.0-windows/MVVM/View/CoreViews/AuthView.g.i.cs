@@ -70,7 +70,7 @@ namespace ProjectLibrary.MVVM.View.CoreViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Librars Cave;V1.0.0.0;component/mvvm/view/coreviews/authview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Librars Cave;component/mvvm/view/coreviews/authview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\MVVM\View\CoreViews\AuthView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

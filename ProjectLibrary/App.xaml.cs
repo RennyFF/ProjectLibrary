@@ -26,7 +26,7 @@ namespace ProjectLibrary
             services.AddSingleton<BaseVM>();
             services.AddSingleton<AuthViewModel>();
             services.AddSingleton<RegViewModel>();
-            services.AddSingleton<LibraryViewModel>();
+            services.AddTransient<LibraryViewModel>();
             services.AddTransient<MainViewModel>();
             services.AddSingleton<CatalogViewModel>();
             services.AddSingleton<AuthorsViewModel>();
@@ -35,6 +35,7 @@ namespace ProjectLibrary
             services.AddSingleton<PreviewAuthorViewModel>();
             services.AddSingleton<PreviewGenreViewModel>();
             services.AddTransient<HistoryViewModel>();
+            services.AddScoped<SearchViewModel>();
             services.AddTransient<FavoriteBooksViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<ILibraryNavigationService, LibraryNavigationService>();

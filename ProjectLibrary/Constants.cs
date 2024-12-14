@@ -10,7 +10,8 @@
         BookPreviewVM,
         AuthorsVM,
         GenresVM,
-        FavoriteVM
+        FavoriteVM,
+        SearchVM
     }
     public static class Constants
     {

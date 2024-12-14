@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProjectLibrary.Client.Search";
+
+package searchproto;
+
+service SearchService {
+	rpc SearchCountityBook (ReqSCountity) returns (ResSCountity);
+	rpc SearchCountityGenre (ReqSCountity) returns (ResSCountity);
+	rpc SearchCountityAuthor (ReqSCountity) returns (ResSCountity);
+	
+	rpc SearchBookPagination (ReqPagination) returns (ResBooksPagination);
+	rpc SearchAuthorPagination (ReqPagination) returns (ResAuthorsPagination);
+	rpc SearchGenrePagination (ReqPagination) returns (ResGenresPagination);
+}
+
+message ReqPagination{
+	int32 page = 1;
+	int32 countity_on_page = 2;
+	string search_string = 3;
+}
+
+message ResBooksPagination{
+	repeated BookCard book_cards = 1;
+}
+
+message ResAuthorsPagination{
+	repeated AuthorCard author_cards = 1;
+}
+
+message ResGenresPagination{
+	repeated GenreCard genre_cards = 1;
+}
+
+message ResSCountity{
+	int32 countity = 1;
+}
+
+message ReqSCountity{
+	int32 countity_on_page = 1;
+	string search_string = 2;
+}
+
+message BookCard{
+	int32 id = 1;
+	string author_fullname_short = 2;
+	bytes image = 3;
+	string title = 4;
+	int32 rating_stars = 5;
+}
+
+message AuthorCard {
+	int32 id = 1;
+	string author_fullname_short = 2;
+	bytes image = 3;
+}
+
+message GenreCard {
+	int32 id = 1;
+	string genre_name = 2;
+	bytes image = 3;
+}

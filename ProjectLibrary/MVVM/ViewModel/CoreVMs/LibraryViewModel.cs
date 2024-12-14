@@ -32,6 +32,12 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 onPropertyChanged(nameof(LibraryNavigation));
             }
         }
+        private string searchString;
+        public string SearchString
+        {
+            get { return searchString; }
+            set { searchString = value; onPropertyChanged(nameof(SearchString)); }
+        }
 
         private UserShort currentUser;
         public UserShort CurrentUser
@@ -82,6 +88,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 {
                     try
                     {
+                        SearchString = string.Empty;
                         LibraryNavigation.NavigateLibraryTo<MainViewModel>();
                     }
                     catch (Exception ex)
@@ -101,6 +108,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 {
                     try
                     {
+                        SearchString = string.Empty;
                         LibraryNavigation.NavigateLibraryTo<CatalogViewModel>();
                     }
                     catch (Exception ex)
@@ -120,6 +128,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 {
                     try
                     {
+                        SearchString = string.Empty;
                         LibraryNavigation.NavigateLibraryTo<HistoryViewModel>();
                     }
                     catch (Exception ex)
@@ -139,6 +148,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 {
                     try
                     {
+                        SearchString = string.Empty;
                         LibraryNavigation.NavigateLibraryTo<FavoriteBooksViewModel>();
                     }
                     catch (Exception ex)
@@ -158,6 +168,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 {
                     try
                     {
+                        SearchString = string.Empty;
                         LibraryNavigation.NavigateLibraryTo<AuthorsViewModel>();
                     }
                     catch (Exception ex)
@@ -177,7 +188,27 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 {
                     try
                     {
+                        SearchString = string.Empty;
                         LibraryNavigation.NavigateLibraryTo<GenresViewModel>();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                        throw;
+                    }
+                }, obj => true);
+            }
+        }
+        private RelayCommand searchNavCommand;
+        public RelayCommand SearchNavCommand
+        {
+            get
+            {
+                return searchNavCommand ??= new RelayCommand(obj =>
+                {
+                    try
+                    {
+                        LibraryNavigation.NavigateLibraryTo<SearchViewModel>(SearchString);
                     }
                     catch (Exception ex)
                     {
@@ -196,6 +227,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 {
                     if (obj is FavGenreType SelectedFavoriteGenre)
                     {
+                        SearchString = string.Empty;
                         Constants.PreviousVM = new List<PreviousViewModels?>();
                         Constants.PreviousVM.Add(PreviousViewModels.MainVM);
                         LibraryNavigation.NavigateLibraryTo<PreviewGenreViewModel>(SelectedFavoriteGenre.Id);

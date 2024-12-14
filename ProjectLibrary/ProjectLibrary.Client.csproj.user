@@ -51,6 +51,9 @@
     <Compile Update="MVVM\View\LibraryViews\PreviewGenreView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\View\LibraryViews\SearchView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Utils\Components\CustomView\AuthorMiniature.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -111,6 +114,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\View\LibraryViews\PreviewGenreView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\View\LibraryViews\SearchView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\ResourceAuthRegistration.xaml">

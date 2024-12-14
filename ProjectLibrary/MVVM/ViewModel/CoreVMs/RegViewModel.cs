@@ -6,7 +6,6 @@ using Npgsql;
 using ProjectLibrary.Client.User;
 using ProjectLibrary.Core;
 using ProjectLibrary.Core.Types;
-using ProjectLibrary.MVVM.Model;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Converters;

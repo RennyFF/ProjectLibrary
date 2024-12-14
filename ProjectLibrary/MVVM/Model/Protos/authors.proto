@@ -45,5 +45,5 @@ message ResponseSingleAuthor {
 message AuthorCard {
 	int32 id = 1;
 	string author_fullname_short = 2;
-	bytes image = 5;
+	bytes image = 3;
 }

@@ -77,6 +77,7 @@ namespace ProjectLibrary.Server.Services
             ));
             return await Task.FromResult(Result);
         }
+
         public override async Task<Book.ResponseCountity> GetCountity(Book.RequestCountity request, ServerCallContext context)
         {
             _logger.Log(LogLevel.Information, "GetCountity()");

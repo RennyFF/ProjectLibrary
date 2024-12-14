@@ -1,0 +1,2 @@
+obj\Debug\net8.0-windows\MVVM\Model\Protos/Searchs.cs \
+obj\Debug\net8.0-windows\MVVM\Model\Protos/SearchsGrpc.cs: MVVM/Model/Protos/searchs.proto

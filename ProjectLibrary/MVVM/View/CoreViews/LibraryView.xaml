@@ -129,7 +129,14 @@
                         Grid.Column="0"
                         Margin="8,0,10,0"
                         Style="{StaticResource SearchBoxStyle}"
-                        Tag="Поиск книги, автора" />
+                        Tag="Поиск книги, автора"
+                        Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                        <b:Interaction.Triggers>
+                            <b:KeyTrigger Key="Enter">
+                                <b:InvokeCommandAction Command="{Binding SearchNavCommand}" />
+                            </b:KeyTrigger>
+                        </b:Interaction.Triggers>
+                    </TextBox>
                 </Grid>
             </Border>
             <!--  Navigation  -->

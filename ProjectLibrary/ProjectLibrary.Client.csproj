@@ -16,6 +16,7 @@
     <None Remove="MVVM\Model\Protos\genres.proto" />
     <None Remove="MVVM\Model\Protos\histories.proto" />
     <None Remove="MVVM\Model\Protos\orders.proto" />
+    <None Remove="MVVM\Model\Protos\searchs.proto" />
     <None Remove="MVVM\Model\Protos\users.proto" />
     <None Remove="Resources\Ancient_Open_Book_PNG_Transparent_Clipart.png" />
     <None Remove="Resources\book.png" />
@@ -89,6 +90,7 @@
     <Protobuf Include="MVVM\Model\Protos\genres.proto" GrpcServices="Client" />
     <Protobuf Include="MVVM\Model\Protos\histories.proto" GrpcServices="Client" />
     <Protobuf Include="MVVM\Model\Protos\orders.proto" GrpcServices="Client" />
+    <Protobuf Include="MVVM\Model\Protos\searchs.proto" GrpcServices="Client" />
     <Protobuf Include="MVVM\Model\Protos\users.proto" GrpcServices="Client" />
   </ItemGroup>
 

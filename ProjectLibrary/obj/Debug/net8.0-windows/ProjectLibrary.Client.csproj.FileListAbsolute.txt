@@ -130,3 +130,5 @@ G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windo
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Grpc.Core.Api.dll
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Grpc.Net.Client.dll
 G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\bin\Debug\net8.0-windows\Grpc.Net.Common.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\SearchView.g.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary\obj\Debug\net8.0-windows\MVVM\View\LibraryViews\SearchView.baml

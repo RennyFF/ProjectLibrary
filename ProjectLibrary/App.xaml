@@ -66,6 +66,10 @@
                 <viewLibraries:GenresView />
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModelLibraries:SearchViewModel}">
+                <viewLibraries:SearchView />
+            </DataTemplate>
+
             <FontFamily x:Key="Inter">pack://application:,,,/Resources/Font/#Inter</FontFamily>
             <FontFamily x:Key="NunitoSans">pack://application:,,,/Resources/Font/#NunitoSans</FontFamily>
         </ResourceDictionary>

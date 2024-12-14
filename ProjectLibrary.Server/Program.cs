@@ -35,6 +35,7 @@ namespace ProjectLibrary.Server
             builder.Services.AddScoped<IGenreRequests, GenreRequests>();
             builder.Services.AddScoped<IOrderRequests, OrderRequests>();
             builder.Services.AddScoped<IUserRequests, UserRequests>();
+            builder.Services.AddScoped<ISearchRequests, SearchRequests>();
             var app = builder.Build();
             app.MapGrpcService<UserService>();
             app.MapGrpcService<OrderService>();
@@ -42,6 +43,7 @@ namespace ProjectLibrary.Server
             app.MapGrpcService<FavoriteBookService>();
             app.MapGrpcService<AuthorService>();
             app.MapGrpcService<BookService>();
+            app.MapGrpcService<SearchService>();
             app.MapGrpcService<HistoryService>();
             app.MapGet("/", () => "Exit this page please");
             app.Run();

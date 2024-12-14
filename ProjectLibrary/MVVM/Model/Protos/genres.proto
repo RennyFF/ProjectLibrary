@@ -48,3 +48,4 @@ message GenreNameAndId {
 	int32 id = 1;
 	string genre_name = 2;
 }
+
