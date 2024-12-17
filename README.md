@@ -1,2 +1,2 @@
 Project Library is small project like online library.
-Stack: Client - WPF (MVVM Pattern). Server - (ASP.Net Core+gRPC+EFCore). Database - PostgreSQL. Inside project you have script to database which insert test data. Configuration: For start up need to change in Client-side app file that names Constants.cs where u must past server IP. So in server configuration need to do same if you want to change IP.
+Stack: Client - WPF (MVVM Pattern). Server - (ASP.Net Core+gRPC+EFCore). Database - PostgreSQL. Inside project you have script to database which insert test data. Configuration: For start up need to change in Client-side app file that names Constants.cs where u must paste server IP. So in server configuration need to do same if you want to change IP.
