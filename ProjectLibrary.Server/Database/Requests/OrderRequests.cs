@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Npgsql;
 using ProjectLibrary.Core.Converters;
 using static ProjectLibrary.Server.Database.AppDbContext;
 

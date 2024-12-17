@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using ProjectLibrary.Server.Database;
 using ProjectLibrary.Server.Database.Requests;
 using ProjectLibrary.Server.Services;
@@ -13,7 +12,7 @@ namespace ProjectLibrary.Server
             var builder = WebApplication.CreateBuilder(args);
             try
             {
-                builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(options => 
+                builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>(options =>
                 options.UseNpgsql(builder.Configuration.GetConnectionString("ProjectLibraryDB"), x =>
                 {
                     x.MigrationsHistoryTable("__EFMigrationsHistory", "ProjectLibrary");

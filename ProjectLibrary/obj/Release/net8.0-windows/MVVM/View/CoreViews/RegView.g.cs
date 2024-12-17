@@ -65,7 +65,7 @@ namespace ProjectLibrary.MVVM.View.CoreViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectLibrary.Client;component/mvvm/view/coreviews/regview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Librars Cave;component/mvvm/view/coreviews/regview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\MVVM\View\CoreViews\RegView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

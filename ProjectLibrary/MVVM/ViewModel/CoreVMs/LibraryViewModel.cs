@@ -3,7 +3,6 @@ using ProjectLibrary.Utils;
 using System.Collections.ObjectModel;
 using System.Windows;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
-using ProjectLibrary.Core.Types;
 using ProjectLibrary.Core.Types.Client;
 
 namespace ProjectLibrary.MVVM.ViewModel.CoreVMs

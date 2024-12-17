@@ -106,10 +106,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-        public PreviewBookViewModel(ILibraryNavigationService libraryNavigation)
-        {
-            LibraryNavigation = libraryNavigation;
-        }
+        #region PreviewBookViewModelFunctionality
         public async void GetPreviewedBook(int BookId)
         {
             HistoryCache.AppendHistoryCache(BookId, HistoryType.Book);
@@ -173,6 +170,11 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
                 ModalWindow.Show();
             }
+        }
+        #endregion
+        public PreviewBookViewModel(ILibraryNavigationService libraryNavigation)
+        {
+            LibraryNavigation = libraryNavigation;
         }
     }
 }

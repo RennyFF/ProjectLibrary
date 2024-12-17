@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Npgsql;
-using ProjectLibrary.Core.Types;
-using System.Collections.ObjectModel;
-using System.Net;
 using static ProjectLibrary.Server.Database.AppDbContext;
 
 namespace ProjectLibrary.Server.Database.Requests

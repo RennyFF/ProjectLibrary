@@ -1,0 +1,3 @@
+obj\Release\net8.0-windows\MVVM\Model\Protos/Genres.cs \
+obj\Release\net8.0-windows\MVVM\Model\Protos/GenresGrpc.cs: C:/Users/steam/.nuget/packages/grpc.tools/2.68.1/build/native/include/google/protobuf/empty.proto\
+ MVVM/Model/Protos/genres.proto

@@ -2,17 +2,13 @@
 using FluentValidation.Internal;
 using Grpc.Core;
 using Grpc.Net.Client;
-using Npgsql;
 using ProjectLibrary.Client.User;
 using ProjectLibrary.Core;
-using ProjectLibrary.Core.Types;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Utils;
 using ProjectLibrary.Utils.Converters;
-using System;
 using System.Collections;
 using System.ComponentModel;
-using System.Windows;
 
 namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
 {
@@ -170,11 +166,6 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             }
         }
         #endregion
-        public RegViewModel(INavigationService navigation)
-        {
-            Navigation = navigation;
-            _validator = new Utils.Validator();
-        }
         #region ErrorsFunctionality
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
         private async void ValidateAllFields()
@@ -222,5 +213,10 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             OnErrorsChanged(propertyName);
         }
         #endregion
+        public RegViewModel(INavigationService navigation)
+        {
+            Navigation = navigation;
+            _validator = new Utils.Validator();
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Npgsql;
-using ProjectLibrary.Core;
+﻿using ProjectLibrary.Core;
 using ProjectLibrary.Utils;
 using System.Collections.ObjectModel;
 using ProjectLibrary.Core.Types.Client;
@@ -138,10 +137,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-        public PreviewGenreViewModel(ILibraryNavigationService libraryNavigation)
-        {
-            LibraryNavigation = libraryNavigation;
-        }
+        #region PreviewGenreViewModelFunctionality
         public async void GetPreviewedGenre(int GenreId)
         {
             HistoryCache.AppendHistoryCache(GenreId, HistoryType.Genre);
@@ -189,7 +185,6 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 ModalWindow.Show();
             }
         }
-        #region BooksFunc
         private async Task ChangePage(int GenreId)
         {
             GenreBooks.Clear();
@@ -215,5 +210,9 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
+        public PreviewGenreViewModel(ILibraryNavigationService libraryNavigation)
+        {
+            LibraryNavigation = libraryNavigation;
+        }
     }
 }

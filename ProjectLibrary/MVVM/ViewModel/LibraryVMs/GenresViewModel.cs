@@ -1,6 +1,5 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
-using Npgsql;
 using ProjectLibrary.Client.Genre;
 using ProjectLibrary.Core;
 using ProjectLibrary.Core.Types.Client;
@@ -148,13 +147,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-
-        public GenresViewModel(ILibraryNavigationService libraryNavigation)
-        {
-            LibraryNavigation = libraryNavigation;
-            InitGenresViewModel();
-        }
-
+        #region GenresViewModelFunctionality
         private async void InitGenresViewModel()
         {
             await Task.Run(() => IsLoading = true);
@@ -165,7 +158,6 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             onPropertyChanged(nameof(SelectedSort));
             await Task.Run(() => IsLoading = false);
         }
-        #region GenresFunc
         private async Task LoadStartUp()
         {
             foreach (var item in SortDictionary)
@@ -236,5 +228,10 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
+        public GenresViewModel(ILibraryNavigationService libraryNavigation)
+        {
+            LibraryNavigation = libraryNavigation;
+            InitGenresViewModel();
+        }
     }
 }

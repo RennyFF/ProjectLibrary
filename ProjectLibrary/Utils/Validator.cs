@@ -1,7 +1,4 @@
 ﻿using FluentValidation;
-using Grpc.Core;
-using Grpc.Net.Client;
-using ProjectLibrary.Client.User;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 
 namespace ProjectLibrary.Utils

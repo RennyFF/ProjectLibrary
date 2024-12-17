@@ -1,5 +1,4 @@
 ﻿using ProjectLibrary.Core;
-using ProjectLibrary.Core.Types;
 using ProjectLibrary.Core.Types.Client;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;

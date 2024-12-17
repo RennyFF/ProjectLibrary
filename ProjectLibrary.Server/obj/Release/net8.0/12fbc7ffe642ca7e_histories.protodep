@@ -1,0 +1,2 @@
+obj\Release\net8.0\Protos/Histories.cs \
+obj\Release\net8.0\Protos/HistoriesGrpc.cs: Protos/histories.proto

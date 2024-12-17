@@ -1,6 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using static ProjectLibrary.Server.Database.AppDbContext;
 
 namespace ProjectLibrary.Server.Database.Requests

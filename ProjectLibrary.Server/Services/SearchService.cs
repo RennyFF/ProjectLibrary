@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using Newtonsoft.Json;
 using ProjectLibrary.Server.Database.Requests;
 
 namespace ProjectLibrary.Server.Services
@@ -16,7 +17,7 @@ namespace ProjectLibrary.Server.Services
         }
         public async override Task<Search.ResAuthorsPagination> SearchAuthorPagination(Search.ReqPagination request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "SearchAuthorPagination()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new Search.ResAuthorsPagination();
             var Authors = await _searchRequests.GetAuthorPositiveSearchAsync(request.Page, request.CountityOnPage, request.SearchString);
             if (Authors == null)
@@ -29,11 +30,12 @@ namespace ProjectLibrary.Server.Services
                 AuthorFullnameShort = $"{i.SecondName} {i.FirstName} {i.PatronomycName}",
                 Image = Google.Protobuf.ByteString.CopyFrom(i.ImageAvatar)
             }));
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: Authors");
             return await Task.FromResult(Result);
         }
         public async override Task<Search.ResBooksPagination> SearchBookPagination(Search.ReqPagination request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "SearchBookPagination()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new Search.ResBooksPagination();
             var Books = await _searchRequests.GetBooksPositiveSearchAsync(request.Page, request.CountityOnPage, request.SearchString);
             if (Books == null)
@@ -49,11 +51,12 @@ namespace ProjectLibrary.Server.Services
                 RatingStars = i.RatingStars,
             }
             ));
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: Books");
             return await Task.FromResult(Result);
         }
         public async override Task<Search.ResGenresPagination> SearchGenrePagination(Search.ReqPagination request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "SearchGenrePagination()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new Search.ResGenresPagination();
             var Genres = await _searchRequests.GetGenresPositiveSearchAsync(request.Page, request.CountityOnPage, request.SearchString);
             if (Genres == null)
@@ -66,34 +69,38 @@ namespace ProjectLibrary.Server.Services
                 GenreName = i.GenreName,
                 Image = Google.Protobuf.ByteString.CopyFrom(i.ImageAvatar)
             }));
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: Genres");
             return await Task.FromResult(Result);
         }
 
         public override async Task<Search.ResSCountity> SearchCountityAuthor(Search.ReqSCountity request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "SearchCountityAuthor()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new Search.ResSCountity()
             {
                 Countity = await _searchRequests.GetAuthorPositiveSearchCountityAsync(request.CountityOnPage, request.SearchString)
             };
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(Result, Newtonsoft.Json.Formatting.Indented)}");
             return await Task.FromResult(Result);
         }
         public async override Task<Search.ResSCountity> SearchCountityBook(Search.ReqSCountity request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "SearchCountityBook()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new Search.ResSCountity()
             {
                 Countity = await _searchRequests.GetBooksPositiveSearchCountityAsync(request.CountityOnPage, request.SearchString)
             };
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(Result, Newtonsoft.Json.Formatting.Indented)}");
             return await Task.FromResult(Result);
         }
         public async override Task<Search.ResSCountity> SearchCountityGenre(Search.ReqSCountity request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "SearchCountityGenre()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new Search.ResSCountity()
             {
                 Countity = await _searchRequests.GetGenresPositiveSearchCountityAsync(request.CountityOnPage, request.SearchString)
             };
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(Result, Newtonsoft.Json.Formatting.Indented)}");
             return await Task.FromResult(Result);
         }
     }

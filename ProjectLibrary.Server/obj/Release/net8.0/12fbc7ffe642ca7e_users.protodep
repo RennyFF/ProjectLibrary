@@ -1,0 +1,4 @@
+obj\Release\net8.0\Protos/Users.cs \
+obj\Release\net8.0\Protos/UsersGrpc.cs: C:/Users/steam/.nuget/packages/grpc.tools/2.68.1/build/native/include/google/protobuf/timestamp.proto\
+ C:/Users/steam/.nuget/packages/grpc.tools/2.68.1/build/native/include/google/protobuf/wrappers.proto\
+ Protos/users.proto

@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Npgsql;
 using ProjectLibrary.Core.Converters;
-using ProjectLibrary.Core.Types;
+using ProjectLibrary.Core.Types.Client;
 using static ProjectLibrary.Server.Database.AppDbContext;
 
 namespace ProjectLibrary.Server.Database.Requests

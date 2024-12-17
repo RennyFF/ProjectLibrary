@@ -1,0 +1,2 @@
+obj\Release\net8.0\Protos/Searchs.cs \
+obj\Release\net8.0\Protos/SearchsGrpc.cs: Protos/searchs.proto

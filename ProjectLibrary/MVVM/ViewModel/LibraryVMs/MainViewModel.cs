@@ -1,14 +1,11 @@
-﻿using Npgsql;
-using ProjectLibrary.Utils;
+﻿using ProjectLibrary.Utils;
 using System.Collections.ObjectModel;
 using ProjectLibrary.Core;
 using Grpc.Net.Client;
 using ProjectLibrary.Client.Book;
 using Grpc.Core;
 using ProjectLibrary.Core.Types.Client;
-using System.ComponentModel;
 using ProjectLibrary.MVVM.View.CoreViews;
-using System.Windows;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
@@ -77,12 +74,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-        public MainViewModel(ILibraryNavigationService libraryNavigation)
-        {
-            LibraryNavigation = libraryNavigation;
-            InitMainViewModel();
-        }
-
+        #region MainViewModelFunctionality
         private async Task<int> GetMagicBookId()
         {
             using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
@@ -101,7 +93,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         }
         private async void InitMainViewModel()
         {
-            await Task.Run( () => IsLoading = true);
+            await Task.Run(() => IsLoading = true);
             using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
             var Client = new BookService.BookServiceClient(Channel);
 
@@ -112,7 +104,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 
             onPropertyChanged(nameof(NewBooksCategory));
             onPropertyChanged(nameof(BestSellerCategory));
-            await Task.Run(() => IsLoading = false) ;
+            await Task.Run(() => IsLoading = false);
         }
 
         private async Task LoadNewBooks(BookService.BookServiceClient Client)
@@ -165,6 +157,12 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
                 ModalWindow.Show();
             }
+        }
+        #endregion
+        public MainViewModel(ILibraryNavigationService libraryNavigation)
+        {
+            LibraryNavigation = libraryNavigation;
+            InitMainViewModel();
         }
     }
 }

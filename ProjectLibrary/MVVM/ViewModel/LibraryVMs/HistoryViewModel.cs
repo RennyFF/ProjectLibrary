@@ -1,9 +1,7 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
-using Npgsql;
 using ProjectLibrary.Client.History;
 using ProjectLibrary.Core;
-using ProjectLibrary.Core.Types;
 using ProjectLibrary.Core.Types.Client;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Utils;
@@ -65,15 +63,10 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-        public HistoryViewModel(ILibraryNavigationService libraryNavigation)
-        {
-            LibraryNavigation = libraryNavigation;
-            InitHistoryViewModel();
-        }
-
+        #region HistoryViewModelFunctionality
         private async void InitHistoryViewModel()
         {
-            await Task.Run(() => IsLoading = true); 
+            await Task.Run(() => IsLoading = true);
             var loadHistoryTask = LoadHistory(HistoryCache.GetHistory());
             await Task.WhenAll(loadHistoryTask);
             onPropertyChanged(nameof(HistoryBooks));
@@ -119,6 +112,12 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
                 ModalWindow.Show();
             }
+        }
+        #endregion
+        public HistoryViewModel(ILibraryNavigationService libraryNavigation)
+        {
+            LibraryNavigation = libraryNavigation;
+            InitHistoryViewModel();
         }
     }
 }

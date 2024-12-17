@@ -1,7 +1,7 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
+using Newtonsoft.Json;
 using ProjectLibrary.Core.Converters;
-using ProjectLibrary.Server.Author;
 using ProjectLibrary.Server.Book;
 using ProjectLibrary.Server.Database.Requests;
 
@@ -22,7 +22,7 @@ namespace ProjectLibrary.Server.Services
         }
         public async override Task<ResponseBooksByAuthor> GetAuthorsBooks(RequestBooksByAuthor request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "GetAuthorsBooks - success");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new ResponseBooksByAuthor();
             var NewBooks = await _bookRequests.GetBooksByAuthorAsync(request.Page, request.CountityOnPage, request.AuthorId);
             Result.Books.AddRange(NewBooks.Select(i => new BookCard()
@@ -34,11 +34,12 @@ namespace ProjectLibrary.Server.Services
                 RatingStars = i.RatingStars,
             }
             ));
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: AuthorBooks");
             return await Task.FromResult(Result);
         }
         public async override Task<ResponseBestsellerBooks> GetBestSellerBooks(Empty request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "GetBestSellerBooks()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new ResponseBestsellerBooks();
             var BestsellerBooks = await _bookRequests.GetBestSellerBooksAsync();
             if (BestsellerBooks == null)
@@ -55,11 +56,12 @@ namespace ProjectLibrary.Server.Services
                 AddedInDatabase = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(UnixTimeConverter.TimeStampToDateTime(i.AddedInDatabase))
             }
             ));
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: BestSellerBooks");
             return await Task.FromResult(Result);
         }
         public async override Task<ResponseBooksByPage> GetBooksByPage(RequestBooksByPage request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "GetBooksByPage()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new ResponseBooksByPage();
             var NewBooks = request.GenreId == null ? await _bookRequests.GetBooksByPageAsync(request.Page, request.CountityOnPage) : await _bookRequests.GetBooksByPageByGenreAsync(request.Page, request.CountityOnPage, (int)request.GenreId);
             if (NewBooks == null)
@@ -75,12 +77,13 @@ namespace ProjectLibrary.Server.Services
                 RatingStars = i.RatingStars,
             }
             ));
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: Books");
             return await Task.FromResult(Result);
         }
 
         public override async Task<Book.ResponseCountity> GetCountity(Book.RequestCountity request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "GetCountity()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new Book.ResponseCountity();
             if (request.GenreId == null && request.AuthorId == null)
             {
@@ -97,11 +100,12 @@ namespace ProjectLibrary.Server.Services
             if (Result == null) {
                 throw new RpcException(new Status(StatusCode.Aborted, "Ошибка в получении количества книг с сервера!"));
             }
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(Result, Newtonsoft.Json.Formatting.Indented)}");
             return await Task.FromResult(Result);
         }
         public override async Task<ResponseFullBook> GetFullBook(RequestFullBook request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "GetFullBook()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var FullBook = await _bookRequests.GetSingleBookAsync(request.BookId);
             if (FullBook == null)
             {
@@ -132,12 +136,13 @@ namespace ProjectLibrary.Server.Services
                 Author = new FullBookAuthor() {  AuthorFullname = $"{BookAuthor.SecondName} {BookAuthor.FirstName} {BookAuthor.PatronomycName}", Id = BookAuthor.Id },
                 Genre = new FullBookGenre() { Id = BookGenre.Id, GenreName = BookGenre.GenreName }
             };
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: Book");
             return await Task.FromResult(Result);
         }
 
         public override async Task<ResponseMagicBookId> GetMagicBookId(Empty request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "GetMagicBookId()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new ResponseMagicBookId()
             {
                 BookId = await _bookRequests.GetMagicBookIdAsync()
@@ -146,11 +151,12 @@ namespace ProjectLibrary.Server.Services
             {
                 throw new RpcException(new Status(StatusCode.NotFound, "Книга не найдена в базе данных"));
             }
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(Result, Newtonsoft.Json.Formatting.Indented)}");
             return await Task.FromResult(Result);
         }
         public override async Task<ResponseNewBooks> GetNewBooks(Empty request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "GetNewBooks()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new ResponseNewBooks();
             var NewBooks = await _bookRequests.GetNewBooksAsync();
             if (NewBooks == null)
@@ -167,6 +173,7 @@ namespace ProjectLibrary.Server.Services
                 AddedInDatabase = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(UnixTimeConverter.TimeStampToDateTime(i.AddedInDatabase))
             }
             ));
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: NewBooks");
             return await Task.FromResult(Result);
         }
     }

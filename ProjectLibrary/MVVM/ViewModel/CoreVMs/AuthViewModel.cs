@@ -1,6 +1,5 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
-using Npgsql;
 using ProjectLibrary.Client.User;
 using ProjectLibrary.Core;
 using ProjectLibrary.Core.Types.Client;
@@ -23,6 +22,13 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                 _navigation = value;
                 onPropertyChanged();
             }
+        }
+        private bool isAuthorizing;
+
+        public bool IsAuthorizing
+        {
+            get { return isAuthorizing; }
+            set { isAuthorizing = value; onPropertyChanged(nameof(IsAuthorizing)); }
         }
         private string login = "root";
 
@@ -49,6 +55,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                         var Client = new UserService.UserServiceClient(Channel);
                         try
                         {
+                            await Task.Run(() => IsAuthorizing = true);
                             ResponseAuthorize Response = await Client.AuthorizeUserAsync(new RequestAuthorize() { Login = Login, PasswordHash = Password });
                             CurrentUser.Id = Response.Id;
                             CurrentUser.FirstName = Response.FirstName;
@@ -58,6 +65,8 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                             FavGenres.AddRange(Response.FavoriteGenres.Select(i => new FavGenreType() { Id = i.GenreId, GenreName = i.GenreName, ClickedCountity = i.ClickedCountity }));
                             CurrentUser.ClickedGenres = FavGenres;
                             Constants.ActiveUserId = CurrentUser.Id;
+                            await Task.Delay(500);
+                            await Task.Run(() => IsAuthorizing = false);
                             Navigation.NavigateTo<LibraryViewModel>(CurrentUser);
                         }
                         catch (RpcException ex)
@@ -65,6 +74,11 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
                             var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
                             ModalWindow.Show();
                         }
+                    }
+                    else
+                    {
+                        var ModalWindow = new DialogWindow("Ошибка!", $"Введите пароль");
+                        ModalWindow.Show();
                     }
                 }, obj => true);
             }
@@ -93,6 +107,5 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
         {
             Navigation = navService;
         }
-
     }
 }

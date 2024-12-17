@@ -132,13 +132,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-
-        public FavoriteBooksViewModel(ILibraryNavigationService libraryNavigation)
-        {
-            LibraryNavigation = libraryNavigation;
-            InitFavoriteViewModel();
-        }
-
+        #region FavBooksViewModelFunctionality
         private async void InitFavoriteViewModel()
         {
             await Task.Run(() => IsLoading = true);
@@ -147,14 +141,13 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             await Task.WhenAll(bookCountityTask, loadBooksTask);
             await Task.Run(() => IsLoading = false);
         }
-        #region BooksFunc
         private async Task LoadPagesCountity()
         {
             using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
             var Client = new FavoriteBookService.FavoriteBookServiceClient(Channel);
             try
             {
-                ResponseCountity response = await Client.GetCountityAsync(new RequestCountity() { CountityOnPage = Constants.CountityOnPage, UserId = Constants.ActiveUserId});
+                ResponseCountity response = await Client.GetCountityAsync(new RequestCountity() { CountityOnPage = Constants.CountityOnPage, UserId = Constants.ActiveUserId });
                 AllPages = response.Countity;
                 onPropertyChanged(nameof(AllPages));
             }
@@ -171,7 +164,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             var Client = new FavoriteBookService.FavoriteBookServiceClient(Channel);
             try
             {
-                ResponseFavoriteBookByUser response = await Client.GetFavoriteBooksByUserAsync(new RequestFavoriteBookByUser() { CountityOnPage = Constants.CountityOnPage, Page = CurrentPage, UserId = Constants.ActiveUserId});
+                ResponseFavoriteBookByUser response = await Client.GetFavoriteBooksByUserAsync(new RequestFavoriteBookByUser() { CountityOnPage = Constants.CountityOnPage, Page = CurrentPage, UserId = Constants.ActiveUserId });
                 FavoriteBooks = new ObservableCollection<BookCardType>(response.FavoriteBooks.Select(i => new BookCardType
                 {
                     Id = i.Id,
@@ -195,5 +188,10 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
+        public FavoriteBooksViewModel(ILibraryNavigationService libraryNavigation)
+        {
+            LibraryNavigation = libraryNavigation;
+            InitFavoriteViewModel();
+        }
     }
 }

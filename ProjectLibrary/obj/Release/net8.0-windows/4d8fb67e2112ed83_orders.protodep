@@ -1,0 +1,2 @@
+obj\Release\net8.0-windows\MVVM\Model\Protos/Orders.cs \
+obj\Release\net8.0-windows\MVVM\Model\Protos/OrdersGrpc.cs: MVVM/Model/Protos/orders.proto

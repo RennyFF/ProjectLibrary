@@ -1,6 +1,5 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
-using Npgsql;
 using ProjectLibrary.Client.Author;
 using ProjectLibrary.Core;
 using ProjectLibrary.Core.Types.Client;
@@ -149,13 +148,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-
-        public AuthorsViewModel(ILibraryNavigationService libraryNavigation)
-        {
-            LibraryNavigation = libraryNavigation;
-            InitAuthorsViewModel();
-        }
-
+        #region AuthorsViewModelFunctionality
         private async void InitAuthorsViewModel()
         {
             await Task.Run(() => IsLoading = true);
@@ -234,6 +227,12 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
                 ModalWindow.Show();
             }
+        }
+        #endregion
+        public AuthorsViewModel(ILibraryNavigationService libraryNavigation)
+        {
+            LibraryNavigation = libraryNavigation;
+            InitAuthorsViewModel();
         }
     }
 }

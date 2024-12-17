@@ -1,0 +1,4 @@
+obj\Release\net8.0\Protos/Favbooks.cs \
+obj\Release\net8.0\Protos/FavbooksGrpc.cs: C:/Users/steam/.nuget/packages/grpc.tools/2.68.1/build/native/include/google/protobuf/empty.proto\
+ C:/Users/steam/.nuget/packages/grpc.tools/2.68.1/build/native/include/google/protobuf/timestamp.proto\
+ Protos/favbooks.proto

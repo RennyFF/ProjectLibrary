@@ -17,7 +17,7 @@
     {
         public static List<PreviousViewModels?> PreviousVM { get; set; }
         public static string ServerAdress { get; } = "https://localhost:7210";
-        public static string CachePath { get; } = @"C:\Users\steam\AppData\Local";
+        public static string CachePath { get; } = Environment.ExpandEnvironmentVariables(@"%LOCALAPPDATA%");
         public static int ActiveUserId { get; set; }
         public static int CountityOnPage { get; } = 27;
     }

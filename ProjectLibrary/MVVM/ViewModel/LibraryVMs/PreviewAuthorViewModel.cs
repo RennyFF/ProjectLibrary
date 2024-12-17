@@ -7,7 +7,6 @@ using Grpc.Net.Client;
 using Grpc.Core;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Client.Author;
-using System.Windows.Automation.Provider;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
@@ -118,10 +117,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-        public PreviewAuthorViewModel(ILibraryNavigationService libraryNavigation)
-        {
-            LibraryNavigation = libraryNavigation;
-        }
+        #region PreviewAuthorViewModelFunctionality
         public async void GetPreviewedAuthor(int AuthorId)
         {
             HistoryCache.AppendHistoryCache(AuthorId, HistoryType.Author);
@@ -203,6 +199,11 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 var ModalWindow = new DialogWindow("Ошибка!", $"{ex.Status.Detail}");
                 ModalWindow.Show();
             }
+        }
+        #endregion
+        public PreviewAuthorViewModel(ILibraryNavigationService libraryNavigation)
+        {
+            LibraryNavigation = libraryNavigation;
         }
     }
 }

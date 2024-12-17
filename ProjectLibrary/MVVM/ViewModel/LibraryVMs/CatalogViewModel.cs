@@ -1,6 +1,5 @@
 ﻿using Grpc.Core;
 using Grpc.Net.Client;
-using Npgsql;
 using ProjectLibrary.Client.Book;
 using ProjectLibrary.Client.Genre;
 using ProjectLibrary.Core;
@@ -8,8 +7,6 @@ using ProjectLibrary.Core.Types.Client;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.Utils;
 using System.Collections.ObjectModel;
-using System.Threading.Channels;
-using System.Windows;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
@@ -60,7 +57,6 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         }
         #endregion
         #region Commands
-
         private RelayCommand goToPreview;
         public RelayCommand GoToPreview
         {
@@ -168,12 +164,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             }
         }
         #endregion
-
-        public CatalogViewModel(ILibraryNavigationService libraryNavigation)
-        {
-            LibraryNavigation = libraryNavigation;
-            InitCatalogViewModel();
-        }
+        #region CatalogViewModelFunctionality
         private async void InitCatalogViewModel()
         {
             await Task.Run(() => IsLoading = true);
@@ -240,7 +231,6 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 ModalWindow.Show();
             }
         }
-        #region BooksFunc
         private async Task ChangePage()
         {
             AllBooks.Clear();
@@ -301,5 +291,10 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
         }
 
         #endregion
+        public CatalogViewModel(ILibraryNavigationService libraryNavigation)
+        {
+            LibraryNavigation = libraryNavigation;
+            InitCatalogViewModel();
+        }
     }
 }

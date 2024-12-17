@@ -1,0 +1,12 @@
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\bin\Release\net8.0\ProjectLibrary.Core.deps.json
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\bin\Release\net8.0\ProjectLibrary.Core.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\bin\Release\net8.0\ProjectLibrary.Core.pdb
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\obj\Release\net8.0\ProjectLibrary.Core.GeneratedMSBuildEditorConfig.editorconfig
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\obj\Release\net8.0\ProjectLibrary.Core.AssemblyInfoInputs.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\obj\Release\net8.0\ProjectLibrary.Core.AssemblyInfo.cs
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\obj\Release\net8.0\ProjectLibrary.Core.csproj.CoreCompileInputs.cache
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\obj\Release\net8.0\ProjectLibrary.Core.sourcelink.json
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\obj\Release\net8.0\ProjectLibrary.Core.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\obj\Release\net8.0\refint\ProjectLibrary.Core.dll
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\obj\Release\net8.0\ProjectLibrary.Core.pdb
+G:\Project29\ProjectLibrary\ProjectLibrary\ProjectLibrary.Core\obj\Release\net8.0\ref\ProjectLibrary.Core.dll

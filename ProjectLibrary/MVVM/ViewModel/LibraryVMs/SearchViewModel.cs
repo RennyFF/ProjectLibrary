@@ -9,13 +9,15 @@ using System.Collections.ObjectModel;
 
 namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 {
-    public enum SearchType{
+    public enum SearchType
+    {
         GenreSearch,
         AuthorSearch,
         BookSearch
     }
     class SearchViewModel : Core.BaseViewModel
     {
+        #region Values
         private ILibraryNavigationService _libraryNavigation;
         public ILibraryNavigationService LibraryNavigation
         {
@@ -62,12 +64,11 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             get { return currentSearchType; }
             set { currentSearchType = value; onPropertyChanged(nameof(CurrentSearchType)); }
         }
-
-
         public ObservableCollection<AuthorCardType> SearchResultAuthors { get; set; } = new();
-        public ObservableCollection<GenreCardType> SearchResultGenres{ get; set; } = new();
+        public ObservableCollection<GenreCardType> SearchResultGenres { get; set; } = new();
         public ObservableCollection<BookCardType> SearchResultBooks { get; set; } = new();
-
+        #endregion
+        #region Commands
         private RelayCommand previewResultGenres;
         public RelayCommand PreviewResultGenres
         {
@@ -214,13 +215,11 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                 }, obj => CurrentPage != AllPages);
             }
         }
-        public SearchViewModel(ILibraryNavigationService LibraryNavigationService)
-        {
-            LibraryNavigation = LibraryNavigationService;
-        }
+        #endregion
+        #region SearchViewModelFunctionality
         public async void InitSearchViewModel(string SearchString)
         {
-            await Task.Run(() =>this.SearchString = SearchString);
+            await Task.Run(() => this.SearchString = SearchString);
             await Task.Run(() => IsContentLoading = true);
             var loadCountityTask = LoadPagesCountity();
             var loadPageCardsTask = ChangePage();
@@ -253,7 +252,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
             {
                 try
                 {
-                    ResSCountity response = await Client.SearchCountityBookAsync(new ReqSCountity() { CountityOnPage = Constants.CountityOnPage, SearchString = SearchString});
+                    ResSCountity response = await Client.SearchCountityBookAsync(new ReqSCountity() { CountityOnPage = Constants.CountityOnPage, SearchString = SearchString });
                     AllPages = response.Countity;
                     onPropertyChanged(nameof(AllPages));
                 }
@@ -301,12 +300,12 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
 
             using var Channel = GrpcChannel.ForAddress(Constants.ServerAdress);
             var Client = new SearchService.SearchServiceClient(Channel);
-            if(CurrentSearchType == SearchType.BookSearch)
+            if (CurrentSearchType == SearchType.BookSearch)
             {
                 try
                 {
                     ResBooksPagination response = await Client.SearchBookPaginationAsync(new ReqPagination() { Page = CurrentPage, CountityOnPage = Constants.CountityOnPage, SearchString = SearchString });
-                    if(response.BookCards.Count == 0)
+                    if (response.BookCards.Count == 0)
                     {
                         IsHasItems = false;
                         return;
@@ -327,7 +326,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                     ModalWindow.Show();
                 }
             }
-            else if( CurrentSearchType == SearchType.AuthorSearch)
+            else if (CurrentSearchType == SearchType.AuthorSearch)
             {
                 try
                 {
@@ -351,7 +350,7 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                     ModalWindow.Show();
                 }
             }
-            else if ( CurrentSearchType == SearchType.GenreSearch)
+            else if (CurrentSearchType == SearchType.GenreSearch)
             {
                 try
                 {
@@ -375,6 +374,11 @@ namespace ProjectLibrary.MVVM.ViewModel.LibraryVMs
                     ModalWindow.Show();
                 }
             }
+        }
+        #endregion
+        public SearchViewModel(ILibraryNavigationService LibraryNavigationService)
+        {
+            LibraryNavigation = LibraryNavigationService;
         }
     }
 }

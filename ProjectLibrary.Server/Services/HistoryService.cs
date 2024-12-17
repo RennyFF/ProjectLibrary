@@ -1,7 +1,7 @@
 ﻿using Grpc.Core;
+using Newtonsoft.Json;
 using ProjectLibrary.Server.Database.Requests;
 using ProjectLibrary.Server.History;
-using System.Linq;
 using static ProjectLibrary.Server.Database.AppDbContext;
 
 namespace ProjectLibrary.Server.Services
@@ -21,7 +21,7 @@ namespace ProjectLibrary.Server.Services
         }
         public override async Task<ResponseHistory> GetHistoryCards(RequestHistory request, ServerCallContext context)
         {
-            _logger.Log(LogLevel.Information, "GetHistoryCards()");
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Request{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: {JsonConvert.SerializeObject(request, Newtonsoft.Json.Formatting.Indented)}");
             var Result = new ResponseHistory();
             List<AuthorSet> authorCards = new List<AuthorSet>();
             List<BookSet> bookCards = new List<BookSet>();
@@ -73,6 +73,7 @@ namespace ProjectLibrary.Server.Services
                 GenreName = i.GenreName,
                 Image = Google.Protobuf.ByteString.CopyFrom(i.ImageAvatar)
             }));
+            _logger.Log(LogLevel.Information, $"{DateTime.Now.ToString("[dd.MM.yyyy - HH:mm:ss]")} GRPC Response{Environment.NewLine}Method: {context.Method}{Environment.NewLine}Data: HistoryCards");
             return await Task.FromResult(Result);
         }
     }

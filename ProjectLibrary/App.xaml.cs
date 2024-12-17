@@ -1,7 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Npgsql;
-using ProjectLibrary.Core.Types;
-using ProjectLibrary.Core.Types.Client;
 using ProjectLibrary.MVVM.View.CoreViews;
 using ProjectLibrary.MVVM.ViewModel.CoreVMs;
 using ProjectLibrary.MVVM.ViewModel.LibraryVMs;
