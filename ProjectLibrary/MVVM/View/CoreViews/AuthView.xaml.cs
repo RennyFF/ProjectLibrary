@@ -24,7 +24,6 @@ namespace ProjectLibrary.MVVM.View.CoreViews
         public AuthView()
         {
             InitializeComponent();
-            PasswordPB.Password = "root";
         }
 
         private void PasswordPB_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)

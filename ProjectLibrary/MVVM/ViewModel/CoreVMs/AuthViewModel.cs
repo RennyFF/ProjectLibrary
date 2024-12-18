@@ -30,7 +30,7 @@ namespace ProjectLibrary.MVVM.ViewModel.CoreVMs
             get { return isAuthorizing; }
             set { isAuthorizing = value; onPropertyChanged(nameof(IsAuthorizing)); }
         }
-        private string login = "root";
+        private string login;
 
         public string Login
         {
